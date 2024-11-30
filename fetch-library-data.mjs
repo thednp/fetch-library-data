@@ -157,7 +157,7 @@ async function fetchLibraryData(libraryName, baseUrl, mainSelector) {
       //   $element.html(textContent); // Replace the HTML content with the textContent
       // });
       const pageHtml = $(selector).clone().find('img,svg,video,script,style,link,meta,noscript,iframe,canvas,audio,video,embed,object').remove().end().html();
-      console.log('> Current page:' + pageUrl, pageHtml?.length);
+      console.log('> Current page: ' + pageUrl, pageHtml?.length + ' characters');
 
       // 4.1 Extract content from the <main> element
       documentation += pageHtml;
