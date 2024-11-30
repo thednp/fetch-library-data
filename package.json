@@ -1,0 +1,31 @@
+{
+  "name": "fetch-library-data",
+  "version": "0.0.1",
+  "type": "module",
+  "author": "thednp",
+  "exports": {
+    ".": {
+      "import": "./cli.mjs"
+    }
+  },
+  "scripts": {
+    "fetch:all": "pnpm run --parallel /^fetch:/",
+    "fetch:solid": "pnpm exec ./cli.mjs solid-js https://docs.solidjs.com/",
+    "fetch:drizzle": "pnpm exec ./cli.mjs drizzle-orm https://orm.drizzle.team/docs/overview",
+    "fetch:react": "pnpm exec ./cli.mjs react https://react.dev/reference/react",
+    "fetch:react-router": "pnpm exec ./cli.mjs react-router https://reactrouter.com/start .md-prose"
+  },
+  "bin": {
+    "fetch-library-data": "./cli.mjs"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "jsdom": "^25.0.1",
+    "node-fetch": "^3.3.2",
+    "turndown": "^7.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  },
+  "packageManager": "pnpm@8.6.12"
+}
