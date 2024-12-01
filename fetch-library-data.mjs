@@ -26,7 +26,7 @@ function getPages(page, doc) {
   const pages = [];
   // identify all potential nav elements
   const ALL = [...doc.body.getElementsByTagName('*')]
-    .filter(n => n.matches('nav,.nav,[class^=nav-],ul,[class^="list-"],aside'));
+    .filter(n => n.matches('nav,.nav,ul,[class^=nav-],[class*=nav],[class^=list-],aside'));
   const LENGTH = ALL.length;
   let INDEX = 0;
   let potentialNavs = [];
@@ -38,12 +38,11 @@ function getPages(page, doc) {
     INDEX += 1;
     currentLinks = [...currentElement.getElementsByTagName('A')];
 
-    if (currentLinks.length) potentialNavs.push({ element: currentElement, links: currentLinks })
+    if (currentLinks.length) potentialNavs.push({ element: currentElement, links: currentLinks });
   }
   const max = potentialNavs.length ? Math.max(...potentialNavs.map(n => n.links.length)) : 0;
   // identify the main nav element
   const nav = max ? potentialNavs.find((n) => n.links.length === max) : null;
-  // console.log({ max, nav }, potentialNavs, ALL);
 
   if (!nav) {
     console.warn("❌ Error: a valid nav element not found. Aborting...");
@@ -75,26 +74,28 @@ async function checkLatestVersion(libraryName) {
 /**
  * Check for latest library version and update documentation
  * 
- * @param {string} libraryName 
- * @param {string} baseUrl 
- * @param {string?} mainSelector 
+ * @param {string} library the library name and instruction
+ * @param {string} baseUrl the base URL of the documentation
+ * @param {string?} mainSelector the selector for the main element
  * 
  * @example
  * // Example usage
  * fetchLibraryData(
  *  'drizzle-orm',
  *  'https://orm.drizzle.team/docs/overview',
- *  'https://registry.npmjs.org/drizzle-orm/latest'
+ *  'https://registry.npmjs.org/drizzle-orm/latest',
+ *  'article,main'
  * );
  */
-async function fetchLibraryData(libraryName, baseUrl, mainSelector) {
+async function fetchLibraryData(library, baseUrl, mainSelector) {
+  const [libraryName, instruction] = library.split('[').map(s => s.replace(']', ''));
   const contextFolderPath = path.resolve('context');
   if (!fs.existsSync(contextFolderPath)) {
     fs.mkdirSync(contextFolderPath, { recursive: true });
     console.log(`✔️ Context folder created at ${contextFolderPath}`);
   }
-  const jsonFile = path.resolve(`context`, libraryName + '.json');
-  const docFile = path.resolve(`context`, libraryName + '.md');
+  const jsonFile = path.resolve(`context`, libraryName + (instruction ? '-' + instruction : '') + '.json');
+  const docFile = path.resolve(`context`, libraryName + (instruction ? '-' + instruction : '') + '.md');
 
   if (!fs.existsSync(jsonFile)) {
     fs.writeFileSync(jsonFile, JSON.stringify({ name: libraryName, version: '0.0.0' }, null, 2));
@@ -140,7 +141,7 @@ async function fetchLibraryData(libraryName, baseUrl, mainSelector) {
 
     // 3. Get all pages using your getPages function
     const allPages = getPages(baseUrl, doc);
-    console.log('All pages:', allPages?.length);
+    console.log('> Total pages:', allPages?.length || 0);
 
     if (!allPages || !allPages.length) return;
 
@@ -150,12 +151,6 @@ async function fetchLibraryData(libraryName, baseUrl, mainSelector) {
     // for (const pageUrl of allPages.slice(0,5)) {
     for (const pageUrl of allPages) {
       const $ = await cheerio.fromURL(pageUrl);
-      // $('code').each((_, element) => {
-      //   const $element = $(element);
-      //   // const textContent = $element[0].textContent; // Get the textContent of the <code> tag
-      //   const textContent = $element.children().each((_, c) => $(c).html($(c)[0].textContent)); // Get the textContent of the <code> tag
-      //   $element.html(textContent); // Replace the HTML content with the textContent
-      // });
       const pageHtml = $(selector).clone().find('img,svg,video,script,style,link,meta,noscript,iframe,canvas,audio,video,embed,object').remove().end().html();
       console.log('> Current page: ' + pageUrl, pageHtml?.length + ' characters');
 

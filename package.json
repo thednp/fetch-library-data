@@ -1,6 +1,6 @@
 {
   "name": "fetch-library-data",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "author": "thednp",
   "exports": {
@@ -10,7 +10,14 @@
   },
   "scripts": {
     "fetch:all": "pnpm run --parallel /^fetch:/",
+    "fetch:tailwind": "pnpm exec ./cli.mjs tailwindcss https://tailwindcss.com/docs/installation/ main,.max-w-3xl.mx-auto",
+    "fetch:zod": "pnpm exec ./cli.mjs zod https://zod.dev/",
+    "fetch:valibot:guide": "pnpm exec ./cli.mjs valibot[guide] https://valibot.dev/guides/introduction/",
+    "fetch:valibot:api": "pnpm exec ./cli.mjs valibot[api] https://valibot.dev/api/",
     "fetch:solid": "pnpm exec ./cli.mjs solid-js https://docs.solidjs.com/",
+    "fetch:solid-start": "pnpm exec ./cli.mjs solid-start https://docs.solidjs.com/solid-start",
+    "fetch:solid-router": "pnpm exec ./cli.mjs solid-router https://docs.solidjs.com/solid-router",
+    "fetch:solid-meta": "pnpm exec ./cli.mjs solid-meta https://docs.solidjs.com/solid-meta",
     "fetch:drizzle": "pnpm exec ./cli.mjs drizzle-orm https://orm.drizzle.team/docs/overview",
     "fetch:react": "pnpm exec ./cli.mjs react https://react.dev/reference/react",
     "fetch:react-router": "pnpm exec ./cli.mjs react-router https://reactrouter.com/start .md-prose"
