@@ -5,9 +5,6 @@ import fetch from 'node-fetch';
 import jsdom from 'jsdom';
 import TurndownService from 'turndown';
 
-const turndownService = new TurndownService();
-
-
 /**
  * Utility that finds a nav element and extracts an array of all links
  * @param {string | undefined} page 
@@ -45,8 +42,7 @@ function getPages(page, doc) {
   const nav = max ? potentialNavs.find((n) => n.links.length === max) : null;
 
   if (!nav) {
-    console.warn("❌ Error: a valid nav element not found. Aborting...");
-    return null;
+    throw new Error("❌ Error: a valid nav element not found. Aborting...");
   }
 
   nav.links.filter(l => !l.hash.length).forEach(link => {
@@ -58,17 +54,45 @@ function getPages(page, doc) {
 /**
  * Returns the latest version
  * @param {string} libraryName 
- * @returns {string}
+ * @returns {Promise<string>}
  */
 async function checkLatestVersion(libraryName) {
-  try {
-    const response = await fetch(`https://registry.npmjs.org/${libraryName}/latest`);
-    const data = await response.json();
-    return data.version; // Return the latest version
-  } catch (error) {
-    console.error(`❌ Error checking latest version for ${libraryName}:`, error);
-    return null; // Return null in case of error
+  const response = await fetch(`https://registry.npmjs.org/${libraryName}/latest`);
+  const data = await response.json();
+  // Return the latest version
+  if (response.status === 200) {
+    return data.version;
+  // Throw an error
+  } else {
+    throw new Error(`❌ Error fetching latest version for "${libraryName}" package: ` + data);
   }
+}
+
+/**
+ * Returns a JSDOM Document object from a given URL
+ * @param {string} url
+ * @returns {Document} the JSDOM Document object
+ */
+function getJSDOM(url) {
+  // const host = new URL(url).host;
+  const { JSDOM } = jsdom;
+  const { window } = new JSDOM(`<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Document</title>
+    </head>
+    <body></body>
+    </html>`, {
+      url: url,
+      referrer: url,
+      contentType: 'text/html',
+      includeNodeLocations: true,
+      runScripts: 'dangerously',
+    }
+  );
+  return window.document;
 }
 
 /**
@@ -90,96 +114,93 @@ async function checkLatestVersion(libraryName) {
 async function fetchLibraryData(library, baseUrl, mainSelector) {
   const [libraryName, instruction] = library.split('[').map(s => s.replace(']', ''));
   const contextFolderPath = path.resolve('context');
+  const selector = mainSelector || 'article,main';
+  const jsonFile = path.resolve(`context`, libraryName + (instruction && instruction !== 'single' ? '-' + instruction : '') + '.json');
+  const docFile = path.resolve(`context`, libraryName + (instruction && instruction !== 'single' ? '-' + instruction : '') + '.md');
+
+  // Check for latest version first, the package may not exist
+  const latestVersion = await checkLatestVersion(libraryName);
+
   if (!fs.existsSync(contextFolderPath)) {
     fs.mkdirSync(contextFolderPath, { recursive: true });
-    console.log(`✔️ Context folder created at ${contextFolderPath}`);
+    console.log(`✔️ Context folder created at ${contextFolderPath}.`);
+    console.warn(`ℹ️  IMPORTANT: don't forget to add the "context" folder to your ".gitignore" and ".npmignore" files!`);
   }
-  const jsonFile = path.resolve(`context`, libraryName + (instruction ? '-' + instruction : '') + '.json');
-  const docFile = path.resolve(`context`, libraryName + (instruction ? '-' + instruction : '') + '.md');
 
   if (!fs.existsSync(jsonFile)) {
     fs.writeFileSync(jsonFile, JSON.stringify({ name: libraryName, version: '0.0.0' }, null, 2));
-    console.log(`✔️ JSON file created for ${libraryName}`);
+    console.log(`✔️ JSON file created for "${libraryName}"`);
   } else {
-    console.log(`✔️ JSON file already exists for ${libraryName}`);
+    console.log(`✔️ JSON file already exists for "${libraryName}"`);
   }
-
   const currentVersion = JSON.parse(await fs.promises.readFile(jsonFile, 'utf-8')).version;
-  const latestVersion = await checkLatestVersion(libraryName);
-  const selector = mainSelector || 'article,main';
 
   if (latestVersion === currentVersion) {
-    console.log(`✔️ Documentation is up to date for ${libraryName}`);
+    console.log(`✔️ Documentation is up to date for "${libraryName}"`);
     return;
   } else {
-    console.log(`✔️ Updating documentation for ${libraryName} from ${currentVersion} to ${latestVersion}...`);
+    console.log(`✔️ Updating documentation for "${libraryName}" from ${currentVersion} to ${latestVersion}...`);
   }
 
   try {
-    // 1. Create a jsdom environment to run getPages
-    const { JSDOM } = jsdom;
-    const { window } = new JSDOM(`<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Test Document</title>
-    </head>
-    <body></body>
-    </html>`, {
-      url: baseUrl,
-      referrer: baseUrl,
-      contentType: 'text/html',
-      includeNodeLocations: true,
-    });
-    const { document: doc } = window;
-
-    // 2. Fetch the main page to get all links using getPages
-    const $ = await cheerio.fromURL(baseUrl);
-    const mainPageHtml = $('body').clone().find('img,svg,video,script,style,link,meta,noscript,iframe,canvas,audio,video,embed,object').remove().end().html();
-    doc.body.innerHTML = mainPageHtml || '';
-
-    // 3. Get all pages using your getPages function
-    const allPages = getPages(baseUrl, doc);
-    console.log('> Total pages:', allPages?.length || 0);
-
-    if (!allPages || !allPages.length) return;
-
+    let doc;
+    let allPages;
     let documentation = '';
+
+    try {
+      // 1. Create a jsdom environment to run getPages
+      doc = getJSDOM(baseUrl);
+      // 2. Fetch the main page to get all links using getPages
+      const $ = await cheerio.fromURL(baseUrl);
+      const mainPageHtml = $('body').clone().find('img,svg,video,script,style,link,meta,noscript,iframe,canvas,audio,video,embed,object').remove().end().html();
+      doc.body.innerHTML = mainPageHtml || '';
+
+      // 3. Get all pages using your getPages function
+      allPages = instruction === 'single' ? [baseUrl] : getPages(baseUrl, doc);
+      console.log('> Main page:', baseUrl);
+      console.log('> Total pages:', allPages?.length || 0);
+    } catch (error) {
+      throw new Error(`❌ Error fetching "${libraryName}": ` +  error?.message || error);
+    }
 
     // 4. Fetch and process each page
     // for (const pageUrl of allPages.slice(0,5)) {
     for (const pageUrl of allPages) {
       const $ = await cheerio.fromURL(pageUrl);
+      // 4.1 Extract content from the element.mainSelector
       const pageHtml = $(selector).clone().find('img,svg,video,script,style,link,meta,noscript,iframe,canvas,audio,video,embed,object').remove().end().html();
+      
+      if (!pageHtml?.length) {
+        throw new Error(`❌ Couldn't fetch documentation for "${libraryName}" or page ${pageUrl} is empty!`);
+      }
+      
+      // 4.2 Extract content from the target element
       console.log('> Current page: ' + pageUrl, pageHtml?.length + ' characters');
-
-      // 4.1 Extract content from the <main> element
       documentation += pageHtml;
     }
 
     // 5. Convert documentation to MD
     try {
+      const turndownService = new TurndownService();
       documentation = turndownService.turndown(documentation);
-      console.log(`✔️ Documentation for ${libraryName} converted to MD`);
+      console.log(`✔️ Documentation for "${libraryName}" successfully converted to markdown!`);
     } catch (error) {
-      console.error(`❌ Error converting documentation to MD for ${libraryName}:`, error);
+      throw new Error(`❌ Error converting documentation to markdown format for "${libraryName}": ` + error?.message || error);
     }
-    // console.log('Converted documentation:', documentation.length)
 
     // 6. Update the documentation file
     try {
       fs.writeFileSync(docFile, documentation, 'utf-8');
-      console.log(`✔️ Documentation for ${libraryName} updated in ${libraryName}.md`);
+      console.log(`✔️ Documentation for "${libraryName}" updated in ${libraryName}.md`);
     } catch (error) {
-      console.error(`❌ Error updating documentation for ${libraryName}:`, error);
+      throw new Error(`❌ Error updating documentation for "${libraryName}": ` + error?.message || error);
     }
 
     // 7. Update The JSON: TO DO
     fs.writeFileSync(jsonFile, JSON.stringify({ name: libraryName, version: latestVersion }, null, 2));
-    console.log(`✔️ All tasks completed for ${libraryName}.`);
+    console.log(`✔️ All tasks completed for "${libraryName}".`);
   } catch (error) {
-    console.error(`❌ Error fetching data for ${libraryName}:`, error);
+    throw new Error(error?.message || error);
   }
 }
 
