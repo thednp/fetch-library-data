@@ -17,7 +17,6 @@ if (!libraryName || !baseUrl) {
   `);
   console.log(`\n ℹ️  Supported:
     fetch-library-data tailwindcss https://tailwindcss.com/docs/installation/ main,.max-w-3xl.mx-auto
-    fetch-library-data daisyui https://daisyui.com/docs/install/ .prose
     fetch-library-data solid-js https://docs.solidjs.com/
     fetch-library-data solid-start https://docs.solidjs.com/solid-start
     fetch-library-data solid-router https://docs.solidjs.com/solid-router
