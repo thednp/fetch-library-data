@@ -29,8 +29,8 @@
     "fetch:_zod": "pnpm exec ./cli.mjs zod[single] https://zod.dev/"
   },
   "bin": {
-    "fetch-library-data": "./cli.mjs",
-    "fetch-tailwind": "pnpm exec fetch-library-data tailwindcss https://tailwindcss.com/docs/installation/ main,.max-w-3xl.mx-auto"
+    "fetch-library-data": "node ./cli.mjs",
+    "fetch-tailwind": "node ./cli.mjs tailwindcss https://tailwindcss.com/docs/installation/ main,.max-w-3xl.mx-auto"
   },
   "dependencies": {
     "cheerio": "^1.0.0",
