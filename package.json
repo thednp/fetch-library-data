@@ -1,6 +1,6 @@
 {
   "name": "fetch-library-data",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "author": "thednp",
   "exports": {
@@ -18,13 +18,15 @@
     "fetch:solid-router": "pnpm exec ./cli.mjs solid-router https://docs.solidjs.com/solid-router",
     "fetch:solid-meta": "pnpm exec ./cli.mjs solid-meta https://docs.solidjs.com/solid-meta",
     "fetch:drizzle": "pnpm exec ./cli.mjs drizzle-orm https://orm.drizzle.team/docs/overview",
+    "fetch:svelte": "pnpm exec ./cli.mjs svelte https://svelte.dev/docs/svelte/overview",
+    "fetch:svelte-kit": "pnpm exec ./cli.mjs @sveltejs/kit https://svelte.dev/docs/kit/introduction",
     "fetch:react": "pnpm exec ./cli.mjs react https://react.dev/reference/react",
     "fetch:react-router": "pnpm exec ./cli.mjs react-router https://reactrouter.com/start .md-prose",
     "fetch:nextjs": "pnpm exec ./cli.mjs nextjs https://nextjs.org/docs",
     "fetch:vite": "pnpm exec ./cli.mjs vite https://vite.dev/guide",
     "fetch:vitest": "pnpm exec ./cli.mjs vitest https://vitest.dev/guide",
     "fetch:_daisy": "pnpm exec ./cli.mjs daisyui https://daisyui.com/docs/install/ .prose",
-    "fetch_:zod": "pnpm exec ./cli.mjs zod[single] https://zod.dev/"
+    "fetch:_zod": "pnpm exec ./cli.mjs zod[single] https://zod.dev/"
   },
   "bin": {
     "fetch-library-data": "./cli.mjs"

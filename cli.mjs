@@ -16,19 +16,21 @@ if (!libraryName || !baseUrl) {
     mainSelector: The CSS selector for the main content element.
   `);
   console.log(`\n ℹ️  Supported:
-    fetch-library-data tailwindcss https://tailwindcss.com/docs/installation/ main,.max-w-3xl.mx-auto
-    fetch-library-data solid-js https://docs.solidjs.com/
-    fetch-library-data solid-start https://docs.solidjs.com/solid-start
-    fetch-library-data solid-router https://docs.solidjs.com/solid-router
-    fetch-library-data solid-meta https://docs.solidjs.com/solid-meta
-    fetch-library-data drizzle-orm https://orm.drizzle.team/docs/overview
-    fetch-library-data react https://react.dev/reference/react
-    fetch-library-data react-router https://reactrouter.com/start .md-prose
-    fetch-library-data nextjs https://nextjs.org/docs
-    fetch-library-data valibot[guide] https://valibot.dev/guides/introduction/
-    fetch-library-data valibot[api] https://valibot.dev/api/
-    fetch-library-data vite https://vite.dev/guide/
-    fetch-library-data vitest https://vitest.dev/guide/
+    pnpm exec fetch-library-data tailwindcss https://tailwindcss.com/docs/installation/ main,.max-w-3xl.mx-auto
+    pnpm exec fetch-library-data solid-js https://docs.solidjs.com/
+    pnpm exec fetch-library-data solid-start https://docs.solidjs.com/solid-start
+    pnpm exec fetch-library-data solid-router https://docs.solidjs.com/solid-router
+    pnpm exec fetch-library-data solid-meta https://docs.solidjs.com/solid-meta
+    pnpm exec fetch-library-data svelte https://svelte.dev/docs/svelte/overview
+    pnpm exec fetch-library-data @sveltejs/kit https://svelte.dev/docs/kit/introduction
+    pnpm exec fetch-library-data drizzle-orm https://orm.drizzle.team/docs/overview
+    pnpm exec fetch-library-data react https://react.dev/reference/react
+    pnpm exec fetch-library-data react-router https://reactrouter.com/start .md-prose
+    pnpm exec fetch-library-data nextjs https://nextjs.org/docs
+    pnpm exec fetch-library-data valibot[guide] https://valibot.dev/guides/introduction/
+    pnpm exec fetch-library-data valibot[api] https://valibot.dev/api/
+    pnpm exec fetch-library-data vite https://vite.dev/guide/
+    pnpm exec fetch-library-data vitest https://vitest.dev/guide/
 `);
   process.exit(1);
 }

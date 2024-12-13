@@ -115,8 +115,9 @@ async function fetchLibraryData(library, baseUrl, mainSelector) {
   const [libraryName, instruction] = library.split('[').map(s => s.replace(']', ''));
   const contextFolderPath = path.resolve('context');
   const selector = mainSelector || 'article,main';
-  const jsonFile = path.resolve(`context`, libraryName + (instruction && instruction !== 'single' ? '-' + instruction : '') + '.json');
-  const docFile = path.resolve(`context`, libraryName + (instruction && instruction !== 'single' ? '-' + instruction : '') + '.md');
+  const fileName = libraryName.replace(/\@/g, '').replace(/\//g, '-');
+  const jsonFile = path.resolve(`context`, fileName + (instruction && instruction !== 'single' ? '-' + instruction : '') + '.json');
+  const docFile = path.resolve(`context`, fileName + (instruction && instruction !== 'single' ? '-' + instruction : '') + '.md');
 
   // Check for latest version first, the package may not exist
   const latestVersion = await checkLatestVersion(libraryName);
