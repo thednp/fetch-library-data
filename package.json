@@ -30,7 +30,7 @@
   },
   "bin": {
     "fetch-library-data": "./cli.mjs",
-    "fetch-tailwind": "pnpm exec ./cli.mjs tailwindcss https://tailwindcss.com/docs/installation/ main,.max-w-3xl.mx-auto"
+    "fetch-tailwind": "pnpm exec fetch-library-data tailwindcss https://tailwindcss.com/docs/installation/ main,.max-w-3xl.mx-auto"
   },
   "dependencies": {
     "cheerio": "^1.0.0",
