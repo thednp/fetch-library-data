@@ -25,6 +25,7 @@
     "fetch:nextjs": "pnpm exec ./cli.mjs nextjs https://nextjs.org/docs",
     "fetch:vite": "pnpm exec ./cli.mjs vite https://vite.dev/guide",
     "fetch:vitest": "pnpm exec ./cli.mjs vitest https://vitest.dev/guide",
+    "fetch:_vanjs": "pnpm exec ./cli.mjs vanjs https://vanjs.org/ .content",
     "fetch:_daisy": "pnpm exec ./cli.mjs daisyui https://daisyui.com/docs/install/ .prose",
     "fetch:_zod": "pnpm exec ./cli.mjs zod[single] https://zod.dev/"
   },
