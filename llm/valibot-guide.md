@@ -1,3 +1,5 @@
+valibot version: 1.1.0, last updated: 2025-05-21T10:58:23.459Z
+
 [](#installation)Installation
 =============================
 

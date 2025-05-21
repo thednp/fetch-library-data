@@ -1,3 +1,5 @@
+react version: 19.1.0, last updated: 2025-05-21T10:58:23.655Z
+
 [API Reference](/reference/react)
 
 React Reference Overview[](#undefined "Link for this heading")

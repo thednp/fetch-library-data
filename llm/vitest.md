@@ -1,3 +1,5 @@
+vitest version: 3.1.4, last updated: 2025-05-21T10:58:23.891Z
+
 Why Vitest [​](#why-vitest)
 ===========================
 

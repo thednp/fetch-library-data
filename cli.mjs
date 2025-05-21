@@ -16,7 +16,8 @@ if (!libraryName || !baseUrl) {
     mainSelector: The CSS selector for the main content element.
   `);
   console.log(`\n ℹ️  Supported:
-    pnpm exec fetch-library-data tailwindcss https://tailwindcss.com/docs/installation/ main,.max-w-3xl.mx-auto
+    pnpm exec fetch-library-data daisyui https://daisyui.com/docs/install/ '.prose'
+    pnpm exec fetch-library-data tailwindcss https://tailwindcss.com/docs/installation/ '.isolate'
     pnpm exec fetch-library-data solid-js https://docs.solidjs.com/
     pnpm exec fetch-library-data solid-start https://docs.solidjs.com/solid-start
     pnpm exec fetch-library-data solid-router https://docs.solidjs.com/solid-router
@@ -27,10 +28,12 @@ if (!libraryName || !baseUrl) {
     pnpm exec fetch-library-data react https://react.dev/reference/react
     pnpm exec fetch-library-data react-router https://reactrouter.com/start .md-prose
     pnpm exec fetch-library-data nextjs https://nextjs.org/docs
-    pnpm exec fetch-library-data valibot[guide] https://valibot.dev/guides/introduction/
-    pnpm exec fetch-library-data valibot[api] https://valibot.dev/api/
+    pnpm exec fetch-library-data vanjs https://vanjs.org/ '#content'
+    pnpm exec fetch-library-data valibot[guide] https://valibot.dev/guides/introduction/ 'article.mdx'
+    pnpm exec fetch-library-data valibot[api] https://valibot.dev/api/ 'article.mdx'
     pnpm exec fetch-library-data vite https://vite.dev/guide/
     pnpm exec fetch-library-data vitest https://vitest.dev/guide/
+    pnpm exec fetch-library-data zod https://zod.dev/ '#nd-page'
     --
     See package.json for updated scripts
 `);

@@ -1,3 +1,5 @@
+vite version: 6.3.5, last updated: 2025-05-21T10:57:53.003Z
+
 Getting Started [​](#getting-started)
 =====================================
 

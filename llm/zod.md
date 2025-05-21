@@ -1,3 +1,5 @@
+zod version: 3.25.16, last updated: 2025-05-21T10:57:52.444Z
+
 On this page
 
 Zod
@@ -3618,7 +3620,7 @@ To support internationalization of error message, Zod provides several built-in 
 ZodZod Mini
 
     import { z } from "zod/v4";
-    import en from "zod/v4/locales/en"
+    import en from "zod/v4/locales/en.js"
      
     z.config(en());
 
@@ -3627,7 +3629,7 @@ To lazily load a locale, consider dynamic imports:
     import { z } from "zod/v4";
      
     async function loadLocale(locale: string) {
-      const { default: locale } = await import(`zod/v4/locales/${locale}`);
+      const { default: locale } = await import(`zod/v4/locales/${locale}.js`);
       z.config(locale());
     };
      
@@ -4435,7 +4437,7 @@ Description
 
 [`tRPC`](https://github.com/trpc/trpc)
 
-⭐️ 37308
+⭐️ 37313
 
 ⭐️
 
@@ -4443,7 +4445,7 @@ Build end-to-end typesafe APIs without GraphQL.
 
 [`oRPC`](https://orpc.unnoq.com/)
 
-⭐️ 1916
+⭐️ 1918
 
 ⭐️
 
@@ -4500,7 +4502,7 @@ Description
 
 [`orval`](https://github.com/orval-labs/orval)
 
-⭐️ 3983
+⭐️ 3986
 
 ⭐️
 
@@ -4508,7 +4510,7 @@ Generate Zod schemas from OpenAPI schemas
 
 [`kubb`](https://github.com/kubb-labs/kubb)
 
-⭐️ 1133
+⭐️ 1134
 
 ⭐️
 
@@ -5570,8 +5572,6 @@ Next
 Basic usage
 
 ](/basics)
-
-zod.dev is not found or the page is under construction.
 
 On this page
 

@@ -42,7 +42,7 @@ function getPages(page, doc) {
   const nav = max ? potentialNavs.find((n) => n.links.length === max) : null;
 
   if (!nav) {
-    throw new Error("❌ Error: a valid nav element not found. Aborting...");
+    throw new Error("x Error: a valid nav element not found. Aborting...");
   }
 
   nav.links.filter(l => !l.hash.length).forEach(link => {
@@ -64,7 +64,7 @@ async function checkLatestVersion(libraryName) {
     return data.version;
   // Throw an error
   } else {
-    throw new Error(`❌ Error fetching latest version for "${libraryName}" package: ` + data);
+    throw new Error(`x Error fetching latest version for "${libraryName}" package: ` + data);
   }
 }
 
@@ -146,7 +146,7 @@ async function fetchLibraryData(library, baseUrl, mainSelector) {
   try {
     let doc;
     let allPages;
-    let documentation = '';
+    let documentation = `${libraryName} version: ${latestVersion}, last updated: ${new Date().toISOString()}\n`;
 
     try {
       // 1. Create a jsdom environment to run getPages
@@ -161,7 +161,7 @@ async function fetchLibraryData(library, baseUrl, mainSelector) {
       console.log('> Main page:', baseUrl);
       console.log('> Total pages:', allPages?.length || 0);
     } catch (error) {
-      throw new Error(`❌ Error fetching "${libraryName}": ` +  error?.message || error);
+      throw new Error(`Error fetching "${libraryName}": ` +  error?.message || error);
     }
 
     // 4. Fetch and process each page
@@ -173,16 +173,16 @@ async function fetchLibraryData(library, baseUrl, mainSelector) {
         const pageHtml = $(selector).clone().find('img,svg,video,script,style,link,meta,noscript,iframe,canvas,audio,video,embed,object').remove().end().html();
         
         if (!pageHtml?.length) {
-          throw new Error(`❌ Couldn't fetch documentation for "${libraryName}" or page ${pageUrl} is empty!`);
+          throw new Error(`x Couldn't fetch documentation for "${libraryName}" or page ${pageUrl} is empty!`);
         }
         
         // 4.2 Extract content from the target element
         console.log('> Current page: ' + pageUrl, pageHtml?.length + ' characters');
         documentation += pageHtml;
       } catch (er) {
-        const pageTitle = pageUrl.split(/[\\/]/).filter(x => x).pop();
-        documentation += `${pageTitle} is not found or the page is under construction.`;
-        console.error(String(er) + `\n Skipping ${pageUrl}...`)
+        // const pageTitle = pageUrl.split(/[\\/]/).filter(x => x)?.pop() || pageUrl;
+        // documentation += `\n${pageTitle} is not found or the page is under construction.\n`;
+        console.error(`\n ${String(er)} Skipping ${pageUrl}...`)
       }
     }
 
@@ -192,7 +192,7 @@ async function fetchLibraryData(library, baseUrl, mainSelector) {
       documentation = turndownService.turndown(documentation);
       console.log(`✔️ Documentation for "${libraryName}" successfully converted to markdown!`);
     } catch (error) {
-      throw new Error(`❌ Error converting documentation to markdown format for "${libraryName}": ` + error?.message || error);
+      throw new Error(`x Error converting documentation to markdown format for "${libraryName}": ` + error?.message || error);
     }
 
     // 6. Update the documentation file
@@ -200,7 +200,7 @@ async function fetchLibraryData(library, baseUrl, mainSelector) {
       fs.writeFileSync(docFile, documentation, 'utf-8');
       console.log(`✔️ Documentation for "${libraryName}" updated in ${libraryName}.md`);
     } catch (error) {
-      throw new Error(`❌ Error updating documentation for "${libraryName}": ` + error?.message || error);
+      throw new Error(`x Error updating documentation for "${libraryName}": ` + error?.message || error);
     }
 
     // 7. Update The JSON: TO DO

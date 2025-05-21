@@ -1,3 +1,5 @@
+drizzle-orm version: 0.43.1, last updated: 2025-05-21T10:58:23.686Z
+
 Get started with Drizzle
 ========================
 

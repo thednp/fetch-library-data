@@ -1,3 +1,5 @@
+solid-start version: 0.3.11, last updated: 2025-05-21T10:58:23.630Z
+
 [Overview](/solid-start#overview)
 =================================
 

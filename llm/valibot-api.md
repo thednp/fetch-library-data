@@ -1,3 +1,5 @@
+valibot version: 1.1.0, last updated: 2025-05-21T10:58:23.484Z
+
 [](#any)any
 ===========
 
@@ -27680,8 +27682,6 @@ Lazy schema async interface.
     *   `reference` `typeof [lazy](/api/lazy/) | typeof [lazyAsync](/api/lazyAsync/)`
     *   `expects` `'unknown'`
     *   `getter` `(input: unknown) => [MaybePromise](/api/MaybePromise/)<TWrapped>`
-
-JsonAction is not found or the page is under construction.JsonIssue is not found or the page is under construction.
 
 [](#lengthaction)LengthAction
 =============================

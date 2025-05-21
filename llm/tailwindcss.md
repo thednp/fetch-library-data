@@ -1,3 +1,5 @@
+tailwindcss version: 4.1.7, last updated: 2025-05-21T10:58:23.684Z
+
 [](/)v4.1
 
 ⌘KCtrl K[Docs](/docs)[Blog](/blog)[Showcase](/showcase)[Plus](/plus?ref=top)[](https://github.com/tailwindlabs/tailwindcss)
@@ -2276,8 +2278,6 @@ If you're unhappy with your purchase for any reason, email us at [support@tailwi
 [Privacy policy](/plus/privacy-policy)
 
 [Changelog](/plus/changelog)
-
-play.tailwindcss.com is not found or the page is under construction.
 
 [](/)
 

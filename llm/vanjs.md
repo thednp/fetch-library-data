@@ -1,3 +1,5 @@
+vanjs version: 0.1.1, last updated: 2025-05-21T10:57:52.610Z
+
 **VanJS**: A 1.0kB Grab 'n Go Reactive UI Framework without React/JSX
 =====================================================================
 
@@ -232,7 +234,7 @@ Lucide Icons for **VanJS**
 
 > _In the name of **Van**illa of the House **J**ava**S**cript, [the First of its name](/about#name), Smallest Reactive UI Framework, 1.0kB JSX-free Grab 'n Go Library, [Scripting Language](https://vanjs.org/about#story) for GUI, [GPT-Empowered](https://chat.openai.com/g/g-7tcSHUu27-vanjs-app-builder) Toolkit, by the word of Tao of the House Xin, Founder and Maintainer of **VanJS**, I do hereby grant you the permission of **VanJS** under [MIT License](https://github.com/vanjs-org/van/blob/main/LICENSE)._
 
-Contact us: [@taoxin](https://x.com/intent/follow?region=follow_link&screen_name=taoxin) / [Tao Xin](https://github.com/Tao-VanJS) / [\[email protected\]](/cdn-cgi/l/email-protection#47332628073126292d3469283520) / [Tao Xin](https://www.linkedin.com/in/taoxin/)
+Contact us: [@taoxin](https://x.com/intent/follow?region=follow_link&screen_name=taoxin) / [Tao Xin](https://github.com/Tao-VanJS) / [\[email protected\]](/cdn-cgi/l/email-protection#f98d9896b98f9897938ad7968b9e) / [Tao Xin](https://www.linkedin.com/in/taoxin/)
 
 **VanJS**: Getting Started
 ==========================
@@ -2238,7 +2240,7 @@ See [github.com/vanjs-org/van/tree/main/demo/terminal](https://github.com/vanjs-
 
 * * *
 
-Besides the official **VanJS** examples, there are also sample apps from the great **VanJS** community. Below is a curated list (contact [\[email protected\]](/cdn-cgi/l/email-protection#097d6866497f6867637a27667b6e) to add yours):
+Besides the official **VanJS** examples, there are also sample apps from the great **VanJS** community. Below is a curated list (contact [\[email protected\]](/cdn-cgi/l/email-protection#087c6967487e6966627b26677a6f) to add yours):
 
 Author
 
@@ -3419,7 +3421,7 @@ We're looking for the 1.0 milestone (commitment to API stability) soon, your pre
 
 [Star](https://github.com/vanjs-org/mini-van) [Watch](https://github.com/vanjs-org/mini-van/subscription) [Issue](https://github.com/vanjs-org/mini-van/issues) [Follow @vanjs-org](https://github.com/vanjs-org)
 
-Contact us: [\[email protected\]](/cdn-cgi/l/email-protection#fd899c92bd8b9c93978ed3928f9a)
+Contact us: [\[email protected\]](/cdn-cgi/l/email-protection#92e6f3fdd2e4f3fcf8e1bcfde0f5)
 
 **VanJS**: Fullstack Rendering (SSR, CSR and Hydration)
 =======================================================

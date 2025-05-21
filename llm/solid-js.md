@@ -1,3 +1,5 @@
+solid-js version: 1.9.7, last updated: 2025-05-21T10:58:23.595Z
+
 Quick start
 ===========
 
