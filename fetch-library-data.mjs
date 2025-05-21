@@ -167,17 +167,23 @@ async function fetchLibraryData(library, baseUrl, mainSelector) {
     // 4. Fetch and process each page
     // for (const pageUrl of allPages.slice(0,5)) {
     for (const pageUrl of allPages) {
-      const $ = await cheerio.fromURL(pageUrl);
-      // 4.1 Extract content from the element.mainSelector
-      const pageHtml = $(selector).clone().find('img,svg,video,script,style,link,meta,noscript,iframe,canvas,audio,video,embed,object').remove().end().html();
-      
-      if (!pageHtml?.length) {
-        throw new Error(`❌ Couldn't fetch documentation for "${libraryName}" or page ${pageUrl} is empty!`);
+      try {
+        const $ = await cheerio.fromURL(pageUrl);
+        // 4.1 Extract content from the element.mainSelector
+        const pageHtml = $(selector).clone().find('img,svg,video,script,style,link,meta,noscript,iframe,canvas,audio,video,embed,object').remove().end().html();
+        
+        if (!pageHtml?.length) {
+          throw new Error(`❌ Couldn't fetch documentation for "${libraryName}" or page ${pageUrl} is empty!`);
+        }
+        
+        // 4.2 Extract content from the target element
+        console.log('> Current page: ' + pageUrl, pageHtml?.length + ' characters');
+        documentation += pageHtml;
+      } catch (er) {
+        const pageTitle = pageUrl.split(/[\\/]/).filter(x => x).pop();
+        documentation += `${pageTitle} is not found or the page is under construction.`;
+        console.error(String(er) + `\n Skipping ${pageUrl}...`)
       }
-      
-      // 4.2 Extract content from the target element
-      console.log('> Current page: ' + pageUrl, pageHtml?.length + ' characters');
-      documentation += pageHtml;
     }
 
     // 5. Convert documentation to MD

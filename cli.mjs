@@ -31,6 +31,8 @@ if (!libraryName || !baseUrl) {
     pnpm exec fetch-library-data valibot[api] https://valibot.dev/api/
     pnpm exec fetch-library-data vite https://vite.dev/guide/
     pnpm exec fetch-library-data vitest https://vitest.dev/guide/
+    --
+    See package.json for updated scripts
 `);
   process.exit(1);
 }

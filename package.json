@@ -10,9 +10,9 @@
   },
   "scripts": {
     "fetch:all": "pnpm run --parallel /^fetch:/",
-    "fetch:tailwind": "pnpm exec ./cli.mjs tailwindcss https://tailwindcss.com/docs/installation/ main,.max-w-3xl.mx-auto",
-    "fetch:valibot:guide": "pnpm exec ./cli.mjs valibot[guide] https://valibot.dev/guides/introduction/",
-    "fetch:valibot:api": "pnpm exec ./cli.mjs valibot[api] https://valibot.dev/api/",
+    "fetch:tailwind": "pnpm exec ./cli.mjs tailwindcss https://tailwindcss.com/docs/installation/ '.isolate'",
+    "fetch:valibot:guide": "pnpm exec ./cli.mjs valibot[guide] https://valibot.dev/guides/introduction/ 'article.mdx'",
+    "fetch:valibot:api": "pnpm exec ./cli.mjs valibot[api] https://valibot.dev/api/ 'article.mdx'",
     "fetch:solid": "pnpm exec ./cli.mjs solid-js https://docs.solidjs.com/",
     "fetch:solid-start": "pnpm exec ./cli.mjs solid-start https://docs.solidjs.com/solid-start",
     "fetch:solid-router": "pnpm exec ./cli.mjs solid-router https://docs.solidjs.com/solid-router",
@@ -20,14 +20,14 @@
     "fetch:drizzle": "pnpm exec ./cli.mjs drizzle-orm https://orm.drizzle.team/docs/overview",
     "fetch:svelte": "pnpm exec ./cli.mjs svelte https://svelte.dev/docs/svelte/overview",
     "fetch:svelte-kit": "pnpm exec ./cli.mjs @sveltejs/kit https://svelte.dev/docs/kit/introduction",
-    "fetch:react": "pnpm exec ./cli.mjs react https://react.dev/reference/react",
-    "fetch:react-router": "pnpm exec ./cli.mjs react-router https://reactrouter.com/start .md-prose",
+    "fetch:react": "pnpm exec ./cli.mjs react https://react.dev/reference/react 'article'",
+    "fetch:react-router": "pnpm exec ./cli.mjs react-router https://reactrouter.com/home '.md-prose'",
     "fetch:nextjs": "pnpm exec ./cli.mjs nextjs https://nextjs.org/docs",
     "fetch:vite": "pnpm exec ./cli.mjs vite https://vite.dev/guide",
     "fetch:vitest": "pnpm exec ./cli.mjs vitest https://vitest.dev/guide",
-    "fetch:_vanjs": "pnpm exec ./cli.mjs vanjs https://vanjs.org/ .content",
-    "fetch:_daisy": "pnpm exec ./cli.mjs daisyui https://daisyui.com/docs/install/ .prose",
-    "fetch:_zod": "pnpm exec ./cli.mjs zod[single] https://zod.dev/"
+    "fetch:vanjs": "pnpm exec ./cli.mjs vanjs https://vanjs.org/ '#content'",
+    "fetch:_daisy": "pnpm exec ./cli.mjs daisyui https://daisyui.com/docs/install/ '.prose'",
+    "fetch:zod": "pnpm exec ./cli.mjs zod https://zod.dev/ '#nd-page'"
   },
   "bin": {
     "fetch-library-data": "./cli.mjs",
