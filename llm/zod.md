@@ -1,4 +1,4 @@
-zod version: 3.25.16, last updated: 2025-05-21T10:57:52.444Z
+zod version: 3.25.20, last updated: 2025-05-22T06:23:52.817Z
 
 On this page
 
@@ -4437,7 +4437,7 @@ Description
 
 [`tRPC`](https://github.com/trpc/trpc)
 
-⭐️ 37313
+⭐️ 37323
 
 ⭐️
 
@@ -4445,7 +4445,7 @@ Build end-to-end typesafe APIs without GraphQL.
 
 [`oRPC`](https://orpc.unnoq.com/)
 
-⭐️ 1918
+⭐️ 1930
 
 ⭐️
 
@@ -4502,7 +4502,7 @@ Description
 
 [`orval`](https://github.com/orval-labs/orval)
 
-⭐️ 3986
+⭐️ 3989
 
 ⭐️
 
@@ -4510,7 +4510,7 @@ Generate Zod schemas from OpenAPI schemas
 
 [`kubb`](https://github.com/kubb-labs/kubb)
 
-⭐️ 1134
+⭐️ 1135
 
 ⭐️
 
@@ -4564,7 +4564,7 @@ Types and functions to make composition easy and safe.
 
 [`zod-config`](https://github.com/alexmarqs/zod-config)
 
-⭐️ 91
+⭐️ 92
 
 ⭐️
 

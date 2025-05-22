@@ -9,6 +9,8 @@
     }
   },
   "scripts": {
+    "upd": "pnpm update --latest && pnpm fetch-all && pnpm copy",
+    "copy": "cp ./context/*.md ./llm/",
     "fetch-all": "pnpm run --parallel /^fetch:/",
     "fetch:tailwind": "pnpm exec ./cli.mjs tailwindcss https://tailwindcss.com/docs/installation/ '.isolate'",
     "fetch:valibot:guide": "pnpm exec ./cli.mjs valibot[guide] https://valibot.dev/guides/introduction/ 'article.mdx'",
@@ -35,12 +37,12 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0",
-    "jsdom": "^25.0.1",
+    "jsdom": "^26.1.0",
     "node-fetch": "^3.3.2",
     "turndown": "^7.2.0"
   },
   "devDependencies": {
-    "typescript": "^5.7.2"
+    "typescript": "^5.8.3"
   },
   "packageManager": "pnpm@8.6.12"
 }
