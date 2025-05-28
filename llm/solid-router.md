@@ -1,4 +1,4 @@
-solid-router version: 0.3.3, last updated: 2025-05-21T10:58:23.746Z
+solid-router version: 0.3.3, last updated: 2025-05-25T14:47:54.749Z
 
 [Overview](/solid-router#overview)
 ==================================

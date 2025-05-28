@@ -1,4 +1,4 @@
-react-router version: 7.6.0, last updated: 2025-05-21T10:58:23.844Z
+react-router version: 7.6.1, last updated: 2025-05-25T14:47:54.826Z
 
 [](#react-router-home)React Router Home
 =======================================
@@ -169,42 +169,45 @@ We manage release notes in this file instead of the paginated Github Releases Pa
 Table of Contents
 
 *   [React Router Releases](#react-router-releases)
+    *   [v7.6.1](#v761)
+        *   [Patch Changes](#patch-changes)
+        *   [Unstable Changes](#unstable-changes)
     *   [v7.6.0](#v760)
         *   [What's Changed](#whats-changed)
             *   [`routeDiscovery` Config Option](#routediscovery-config-option)
             *   [Automatic Types for Future Flags](#automatic-types-for-future-flags)
         *   [Minor Changes](#minor-changes)
-        *   [Patch Changes](#patch-changes)
-        *   [Unstable Changes](#unstable-changes)
+        *   [Patch Changes](#patch-changes-1)
+        *   [Unstable Changes](#unstable-changes-1)
         *   [Changes by Package](#changes-by-package)
     *   [v7.5.3](#v753)
-        *   [Patch Changes](#patch-changes-1)
+        *   [Patch Changes](#patch-changes-2)
     *   [v7.5.2](#v752)
         *   [Security Notice](#security-notice)
-        *   [Patch Changes](#patch-changes-2)
-    *   [v7.5.1](#v751)
         *   [Patch Changes](#patch-changes-3)
-        *   [Unstable Changes](#unstable-changes-1)
+    *   [v7.5.1](#v751)
+        *   [Patch Changes](#patch-changes-4)
+        *   [Unstable Changes](#unstable-changes-2)
     *   [v7.5.0](#v750)
         *   [What's Changed](#whats-changed-1)
             *   [`route.lazy` Object API](#routelazy-object-api)
         *   [Minor Changes](#minor-changes-1)
-        *   [Patch Changes](#patch-changes-4)
-        *   [Unstable Changes](#unstable-changes-2)
+        *   [Patch Changes](#patch-changes-5)
+        *   [Unstable Changes](#unstable-changes-3)
         *   [Changes by Package](#changes-by-package-1)
     *   [v7.4.1](#v741)
         *   [Security Notice](#security-notice-1)
-        *   [Patch Changes](#patch-changes-5)
-        *   [Unstable Changes](#unstable-changes-3)
-    *   [v7.4.0](#v740)
-        *   [Minor Changes](#minor-changes-2)
         *   [Patch Changes](#patch-changes-6)
         *   [Unstable Changes](#unstable-changes-4)
+    *   [v7.4.0](#v740)
+        *   [Minor Changes](#minor-changes-2)
+        *   [Patch Changes](#patch-changes-7)
+        *   [Unstable Changes](#unstable-changes-5)
         *   [Changes by Package](#changes-by-package-2)
     *   [v7.3.0](#v730)
         *   [Minor Changes](#minor-changes-3)
-        *   [Patch Changes](#patch-changes-7)
-        *   [Unstable Changes](#unstable-changes-5)
+        *   [Patch Changes](#patch-changes-8)
+        *   [Unstable Changes](#unstable-changes-6)
             *   [Client-side `context` (unstable)](#client-side-context-unstable)
             *   [Middleware (unstable)](#middleware-unstable)
                 *   [Middleware `context` parameter](#middleware-context-parameter)
@@ -216,28 +219,28 @@ Table of Contents
             *   [Prerendering with a SPA Fallback](#prerendering-with-a-spa-fallback)
             *   [Allow a root `loader` in SPA Mode](#allow-a-root-loader-in-spa-mode)
         *   [Minor Changes](#minor-changes-4)
-        *   [Patch Changes](#patch-changes-8)
-        *   [Unstable Changes](#unstable-changes-6)
+        *   [Patch Changes](#patch-changes-9)
+        *   [Unstable Changes](#unstable-changes-7)
             *   [Split Route Modules (unstable)](#split-route-modules-unstable)
         *   [Changes by Package](#changes-by-package-4)
     *   [v7.1.5](#v715)
-        *   [Patch Changes](#patch-changes-9)
-    *   [v7.1.4](#v714)
         *   [Patch Changes](#patch-changes-10)
-    *   [v7.1.3](#v713)
+    *   [v7.1.4](#v714)
         *   [Patch Changes](#patch-changes-11)
-    *   [v7.1.2](#v712)
+    *   [v7.1.3](#v713)
         *   [Patch Changes](#patch-changes-12)
-    *   [v7.1.1](#v711)
+    *   [v7.1.2](#v712)
         *   [Patch Changes](#patch-changes-13)
+    *   [v7.1.1](#v711)
+        *   [Patch Changes](#patch-changes-14)
     *   [v7.1.0](#v710)
         *   [Minor Changes](#minor-changes-5)
-        *   [Patch Changes](#patch-changes-14)
+        *   [Patch Changes](#patch-changes-15)
         *   [Changes by Package](#changes-by-package-5)
     *   [v7.0.2](#v702)
-        *   [Patch Changes](#patch-changes-15)
-    *   [v7.0.1](#v701)
         *   [Patch Changes](#patch-changes-16)
+    *   [v7.0.1](#v701)
+        *   [Patch Changes](#patch-changes-17)
     *   [v7.0.0](#v700)
         *   [Breaking Changes](#breaking-changes)
             *   [Package Restructuring](#package-restructuring)
@@ -254,7 +257,7 @@ Table of Contents
         *   [Major Changes (`react-router`)](#major-changes-react-router)
         *   [Major Changes (`@react-router/*`)](#major-changes-react-router-1)
         *   [Minor Changes](#minor-changes-6)
-        *   [Patch Changes](#patch-changes-17)
+        *   [Patch Changes](#patch-changes-18)
         *   [Changes by Package](#changes-by-package-6)
 *   [React Router v6 Releases](#react-router-v6-releases)
     *   [v6.30.1](#v6301)
@@ -451,6 +454,135 @@ Table of Contents
         *   [Patch Changes](#patch-changes-79)
     *   [v6.0.0](#v600)
 
+[](#v761)v7.6.1
+---------------
+
+Date: 2025-05-25
+
+### [](#patch-changes)Patch Changes
+
+*   `react-router` - Partially revert optimization added in `7.1.4` to reduce calls to `matchRoutes` because it surfaced other issues ([#13562](https://github.com/remix-run/react-router/pull/13562))
+    
+*   `react-router` - Update `Route.MetaArgs` to reflect that `data` can be potentially `undefined` ([#13563](https://github.com/remix-run/react-router/pull/13563))
+    
+    *   This is primarily for cases where a route `loader` threw an error to it's own `ErrorBoundary`, but it also arises in the case of a 404 which renders the root `ErrorBoundary`/`meta` but the root `loader` did not run because not routes matched
+*   `react-router` - Avoid initial fetcher execution 404 error when Lazy Route Discovery is interrupted by a navigation ([#13564](https://github.com/remix-run/react-router/pull/13564))
+    
+*   `react-router` - Properly `href` replaces splats `*` ([#13593](https://github.com/remix-run/react-router/pull/13593))
+    
+    *   `href("/products/*", { "*": "/1/edit" }); // -> /products/1/edit`
+*   `@react-router/architect` - Update `@architect/functions` from `^5.2.0` to `^7.0.0` ([#13556](https://github.com/remix-run/react-router/pull/13556))
+    
+*   `@react-router/dev` - Prevent typegen with route files that are outside the `app/` directory ([#12996](https://github.com/remix-run/react-router/pull/12996))
+    
+*   `@react-router/dev` - Add additional logging to `build` command output when cleaning assets from server build ([#13547](https://github.com/remix-run/react-router/pull/13547))
+    
+*   `@react-router/dev` - Don't clean assets from server build when `build.ssrEmitAssets` has been enabled in Vite config ([#13547](https://github.com/remix-run/react-router/pull/13547))
+    
+*   `@react-router/dev` - Fix typegen when same route is used at multiple paths ([#13574](https://github.com/remix-run/react-router/pull/13574))
+    
+    *   For example, `routes/route.tsx` is used at 4 different paths here:
+        
+            import { type RouteConfig, route } from "@react-router/dev/routes";
+            export default [
+              route("base/:base", "routes/base.tsx", [
+                route("home/:home", "routes/route.tsx", { id: "home" }),
+                route("changelog/:changelog", "routes/route.tsx", { id: "changelog" }),
+                route("splat/*", "routes/route.tsx", { id: "splat" }),
+              ]),
+              route("other/:other", "routes/route.tsx", { id: "other" }),
+            ] satisfies RouteConfig;
+            
+        
+    *   Previously, typegen would arbitrarily pick one of these paths to be the "winner" and generate types for the route module based on that path
+        
+    *   Now, typegen creates unions as necessary for alternate paths for the same route file
+        
+*   `@react-router/dev` - Better types for `params` ([#13543](https://github.com/remix-run/react-router/pull/13543))
+    
+    *   For example:
+        
+            // routes.ts
+            import { type RouteConfig, route } from "@react-router/dev/routes";
+            
+            export default [
+              route("parent/:p", "routes/parent.tsx", [
+                route("route/:r", "routes/route.tsx", [
+                  route("child1/:c1a/:c1b", "routes/child1.tsx"),
+                  route("child2/:c2a/:c2b", "routes/child2.tsx"),
+                ]),
+              ]),
+            ] satisfies RouteConfig;
+            
+        
+    *   Previously, `params` for `routes/route` were calculated as `{ p: string, r: string }`.
+        
+    *   This incorrectly ignores params that could come from child routes
+        
+    *   If visiting `/parent/1/route/2/child1/3/4`, the actual params passed to `routes/route` will have a type of `{ p: string, r: string, c1a: string, c1b: string }`
+        
+    *   Now, `params` are aware of child routes and autocompletion will include child params as optionals:
+        
+            params.|
+            //     ^ cursor is here and you ask for autocompletion
+            // p: string
+            // r: string
+            // c1a?: string
+            // c1b?: string
+            // c2a?: string
+            // c2b?: string
+            
+        
+    *   You can also narrow the types for `params` as it is implemented as a normalized union of params for each page that includes `routes/route`:
+        
+            if (typeof params.c1a === 'string') {
+              params.|
+              //     ^ cursor is here and you ask for autocompletion
+              // p: string
+              // r: string
+              // c1a: string
+              // c1b: string
+            }
+            
+        
+*   `@react-router/dev` - Fix `href` for optional segments ([#13595](https://github.com/remix-run/react-router/pull/13595))
+    
+    *   Type generation now expands paths with optionals into their corresponding non-optional paths
+        
+    *   For example, the path `/user/:id?` gets expanded into `/user` and `/user/:id` to more closely model visitable URLs
+        
+    *   `href` then uses these expanded (non-optional) paths to construct type-safe paths for your app:
+        
+            // original: /user/:id?
+            // expanded: /user & /user/:id
+            href("/user"); // ✅
+            href("/user/:id", { id: 1 }); // ✅
+            
+        
+    *   This becomes even more important for static optional paths where there wasn't a good way to indicate whether the optional should be included in the resulting path:
+        
+            // original: /products/:id/detail?
+            
+            // before
+            href("/products/:id/detail?"); // ❌ How can we tell `href` to include or omit `detail?` segment with a complex API?
+            
+            // now
+            // expanded: /products/:id & /products/:id/detail
+            href("/product/:id"); // ✅
+            href("/product/:id/detail"); // ✅
+            
+        
+
+### [](#unstable-changes)Unstable Changes
+
+⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
+
+*   `@react-router/dev` - Renamed internal `react-router/route-module` export to `react-router/internal` ([#13543](https://github.com/remix-run/react-router/pull/13543))
+*   `@react-router/dev` - Removed `Info` export from generated `+types/*` files ([#13543](https://github.com/remix-run/react-router/pull/13543))
+*   `@react-router/dev` - Normalize dirent entry path across node versions when generating SRI manifest ([#13591](https://github.com/remix-run/react-router/pull/13591))
+
+**Full Changelog**: [`v7.6.0...v7.6.1`](https://github.com/remix-run/react-router/compare/react-router@7.6.0...react-router@7.6.1)
+
 [](#v760)v7.6.0
 ---------------
 
@@ -546,7 +678,7 @@ Behind the scenes, React Router will generate the corresponding `declare module`
 *   `@react-router/dev` - Automatic types for future flags ([#13506](https://github.com/remix-run/react-router/pull/13506))
     
 
-### [](#patch-changes)Patch Changes
+### [](#patch-changes-1)Patch Changes
 
 You may notice this list is a bit larger than usual! The team ate their vegetables last week and spent the week [squashing bugs](https://x.com/BrooksLybrand/status/1918406062920589731) to work on lowering the issue count that had ballooned a bit since the v7 release.
 
@@ -579,7 +711,7 @@ You may notice this list is a bit larger than usual! The team ate their vegetabl
 *   `@react-router/dev` - Fix `TS2300: Duplicate identifier` errors caused by generated types ([#13499](https://github.com/remix-run/react-router/pull/13499))
 *   Previously, routes that had the same full path would cause duplicate entries in the generated types for `href` (`.react-router/types/+register.ts`), causing type checking errors
 
-### [](#unstable-changes)Unstable Changes
+### [](#unstable-changes-1)Unstable Changes
 
 ⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
 
@@ -606,7 +738,7 @@ You may notice this list is a bit larger than usual! The team ate their vegetabl
 
 Date: 2025-04-28
 
-### [](#patch-changes-1)Patch Changes
+### [](#patch-changes-2)Patch Changes
 
 *   `react-router` - Fix bug where bubbled action errors would result in `loaderData` being cleared at the handling `ErrorBoundary` route ([#13476](https://github.com/remix-run/react-router/pull/13476))
 *   `react-router` - Handle redirects from `clientLoader.hydrate` initial load executions ([#13477](https://github.com/remix-run/react-router/pull/13477))
@@ -622,7 +754,7 @@ Date: 2025-04-24
 
 Fixed 2 security vulnerabilities that could result in cache-poisoning attacks by sending specific headers intended for build-time usage for SPA Mode and Pre-rendering ([GHSA-f46r-rw29-r322](https://github.com/remix-run/react-router/security/advisories/GHSA-f46r-rw29-r322), [GHSA-cpj6-fhp6-mr6j](https://github.com/remix-run/react-router/security/advisories/GHSA-cpj6-fhp6-mr6j)).
 
-### [](#patch-changes-2)Patch Changes
+### [](#patch-changes-3)Patch Changes
 
 *   `react-router` - Adjust approach for Pre-rendering/SPA Mode via headers ([#13453](https://github.com/remix-run/react-router/pull/13453))
 *   `react-router` - Update Single Fetch to also handle the 204 redirects used in `?_data` requests in Remix v2 ([#13364](https://github.com/remix-run/react-router/pull/13364))
@@ -641,7 +773,7 @@ Fixed 2 security vulnerabilities that could result in cache-poisoning attacks by
 
 Date: 2025-04-17
 
-### [](#patch-changes-3)Patch Changes
+### [](#patch-changes-4)Patch Changes
 
 *   `react-router` - When using the object-based `route.lazy` API, the `HydrateFallback` and `hydrateFallbackElement` properties are now skipped when lazy loading routes after hydration ([#13376](https://github.com/remix-run/react-router/pull/13376))
     
@@ -673,7 +805,7 @@ Date: 2025-04-17
     *   Now that we allow returning `undefined` from loaders, our prior check of `loaderData[routeId] !== undefined` was no longer sufficient and was changed to a `routeId in loaderData` check - these `null` values can cause issues for this new check
     *   ⚠️ This could be a "breaking bug fix" for you if you are doing manual SSR with `createStaticHandler()`/`<StaticRouterProvider>`, and using `context.loaderData` to control `<RouterProvider>` hydration behavior on the client
 
-### [](#unstable-changes-1)Unstable Changes
+### [](#unstable-changes-2)Unstable Changes
 
 ⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
 
@@ -713,12 +845,12 @@ We've introduced a new `route.lazy` API which gives you more granular control ov
 
 *   `react-router` - Add granular object-based API for `route.lazy` to support lazy loading of individual route properties ([#13294](https://github.com/remix-run/react-router/pull/13294))
 
-### [](#patch-changes-4)Patch Changes
+### [](#patch-changes-5)Patch Changes
 
 *   `@react-router/dev` - Update optional `wrangler` peer dependency range to support `wrangler` v4 ([#13258](https://github.com/remix-run/react-router/pull/13258))
 *   `@react-router/dev` - Reinstate dependency optimization in the child compiler to fix `depsOptimizer is required in dev mode` errors when using `vite-plugin-cloudflare` and importing Node.js builtins ([#13317](https://github.com/remix-run/react-router/pull/13317))
 
-### [](#unstable-changes-2)Unstable Changes
+### [](#unstable-changes-3)Unstable Changes
 
 ⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
 
@@ -751,14 +883,14 @@ Date: 2025-03-28
 
 Fixed a security vulnerability that allowed URL manipulation and potential cache pollution via the `Host` and `X-Forwarded-Host` headers due to inadequate port sanitization ([GHSA-4q56-crqp-v477/CVE-2025-31137](https://github.com/remix-run/react-router/security/advisories/GHSA-4q56-crqp-v477)).
 
-### [](#patch-changes-5)Patch Changes
+### [](#patch-changes-6)Patch Changes
 
 *   `react-router` - Dedupe calls to `route.lazy` functions ([#13260](https://github.com/remix-run/react-router/pull/13260))
 *   `@react-router/dev` - Fix path in prerender error messages ([#13257](https://github.com/remix-run/react-router/pull/13257))
 *   `@react-router/dev` - Fix typegen for virtual modules when `moduleDetection` is set to `force` ([#13267](https://github.com/remix-run/react-router/pull/13267))
 *   `@react-router/express` - Better validation of `x-forwarded-host` header to prevent potential security issues ([#13309](https://github.com/remix-run/react-router/pull/13309))
 
-### [](#unstable-changes-3)Unstable Changes
+### [](#unstable-changes-4)Unstable Changes
 
 ⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
 
@@ -782,14 +914,14 @@ Date: 2025-03-19
 
 *   `@react-router/dev` - Generate types for `virtual:react-router/server-build` module ([#13152](https://github.com/remix-run/react-router/pull/13152))
 
-### [](#patch-changes-6)Patch Changes
+### [](#patch-changes-7)Patch Changes
 
 *   `react-router` - Fix root loader data on initial load redirects in SPA mode ([#13222](https://github.com/remix-run/react-router/pull/13222))
 *   `react-router` - Load ancestor pathless/index routes in lazy route discovery for upwards non-eager-discovery routing ([#13203](https://github.com/remix-run/react-router/pull/13203))
 *   `react-router` - Fix `shouldRevalidate` behavior for `clientLoader`\-only routes in `ssr:true` apps ([#13221](https://github.com/remix-run/react-router/pull/13221))
 *   `@react-router/dev` - Fix conflicts with other Vite plugins that use the `configureServer` and/or `configurePreviewServer` hooks ([#13184](https://github.com/remix-run/react-router/pull/13184))
 
-### [](#unstable-changes-4)Unstable Changes
+### [](#unstable-changes-5)Unstable Changes
 
 ⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
 
@@ -824,7 +956,7 @@ Date: 2025-03-06
 
 *   Add `fetcherKey` as a parameter to `patchRoutesOnNavigation` ([#13061](https://github.com/remix-run/react-router/pull/13061))
 
-### [](#patch-changes-7)Patch Changes
+### [](#patch-changes-8)Patch Changes
 
 *   `react-router` - Detect and handle manifest-skew issues on new deploys during active sessions ([#13061](https://github.com/remix-run/react-router/pull/13061))
     *   In framework mode, Lazy Route Discovery will now detect manifest version mismatches in active sessions after a new deploy
@@ -847,7 +979,7 @@ Date: 2025-03-06
 *   `@react-router/dev` - Fix duplicated entries in typegen for layout routes and their corresponding index route ([#13140](https://github.com/remix-run/react-router/pull/13140))
 *   `@react-router/express` - Update `express` `peerDependency` to include v5 ([https://github.com/remix-run/react-router/pull/13064](https://github.com/remix-run/react-router/pull/13064)) ([#12961](https://github.com/remix-run/react-router/pull/12961))
 
-### [](#unstable-changes-5)Unstable Changes
+### [](#unstable-changes-6)Unstable Changes
 
 ⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
 
@@ -1167,7 +1299,7 @@ In order to use your build-time loader data during pre-rendering, we now also ex
 *   `@react-router/dev` - Allow a `loader` in the root route in SPA mode because it can be called/server-rendered at build time ([#12948](https://github.com/remix-run/react-router/pull/12948))
     *   `Route.HydrateFallbackProps` now also receives `loaderData`
 
-### [](#patch-changes-8)Patch Changes
+### [](#patch-changes-9)Patch Changes
 
 *   `react-router` - Disable Lazy Route Discovery for all `ssr:false` apps and not just "SPA Mode" because there is no runtime server to serve the search-param-configured `__manifest` requests ([#12894](https://github.com/remix-run/react-router/pull/12894))
     *   We previously only disabled this for "SPA Mode" but we realized it should apply to all `ssr:false` apps
@@ -1213,7 +1345,7 @@ In order to use your build-time loader data during pre-rendering, we now also ex
         *   For example, `/a/1/b/2/c/3` now generates a type like `{ id: 3 }`.
 *   `@react-router/dev` - Fix path to load `package.json` for `react-router --version` ([#13012](https://github.com/remix-run/react-router/pull/13012))
 
-### [](#unstable-changes-6)Unstable Changes
+### [](#unstable-changes-7)Unstable Changes
 
 ⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
 
@@ -1403,7 +1535,7 @@ This setting will raise an error if any route modules can't be split:
 
 Date: 2025-01-31
 
-### [](#patch-changes-9)Patch Changes
+### [](#patch-changes-10)Patch Changes
 
 *   `react-router` - Fix regression introduced in `7.1.4` via [#12800](https://github.com/remix-run/react-router/pull/12800) that caused issues navigating to hash routes inside splat routes for applications using Lazy Route Discovery (`patchRoutesOnNavigation`) ([#12927](https://github.com/remix-run/react-router/pull/12927))
 
@@ -1414,7 +1546,7 @@ Date: 2025-01-31
 
 Date: 2025-01-30
 
-### [](#patch-changes-10)Patch Changes
+### [](#patch-changes-11)Patch Changes
 
 *   `@react-router/dev` - Properly resolve Windows file paths to scan for Vite's dependency optimization when using the `unstable_optimizeDeps` future flag ([#12637](https://github.com/remix-run/react-router/pull/12637))
 *   `@react-router/dev` - Fix prerendering when using a custom server - previously we ended up trying to import the users custom server when we actually want to import the virtual server build module ([#12759](https://github.com/remix-run/react-router/pull/12759))
@@ -1435,7 +1567,7 @@ Date: 2025-01-30
 
 Date: 2025-01-17
 
-### [](#patch-changes-11)Patch Changes
+### [](#patch-changes-12)Patch Changes
 
 *   `@react-router/dev` - Fix `reveal` and `routes` CLI commands ([#12745](https://github.com/remix-run/react-router/pull/12745))
 
@@ -1446,7 +1578,7 @@ Date: 2025-01-17
 
 Date: 2025-01-16
 
-### [](#patch-changes-12)Patch Changes
+### [](#patch-changes-13)Patch Changes
 
 *   `react-router` - Fix issue with fetcher data cleanup in the data layer on fetcher unmount ([#12681](https://github.com/remix-run/react-router/pull/12681))
 *   `react-router` - Do not rely on `symbol` for filtering out `redirect` responses from loader data ([#12694](https://github.com/remix-run/react-router/pull/12694))
@@ -1469,7 +1601,7 @@ Date: 2025-01-16
 
 Date: 2024-12-23
 
-### [](#patch-changes-13)Patch Changes
+### [](#patch-changes-14)Patch Changes
 
 *   `@react-router/dev` - Fix for a crash when optional args are passed to the CLI ([#12609](https://github.com/remix-run/react-router/pull/12609))
 
@@ -1484,7 +1616,7 @@ Date: 2024-12-20
 
 *   Add support for Vite v6 ([#12469](https://github.com/remix-run/react-router/pull/12469))
 
-### [](#patch-changes-14)Patch Changes
+### [](#patch-changes-15)Patch Changes
 
 *   `react-router` - Throw unwrapped Single Fetch `redirect` to align with pre-Single Fetch behavior ([#12506](https://github.com/remix-run/react-router/pull/12506))
 *   `react-router` - Ignore redirects when inferring loader data types ([#12527](https://github.com/remix-run/react-router/pull/12527))
@@ -1516,7 +1648,7 @@ Date: 2024-12-20
 
 Date: 2024-12-02
 
-### [](#patch-changes-15)Patch Changes
+### [](#patch-changes-16)Patch Changes
 
 *   `react-router` - Temporarily only use one build in export map so packages can have a peer dependency on react router ([#12437](https://github.com/remix-run/react-router/pull/12437))
 *   `@react-router/dev` - Support `moduleResolution` `Node16` and `NodeNext` ([#12440](https://github.com/remix-run/react-router/pull/12440))
@@ -1532,7 +1664,7 @@ Date: 2024-12-02
 
 Date: 2024-11-22
 
-### [](#patch-changes-16)Patch Changes
+### [](#patch-changes-17)Patch Changes
 
 *   `@react-router/dev` - Ensure typegen file watcher is cleaned up when Vite dev server restarts ([#12331](https://github.com/remix-run/react-router/pull/12331))
 *   `@react-router/dev` - Pass route `error` to `ErrorBoundary` as a prop ([#12338](https://github.com/remix-run/react-router/pull/12338))
@@ -1925,7 +2057,7 @@ React Router v7 includes a new `prerender` config in the vite plugin to support 
     *   `.data` files are served with `Content-Type: text/x-turbo`
         *   For some reason, when adding this via `express.static`, it seems to also add a `Cache-Control: public, max-age=0` to `.data` files
 
-### [](#patch-changes-17)Patch Changes
+### [](#patch-changes-18)Patch Changes
 
 *   Replace `substr` with `substring` ([#12080](https://github.com/remix-run/react-router/pull/12080))
 *   `react-router` - Fix redirects returned from loaders/actions using `data()` ([#12021](https://github.com/remix-run/react-router/pull/12021))
@@ -1954,7 +2086,7 @@ React Router v7 includes a new `prerender` config in the vite plugin to support 
 
 Date: 2025-05-20
 
-### [](#patch-changes-18)Patch Changes
+### [](#patch-changes-19)Patch Changes
 
 *   Partially revert optimization added in `6.29.0` to reduce calls to `matchRoutes` because it surfaced other issues ([#13623](https://github.com/remix-run/react-router/pull/13623))
 *   Stop logging invalid warning when `v7_relativeSplatPath` is set to `false` ([#13502](https://github.com/remix-run/react-router/pull/13502))
@@ -1970,7 +2102,7 @@ Date: 2025-02-27
 
 *   Add `fetcherKey` as a parameter to `patchRoutesOnNavigation` ([#13109](https://github.com/remix-run/react-router/pull/13109))
 
-### [](#patch-changes-19)Patch Changes
+### [](#patch-changes-20)Patch Changes
 
 *   Fix regression introduced in `6.29.0` via [#12169](https://github.com/remix-run/react-router/pull/12169) that caused issues navigating to hash routes inside splat routes for applications using Lazy Route Discovery (`patchRoutesOnNavigation`) ([#13108](https://github.com/remix-run/react-router/pull/13108))
 
@@ -1986,7 +2118,7 @@ Date: 2025-01-30
 *   Provide the request `signal` as a parameter to `patchRoutesOnNavigation` ([#12900](https://github.com/remix-run/react-router/pull/12900))
     *   This can be used to abort any manifest fetches if the in-flight navigation/fetcher is aborted
 
-### [](#patch-changes-20)Patch Changes
+### [](#patch-changes-21)Patch Changes
 
 *   Do not log v7 deprecation warnings in production builds ([#12794](https://github.com/remix-run/react-router/pull/12794))
 *   Properly bubble headers when throwing a `data()` result ([#12845](https://github.com/remix-run/react-router/pull/12845))
@@ -2000,7 +2132,7 @@ Date: 2025-01-30
 
 Date: 2025-01-16
 
-### [](#patch-changes-21)Patch Changes
+### [](#patch-changes-22)Patch Changes
 
 *   Fix manual fetcher `key` usage when not opted into `future.v7_fetcherPersist` ([#12674](https://github.com/remix-run/react-router/pull/12674))
 *   Fix issue with fetcher data cleanup in the data layer on fetcher unmount ([#12674](https://github.com/remix-run/react-router/pull/12674))
@@ -2012,7 +2144,7 @@ Date: 2025-01-16
 
 Date: 2024-12-20
 
-### [](#patch-changes-22)Patch Changes
+### [](#patch-changes-23)Patch Changes
 
 *   Allow users to opt out of v7 deprecation warnings by setting flags to `false` ([#12441](https://github.com/remix-run/react-router/pull/12441))
 
@@ -2033,7 +2165,7 @@ Date: 2024-11-06
     *   Add deprecation warnings to `json`/`defer` in favor of returning raw objects
         *   These methods will be removed in React Router v7
 
-### [](#patch-changes-23)Patch Changes
+### [](#patch-changes-24)Patch Changes
 
 *   Update JSDoc URLs for new website structure (add /v6/ segment) ([#12141](https://github.com/remix-run/react-router/pull/12141))
 
@@ -2063,7 +2195,7 @@ This release stabilizes a handful of "unstable" APIs in preparation for the [pen
 *   Stabilize `unstable_patchRoutesOnNavigation` ([#11973](https://github.com/remix-run/react-router/pull/11973))
     *   Add new `PatchRoutesOnNavigationFunctionArgs` type for convenience ([#11967](https://github.com/remix-run/react-router/pull/11967))
 
-### [](#patch-changes-24)Patch Changes
+### [](#patch-changes-25)Patch Changes
 
 *   Fix bug when submitting to the current contextual route (parent route with an index child) when an `?index` param already exists from a prior submission ([#12003](https://github.com/remix-run/react-router/pull/12003))
 *   Fix `useFormAction` bug - when removing `?index` param it would not keep other non-Remix `index` params ([#12003](https://github.com/remix-run/react-router/pull/12003))
@@ -2090,7 +2222,7 @@ This release stabilizes a handful of "unstable" APIs in preparation for the [pen
 
 Date: 2024-09-09
 
-### [](#patch-changes-25)Patch Changes
+### [](#patch-changes-26)Patch Changes
 
 *   Update the `unstable_dataStrategy` API to allow for more advanced implementations ([#11943](https://github.com/remix-run/react-router/pull/11943))
     *   ⚠️ If you have already adopted `unstable_dataStrategy`, please review carefully as this includes breaking changes to this API
@@ -2113,7 +2245,7 @@ Date: 2024-09-09
 
 Date: 2024-08-15
 
-### [](#patch-changes-26)Patch Changes
+### [](#patch-changes-27)Patch Changes
 
 *   Rename `unstable_patchRoutesOnMiss` to `unstable_patchRoutesOnNavigation` to match new behavior ([#11888](https://github.com/remix-run/react-router/pull/11888))
 *   Update `unstable_patchRoutesOnNavigation` logic so that we call the method when we match routes with dynamic param or splat segments in case there exists a higher-scoring static route that we've not yet discovered ([#11883](https://github.com/remix-run/react-router/pull/11883))
@@ -2136,7 +2268,7 @@ Date: 2024-08-01
     *   ⚠️ This removes the `status` field from `HandlerResult`
         *   If you need to return a specific `status` from `unstable_dataStrategy` you should instead do so via `unstable_data()`
 
-### [](#patch-changes-27)Patch Changes
+### [](#patch-changes-28)Patch Changes
 
 *   Fix internal cleanup of interrupted fetchers to avoid invalid revalidations on navigations ([#11839](https://github.com/remix-run/react-router/pull/11839))
 *   Fix initial hydration behavior when using `future.v7_partialHydration` along with `unstable_patchRoutesOnMiss` ([#11838](https://github.com/remix-run/react-router/pull/11838))
@@ -2149,7 +2281,7 @@ Date: 2024-08-01
 
 Date: 2024-07-17
 
-### [](#patch-changes-28)Patch Changes
+### [](#patch-changes-29)Patch Changes
 
 *   Memoize some `RouterProvider` internals to reduce unnecessary re-renders ([#11803](https://github.com/remix-run/react-router/pull/11803))
 
@@ -2173,7 +2305,7 @@ This release stabilizes the `future.unstable_skipActionErrorRevalidation` flag i
 
 *   Stabilize `future.unstable_skipActionErrorRevalidation` as `future.v7_skipActionErrorRevalidation` ([#11769](https://github.com/remix-run/react-router/pull/11769))
 
-### [](#patch-changes-29)Patch Changes
+### [](#patch-changes-30)Patch Changes
 
 *   Fix regression and properly decode paths inside `useMatch` so matches/params reflect decoded params ([#11789](https://github.com/remix-run/react-router/pull/11789))
 *   Fix bubbling of errors thrown from `unstable_patchRoutesOnMiss` ([#11786](https://github.com/remix-run/react-router/pull/11786))
@@ -2186,7 +2318,7 @@ This release stabilizes the `future.unstable_skipActionErrorRevalidation` flag i
 
 Date: 2024-07-03
 
-### [](#patch-changes-30)Patch Changes
+### [](#patch-changes-31)Patch Changes
 
 *   Remove `polyfill.io` reference from warning message because the domain was sold and has since been determined to serve malware ([#11741](https://github.com/remix-run/react-router/pull/11741))
     *   See [https://sansec.io/research/polyfill-supply-chain-attack](https://sansec.io/research/polyfill-supply-chain-attack)
@@ -2237,7 +2369,7 @@ Here's a very small example, but please refer to the [documentation](https://rea
 
 *   Add support for Lazy Route Discovery (a.k.a. "Fog of War") ([#11626](https://github.com/remix-run/react-router/pull/11626))
 
-### [](#patch-changes-31)Patch Changes
+### [](#patch-changes-32)Patch Changes
 
 *   Fix `fetcher.submit` types - remove incorrect `navigate`/`fetcherKey`/`unstable_viewTransition` options because they are only relevant for `useSubmit` ([#11631](https://github.com/remix-run/react-router/pull/11631))
 *   Allow falsy `location.state` values passed to `<StaticRouter>` ([#11495](https://github.com/remix-run/react-router/pull/11495))
@@ -2249,7 +2381,7 @@ Here's a very small example, but please refer to the [documentation](https://rea
 
 Date: 2024-05-10
 
-### [](#patch-changes-32)Patch Changes
+### [](#patch-changes-33)Patch Changes
 
 *   Allow `undefined` to be resolved through `<Await>` ([#11513](https://github.com/remix-run/react-router/pull/11513))
 *   Add defensive `document` check when checking for `document.startViewTransition` availability ([#11544](https://github.com/remix-run/react-router/pull/11544))
@@ -2290,7 +2422,7 @@ With this flag enabled, `action`'s that return/throw a `4xx`/`5xx` response stat
 
 Date: 2024-03-07
 
-### [](#patch-changes-33)Patch Changes
+### [](#patch-changes-34)Patch Changes
 
 *   Fix a `future.v7_partialHydration` bug that would re-run loaders below the boundary on hydration if SSR loader errors bubbled to a parent boundary ([#11324](https://github.com/remix-run/react-router/pull/11324))
 *   Fix a `future.v7_partialHydration` bug that would consider the router uninitialized if a route did not have a loader ([#11325](https://github.com/remix-run/react-router/pull/11325))
@@ -2302,7 +2434,7 @@ Date: 2024-03-07
 
 Date: 2024-02-28
 
-### [](#patch-changes-34)Patch Changes
+### [](#patch-changes-35)Patch Changes
 
 *   Preserve hydrated errors during partial hydration runs ([#11305](https://github.com/remix-run/react-router/pull/11305))
 
@@ -2313,7 +2445,7 @@ Date: 2024-02-28
 
 Date: 2024-02-16
 
-### [](#patch-changes-35)Patch Changes
+### [](#patch-changes-36)Patch Changes
 
 *   Fix encoding/decoding issues with pre-encoded dynamic parameter values ([#11199](https://github.com/remix-run/react-router/pull/11199))
 
@@ -2344,7 +2476,7 @@ Starting with version `6.22.0`, sites using `react-router-dom` will begin adding
 *   Add a `createStaticHandler` `future.v7_throwAbortReason` flag to throw `request.signal.reason` (defaults to a `DOMException`) when a request is aborted instead of an `Error` such as `new Error("query() call aborted: GET /path")` ([#11104](https://github.com/remix-run/react-router/pull/11104))
     *   Please note that `DOMException` was added in Node v17 so you will not get a `DOMException` on Node 16 and below.
 
-### [](#patch-changes-36)Patch Changes
+### [](#patch-changes-37)Patch Changes
 
 *   Respect the `ErrorResponse` status code if passed to `getStaticContextFormError` ([#11213](https://github.com/remix-run/react-router/pull/11213))
 
@@ -2355,7 +2487,7 @@ Starting with version `6.22.0`, sites using `react-router-dom` will begin adding
 
 Date: 2024-01-18
 
-### [](#patch-changes-37)Patch Changes
+### [](#patch-changes-38)Patch Changes
 
 *   Fix `NavLink` `isPending` when a `basename` is used ([#11195](https://github.com/remix-run/react-router/pull/11195))
 *   Remove leftover `unstable_` prefix from `Blocker`/`BlockerFunction` types ([#11187](https://github.com/remix-run/react-router/pull/11187))
@@ -2367,7 +2499,7 @@ Date: 2024-01-18
 
 Date: 2024-01-11
 
-### [](#patch-changes-38)Patch Changes
+### [](#patch-changes-39)Patch Changes
 
 *   Leverage `useId` for internal fetcher keys when available ([#11166](https://github.com/remix-run/react-router/pull/11166))
 *   Fix bug where dashes were not picked up in dynamic parameter names ([#11160](https://github.com/remix-run/react-router/pull/11160))
@@ -2380,7 +2512,7 @@ Date: 2024-01-11
 
 Date: 2023-12-21
 
-### [](#patch-changes-39)Patch Changes
+### [](#patch-changes-40)Patch Changes
 
 *   Fix bug with `route.lazy` not working correctly on initial SPA load when `v7_partialHydration` is specified ([#11121](https://github.com/remix-run/react-router/pull/11121))
 *   Fix bug preventing revalidation from occurring for persisted fetchers unmounted during the `submitting` phase ([#11102](https://github.com/remix-run/react-router/pull/11102))
@@ -2412,7 +2544,7 @@ We added a new `future.v7_partialHydration` future flag for the `@remix-run/rout
 *   Add a new `future.v7_relativeSplatPath` flag to implement a breaking bug fix to relative routing when inside a splat route. ([#11087](https://github.com/remix-run/react-router/pull/11087))
 *   Add a new `future.v7_partialHydration` future flag that enables partial hydration of a data router when Server-Side Rendering ([#11033](https://github.com/remix-run/react-router/pull/11033))
 
-### [](#patch-changes-40)Patch Changes
+### [](#patch-changes-41)Patch Changes
 
 *   Properly handle falsy error values in `ErrorBoundary`'s ([#11071](https://github.com/remix-run/react-router/pull/11071))
 *   Catch and bubble errors thrown when trying to unwrap responses from `loader`/`action` functions ([#11061](https://github.com/remix-run/react-router/pull/11061))
@@ -2425,7 +2557,7 @@ We added a new `future.v7_partialHydration` future flag for the `@remix-run/rout
 
 Date: 2023-12-01
 
-### [](#patch-changes-41)Patch Changes
+### [](#patch-changes-42)Patch Changes
 
 *   Revert the `useResolvedPath` fix for splat routes due to a large number of applications that were relying on the buggy behavior (see [#11052](https://github.com/remix-run/react-router/issues/11052#issuecomment-1836589329)) ([#11078](https://github.com/remix-run/react-router/pull/11078))
     *   We plan to re-introduce this fix behind a future flag in the next minor version (see [this comment](https://github.com/remix-run/react-router/issues/11052#issuecomment-1836589329))
@@ -2444,7 +2576,7 @@ Date: 2023-11-22
 
 *   Export the `PathParam` type from the public API ([#10719](https://github.com/remix-run/react-router/pull/10719))
 
-### [](#patch-changes-42)Patch Changes
+### [](#patch-changes-43)Patch Changes
 
 *   Do not revalidate unmounted fetchers when `v7_fetcherPersist` is enabled ([#11044](https://github.com/remix-run/react-router/pull/11044))
 *   Fix bug with `resolveTo` path resolution in splat routes ([#11045](https://github.com/remix-run/react-router/pull/11045))
@@ -2479,7 +2611,7 @@ This release brings a new `unstable_flushSync` option to the imperative APIs (`u
 *   Remove the `unstable_` prefix from the [`useBlocker`](https://reactrouter.com/v6/hooks/use-blocker) hook as it's been in use for enough time that we are confident in the API ([#10991](https://github.com/remix-run/react-router/pull/10991))
     *   We do not plan to remove the prefix from `unstable_usePrompt` due to differences in how browsers handle `window.confirm` that prevent React Router from guaranteeing consistent/correct behavior
 
-### [](#patch-changes-43)Patch Changes
+### [](#patch-changes-44)Patch Changes
 
 *   Fix `useActionData` so it returns proper contextual action data and not _any_ action data in the tree ([#11023](https://github.com/remix-run/react-router/pull/11023))
     
@@ -2553,7 +2685,7 @@ Per the same [RFC](https://github.com/remix-run/remix/discussions/7698) as above
 *   Add `future.v7_fetcherPersist` flag ([#10962](https://github.com/remix-run/react-router/pull/10962))
 *   Add support for optional path segments in `matchPath` ([#10768](https://github.com/remix-run/react-router/pull/10768))
 
-### [](#patch-changes-44)Patch Changes
+### [](#patch-changes-45)Patch Changes
 
 *   Fix the `future` prop on `BrowserRouter`, `HashRouter` and `MemoryRouter` so that it accepts a `Partial<FutureConfig>` instead of requiring all flags to be included ([#10962](https://github.com/remix-run/react-router/pull/10962))
 *   Fix `router.getFetcher`/`router.deleteFetcher` type definitions which incorrectly specified `key` as an optional parameter ([#10960](https://github.com/remix-run/react-router/pull/10960))
@@ -2611,7 +2743,7 @@ For more information on using the View Transitions API, please refer to the [Smo
 
 *   Add support for view transitions ([#10916](https://github.com/remix-run/react-router/pull/10916))
 
-### [](#patch-changes-45)Patch Changes
+### [](#patch-changes-46)Patch Changes
 
 *   Log a warning and fail gracefully in `ScrollRestoration` when `sessionStorage` is unavailable ([#10848](https://github.com/remix-run/react-router/pull/10848))
 *   Fix `RouterProvider` `future` prop type to be a `Partial<FutureConfig>` so that not all flags must be specified ([#10900](https://github.com/remix-run/react-router/pull/10900))
@@ -2635,7 +2767,7 @@ Date: 2023-09-13
 *   Export `ShouldRevalidateFunctionArgs` interface ([#10797](https://github.com/remix-run/react-router/pull/10797))
 *   Removed private/internal APIs only required for the Remix v1 backwards compatibility layer and no longer needed in Remix v2 (`_isFetchActionRedirect`, `_hasFetcherDoneAnything`) ([#10715](https://github.com/remix-run/react-router/pull/10715))
 
-### [](#patch-changes-46)Patch Changes
+### [](#patch-changes-47)Patch Changes
 
 *   Properly encode rendered URIs in server rendering to avoid hydration errors ([#10769](https://github.com/remix-run/react-router/pull/10769))
 *   Add method/url to error message on aborted `query`/`queryRoute` calls ([#10793](https://github.com/remix-run/react-router/pull/10793))
@@ -2653,7 +2785,7 @@ Date: 2023-08-10
 
 *   Add's a new `redirectDocument()` function which allows users to specify that a redirect from a `loader`/`action` should trigger a document reload (via `window.location`) instead of attempting to navigate to the redirected location via React Router ([#10705](https://github.com/remix-run/react-router/pull/10705))
 
-### [](#patch-changes-47)Patch Changes
+### [](#patch-changes-48)Patch Changes
 
 *   Ensure `useRevalidator` is referentially stable across re-renders if revalidations are not actively occurring ([#10707](https://github.com/remix-run/react-router/pull/10707))
 *   Ensure hash history always includes a leading slash on hash pathnames ([#10753](https://github.com/remix-run/react-router/pull/10753))
@@ -2670,7 +2802,7 @@ Date: 2023-08-10
 
 Date: 2023-07-17
 
-### [](#patch-changes-48)Patch Changes
+### [](#patch-changes-49)Patch Changes
 
 *   Add missing `<Form state>` prop to populate `history.state` on submission navigations ([#10630](https://github.com/remix-run/react-router/pull/10630))
 *   Trigger an error if a `defer` promise resolves/rejects with `undefined` in order to match the behavior of loaders and actions which must return a value or `null` ([#10690](https://github.com/remix-run/react-router/pull/10690))
@@ -2687,7 +2819,7 @@ Date: 2023-07-17
 
 Date: 2023-06-30
 
-### [](#patch-changes-49)Patch Changes
+### [](#patch-changes-50)Patch Changes
 
 *   Fix loop in `unstable_useBlocker` when used with an unstable blocker function ([#10652](https://github.com/remix-run/react-router/pull/10652))
 *   Fix issues with reused blockers on subsequent navigations ([#10656](https://github.com/remix-run/react-router/pull/10656))
@@ -2763,7 +2895,7 @@ This behavior will likely change in v7 so it's best to make any JSON object subm
 
 *   Add support for `application/json` and `text/plain` encodings for `useSubmit`/`fetcher.submit`. To reflect these additional types, `useNavigation`/`useFetcher` now also contain `navigation.json`/`navigation.text` and `fetcher.json`/`fetcher.text` which include the json/text submission if applicable. ([#10413](https://github.com/remix-run/react-router/pull/10413))
 
-### [](#patch-changes-50)Patch Changes
+### [](#patch-changes-51)Patch Changes
 
 *   When submitting a form from a `submitter` element, prefer the built-in `new FormData(form, submitter)` instead of the previous manual approach in modern browsers (those that support the new `submitter` parameter) ([#9865](https://github.com/remix-run/react-router/pull/9865))
     *   For browsers that don't support it, we continue to just append the submit button's entry to the end, and we also add rudimentary support for `type="image"` buttons
@@ -2817,7 +2949,7 @@ We recommend folks adopt this flag sooner rather than later to be better compati
 
 *   Move `React.startTransition` usage behinds a future flag ([#10596](https://github.com/remix-run/react-router/pull/10596))
 
-### [](#patch-changes-51)Patch Changes
+### [](#patch-changes-52)Patch Changes
 
 *   Work around webpack/terser `React.startTransition` minification bug in production mode ([#10588](https://github.com/remix-run/react-router/pull/10588))
 
@@ -2830,7 +2962,7 @@ Date: 2023-06-08
 
 > \[!WARNING\] Please use version `6.13.0` or later instead of `6.12.0`/`6.12.1`. These versions suffered from some Webpack build/minification issues resulting failed builds or invalid minified code in your production bundles. See [#10569](https://github.com/remix-run/react-router/pull/10569) and [#10579](https://github.com/remix-run/react-router/issues/10579) for more details.
 
-### [](#patch-changes-52)Patch Changes
+### [](#patch-changes-53)Patch Changes
 
 *   Adjust feature detection of `React.startTransition` to fix webpack + react 17 compilation error ([#10569](https://github.com/remix-run/react-router/pull/10569))
 
@@ -2853,7 +2985,7 @@ With `6.12.0` we've added better support for suspending components by wrapping t
 
 *   Wrap internal router state updates with `React.startTransition` ([#10438](https://github.com/remix-run/react-router/pull/10438))
 
-### [](#patch-changes-53)Patch Changes
+### [](#patch-changes-54)Patch Changes
 
 *   Allow fetcher revalidations to complete if submitting fetcher is deleted ([#10535](https://github.com/remix-run/react-router/pull/10535))
 *   Re-throw `DOMException` (`DataCloneError`) when attempting to perform a `PUSH` navigation with non-serializable state. ([#10427](https://github.com/remix-run/react-router/pull/10427))
@@ -2869,7 +3001,7 @@ With `6.12.0` we've added better support for suspending components by wrapping t
 
 Date: 2023-05-17
 
-### [](#patch-changes-54)Patch Changes
+### [](#patch-changes-55)Patch Changes
 
 *   Fix `basename` duplication in descendant `<Routes>` inside a `<RouterProvider>` ([#10492](https://github.com/remix-run/react-router/pull/10492))
 *   Fix bug where initial data load would not kick off when hash is present ([#10493](https://github.com/remix-run/react-router/pull/10493))
@@ -2883,7 +3015,7 @@ Date: 2023-05-17
 
 Date: 2023-05-03
 
-### [](#patch-changes-55)Patch Changes
+### [](#patch-changes-56)Patch Changes
 
 *   Fix usage of `Component` API within descendant `<Routes>` ([#10434](https://github.com/remix-run/react-router/pull/10434))
 *   Fix bug when calling `useNavigate` from `<Routes>` inside a `<RouterProvider>` ([#10432](https://github.com/remix-run/react-router/pull/10432))
@@ -2905,7 +3037,7 @@ Date: 2023-04-28
 *   Updated dependencies:
     *   `@remix-run/router@1.6.0` ([Changelog](https://github.com/remix-run/react-router/blob/main/packages/router/CHANGELOG.md#160))
 
-### [](#patch-changes-56)Patch Changes
+### [](#patch-changes-57)Patch Changes
 
 *   When using a `RouterProvider`, `useNavigate`/`useSubmit`/`fetcher.submit` are now stable across location changes, since we can handle relative routing via the `@remix-run/router` instance and get rid of our dependence on `useLocation()` ([#10336](https://github.com/remix-run/react-router/pull/10336))
     *   When using `BrowserRouter`, these hooks remain unstable across location changes because they still rely on `useLocation()`
@@ -2954,7 +3086,7 @@ The first future flag being introduced is `future.v7_normalizeFormMethod` which 
     *   `useNavigation().formMethod` is UPPERCASE
     *   `useFetcher().formMethod` is UPPERCASE
 
-### [](#patch-changes-57)Patch Changes
+### [](#patch-changes-58)Patch Changes
 
 *   Fix `createStaticHandler` to also check for `ErrorBoundary` on routes in addition to `errorElement` ([#10190](https://github.com/remix-run/react-router/pull/10190))
 *   Fix route ID generation when using Fragments in `createRoutesFromElements` ([#10193](https://github.com/remix-run/react-router/pull/10193))
@@ -3071,7 +3203,7 @@ An example of this in action can be found in the [`examples/lazy-loading-router-
 *   Add support for `route.Component`/`route.ErrorBoundary` properties ([#10045](https://github.com/remix-run/react-router/pull/10045))
 *   Add support for `route.lazy` ([#10045](https://github.com/remix-run/react-router/pull/10045))
 
-### [](#patch-changes-58)Patch Changes
+### [](#patch-changes-59)Patch Changes
 
 *   Improve memoization for context providers to avoid unnecessary re-renders ([#9983](https://github.com/remix-run/react-router/pull/9983))
 *   Fix `generatePath` incorrectly applying parameters in some cases ([#10078](https://github.com/remix-run/react-router/pull/10078))
@@ -3084,7 +3216,7 @@ An example of this in action can be found in the [`examples/lazy-loading-router-
 
 Date: 2023-02-27
 
-### [](#patch-changes-59)Patch Changes
+### [](#patch-changes-60)Patch Changes
 
 *   Treat same-origin absolute URLs in `<Link to>` as external if they are outside of the router `basename` ([#10135](https://github.com/remix-run/react-router/pull/10135))
 *   Correctly perform a hard redirect for same-origin absolute URLs outside of the router `basename` ([#10076](https://github.com/remix-run/react-router/pull/10076))
@@ -3101,7 +3233,7 @@ Date: 2023-02-27
 
 Date: 2023-02-06
 
-### [](#patch-changes-60)Patch Changes
+### [](#patch-changes-61)Patch Changes
 
 *   Remove inaccurate console warning for POP navigations and update active blocker logic ([#10030](https://github.com/remix-run/react-router/pull/10030))
 *   Only check for differing origin on absolute URL redirects ([#10033](https://github.com/remix-run/react-router/pull/10033))
@@ -3124,7 +3256,7 @@ Support absolute URLs in `<Link to>`. If the URL is for the current origin, it w
     <Link to="https://www.currentorigin.com/path"> {/* Client-side navigation */}
     
 
-### [](#patch-changes-61)Patch Changes
+### [](#patch-changes-62)Patch Changes
 
 *   Fixes 2 separate issues for revalidating fetcher `shouldRevalidate` calls ([#9948](https://github.com/remix-run/react-router/pull/9948))
     *   The `shouldRevalidate` function was only being called for _explicit_ revalidation scenarios (after a mutation, manual `useRevalidator` call, or an `X-Remix-Revalidate` header used for cookie setting in Remix). It was not properly being called on _implicit_ revalidation scenarios that also apply to navigation `loader` revalidation, such as a change in search params or clicking a link for the page we're already on. It's now correctly called in those additional scenarios.
@@ -3151,7 +3283,7 @@ Date: 2023-01-18
 *   Add `unstable_useBlocker`/`unstable_usePrompt` hooks for blocking navigations within the app's location origin ([#9709](https://github.com/remix-run/react-router/pull/9709), [#9932](https://github.com/remix-run/react-router/pull/9932))
 *   Add `preventScrollReset` prop to `<Form>` ([#9886](https://github.com/remix-run/react-router/pull/9886))
 
-### [](#patch-changes-62)Patch Changes
+### [](#patch-changes-63)Patch Changes
 
 *   Added pass-through event listener options argument to `useBeforeUnload` ([#9709](https://github.com/remix-run/react-router/pull/9709))
 *   Fix `generatePath` when optional params are present ([#9764](https://github.com/remix-run/react-router/pull/9764))
@@ -3169,7 +3301,7 @@ Date: 2023-01-18
 
 Date: 2023-01-09
 
-### [](#patch-changes-63)Patch Changes
+### [](#patch-changes-64)Patch Changes
 
 *   Ensure `useId` consistency during SSR ([#9805](https://github.com/remix-run/react-router/pull/9805))
 
@@ -3180,7 +3312,7 @@ Date: 2023-01-09
 
 Date: 2022-12-23
 
-### [](#patch-changes-64)Patch Changes
+### [](#patch-changes-65)Patch Changes
 
 *   Include submission info in `shouldRevalidate` on action redirects ([#9777](https://github.com/remix-run/react-router/pull/9777), [#9782](https://github.com/remix-run/react-router/pull/9782))
 *   Reset `actionData` on action redirect to current location ([#9772](https://github.com/remix-run/react-router/pull/9772))
@@ -3201,7 +3333,7 @@ This minor release is primarily to stabilize our SSR APIs for Data Routers now t
 *   Remove `unstable_` prefix from `createStaticHandler`/`createStaticRouter`/`StaticRouterProvider` ([#9738](https://github.com/remix-run/react-router/pull/9738))
 *   Add `useBeforeUnload()` hook ([#9664](https://github.com/remix-run/react-router/pull/9664))
 
-### [](#patch-changes-65)Patch Changes
+### [](#patch-changes-66)Patch Changes
 
 *   Support uppercase `<Form method>` and `useSubmit` method values ([#9664](https://github.com/remix-run/react-router/pull/9664))
 *   Fix `<button formmethod>` form submission overriddes ([#9664](https://github.com/remix-run/react-router/pull/9664))
@@ -3246,7 +3378,7 @@ This release introduces support for [Optional Route Segments](https://github.com
 
 *   Allows optional routes and optional static segments ([#9650](https://github.com/remix-run/react-router/pull/9650))
 
-### [](#patch-changes-66)Patch Changes
+### [](#patch-changes-67)Patch Changes
 
 *   Stop incorrectly matching on partial named parameters, i.e. `<Route path="prefix-:param">`, to align with how splat parameters work. If you were previously relying on this behavior then it's recommended to extract the static portion of the path at the `useParams` call site: ([#9506](https://github.com/remix-run/react-router/pull/9506))
 
@@ -3282,7 +3414,7 @@ This release introduces support for [Optional Route Segments](https://github.com
 
 Date: 2022-12-07
 
-### [](#patch-changes-67)Patch Changes
+### [](#patch-changes-68)Patch Changes
 
 *   Fix requests sent to revalidating loaders so they reflect a `GET` request ([#9680](https://github.com/remix-run/react-router/pull/9680))
 *   Remove `instanceof Response` checks in favor of `isResponse` ([#9690](https://github.com/remix-run/react-router/pull/9690))
@@ -3297,7 +3429,7 @@ Date: 2022-12-07
 
 Date: 2022-11-30
 
-### [](#patch-changes-68)Patch Changes
+### [](#patch-changes-69)Patch Changes
 
 *   Throw an error if an `action`/`loader` function returns `undefined` as revalidations need to know whether the loader has previously been executed. `undefined` also causes issues during SSR stringification for hydration. You should always ensure your `loader`/`action` returns a value, and you may return `null` if you don't wish to return anything. ([#9511](https://github.com/remix-run/react-router/pull/9511))
 *   Properly handle redirects to external domains ([#9590](https://github.com/remix-run/react-router/pull/9590), [#9654](https://github.com/remix-run/react-router/pull/9654))
@@ -3318,7 +3450,7 @@ Date: 2022-11-30
 
 Date: 2022-11-01
 
-### [](#patch-changes-69)Patch Changes
+### [](#patch-changes-70)Patch Changes
 
 *   Generate correct `<a href>` values when using `createHashRouter` ([#9409](https://github.com/remix-run/react-router/pull/9409))
 *   Better handle encoding/matching with special characters in URLs and route paths ([#9477](https://github.com/remix-run/react-router/pull/9477), [#9496](https://github.com/remix-run/react-router/pull/9496))
@@ -3339,7 +3471,7 @@ Date: 2022-11-01
 
 Date: 2022-10-06
 
-### [](#patch-changes-70)Patch Changes
+### [](#patch-changes-71)Patch Changes
 
 *   Respect `basename` in `useFormAction` ([#9352](https://github.com/remix-run/react-router/pull/9352))
 *   Fix `IndexRouteObject` and `NonIndexRouteObject` types to make `hasErrorElement` optional ([#9394](https://github.com/remix-run/react-router/pull/9394))
@@ -3353,7 +3485,7 @@ Date: 2022-10-06
 
 Date: 2022-09-22
 
-### [](#patch-changes-71)Patch Changes
+### [](#patch-changes-72)Patch Changes
 
 *   Preserve state from `initialEntries` ([#9288](https://github.com/remix-run/react-router/pull/9288))
 *   Preserve `?index` for fetcher get submissions to index routes ([#9312](https://github.com/remix-run/react-router/pull/9312))
@@ -3388,7 +3520,7 @@ Whoa this is a big one! `6.4.0` brings all the data loading and mutation APIs ov
 *   Manage scroll position with `<ScrollRestoration>`
 *   Perform path-relative navigations with `<Link relative="path">` ([#9160](https://github.com/remix-run/react-router/pull/9160))
 
-### [](#patch-changes-72)Patch Changes
+### [](#patch-changes-73)Patch Changes
 
 *   Path resolution is now trailing slash agnostic ([#8861](https://github.com/remix-run/react-router/pull/8861))
 *   `useLocation` returns the scoped location inside a `<Routes location>` component ([#9094](https://github.com/remix-run/react-router/pull/9094))
@@ -3412,7 +3544,7 @@ Date: 2022-03-31
 
 Date: 2022-02-28
 
-### [](#patch-changes-73)Patch Changes
+### [](#patch-changes-74)Patch Changes
 
 *   Fixed nested splat routes that begin with special URL-safe characters ([#8563](https://github.com/remix-run/react-router/pull/8563))
 *   Fixed a bug where index routes were missing route context in some cases ([#8497](https://github.com/remix-run/react-router/pull/8497))
@@ -3424,7 +3556,7 @@ Date: 2022-02-28
 
 Date: 2021-12-17
 
-### [](#patch-changes-74)Patch Changes
+### [](#patch-changes-75)Patch Changes
 
 *   This release updates the internal `history` dependency to `5.2.0`.
 
@@ -3439,7 +3571,7 @@ Date: 2021-12-17
 
 *   We now use statically analyzable CJS exports. This enables named imports in Node ESM scripts ([See the commit](https://github.com/remix-run/react-router/commit/29c7fc8b5f853b0b06ecd0f5682a9bbe6eca0715)).
 
-### [](#patch-changes-75)Patch Changes
+### [](#patch-changes-76)Patch Changes
 
 *   Fixed the `RouteProps` `element` type, which should be a `ReactNode` ([#8473](https://github.com/remix-run/react-router/pull/8473))
 *   Fixed a bug with `useOutlet` for top-level routes ([#8483](https://github.com/remix-run/react-router/pull/8483))
@@ -3451,7 +3583,7 @@ Date: 2021-12-17
 
 Date: 2021-12-11
 
-### [](#patch-changes-76)Patch Changes
+### [](#patch-changes-77)Patch Changes
 
 *   In v6.1.0 we inadvertently shipped a new, undocumented API that will likely introduce bugs ([#7586](https://github.com/remix-run/react-router/pull/7586)). We have flagged `HistoryRouter` as `unstable_HistoryRouter`, as this API will likely need to change before a new major release.
 
@@ -3468,7 +3600,7 @@ Date: 2021-12-10
 *   `<NavLink>` can now receive a child function for access to its props. ([#8164](https://github.com/remix-run/react-router/pull/8164))
 *   Improved TypeScript signature for `useMatch` and `matchPath`. For example, when you call `useMatch("foo/:bar/:baz")`, the path is parsed and the return type will be `PathMatch<"bar" | "baz">`. ([#8030](https://github.com/remix-run/react-router/pull/8030))
 
-### [](#patch-changes-77)Patch Changes
+### [](#patch-changes-78)Patch Changes
 
 *   Fixed a bug that broke support for base64 encoded IDs on nested routes ([#8291](https://github.com/remix-run/react-router/pull/8291))
 *   A few error message improvements ([#8202](https://github.com/remix-run/react-router/pull/8202))
@@ -3480,7 +3612,7 @@ Date: 2021-12-10
 
 Date: 2021-11-09
 
-### [](#patch-changes-78)Patch Changes
+### [](#patch-changes-79)Patch Changes
 
 *   Added the `reloadDocument` prop to `<Link>`. This allows `<Link>` to function like a normal anchor tag by reloading the document after navigation while maintaining the relative `to` resolution ([#8283](https://github.com/remix-run/react-router/pull/8283))
 
@@ -3491,7 +3623,7 @@ Date: 2021-11-09
 
 Date: 2021-11-05
 
-### [](#patch-changes-79)Patch Changes
+### [](#patch-changes-80)Patch Changes
 
 *   Add a default `<StaticRouter location>` value ([#8243](https://github.com/remix-run/react-router/pull/8243))
 *   Add invariant for using `<Route>` inside `<Routes>` to help people make the change ([#8238](https://github.com/remix-run/react-router/pull/8238))
@@ -3626,489 +3758,81 @@ Every mode supports any architecture and deployment target, so the question isn'
 
 This is mostly for the LLMs, but knock yourself out:
 
-API
-
-Framework
-
-Data
-
-Declarative
-
-Await
-
-✅
-
-✅
-
-Form
-
-✅
-
-✅
-
-Link
-
-✅
-
-✅
-
-✅
-
-`<Link discover>`
-
-✅
-
-`<Link prefetch>`
-
-✅
-
-`<Link preventScrollReset>`
-
-✅
-
-✅
-
-Links
-
-✅
-
-Meta
-
-✅
-
-NavLink
-
-✅
-
-✅
-
-✅
-
-`<NavLink discover>`
-
-✅
-
-`<NavLink prefetch>`
-
-✅
-
-`<NavLink preventScrollReset>`
-
-✅
-
-✅
-
-NavLink `isPending`
-
-✅
-
-✅
-
-Navigate
-
-✅
-
-✅
-
-✅
-
-Outlet
-
-✅
-
-✅
-
-✅
-
-PrefetchPageLinks
-
-✅
-
-Route
-
-✅
-
-✅
-
-✅
-
-Routes
-
-✅
-
-✅
-
-✅
-
-Scripts
-
-✅
-
-ScrollRestoration
-
-✅
-
-✅
-
-ServerRouter
-
-✅
-
-usePrompt
-
-✅
-
-✅
-
-✅
-
-useActionData
-
-✅
-
-✅
-
-useAsyncError
-
-✅
-
-✅
-
-useAsyncValue
-
-✅
-
-✅
-
-useBeforeUnload
-
-✅
-
-✅
-
-✅
-
-useBlocker
-
-✅
-
-✅
-
-useFetcher
-
-✅
-
-✅
-
-useFetchers
-
-✅
-
-✅
-
-useFormAction
-
-✅
-
-✅
-
-useHref
-
-✅
-
-✅
-
-✅
-
-useInRouterContext
-
-✅
-
-✅
-
-✅
-
-useLinkClickHandler
-
-✅
-
-✅
-
-✅
-
-useLoaderData
-
-✅
-
-✅
-
-useLocation
-
-✅
-
-✅
-
-✅
-
-useMatch
-
-✅
-
-✅
-
-✅
-
-useMatches
-
-✅
-
-✅
-
-useNavigate
-
-✅
-
-✅
-
-✅
-
-useNavigation
-
-✅
-
-✅
-
-useNavigationType
-
-✅
-
-✅
-
-✅
-
-useOutlet
-
-✅
-
-✅
-
-✅
-
-useOutletContext
-
-✅
-
-✅
-
-✅
-
-useParams
-
-✅
-
-✅
-
-✅
-
-useResolvedPath
-
-✅
-
-✅
-
-✅
-
-useRevalidator
-
-✅
-
-✅
-
-useRouteError
-
-✅
-
-✅
-
-useRouteLoaderData
-
-✅
-
-✅
-
-useRoutes
-
-✅
-
-✅
-
-✅
-
-useSearchParams
-
-✅
-
-✅
-
-✅
-
-useSubmit
-
-✅
-
-✅
-
-useViewTransitionState
-
-✅
-
-✅
-
-isCookieFunction
-
-✅
-
-✅
-
-isSessionFunction
-
-✅
-
-✅
-
-createCookie
-
-✅
-
-✅
-
-createCookieSessionStorage
-
-✅
-
-✅
-
-createMemorySessionStorage
-
-✅
-
-✅
-
-createPath
-
-✅
-
-✅
-
-✅
-
-createRoutesStub
-
-✅
-
-✅
-
-createSearchParams
-
-✅
-
-✅
-
-✅
-
-data
-
-✅
-
-✅
-
-generatePath
-
-✅
-
-✅
-
-✅
-
-href
-
-✅
-
-isCookie
-
-✅
-
-✅
-
-isRouteErrorResponse
-
-✅
-
-✅
-
-isSession
-
-✅
-
-✅
-
-matchPath
-
-✅
-
-✅
-
-✅
-
-matchRoutes
-
-✅
-
-✅
-
-✅
-
-parsePath
-
-✅
-
-✅
-
-✅
-
-redirect
-
-✅
-
-✅
-
-redirectDocument
-
-✅
-
-✅
-
-renderMatches
-
-✅
-
-✅
-
-✅
-
-replace
-
-✅
-
-✅
-
-resolvePath
-
-✅
-
-✅
-
-✅
+| API | Framework | Data | Declarative |
+| --- | --- | --- | --- |
+| Await | ✅ | ✅ |  |
+| Form | ✅ | ✅ |  |
+| Link | ✅ | ✅ | ✅ |
+| `<Link discover>` | ✅ |  |  |
+| `<Link prefetch>` | ✅ |  |  |
+| `<Link preventScrollReset>` | ✅ | ✅ |  |
+| Links | ✅ |  |  |
+| Meta | ✅ |  |  |
+| NavLink | ✅ | ✅ | ✅ |
+| `<NavLink discover>` | ✅ |  |  |
+| `<NavLink prefetch>` | ✅ |  |  |
+| `<NavLink preventScrollReset>` | ✅ | ✅ |  |
+| NavLink `isPending` | ✅ | ✅ |  |
+| Navigate | ✅ | ✅ | ✅ |
+| Outlet | ✅ | ✅ | ✅ |
+| PrefetchPageLinks | ✅ |  |  |
+| Route | ✅ | ✅ | ✅ |
+| Routes | ✅ | ✅ | ✅ |
+| Scripts | ✅ |  |  |
+| ScrollRestoration | ✅ | ✅ |  |
+| ServerRouter | ✅ |  |  |
+| usePrompt | ✅ | ✅ | ✅ |
+| useActionData | ✅ | ✅ |  |
+| useAsyncError | ✅ | ✅ |  |
+| useAsyncValue | ✅ | ✅ |  |
+| useBeforeUnload | ✅ | ✅ | ✅ |
+| useBlocker | ✅ | ✅ |  |
+| useFetcher | ✅ | ✅ |  |
+| useFetchers | ✅ | ✅ |  |
+| useFormAction | ✅ | ✅ |  |
+| useHref | ✅ | ✅ | ✅ |
+| useInRouterContext | ✅ | ✅ | ✅ |
+| useLinkClickHandler | ✅ | ✅ | ✅ |
+| useLoaderData | ✅ | ✅ |  |
+| useLocation | ✅ | ✅ | ✅ |
+| useMatch | ✅ | ✅ | ✅ |
+| useMatches | ✅ | ✅ |  |
+| useNavigate | ✅ | ✅ | ✅ |
+| useNavigation | ✅ | ✅ |  |
+| useNavigationType | ✅ | ✅ | ✅ |
+| useOutlet | ✅ | ✅ | ✅ |
+| useOutletContext | ✅ | ✅ | ✅ |
+| useParams | ✅ | ✅ | ✅ |
+| useResolvedPath | ✅ | ✅ | ✅ |
+| useRevalidator | ✅ | ✅ |  |
+| useRouteError | ✅ | ✅ |  |
+| useRouteLoaderData | ✅ | ✅ |  |
+| useRoutes | ✅ | ✅ | ✅ |
+| useSearchParams | ✅ | ✅ | ✅ |
+| useSubmit | ✅ | ✅ |  |
+| useViewTransitionState | ✅ | ✅ |  |
+| isCookieFunction | ✅ | ✅ |  |
+| isSessionFunction | ✅ | ✅ |  |
+| createCookie | ✅ | ✅ |  |
+| createCookieSessionStorage | ✅ | ✅ |  |
+| createMemorySessionStorage | ✅ | ✅ |  |
+| createPath | ✅ | ✅ | ✅ |
+| createRoutesStub | ✅ | ✅ |  |
+| createSearchParams | ✅ | ✅ | ✅ |
+| data | ✅ | ✅ |  |
+| generatePath | ✅ | ✅ | ✅ |
+| href | ✅ |  |  |
+| isCookie | ✅ | ✅ |  |
+| isRouteErrorResponse | ✅ | ✅ |  |
+| isSession | ✅ | ✅ |  |
+| matchPath | ✅ | ✅ | ✅ |
+| matchRoutes | ✅ | ✅ | ✅ |
+| parsePath | ✅ | ✅ | ✅ |
+| redirect | ✅ | ✅ |  |
+| redirectDocument | ✅ | ✅ |  |
+| renderMatches | ✅ | ✅ | ✅ |
+| replace | ✅ | ✅ |  |
+| resolvePath | ✅ | ✅ | ✅ |
 
 [](#installation)Installation
 =============================
@@ -4766,6 +4490,24 @@ All routes links will be aggregated and rendered through the `<Links />` compone
 ---------------
 
 Route meta defines meta tags to be rendered in the `<Meta />` component, usually placed in the `<head>`.
+
+Since React 19, [using the built-in `<meta>` element](https://react.dev/reference/react-dom/components/meta) is recommended over the use of the route module's `meta` export.
+
+Here is an example of how to use it and the `<title>` element:
+
+    export default function MyRoute() {
+      return (
+        <div>
+          <title>Very cool app</title>
+          <meta property="og:title" content="Very cool app" />
+          <meta
+            name="description"
+            content="This app is the best"
+          />
+          {/* The rest of your route content... */}
+        </div>
+      );
+    }
 
     export function meta() {
       return [
@@ -7521,81 +7263,20 @@ If you prefer not to use the codemod, you can manually update your dependencies.
 
 Expand to see a table of package name changes in alphabetical order
 
-Remix v2 Package
-
-React Router v7 Package
-
-`@remix-run/architect`
-
-➡️
-
-`@react-router/architect`
-
-`@remix-run/cloudflare`
-
-➡️
-
-`@react-router/cloudflare`
-
-`@remix-run/dev`
-
-➡️
-
-`@react-router/dev`
-
-`@remix-run/express`
-
-➡️
-
-`@react-router/express`
-
-`@remix-run/fs-routes`
-
-➡️
-
-`@react-router/fs-routes`
-
-`@remix-run/node`
-
-➡️
-
-`@react-router/node`
-
-`@remix-run/react`
-
-➡️
-
-`react-router`
-
-`@remix-run/route-config`
-
-➡️
-
-`@react-router/dev`
-
-`@remix-run/routes-option-adapter`
-
-➡️
-
-`@react-router/remix-routes-option-adapter`
-
-`@remix-run/serve`
-
-➡️
-
-`@react-router/serve`
-
-`@remix-run/server-runtime`
-
-➡️
-
-`react-router`
-
-`@remix-run/testing`
-
-➡️
-
-`react-router`
+| Remix v2 Package |  | React Router v7 Package |
+| --- | --- | --- |
+| `@remix-run/architect` | ➡️ | `@react-router/architect` |
+| `@remix-run/cloudflare` | ➡️ | `@react-router/cloudflare` |
+| `@remix-run/dev` | ➡️ | `@react-router/dev` |
+| `@remix-run/express` | ➡️ | `@react-router/express` |
+| `@remix-run/fs-routes` | ➡️ | `@react-router/fs-routes` |
+| `@remix-run/node` | ➡️ | `@react-router/node` |
+| `@remix-run/react` | ➡️ | `react-router` |
+| `@remix-run/route-config` | ➡️ | `@react-router/dev` |
+| `@remix-run/routes-option-adapter` | ➡️ | `@react-router/remix-routes-option-adapter` |
+| `@remix-run/serve` | ➡️ | `@react-router/serve` |
+| `@remix-run/server-runtime` | ➡️ | `react-router` |
+| `@remix-run/testing` | ➡️ | `react-router` |
 
 [](#3-change-scripts-in-packagejson)3\. Change `scripts` in `package.json`
 --------------------------------------------------------------------------
@@ -7604,43 +7285,12 @@ If you used the codemod you can skip this step as it was automatically completed
 
 **👉 Update the scripts in your `package.json`**
 
-Script
-
-Remix v2
-
-React Router v7
-
-`dev`
-
-`remix vite:dev`
-
-➡️
-
-`react-router dev`
-
-`build`
-
-`remix vite:build`
-
-➡️
-
-`react-router build`
-
-`start`
-
-`remix-serve build/server/index.js`
-
-➡️
-
-`react-router-serve build/server/index.js`
-
-`typecheck`
-
-`tsc`
-
-➡️
-
-`react-router typegen && tsc`
+| Script | Remix v2 |  | React Router v7 |
+| --- | --- | --- | --- |
+| `dev` | `remix vite:dev` | ➡️ | `react-router dev` |
+| `build` | `remix vite:build` | ➡️ | `react-router build` |
+| `start` | `remix-serve build/server/index.js` | ➡️ | `react-router-serve build/server/index.js` |
+| `typecheck` | `tsc` | ➡️ | `react-router typegen && tsc` |
 
 [](#4-add-a-routests-file)4\. Add a `routes.ts` file
 ----------------------------------------------------
@@ -9250,23 +8900,10 @@ States are available through the className, style, and children render props. Se
 
 Changes the matching logic to make it case-sensitive:
 
-Link
-
-URL
-
-isActive
-
-`<NavLink to="/SpOnGe-bOB" />`
-
-`/sponge-bob`
-
-true
-
-`<NavLink to="/SpOnGe-bOB" caseSensitive />`
-
-`/sponge-bob`
-
-false
+| Link | URL | isActive |
+| --- | --- | --- |
+| `<NavLink to="/SpOnGe-bOB" />` | `/sponge-bob` | true |
+| `<NavLink to="/SpOnGe-bOB" caseSensitive />` | `/sponge-bob` | false |
 
 ### [](#children)children
 
@@ -9326,35 +8963,12 @@ Defines the link discovery behavior
 
 Changes the matching logic for the `active` and `pending` states to only match to the "end" of the NavLinkProps.to. If the URL is longer, it will no longer be considered active.
 
-Link
-
-URL
-
-isActive
-
-`<NavLink to="/tasks" />`
-
-`/tasks`
-
-true
-
-`<NavLink to="/tasks" />`
-
-`/tasks/123`
-
-true
-
-`<NavLink to="/tasks" end />`
-
-`/tasks`
-
-true
-
-`<NavLink to="/tasks" end />`
-
-`/tasks/123`
-
-false
+| Link | URL | isActive |
+| --- | --- | --- |
+| `<NavLink to="/tasks" />` | `/tasks` | true |
+| `<NavLink to="/tasks" />` | `/tasks/123` | true |
+| `<NavLink to="/tasks" end />` | `/tasks` | true |
+| `<NavLink to="/tasks" end />` | `/tasks/123` | false |
 
 `<NavLink to="/">` is an exceptional case because _every_ URL matches `/`. To avoid this matching every single route by default, it effectively ignores the `end` prop and only matches when you're at the root route.
 
@@ -11038,21 +10652,11 @@ Returns the loader data for a given route by route ID.
 
 Route IDs are created automatically. They are simply the path of the route file relative to the app folder without the extension.
 
-Route Filename
-
-Route ID
-
-`app/root.tsx`
-
-`"root"`
-
-`app/routes/teams.tsx`
-
-`"routes/teams"`
-
-`app/whatever/teams.$id.tsx`
-
-`"whatever/teams.$id"`
+| Route Filename | Route ID |
+| --- | --- |
+| `app/root.tsx` | `"root"` |
+| `app/routes/teams.tsx` | `"routes/teams"` |
+| `app/whatever/teams.$id.tsx` | `"whatever/teams.$id"` |
 
 If you created an ID manually, you can use that instead:
 
@@ -12953,23 +12557,10 @@ You can open the network tab in the browser devtools to see that it's not reques
 
 URL segments, layouts, and data are more often than not coupled (tripled?) together. We can see it in this app already:
 
-URL Segment
-
-Component
-
-Data
-
-/
-
-`<App>`
-
-list of contacts
-
-contacts/:contactId
-
-`<Contact>`
-
-individual contact
+| URL Segment | Component | Data |
+| --- | --- | --- |
+| / | `<App>` | list of contacts |
+| contacts/:contactId | `<Contact>` | individual contact |
 
 Because of this natural coupling, React Router has data conventions to get data into your route components easily.
 
@@ -14722,25 +14313,12 @@ When an error is thrown, the "closest error boundary" will be rendered. Consider
 
 The following table shows which error boundary will render given the origin of the error:
 
-error origin
-
-rendered boundary
-
-app.tsx
-
-app.tsx
-
-invoices.tsx
-
-app.tsx
-
-invoice-page.tsx
-
-invoice-page.tsx
-
-payments.tsx
-
-invoice-page.tsx
+| error origin | rendered boundary |
+| --- | --- |
+| app.tsx | app.tsx |
+| invoices.tsx | app.tsx |
+| invoice-page.tsx | invoice-page.tsx |
+| payments.tsx | invoice-page.tsx |
 
 [](#error-sanitization)Error Sanitization
 -----------------------------------------
@@ -15130,17 +14708,10 @@ The filename maps to the route's URL pathname, except for `_index.tsx` which is 
     └── root.tsx
     
 
-URL
-
-Matched Routes
-
-`/`
-
-`app/routes/_index.tsx`
-
-`/about`
-
-`app/routes/about.tsx`
+| URL | Matched Routes |
+| --- | --- |
+| `/` | `app/routes/_index.tsx` |
+| `/about` | `app/routes/about.tsx` |
 
 Note that these routes will be rendered in the outlet of `app/root.tsx` because of [nested routing](../start/framework/routing#nested-routes).
 
@@ -15159,29 +14730,13 @@ Adding a `.` to a route filename will create a `/` in the URL.
     └── root.tsx
     
 
-URL
-
-Matched Route
-
-`/`
-
-`app/routes/_index.tsx`
-
-`/about`
-
-`app/routes/about.tsx`
-
-`/concerts/trending`
-
-`app/routes/concerts.trending.tsx`
-
-`/concerts/salt-lake-city`
-
-`app/routes/concerts.salt-lake-city.tsx`
-
-`/concerts/san-diego`
-
-`app/routes/concerts.san-diego.tsx`
+| URL | Matched Route |
+| --- | --- |
+| `/` | `app/routes/_index.tsx` |
+| `/about` | `app/routes/about.tsx` |
+| `/concerts/trending` | `app/routes/concerts.trending.tsx` |
+| `/concerts/salt-lake-city` | `app/routes/concerts.salt-lake-city.tsx` |
+| `/concerts/san-diego` | `app/routes/concerts.san-diego.tsx` |
 
 The dot delimiter also creates nesting, see the [nesting section](#nested-routes) for more information.
 
@@ -15199,29 +14754,13 @@ Usually your URLs aren't static but data-driven. Dynamic segments allow you to m
     └── root.tsx
     
 
-URL
-
-Matched Route
-
-`/`
-
-`app/routes/_index.tsx`
-
-`/about`
-
-`app/routes/about.tsx`
-
-`/concerts/trending`
-
-`app/routes/concerts.trending.tsx`
-
-`/concerts/salt-lake-city`
-
-`app/routes/concerts.$city.tsx`
-
-`/concerts/san-diego`
-
-`app/routes/concerts.$city.tsx`
+| URL | Matched Route |
+| --- | --- |
+| `/` | `app/routes/_index.tsx` |
+| `/about` | `app/routes/about.tsx` |
+| `/concerts/trending` | `app/routes/concerts.trending.tsx` |
+| `/concerts/salt-lake-city` | `app/routes/concerts.$city.tsx` |
+| `/concerts/san-diego` | `app/routes/concerts.$city.tsx` |
 
 The value will be parsed from the URL and passed to various APIs. We call these values "URL Parameters". The most useful places to access the URL params are in [loaders](../start/framework/data-loading) and [actions](../start/framework/actions).
 
@@ -15264,41 +14803,13 @@ You create nested routes with [dot delimiters](#dot-delimiters). If the filename
 
 All the routes that start with `app/routes/concerts.` will be child routes of `app/routes/concerts.tsx` and render inside the [parent route's outlet](../start/framework/routing#nested-routes).
 
-URL
-
-Matched Route
-
-Layout
-
-`/`
-
-`app/routes/_index.tsx`
-
-`app/root.tsx`
-
-`/about`
-
-`app/routes/about.tsx`
-
-`app/root.tsx`
-
-`/concerts`
-
-`app/routes/concerts._index.tsx`
-
-`app/routes/concerts.tsx`
-
-`/concerts/trending`
-
-`app/routes/concerts.trending.tsx`
-
-`app/routes/concerts.tsx`
-
-`/concerts/salt-lake-city`
-
-`app/routes/concerts.$city.tsx`
-
-`app/routes/concerts.tsx`
+| URL | Matched Route | Layout |
+| --- | --- | --- |
+| `/` | `app/routes/_index.tsx` | `app/root.tsx` |
+| `/about` | `app/routes/about.tsx` | `app/root.tsx` |
+| `/concerts` | `app/routes/concerts._index.tsx` | `app/routes/concerts.tsx` |
+| `/concerts/trending` | `app/routes/concerts.trending.tsx` | `app/routes/concerts.tsx` |
+| `/concerts/salt-lake-city` | `app/routes/concerts.$city.tsx` | `app/routes/concerts.tsx` |
 
 Note you typically want to add an index route when you add nested routes so that something renders inside the parent's outlet when users visit the parent URL directly.
 
@@ -15327,41 +14838,13 @@ Sometimes you want the URL to be nested, but you don't want the automatic layout
     └── root.tsx
     
 
-URL
-
-Matched Route
-
-Layout
-
-`/`
-
-`app/routes/_index.tsx`
-
-`app/root.tsx`
-
-`/about`
-
-`app/routes/about.tsx`
-
-`app/root.tsx`
-
-`/concerts/mine`
-
-`app/routes/concerts_.mine.tsx`
-
-`app/root.tsx`
-
-`/concerts/trending`
-
-`app/routes/concerts.trending.tsx`
-
-`app/routes/concerts.tsx`
-
-`/concerts/salt-lake-city`
-
-`app/routes/concerts.$city.tsx`
-
-`app/routes/concerts.tsx`
+| URL | Matched Route | Layout |
+| --- | --- | --- |
+| `/` | `app/routes/_index.tsx` | `app/root.tsx` |
+| `/about` | `app/routes/about.tsx` | `app/root.tsx` |
+| `/concerts/mine` | `app/routes/concerts_.mine.tsx` | `app/root.tsx` |
+| `/concerts/trending` | `app/routes/concerts.trending.tsx` | `app/routes/concerts.tsx` |
+| `/concerts/salt-lake-city` | `app/routes/concerts.$city.tsx` | `app/routes/concerts.tsx` |
 
 Note that `/concerts/mine` does not nest with `app/routes/concerts.tsx` anymore, but `app/root.tsx`. The `trailing_` underscore creates a path segment, but it does not create layout nesting.
 
@@ -15385,41 +14868,13 @@ Sometimes you want to share a layout with a group of routes without adding any p
     └── root.tsx
     
 
-URL
-
-Matched Route
-
-Layout
-
-`/`
-
-`app/routes/_index.tsx`
-
-`app/root.tsx`
-
-`/login`
-
-`app/routes/_auth.login.tsx`
-
-`app/routes/_auth.tsx`
-
-`/register`
-
-`app/routes/_auth.register.tsx`
-
-`app/routes/_auth.tsx`
-
-`/concerts`
-
-`app/routes/concerts.tsx`
-
-`app/routes/concerts.tsx`
-
-`/concerts/salt-lake-city`
-
-`app/routes/concerts.$city.tsx`
-
-`app/routes/concerts.tsx`
+| URL | Matched Route | Layout |
+| --- | --- | --- |
+| `/` | `app/routes/_index.tsx` | `app/root.tsx` |
+| `/login` | `app/routes/_auth.login.tsx` | `app/routes/_auth.tsx` |
+| `/register` | `app/routes/_auth.register.tsx` | `app/routes/_auth.tsx` |
+| `/concerts` | `app/routes/concerts.tsx` | `app/routes/concerts.tsx` |
+| `/concerts/salt-lake-city` | `app/routes/concerts.$city.tsx` | `app/routes/concerts.tsx` |
 
 Think of the `_leading` underscore as a blanket you're pulling over the filename, hiding the filename from the URL.
 
@@ -15436,37 +14891,15 @@ Wrapping a route segment in parentheses will make the segment optional.
     └── root.tsx
     
 
-URL
-
-Matched Route
-
-`/`
-
-`app/routes/($lang)._index.tsx`
-
-`/categories`
-
-`app/routes/($lang).categories.tsx`
-
-`/en/categories`
-
-`app/routes/($lang).categories.tsx`
-
-`/fr/categories`
-
-`app/routes/($lang).categories.tsx`
-
-`/american-flag-speedo`
-
-`app/routes/($lang)._index.tsx`
-
-`/en/american-flag-speedo`
-
-`app/routes/($lang).$productId.tsx`
-
-`/fr/american-flag-speedo`
-
-`app/routes/($lang).$productId.tsx`
+| URL | Matched Route |
+| --- | --- |
+| `/` | `app/routes/($lang)._index.tsx` |
+| `/categories` | `app/routes/($lang).categories.tsx` |
+| `/en/categories` | `app/routes/($lang).categories.tsx` |
+| `/fr/categories` | `app/routes/($lang).categories.tsx` |
+| `/american-flag-speedo` | `app/routes/($lang)._index.tsx` |
+| `/en/american-flag-speedo` | `app/routes/($lang).$productId.tsx` |
+| `/fr/american-flag-speedo` | `app/routes/($lang).$productId.tsx` |
 
 You may wonder why `/american-flag-speedo` is matching the `($lang)._index.tsx` route instead of `($lang).$productId.tsx`. This is because when you have an optional dynamic param segment followed by another dynamic param, it cannot reliably be determined if a single-segment URL such as `/american-flag-speedo` should match `/:lang` `/:productId`. Optional segments match eagerly and thus it will match `/:lang`. If you have this type of setup it's recommended to look at `params.lang` in the `($lang)._index.tsx` loader and redirect to `/:lang/american-flag-speedo` for the current/default language if `params.lang` is not a valid language code.
 
@@ -15484,37 +14917,15 @@ While [dynamic segments](#dynamic-segments) match a single path segment (the stu
     └── root.tsx
     
 
-URL
-
-Matched Route
-
-`/`
-
-`app/routes/_index.tsx`
-
-`/about`
-
-`app/routes/about.tsx`
-
-`/beef/and/cheese`
-
-`app/routes/$.tsx`
-
-`/files`
-
-`app/routes/files.$.tsx`
-
-`/files/talks/react-conf_old.pdf`
-
-`app/routes/files.$.tsx`
-
-`/files/talks/react-conf_final.pdf`
-
-`app/routes/files.$.tsx`
-
-`/files/talks/react-conf-FINAL-MAY_2024.pdf`
-
-`app/routes/files.$.tsx`
+| URL | Matched Route |
+| --- | --- |
+| `/` | `app/routes/_index.tsx` |
+| `/about` | `app/routes/about.tsx` |
+| `/beef/and/cheese` | `app/routes/$.tsx` |
+| `/files` | `app/routes/files.$.tsx` |
+| `/files/talks/react-conf_old.pdf` | `app/routes/files.$.tsx` |
+| `/files/talks/react-conf_final.pdf` | `app/routes/files.$.tsx` |
+| `/files/talks/react-conf-FINAL-MAY_2024.pdf` | `app/routes/files.$.tsx` |
 
 Similar to dynamic route parameters, you can access the value of the matched path on the splat route's `params` with the `"*"` key.
 
@@ -15529,33 +14940,14 @@ Similar to dynamic route parameters, you can access the value of the matched pat
 
 If you want one of the special characters used for these route conventions to actually be a part of the URL, you can escape the conventions with `[]` characters. This can be especially helpful for [resource routes](../how-to/resource-routes) that include an extension in the URL.
 
-Filename
-
-URL
-
-`app/routes/sitemap[.]xml.tsx`
-
-`/sitemap.xml`
-
-`app/routes/[sitemap.xml].tsx`
-
-`/sitemap.xml`
-
-`app/routes/weird-url.[_index].tsx`
-
-`/weird-url/_index`
-
-`app/routes/dolla-bills-[$].tsx`
-
-`/dolla-bills-$`
-
-`app/routes/[[so-weird]].tsx`
-
-`/[so-weird]`
-
-`app/routes/reports.$id[.pdf].ts`
-
-`/reports/123.pdf`
+| Filename | URL |
+| --- | --- |
+| `app/routes/sitemap[.]xml.tsx` | `/sitemap.xml` |
+| `app/routes/[sitemap.xml].tsx` | `/sitemap.xml` |
+| `app/routes/weird-url.[_index].tsx` | `/weird-url/_index` |
+| `app/routes/dolla-bills-[$].tsx` | `/dolla-bills-$` |
+| `app/routes/[[so-weird]].tsx` | `/[so-weird]` |
+| `app/routes/reports.$id[.pdf].ts` | `/reports/123.pdf` |
 
 [](#folders-for-organization)Folders for Organization
 -----------------------------------------------------
@@ -19045,42 +18437,45 @@ We manage release notes in this file instead of the paginated Github Releases Pa
 Table of Contents
 
 *   [React Router Releases](#react-router-releases)
+    *   [v7.6.1](#v761)
+        *   [Patch Changes](#patch-changes)
+        *   [Unstable Changes](#unstable-changes)
     *   [v7.6.0](#v760)
         *   [What's Changed](#whats-changed)
             *   [`routeDiscovery` Config Option](#routediscovery-config-option)
             *   [Automatic Types for Future Flags](#automatic-types-for-future-flags)
         *   [Minor Changes](#minor-changes)
-        *   [Patch Changes](#patch-changes)
-        *   [Unstable Changes](#unstable-changes)
+        *   [Patch Changes](#patch-changes-1)
+        *   [Unstable Changes](#unstable-changes-1)
         *   [Changes by Package](#changes-by-package)
     *   [v7.5.3](#v753)
-        *   [Patch Changes](#patch-changes-1)
+        *   [Patch Changes](#patch-changes-2)
     *   [v7.5.2](#v752)
         *   [Security Notice](#security-notice)
-        *   [Patch Changes](#patch-changes-2)
-    *   [v7.5.1](#v751)
         *   [Patch Changes](#patch-changes-3)
-        *   [Unstable Changes](#unstable-changes-1)
+    *   [v7.5.1](#v751)
+        *   [Patch Changes](#patch-changes-4)
+        *   [Unstable Changes](#unstable-changes-2)
     *   [v7.5.0](#v750)
         *   [What's Changed](#whats-changed-1)
             *   [`route.lazy` Object API](#routelazy-object-api)
         *   [Minor Changes](#minor-changes-1)
-        *   [Patch Changes](#patch-changes-4)
-        *   [Unstable Changes](#unstable-changes-2)
+        *   [Patch Changes](#patch-changes-5)
+        *   [Unstable Changes](#unstable-changes-3)
         *   [Changes by Package](#changes-by-package-1)
     *   [v7.4.1](#v741)
         *   [Security Notice](#security-notice-1)
-        *   [Patch Changes](#patch-changes-5)
-        *   [Unstable Changes](#unstable-changes-3)
-    *   [v7.4.0](#v740)
-        *   [Minor Changes](#minor-changes-2)
         *   [Patch Changes](#patch-changes-6)
         *   [Unstable Changes](#unstable-changes-4)
+    *   [v7.4.0](#v740)
+        *   [Minor Changes](#minor-changes-2)
+        *   [Patch Changes](#patch-changes-7)
+        *   [Unstable Changes](#unstable-changes-5)
         *   [Changes by Package](#changes-by-package-2)
     *   [v7.3.0](#v730)
         *   [Minor Changes](#minor-changes-3)
-        *   [Patch Changes](#patch-changes-7)
-        *   [Unstable Changes](#unstable-changes-5)
+        *   [Patch Changes](#patch-changes-8)
+        *   [Unstable Changes](#unstable-changes-6)
             *   [Client-side `context` (unstable)](#client-side-context-unstable)
             *   [Middleware (unstable)](#middleware-unstable)
                 *   [Middleware `context` parameter](#middleware-context-parameter)
@@ -19092,28 +18487,28 @@ Table of Contents
             *   [Prerendering with a SPA Fallback](#prerendering-with-a-spa-fallback)
             *   [Allow a root `loader` in SPA Mode](#allow-a-root-loader-in-spa-mode)
         *   [Minor Changes](#minor-changes-4)
-        *   [Patch Changes](#patch-changes-8)
-        *   [Unstable Changes](#unstable-changes-6)
+        *   [Patch Changes](#patch-changes-9)
+        *   [Unstable Changes](#unstable-changes-7)
             *   [Split Route Modules (unstable)](#split-route-modules-unstable)
         *   [Changes by Package](#changes-by-package-4)
     *   [v7.1.5](#v715)
-        *   [Patch Changes](#patch-changes-9)
-    *   [v7.1.4](#v714)
         *   [Patch Changes](#patch-changes-10)
-    *   [v7.1.3](#v713)
+    *   [v7.1.4](#v714)
         *   [Patch Changes](#patch-changes-11)
-    *   [v7.1.2](#v712)
+    *   [v7.1.3](#v713)
         *   [Patch Changes](#patch-changes-12)
-    *   [v7.1.1](#v711)
+    *   [v7.1.2](#v712)
         *   [Patch Changes](#patch-changes-13)
+    *   [v7.1.1](#v711)
+        *   [Patch Changes](#patch-changes-14)
     *   [v7.1.0](#v710)
         *   [Minor Changes](#minor-changes-5)
-        *   [Patch Changes](#patch-changes-14)
+        *   [Patch Changes](#patch-changes-15)
         *   [Changes by Package](#changes-by-package-5)
     *   [v7.0.2](#v702)
-        *   [Patch Changes](#patch-changes-15)
-    *   [v7.0.1](#v701)
         *   [Patch Changes](#patch-changes-16)
+    *   [v7.0.1](#v701)
+        *   [Patch Changes](#patch-changes-17)
     *   [v7.0.0](#v700)
         *   [Breaking Changes](#breaking-changes)
             *   [Package Restructuring](#package-restructuring)
@@ -19130,7 +18525,7 @@ Table of Contents
         *   [Major Changes (`react-router`)](#major-changes-react-router)
         *   [Major Changes (`@react-router/*`)](#major-changes-react-router-1)
         *   [Minor Changes](#minor-changes-6)
-        *   [Patch Changes](#patch-changes-17)
+        *   [Patch Changes](#patch-changes-18)
         *   [Changes by Package](#changes-by-package-6)
 *   [React Router v6 Releases](#react-router-v6-releases)
     *   [v6.30.1](#v6301)
@@ -19327,6 +18722,135 @@ Table of Contents
         *   [Patch Changes](#patch-changes-79)
     *   [v6.0.0](#v600)
 
+[](#v761)v7.6.1
+---------------
+
+Date: 2025-05-25
+
+### [](#patch-changes)Patch Changes
+
+*   `react-router` - Partially revert optimization added in `7.1.4` to reduce calls to `matchRoutes` because it surfaced other issues ([#13562](https://github.com/remix-run/react-router/pull/13562))
+    
+*   `react-router` - Update `Route.MetaArgs` to reflect that `data` can be potentially `undefined` ([#13563](https://github.com/remix-run/react-router/pull/13563))
+    
+    *   This is primarily for cases where a route `loader` threw an error to it's own `ErrorBoundary`, but it also arises in the case of a 404 which renders the root `ErrorBoundary`/`meta` but the root `loader` did not run because not routes matched
+*   `react-router` - Avoid initial fetcher execution 404 error when Lazy Route Discovery is interrupted by a navigation ([#13564](https://github.com/remix-run/react-router/pull/13564))
+    
+*   `react-router` - Properly `href` replaces splats `*` ([#13593](https://github.com/remix-run/react-router/pull/13593))
+    
+    *   `href("/products/*", { "*": "/1/edit" }); // -> /products/1/edit`
+*   `@react-router/architect` - Update `@architect/functions` from `^5.2.0` to `^7.0.0` ([#13556](https://github.com/remix-run/react-router/pull/13556))
+    
+*   `@react-router/dev` - Prevent typegen with route files that are outside the `app/` directory ([#12996](https://github.com/remix-run/react-router/pull/12996))
+    
+*   `@react-router/dev` - Add additional logging to `build` command output when cleaning assets from server build ([#13547](https://github.com/remix-run/react-router/pull/13547))
+    
+*   `@react-router/dev` - Don't clean assets from server build when `build.ssrEmitAssets` has been enabled in Vite config ([#13547](https://github.com/remix-run/react-router/pull/13547))
+    
+*   `@react-router/dev` - Fix typegen when same route is used at multiple paths ([#13574](https://github.com/remix-run/react-router/pull/13574))
+    
+    *   For example, `routes/route.tsx` is used at 4 different paths here:
+        
+            import { type RouteConfig, route } from "@react-router/dev/routes";
+            export default [
+              route("base/:base", "routes/base.tsx", [
+                route("home/:home", "routes/route.tsx", { id: "home" }),
+                route("changelog/:changelog", "routes/route.tsx", { id: "changelog" }),
+                route("splat/*", "routes/route.tsx", { id: "splat" }),
+              ]),
+              route("other/:other", "routes/route.tsx", { id: "other" }),
+            ] satisfies RouteConfig;
+            
+        
+    *   Previously, typegen would arbitrarily pick one of these paths to be the "winner" and generate types for the route module based on that path
+        
+    *   Now, typegen creates unions as necessary for alternate paths for the same route file
+        
+*   `@react-router/dev` - Better types for `params` ([#13543](https://github.com/remix-run/react-router/pull/13543))
+    
+    *   For example:
+        
+            // routes.ts
+            import { type RouteConfig, route } from "@react-router/dev/routes";
+            
+            export default [
+              route("parent/:p", "routes/parent.tsx", [
+                route("route/:r", "routes/route.tsx", [
+                  route("child1/:c1a/:c1b", "routes/child1.tsx"),
+                  route("child2/:c2a/:c2b", "routes/child2.tsx"),
+                ]),
+              ]),
+            ] satisfies RouteConfig;
+            
+        
+    *   Previously, `params` for `routes/route` were calculated as `{ p: string, r: string }`.
+        
+    *   This incorrectly ignores params that could come from child routes
+        
+    *   If visiting `/parent/1/route/2/child1/3/4`, the actual params passed to `routes/route` will have a type of `{ p: string, r: string, c1a: string, c1b: string }`
+        
+    *   Now, `params` are aware of child routes and autocompletion will include child params as optionals:
+        
+            params.|
+            //     ^ cursor is here and you ask for autocompletion
+            // p: string
+            // r: string
+            // c1a?: string
+            // c1b?: string
+            // c2a?: string
+            // c2b?: string
+            
+        
+    *   You can also narrow the types for `params` as it is implemented as a normalized union of params for each page that includes `routes/route`:
+        
+            if (typeof params.c1a === 'string') {
+              params.|
+              //     ^ cursor is here and you ask for autocompletion
+              // p: string
+              // r: string
+              // c1a: string
+              // c1b: string
+            }
+            
+        
+*   `@react-router/dev` - Fix `href` for optional segments ([#13595](https://github.com/remix-run/react-router/pull/13595))
+    
+    *   Type generation now expands paths with optionals into their corresponding non-optional paths
+        
+    *   For example, the path `/user/:id?` gets expanded into `/user` and `/user/:id` to more closely model visitable URLs
+        
+    *   `href` then uses these expanded (non-optional) paths to construct type-safe paths for your app:
+        
+            // original: /user/:id?
+            // expanded: /user & /user/:id
+            href("/user"); // ✅
+            href("/user/:id", { id: 1 }); // ✅
+            
+        
+    *   This becomes even more important for static optional paths where there wasn't a good way to indicate whether the optional should be included in the resulting path:
+        
+            // original: /products/:id/detail?
+            
+            // before
+            href("/products/:id/detail?"); // ❌ How can we tell `href` to include or omit `detail?` segment with a complex API?
+            
+            // now
+            // expanded: /products/:id & /products/:id/detail
+            href("/product/:id"); // ✅
+            href("/product/:id/detail"); // ✅
+            
+        
+
+### [](#unstable-changes)Unstable Changes
+
+⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
+
+*   `@react-router/dev` - Renamed internal `react-router/route-module` export to `react-router/internal` ([#13543](https://github.com/remix-run/react-router/pull/13543))
+*   `@react-router/dev` - Removed `Info` export from generated `+types/*` files ([#13543](https://github.com/remix-run/react-router/pull/13543))
+*   `@react-router/dev` - Normalize dirent entry path across node versions when generating SRI manifest ([#13591](https://github.com/remix-run/react-router/pull/13591))
+
+**Full Changelog**: [`v7.6.0...v7.6.1`](https://github.com/remix-run/react-router/compare/react-router@7.6.0...react-router@7.6.1)
+
 [](#v760)v7.6.0
 ---------------
 
@@ -19422,7 +18946,7 @@ Behind the scenes, React Router will generate the corresponding `declare module`
 *   `@react-router/dev` - Automatic types for future flags ([#13506](https://github.com/remix-run/react-router/pull/13506))
     
 
-### [](#patch-changes)Patch Changes
+### [](#patch-changes-1)Patch Changes
 
 You may notice this list is a bit larger than usual! The team ate their vegetables last week and spent the week [squashing bugs](https://x.com/BrooksLybrand/status/1918406062920589731) to work on lowering the issue count that had ballooned a bit since the v7 release.
 
@@ -19455,7 +18979,7 @@ You may notice this list is a bit larger than usual! The team ate their vegetabl
 *   `@react-router/dev` - Fix `TS2300: Duplicate identifier` errors caused by generated types ([#13499](https://github.com/remix-run/react-router/pull/13499))
 *   Previously, routes that had the same full path would cause duplicate entries in the generated types for `href` (`.react-router/types/+register.ts`), causing type checking errors
 
-### [](#unstable-changes)Unstable Changes
+### [](#unstable-changes-1)Unstable Changes
 
 ⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
 
@@ -19482,7 +19006,7 @@ You may notice this list is a bit larger than usual! The team ate their vegetabl
 
 Date: 2025-04-28
 
-### [](#patch-changes-1)Patch Changes
+### [](#patch-changes-2)Patch Changes
 
 *   `react-router` - Fix bug where bubbled action errors would result in `loaderData` being cleared at the handling `ErrorBoundary` route ([#13476](https://github.com/remix-run/react-router/pull/13476))
 *   `react-router` - Handle redirects from `clientLoader.hydrate` initial load executions ([#13477](https://github.com/remix-run/react-router/pull/13477))
@@ -19498,7 +19022,7 @@ Date: 2025-04-24
 
 Fixed 2 security vulnerabilities that could result in cache-poisoning attacks by sending specific headers intended for build-time usage for SPA Mode and Pre-rendering ([GHSA-f46r-rw29-r322](https://github.com/remix-run/react-router/security/advisories/GHSA-f46r-rw29-r322), [GHSA-cpj6-fhp6-mr6j](https://github.com/remix-run/react-router/security/advisories/GHSA-cpj6-fhp6-mr6j)).
 
-### [](#patch-changes-2)Patch Changes
+### [](#patch-changes-3)Patch Changes
 
 *   `react-router` - Adjust approach for Pre-rendering/SPA Mode via headers ([#13453](https://github.com/remix-run/react-router/pull/13453))
 *   `react-router` - Update Single Fetch to also handle the 204 redirects used in `?_data` requests in Remix v2 ([#13364](https://github.com/remix-run/react-router/pull/13364))
@@ -19517,7 +19041,7 @@ Fixed 2 security vulnerabilities that could result in cache-poisoning attacks by
 
 Date: 2025-04-17
 
-### [](#patch-changes-3)Patch Changes
+### [](#patch-changes-4)Patch Changes
 
 *   `react-router` - When using the object-based `route.lazy` API, the `HydrateFallback` and `hydrateFallbackElement` properties are now skipped when lazy loading routes after hydration ([#13376](https://github.com/remix-run/react-router/pull/13376))
     
@@ -19549,7 +19073,7 @@ Date: 2025-04-17
     *   Now that we allow returning `undefined` from loaders, our prior check of `loaderData[routeId] !== undefined` was no longer sufficient and was changed to a `routeId in loaderData` check - these `null` values can cause issues for this new check
     *   ⚠️ This could be a "breaking bug fix" for you if you are doing manual SSR with `createStaticHandler()`/`<StaticRouterProvider>`, and using `context.loaderData` to control `<RouterProvider>` hydration behavior on the client
 
-### [](#unstable-changes-1)Unstable Changes
+### [](#unstable-changes-2)Unstable Changes
 
 ⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
 
@@ -19589,12 +19113,12 @@ We've introduced a new `route.lazy` API which gives you more granular control ov
 
 *   `react-router` - Add granular object-based API for `route.lazy` to support lazy loading of individual route properties ([#13294](https://github.com/remix-run/react-router/pull/13294))
 
-### [](#patch-changes-4)Patch Changes
+### [](#patch-changes-5)Patch Changes
 
 *   `@react-router/dev` - Update optional `wrangler` peer dependency range to support `wrangler` v4 ([#13258](https://github.com/remix-run/react-router/pull/13258))
 *   `@react-router/dev` - Reinstate dependency optimization in the child compiler to fix `depsOptimizer is required in dev mode` errors when using `vite-plugin-cloudflare` and importing Node.js builtins ([#13317](https://github.com/remix-run/react-router/pull/13317))
 
-### [](#unstable-changes-2)Unstable Changes
+### [](#unstable-changes-3)Unstable Changes
 
 ⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
 
@@ -19627,14 +19151,14 @@ Date: 2025-03-28
 
 Fixed a security vulnerability that allowed URL manipulation and potential cache pollution via the `Host` and `X-Forwarded-Host` headers due to inadequate port sanitization ([GHSA-4q56-crqp-v477/CVE-2025-31137](https://github.com/remix-run/react-router/security/advisories/GHSA-4q56-crqp-v477)).
 
-### [](#patch-changes-5)Patch Changes
+### [](#patch-changes-6)Patch Changes
 
 *   `react-router` - Dedupe calls to `route.lazy` functions ([#13260](https://github.com/remix-run/react-router/pull/13260))
 *   `@react-router/dev` - Fix path in prerender error messages ([#13257](https://github.com/remix-run/react-router/pull/13257))
 *   `@react-router/dev` - Fix typegen for virtual modules when `moduleDetection` is set to `force` ([#13267](https://github.com/remix-run/react-router/pull/13267))
 *   `@react-router/express` - Better validation of `x-forwarded-host` header to prevent potential security issues ([#13309](https://github.com/remix-run/react-router/pull/13309))
 
-### [](#unstable-changes-3)Unstable Changes
+### [](#unstable-changes-4)Unstable Changes
 
 ⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
 
@@ -19658,14 +19182,14 @@ Date: 2025-03-19
 
 *   `@react-router/dev` - Generate types for `virtual:react-router/server-build` module ([#13152](https://github.com/remix-run/react-router/pull/13152))
 
-### [](#patch-changes-6)Patch Changes
+### [](#patch-changes-7)Patch Changes
 
 *   `react-router` - Fix root loader data on initial load redirects in SPA mode ([#13222](https://github.com/remix-run/react-router/pull/13222))
 *   `react-router` - Load ancestor pathless/index routes in lazy route discovery for upwards non-eager-discovery routing ([#13203](https://github.com/remix-run/react-router/pull/13203))
 *   `react-router` - Fix `shouldRevalidate` behavior for `clientLoader`\-only routes in `ssr:true` apps ([#13221](https://github.com/remix-run/react-router/pull/13221))
 *   `@react-router/dev` - Fix conflicts with other Vite plugins that use the `configureServer` and/or `configurePreviewServer` hooks ([#13184](https://github.com/remix-run/react-router/pull/13184))
 
-### [](#unstable-changes-4)Unstable Changes
+### [](#unstable-changes-5)Unstable Changes
 
 ⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
 
@@ -19700,7 +19224,7 @@ Date: 2025-03-06
 
 *   Add `fetcherKey` as a parameter to `patchRoutesOnNavigation` ([#13061](https://github.com/remix-run/react-router/pull/13061))
 
-### [](#patch-changes-7)Patch Changes
+### [](#patch-changes-8)Patch Changes
 
 *   `react-router` - Detect and handle manifest-skew issues on new deploys during active sessions ([#13061](https://github.com/remix-run/react-router/pull/13061))
     *   In framework mode, Lazy Route Discovery will now detect manifest version mismatches in active sessions after a new deploy
@@ -19723,7 +19247,7 @@ Date: 2025-03-06
 *   `@react-router/dev` - Fix duplicated entries in typegen for layout routes and their corresponding index route ([#13140](https://github.com/remix-run/react-router/pull/13140))
 *   `@react-router/express` - Update `express` `peerDependency` to include v5 ([https://github.com/remix-run/react-router/pull/13064](https://github.com/remix-run/react-router/pull/13064)) ([#12961](https://github.com/remix-run/react-router/pull/12961))
 
-### [](#unstable-changes-5)Unstable Changes
+### [](#unstable-changes-6)Unstable Changes
 
 ⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
 
@@ -20043,7 +19567,7 @@ In order to use your build-time loader data during pre-rendering, we now also ex
 *   `@react-router/dev` - Allow a `loader` in the root route in SPA mode because it can be called/server-rendered at build time ([#12948](https://github.com/remix-run/react-router/pull/12948))
     *   `Route.HydrateFallbackProps` now also receives `loaderData`
 
-### [](#patch-changes-8)Patch Changes
+### [](#patch-changes-9)Patch Changes
 
 *   `react-router` - Disable Lazy Route Discovery for all `ssr:false` apps and not just "SPA Mode" because there is no runtime server to serve the search-param-configured `__manifest` requests ([#12894](https://github.com/remix-run/react-router/pull/12894))
     *   We previously only disabled this for "SPA Mode" but we realized it should apply to all `ssr:false` apps
@@ -20089,7 +19613,7 @@ In order to use your build-time loader data during pre-rendering, we now also ex
         *   For example, `/a/1/b/2/c/3` now generates a type like `{ id: 3 }`.
 *   `@react-router/dev` - Fix path to load `package.json` for `react-router --version` ([#13012](https://github.com/remix-run/react-router/pull/13012))
 
-### [](#unstable-changes-6)Unstable Changes
+### [](#unstable-changes-7)Unstable Changes
 
 ⚠️ _[Unstable features](https://reactrouter.com/community/api-development-strategy#unstable-flags) are not recommended for production use_
 
@@ -20279,7 +19803,7 @@ This setting will raise an error if any route modules can't be split:
 
 Date: 2025-01-31
 
-### [](#patch-changes-9)Patch Changes
+### [](#patch-changes-10)Patch Changes
 
 *   `react-router` - Fix regression introduced in `7.1.4` via [#12800](https://github.com/remix-run/react-router/pull/12800) that caused issues navigating to hash routes inside splat routes for applications using Lazy Route Discovery (`patchRoutesOnNavigation`) ([#12927](https://github.com/remix-run/react-router/pull/12927))
 
@@ -20290,7 +19814,7 @@ Date: 2025-01-31
 
 Date: 2025-01-30
 
-### [](#patch-changes-10)Patch Changes
+### [](#patch-changes-11)Patch Changes
 
 *   `@react-router/dev` - Properly resolve Windows file paths to scan for Vite's dependency optimization when using the `unstable_optimizeDeps` future flag ([#12637](https://github.com/remix-run/react-router/pull/12637))
 *   `@react-router/dev` - Fix prerendering when using a custom server - previously we ended up trying to import the users custom server when we actually want to import the virtual server build module ([#12759](https://github.com/remix-run/react-router/pull/12759))
@@ -20311,7 +19835,7 @@ Date: 2025-01-30
 
 Date: 2025-01-17
 
-### [](#patch-changes-11)Patch Changes
+### [](#patch-changes-12)Patch Changes
 
 *   `@react-router/dev` - Fix `reveal` and `routes` CLI commands ([#12745](https://github.com/remix-run/react-router/pull/12745))
 
@@ -20322,7 +19846,7 @@ Date: 2025-01-17
 
 Date: 2025-01-16
 
-### [](#patch-changes-12)Patch Changes
+### [](#patch-changes-13)Patch Changes
 
 *   `react-router` - Fix issue with fetcher data cleanup in the data layer on fetcher unmount ([#12681](https://github.com/remix-run/react-router/pull/12681))
 *   `react-router` - Do not rely on `symbol` for filtering out `redirect` responses from loader data ([#12694](https://github.com/remix-run/react-router/pull/12694))
@@ -20345,7 +19869,7 @@ Date: 2025-01-16
 
 Date: 2024-12-23
 
-### [](#patch-changes-13)Patch Changes
+### [](#patch-changes-14)Patch Changes
 
 *   `@react-router/dev` - Fix for a crash when optional args are passed to the CLI ([#12609](https://github.com/remix-run/react-router/pull/12609))
 
@@ -20360,7 +19884,7 @@ Date: 2024-12-20
 
 *   Add support for Vite v6 ([#12469](https://github.com/remix-run/react-router/pull/12469))
 
-### [](#patch-changes-14)Patch Changes
+### [](#patch-changes-15)Patch Changes
 
 *   `react-router` - Throw unwrapped Single Fetch `redirect` to align with pre-Single Fetch behavior ([#12506](https://github.com/remix-run/react-router/pull/12506))
 *   `react-router` - Ignore redirects when inferring loader data types ([#12527](https://github.com/remix-run/react-router/pull/12527))
@@ -20392,7 +19916,7 @@ Date: 2024-12-20
 
 Date: 2024-12-02
 
-### [](#patch-changes-15)Patch Changes
+### [](#patch-changes-16)Patch Changes
 
 *   `react-router` - Temporarily only use one build in export map so packages can have a peer dependency on react router ([#12437](https://github.com/remix-run/react-router/pull/12437))
 *   `@react-router/dev` - Support `moduleResolution` `Node16` and `NodeNext` ([#12440](https://github.com/remix-run/react-router/pull/12440))
@@ -20408,7 +19932,7 @@ Date: 2024-12-02
 
 Date: 2024-11-22
 
-### [](#patch-changes-16)Patch Changes
+### [](#patch-changes-17)Patch Changes
 
 *   `@react-router/dev` - Ensure typegen file watcher is cleaned up when Vite dev server restarts ([#12331](https://github.com/remix-run/react-router/pull/12331))
 *   `@react-router/dev` - Pass route `error` to `ErrorBoundary` as a prop ([#12338](https://github.com/remix-run/react-router/pull/12338))
@@ -20801,7 +20325,7 @@ React Router v7 includes a new `prerender` config in the vite plugin to support 
     *   `.data` files are served with `Content-Type: text/x-turbo`
         *   For some reason, when adding this via `express.static`, it seems to also add a `Cache-Control: public, max-age=0` to `.data` files
 
-### [](#patch-changes-17)Patch Changes
+### [](#patch-changes-18)Patch Changes
 
 *   Replace `substr` with `substring` ([#12080](https://github.com/remix-run/react-router/pull/12080))
 *   `react-router` - Fix redirects returned from loaders/actions using `data()` ([#12021](https://github.com/remix-run/react-router/pull/12021))
@@ -20830,7 +20354,7 @@ React Router v7 includes a new `prerender` config in the vite plugin to support 
 
 Date: 2025-05-20
 
-### [](#patch-changes-18)Patch Changes
+### [](#patch-changes-19)Patch Changes
 
 *   Partially revert optimization added in `6.29.0` to reduce calls to `matchRoutes` because it surfaced other issues ([#13623](https://github.com/remix-run/react-router/pull/13623))
 *   Stop logging invalid warning when `v7_relativeSplatPath` is set to `false` ([#13502](https://github.com/remix-run/react-router/pull/13502))
@@ -20846,7 +20370,7 @@ Date: 2025-02-27
 
 *   Add `fetcherKey` as a parameter to `patchRoutesOnNavigation` ([#13109](https://github.com/remix-run/react-router/pull/13109))
 
-### [](#patch-changes-19)Patch Changes
+### [](#patch-changes-20)Patch Changes
 
 *   Fix regression introduced in `6.29.0` via [#12169](https://github.com/remix-run/react-router/pull/12169) that caused issues navigating to hash routes inside splat routes for applications using Lazy Route Discovery (`patchRoutesOnNavigation`) ([#13108](https://github.com/remix-run/react-router/pull/13108))
 
@@ -20862,7 +20386,7 @@ Date: 2025-01-30
 *   Provide the request `signal` as a parameter to `patchRoutesOnNavigation` ([#12900](https://github.com/remix-run/react-router/pull/12900))
     *   This can be used to abort any manifest fetches if the in-flight navigation/fetcher is aborted
 
-### [](#patch-changes-20)Patch Changes
+### [](#patch-changes-21)Patch Changes
 
 *   Do not log v7 deprecation warnings in production builds ([#12794](https://github.com/remix-run/react-router/pull/12794))
 *   Properly bubble headers when throwing a `data()` result ([#12845](https://github.com/remix-run/react-router/pull/12845))
@@ -20876,7 +20400,7 @@ Date: 2025-01-30
 
 Date: 2025-01-16
 
-### [](#patch-changes-21)Patch Changes
+### [](#patch-changes-22)Patch Changes
 
 *   Fix manual fetcher `key` usage when not opted into `future.v7_fetcherPersist` ([#12674](https://github.com/remix-run/react-router/pull/12674))
 *   Fix issue with fetcher data cleanup in the data layer on fetcher unmount ([#12674](https://github.com/remix-run/react-router/pull/12674))
@@ -20888,7 +20412,7 @@ Date: 2025-01-16
 
 Date: 2024-12-20
 
-### [](#patch-changes-22)Patch Changes
+### [](#patch-changes-23)Patch Changes
 
 *   Allow users to opt out of v7 deprecation warnings by setting flags to `false` ([#12441](https://github.com/remix-run/react-router/pull/12441))
 
@@ -20909,7 +20433,7 @@ Date: 2024-11-06
     *   Add deprecation warnings to `json`/`defer` in favor of returning raw objects
         *   These methods will be removed in React Router v7
 
-### [](#patch-changes-23)Patch Changes
+### [](#patch-changes-24)Patch Changes
 
 *   Update JSDoc URLs for new website structure (add /v6/ segment) ([#12141](https://github.com/remix-run/react-router/pull/12141))
 
@@ -20939,7 +20463,7 @@ This release stabilizes a handful of "unstable" APIs in preparation for the [pen
 *   Stabilize `unstable_patchRoutesOnNavigation` ([#11973](https://github.com/remix-run/react-router/pull/11973))
     *   Add new `PatchRoutesOnNavigationFunctionArgs` type for convenience ([#11967](https://github.com/remix-run/react-router/pull/11967))
 
-### [](#patch-changes-24)Patch Changes
+### [](#patch-changes-25)Patch Changes
 
 *   Fix bug when submitting to the current contextual route (parent route with an index child) when an `?index` param already exists from a prior submission ([#12003](https://github.com/remix-run/react-router/pull/12003))
 *   Fix `useFormAction` bug - when removing `?index` param it would not keep other non-Remix `index` params ([#12003](https://github.com/remix-run/react-router/pull/12003))
@@ -20966,7 +20490,7 @@ This release stabilizes a handful of "unstable" APIs in preparation for the [pen
 
 Date: 2024-09-09
 
-### [](#patch-changes-25)Patch Changes
+### [](#patch-changes-26)Patch Changes
 
 *   Update the `unstable_dataStrategy` API to allow for more advanced implementations ([#11943](https://github.com/remix-run/react-router/pull/11943))
     *   ⚠️ If you have already adopted `unstable_dataStrategy`, please review carefully as this includes breaking changes to this API
@@ -20989,7 +20513,7 @@ Date: 2024-09-09
 
 Date: 2024-08-15
 
-### [](#patch-changes-26)Patch Changes
+### [](#patch-changes-27)Patch Changes
 
 *   Rename `unstable_patchRoutesOnMiss` to `unstable_patchRoutesOnNavigation` to match new behavior ([#11888](https://github.com/remix-run/react-router/pull/11888))
 *   Update `unstable_patchRoutesOnNavigation` logic so that we call the method when we match routes with dynamic param or splat segments in case there exists a higher-scoring static route that we've not yet discovered ([#11883](https://github.com/remix-run/react-router/pull/11883))
@@ -21012,7 +20536,7 @@ Date: 2024-08-01
     *   ⚠️ This removes the `status` field from `HandlerResult`
         *   If you need to return a specific `status` from `unstable_dataStrategy` you should instead do so via `unstable_data()`
 
-### [](#patch-changes-27)Patch Changes
+### [](#patch-changes-28)Patch Changes
 
 *   Fix internal cleanup of interrupted fetchers to avoid invalid revalidations on navigations ([#11839](https://github.com/remix-run/react-router/pull/11839))
 *   Fix initial hydration behavior when using `future.v7_partialHydration` along with `unstable_patchRoutesOnMiss` ([#11838](https://github.com/remix-run/react-router/pull/11838))
@@ -21025,7 +20549,7 @@ Date: 2024-08-01
 
 Date: 2024-07-17
 
-### [](#patch-changes-28)Patch Changes
+### [](#patch-changes-29)Patch Changes
 
 *   Memoize some `RouterProvider` internals to reduce unnecessary re-renders ([#11803](https://github.com/remix-run/react-router/pull/11803))
 
@@ -21049,7 +20573,7 @@ This release stabilizes the `future.unstable_skipActionErrorRevalidation` flag i
 
 *   Stabilize `future.unstable_skipActionErrorRevalidation` as `future.v7_skipActionErrorRevalidation` ([#11769](https://github.com/remix-run/react-router/pull/11769))
 
-### [](#patch-changes-29)Patch Changes
+### [](#patch-changes-30)Patch Changes
 
 *   Fix regression and properly decode paths inside `useMatch` so matches/params reflect decoded params ([#11789](https://github.com/remix-run/react-router/pull/11789))
 *   Fix bubbling of errors thrown from `unstable_patchRoutesOnMiss` ([#11786](https://github.com/remix-run/react-router/pull/11786))
@@ -21062,7 +20586,7 @@ This release stabilizes the `future.unstable_skipActionErrorRevalidation` flag i
 
 Date: 2024-07-03
 
-### [](#patch-changes-30)Patch Changes
+### [](#patch-changes-31)Patch Changes
 
 *   Remove `polyfill.io` reference from warning message because the domain was sold and has since been determined to serve malware ([#11741](https://github.com/remix-run/react-router/pull/11741))
     *   See [https://sansec.io/research/polyfill-supply-chain-attack](https://sansec.io/research/polyfill-supply-chain-attack)
@@ -21113,7 +20637,7 @@ Here's a very small example, but please refer to the [documentation](https://rea
 
 *   Add support for Lazy Route Discovery (a.k.a. "Fog of War") ([#11626](https://github.com/remix-run/react-router/pull/11626))
 
-### [](#patch-changes-31)Patch Changes
+### [](#patch-changes-32)Patch Changes
 
 *   Fix `fetcher.submit` types - remove incorrect `navigate`/`fetcherKey`/`unstable_viewTransition` options because they are only relevant for `useSubmit` ([#11631](https://github.com/remix-run/react-router/pull/11631))
 *   Allow falsy `location.state` values passed to `<StaticRouter>` ([#11495](https://github.com/remix-run/react-router/pull/11495))
@@ -21125,7 +20649,7 @@ Here's a very small example, but please refer to the [documentation](https://rea
 
 Date: 2024-05-10
 
-### [](#patch-changes-32)Patch Changes
+### [](#patch-changes-33)Patch Changes
 
 *   Allow `undefined` to be resolved through `<Await>` ([#11513](https://github.com/remix-run/react-router/pull/11513))
 *   Add defensive `document` check when checking for `document.startViewTransition` availability ([#11544](https://github.com/remix-run/react-router/pull/11544))
@@ -21166,7 +20690,7 @@ With this flag enabled, `action`'s that return/throw a `4xx`/`5xx` response stat
 
 Date: 2024-03-07
 
-### [](#patch-changes-33)Patch Changes
+### [](#patch-changes-34)Patch Changes
 
 *   Fix a `future.v7_partialHydration` bug that would re-run loaders below the boundary on hydration if SSR loader errors bubbled to a parent boundary ([#11324](https://github.com/remix-run/react-router/pull/11324))
 *   Fix a `future.v7_partialHydration` bug that would consider the router uninitialized if a route did not have a loader ([#11325](https://github.com/remix-run/react-router/pull/11325))
@@ -21178,7 +20702,7 @@ Date: 2024-03-07
 
 Date: 2024-02-28
 
-### [](#patch-changes-34)Patch Changes
+### [](#patch-changes-35)Patch Changes
 
 *   Preserve hydrated errors during partial hydration runs ([#11305](https://github.com/remix-run/react-router/pull/11305))
 
@@ -21189,7 +20713,7 @@ Date: 2024-02-28
 
 Date: 2024-02-16
 
-### [](#patch-changes-35)Patch Changes
+### [](#patch-changes-36)Patch Changes
 
 *   Fix encoding/decoding issues with pre-encoded dynamic parameter values ([#11199](https://github.com/remix-run/react-router/pull/11199))
 
@@ -21220,7 +20744,7 @@ Starting with version `6.22.0`, sites using `react-router-dom` will begin adding
 *   Add a `createStaticHandler` `future.v7_throwAbortReason` flag to throw `request.signal.reason` (defaults to a `DOMException`) when a request is aborted instead of an `Error` such as `new Error("query() call aborted: GET /path")` ([#11104](https://github.com/remix-run/react-router/pull/11104))
     *   Please note that `DOMException` was added in Node v17 so you will not get a `DOMException` on Node 16 and below.
 
-### [](#patch-changes-36)Patch Changes
+### [](#patch-changes-37)Patch Changes
 
 *   Respect the `ErrorResponse` status code if passed to `getStaticContextFormError` ([#11213](https://github.com/remix-run/react-router/pull/11213))
 
@@ -21231,7 +20755,7 @@ Starting with version `6.22.0`, sites using `react-router-dom` will begin adding
 
 Date: 2024-01-18
 
-### [](#patch-changes-37)Patch Changes
+### [](#patch-changes-38)Patch Changes
 
 *   Fix `NavLink` `isPending` when a `basename` is used ([#11195](https://github.com/remix-run/react-router/pull/11195))
 *   Remove leftover `unstable_` prefix from `Blocker`/`BlockerFunction` types ([#11187](https://github.com/remix-run/react-router/pull/11187))
@@ -21243,7 +20767,7 @@ Date: 2024-01-18
 
 Date: 2024-01-11
 
-### [](#patch-changes-38)Patch Changes
+### [](#patch-changes-39)Patch Changes
 
 *   Leverage `useId` for internal fetcher keys when available ([#11166](https://github.com/remix-run/react-router/pull/11166))
 *   Fix bug where dashes were not picked up in dynamic parameter names ([#11160](https://github.com/remix-run/react-router/pull/11160))
@@ -21256,7 +20780,7 @@ Date: 2024-01-11
 
 Date: 2023-12-21
 
-### [](#patch-changes-39)Patch Changes
+### [](#patch-changes-40)Patch Changes
 
 *   Fix bug with `route.lazy` not working correctly on initial SPA load when `v7_partialHydration` is specified ([#11121](https://github.com/remix-run/react-router/pull/11121))
 *   Fix bug preventing revalidation from occurring for persisted fetchers unmounted during the `submitting` phase ([#11102](https://github.com/remix-run/react-router/pull/11102))
@@ -21288,7 +20812,7 @@ We added a new `future.v7_partialHydration` future flag for the `@remix-run/rout
 *   Add a new `future.v7_relativeSplatPath` flag to implement a breaking bug fix to relative routing when inside a splat route. ([#11087](https://github.com/remix-run/react-router/pull/11087))
 *   Add a new `future.v7_partialHydration` future flag that enables partial hydration of a data router when Server-Side Rendering ([#11033](https://github.com/remix-run/react-router/pull/11033))
 
-### [](#patch-changes-40)Patch Changes
+### [](#patch-changes-41)Patch Changes
 
 *   Properly handle falsy error values in `ErrorBoundary`'s ([#11071](https://github.com/remix-run/react-router/pull/11071))
 *   Catch and bubble errors thrown when trying to unwrap responses from `loader`/`action` functions ([#11061](https://github.com/remix-run/react-router/pull/11061))
@@ -21301,7 +20825,7 @@ We added a new `future.v7_partialHydration` future flag for the `@remix-run/rout
 
 Date: 2023-12-01
 
-### [](#patch-changes-41)Patch Changes
+### [](#patch-changes-42)Patch Changes
 
 *   Revert the `useResolvedPath` fix for splat routes due to a large number of applications that were relying on the buggy behavior (see [#11052](https://github.com/remix-run/react-router/issues/11052#issuecomment-1836589329)) ([#11078](https://github.com/remix-run/react-router/pull/11078))
     *   We plan to re-introduce this fix behind a future flag in the next minor version (see [this comment](https://github.com/remix-run/react-router/issues/11052#issuecomment-1836589329))
@@ -21320,7 +20844,7 @@ Date: 2023-11-22
 
 *   Export the `PathParam` type from the public API ([#10719](https://github.com/remix-run/react-router/pull/10719))
 
-### [](#patch-changes-42)Patch Changes
+### [](#patch-changes-43)Patch Changes
 
 *   Do not revalidate unmounted fetchers when `v7_fetcherPersist` is enabled ([#11044](https://github.com/remix-run/react-router/pull/11044))
 *   Fix bug with `resolveTo` path resolution in splat routes ([#11045](https://github.com/remix-run/react-router/pull/11045))
@@ -21355,7 +20879,7 @@ This release brings a new `unstable_flushSync` option to the imperative APIs (`u
 *   Remove the `unstable_` prefix from the [`useBlocker`](https://reactrouter.com/v6/hooks/use-blocker) hook as it's been in use for enough time that we are confident in the API ([#10991](https://github.com/remix-run/react-router/pull/10991))
     *   We do not plan to remove the prefix from `unstable_usePrompt` due to differences in how browsers handle `window.confirm` that prevent React Router from guaranteeing consistent/correct behavior
 
-### [](#patch-changes-43)Patch Changes
+### [](#patch-changes-44)Patch Changes
 
 *   Fix `useActionData` so it returns proper contextual action data and not _any_ action data in the tree ([#11023](https://github.com/remix-run/react-router/pull/11023))
     
@@ -21429,7 +20953,7 @@ Per the same [RFC](https://github.com/remix-run/remix/discussions/7698) as above
 *   Add `future.v7_fetcherPersist` flag ([#10962](https://github.com/remix-run/react-router/pull/10962))
 *   Add support for optional path segments in `matchPath` ([#10768](https://github.com/remix-run/react-router/pull/10768))
 
-### [](#patch-changes-44)Patch Changes
+### [](#patch-changes-45)Patch Changes
 
 *   Fix the `future` prop on `BrowserRouter`, `HashRouter` and `MemoryRouter` so that it accepts a `Partial<FutureConfig>` instead of requiring all flags to be included ([#10962](https://github.com/remix-run/react-router/pull/10962))
 *   Fix `router.getFetcher`/`router.deleteFetcher` type definitions which incorrectly specified `key` as an optional parameter ([#10960](https://github.com/remix-run/react-router/pull/10960))
@@ -21487,7 +21011,7 @@ For more information on using the View Transitions API, please refer to the [Smo
 
 *   Add support for view transitions ([#10916](https://github.com/remix-run/react-router/pull/10916))
 
-### [](#patch-changes-45)Patch Changes
+### [](#patch-changes-46)Patch Changes
 
 *   Log a warning and fail gracefully in `ScrollRestoration` when `sessionStorage` is unavailable ([#10848](https://github.com/remix-run/react-router/pull/10848))
 *   Fix `RouterProvider` `future` prop type to be a `Partial<FutureConfig>` so that not all flags must be specified ([#10900](https://github.com/remix-run/react-router/pull/10900))
@@ -21511,7 +21035,7 @@ Date: 2023-09-13
 *   Export `ShouldRevalidateFunctionArgs` interface ([#10797](https://github.com/remix-run/react-router/pull/10797))
 *   Removed private/internal APIs only required for the Remix v1 backwards compatibility layer and no longer needed in Remix v2 (`_isFetchActionRedirect`, `_hasFetcherDoneAnything`) ([#10715](https://github.com/remix-run/react-router/pull/10715))
 
-### [](#patch-changes-46)Patch Changes
+### [](#patch-changes-47)Patch Changes
 
 *   Properly encode rendered URIs in server rendering to avoid hydration errors ([#10769](https://github.com/remix-run/react-router/pull/10769))
 *   Add method/url to error message on aborted `query`/`queryRoute` calls ([#10793](https://github.com/remix-run/react-router/pull/10793))
@@ -21529,7 +21053,7 @@ Date: 2023-08-10
 
 *   Add's a new `redirectDocument()` function which allows users to specify that a redirect from a `loader`/`action` should trigger a document reload (via `window.location`) instead of attempting to navigate to the redirected location via React Router ([#10705](https://github.com/remix-run/react-router/pull/10705))
 
-### [](#patch-changes-47)Patch Changes
+### [](#patch-changes-48)Patch Changes
 
 *   Ensure `useRevalidator` is referentially stable across re-renders if revalidations are not actively occurring ([#10707](https://github.com/remix-run/react-router/pull/10707))
 *   Ensure hash history always includes a leading slash on hash pathnames ([#10753](https://github.com/remix-run/react-router/pull/10753))
@@ -21546,7 +21070,7 @@ Date: 2023-08-10
 
 Date: 2023-07-17
 
-### [](#patch-changes-48)Patch Changes
+### [](#patch-changes-49)Patch Changes
 
 *   Add missing `<Form state>` prop to populate `history.state` on submission navigations ([#10630](https://github.com/remix-run/react-router/pull/10630))
 *   Trigger an error if a `defer` promise resolves/rejects with `undefined` in order to match the behavior of loaders and actions which must return a value or `null` ([#10690](https://github.com/remix-run/react-router/pull/10690))
@@ -21563,7 +21087,7 @@ Date: 2023-07-17
 
 Date: 2023-06-30
 
-### [](#patch-changes-49)Patch Changes
+### [](#patch-changes-50)Patch Changes
 
 *   Fix loop in `unstable_useBlocker` when used with an unstable blocker function ([#10652](https://github.com/remix-run/react-router/pull/10652))
 *   Fix issues with reused blockers on subsequent navigations ([#10656](https://github.com/remix-run/react-router/pull/10656))
@@ -21639,7 +21163,7 @@ This behavior will likely change in v7 so it's best to make any JSON object subm
 
 *   Add support for `application/json` and `text/plain` encodings for `useSubmit`/`fetcher.submit`. To reflect these additional types, `useNavigation`/`useFetcher` now also contain `navigation.json`/`navigation.text` and `fetcher.json`/`fetcher.text` which include the json/text submission if applicable. ([#10413](https://github.com/remix-run/react-router/pull/10413))
 
-### [](#patch-changes-50)Patch Changes
+### [](#patch-changes-51)Patch Changes
 
 *   When submitting a form from a `submitter` element, prefer the built-in `new FormData(form, submitter)` instead of the previous manual approach in modern browsers (those that support the new `submitter` parameter) ([#9865](https://github.com/remix-run/react-router/pull/9865))
     *   For browsers that don't support it, we continue to just append the submit button's entry to the end, and we also add rudimentary support for `type="image"` buttons
@@ -21693,7 +21217,7 @@ We recommend folks adopt this flag sooner rather than later to be better compati
 
 *   Move `React.startTransition` usage behinds a future flag ([#10596](https://github.com/remix-run/react-router/pull/10596))
 
-### [](#patch-changes-51)Patch Changes
+### [](#patch-changes-52)Patch Changes
 
 *   Work around webpack/terser `React.startTransition` minification bug in production mode ([#10588](https://github.com/remix-run/react-router/pull/10588))
 
@@ -21706,7 +21230,7 @@ Date: 2023-06-08
 
 > \[!WARNING\] Please use version `6.13.0` or later instead of `6.12.0`/`6.12.1`. These versions suffered from some Webpack build/minification issues resulting failed builds or invalid minified code in your production bundles. See [#10569](https://github.com/remix-run/react-router/pull/10569) and [#10579](https://github.com/remix-run/react-router/issues/10579) for more details.
 
-### [](#patch-changes-52)Patch Changes
+### [](#patch-changes-53)Patch Changes
 
 *   Adjust feature detection of `React.startTransition` to fix webpack + react 17 compilation error ([#10569](https://github.com/remix-run/react-router/pull/10569))
 
@@ -21729,7 +21253,7 @@ With `6.12.0` we've added better support for suspending components by wrapping t
 
 *   Wrap internal router state updates with `React.startTransition` ([#10438](https://github.com/remix-run/react-router/pull/10438))
 
-### [](#patch-changes-53)Patch Changes
+### [](#patch-changes-54)Patch Changes
 
 *   Allow fetcher revalidations to complete if submitting fetcher is deleted ([#10535](https://github.com/remix-run/react-router/pull/10535))
 *   Re-throw `DOMException` (`DataCloneError`) when attempting to perform a `PUSH` navigation with non-serializable state. ([#10427](https://github.com/remix-run/react-router/pull/10427))
@@ -21745,7 +21269,7 @@ With `6.12.0` we've added better support for suspending components by wrapping t
 
 Date: 2023-05-17
 
-### [](#patch-changes-54)Patch Changes
+### [](#patch-changes-55)Patch Changes
 
 *   Fix `basename` duplication in descendant `<Routes>` inside a `<RouterProvider>` ([#10492](https://github.com/remix-run/react-router/pull/10492))
 *   Fix bug where initial data load would not kick off when hash is present ([#10493](https://github.com/remix-run/react-router/pull/10493))
@@ -21759,7 +21283,7 @@ Date: 2023-05-17
 
 Date: 2023-05-03
 
-### [](#patch-changes-55)Patch Changes
+### [](#patch-changes-56)Patch Changes
 
 *   Fix usage of `Component` API within descendant `<Routes>` ([#10434](https://github.com/remix-run/react-router/pull/10434))
 *   Fix bug when calling `useNavigate` from `<Routes>` inside a `<RouterProvider>` ([#10432](https://github.com/remix-run/react-router/pull/10432))
@@ -21781,7 +21305,7 @@ Date: 2023-04-28
 *   Updated dependencies:
     *   `@remix-run/router@1.6.0` ([Changelog](https://github.com/remix-run/react-router/blob/main/packages/router/CHANGELOG.md#160))
 
-### [](#patch-changes-56)Patch Changes
+### [](#patch-changes-57)Patch Changes
 
 *   When using a `RouterProvider`, `useNavigate`/`useSubmit`/`fetcher.submit` are now stable across location changes, since we can handle relative routing via the `@remix-run/router` instance and get rid of our dependence on `useLocation()` ([#10336](https://github.com/remix-run/react-router/pull/10336))
     *   When using `BrowserRouter`, these hooks remain unstable across location changes because they still rely on `useLocation()`
@@ -21830,7 +21354,7 @@ The first future flag being introduced is `future.v7_normalizeFormMethod` which 
     *   `useNavigation().formMethod` is UPPERCASE
     *   `useFetcher().formMethod` is UPPERCASE
 
-### [](#patch-changes-57)Patch Changes
+### [](#patch-changes-58)Patch Changes
 
 *   Fix `createStaticHandler` to also check for `ErrorBoundary` on routes in addition to `errorElement` ([#10190](https://github.com/remix-run/react-router/pull/10190))
 *   Fix route ID generation when using Fragments in `createRoutesFromElements` ([#10193](https://github.com/remix-run/react-router/pull/10193))
@@ -21947,7 +21471,7 @@ An example of this in action can be found in the [`examples/lazy-loading-router-
 *   Add support for `route.Component`/`route.ErrorBoundary` properties ([#10045](https://github.com/remix-run/react-router/pull/10045))
 *   Add support for `route.lazy` ([#10045](https://github.com/remix-run/react-router/pull/10045))
 
-### [](#patch-changes-58)Patch Changes
+### [](#patch-changes-59)Patch Changes
 
 *   Improve memoization for context providers to avoid unnecessary re-renders ([#9983](https://github.com/remix-run/react-router/pull/9983))
 *   Fix `generatePath` incorrectly applying parameters in some cases ([#10078](https://github.com/remix-run/react-router/pull/10078))
@@ -21960,7 +21484,7 @@ An example of this in action can be found in the [`examples/lazy-loading-router-
 
 Date: 2023-02-27
 
-### [](#patch-changes-59)Patch Changes
+### [](#patch-changes-60)Patch Changes
 
 *   Treat same-origin absolute URLs in `<Link to>` as external if they are outside of the router `basename` ([#10135](https://github.com/remix-run/react-router/pull/10135))
 *   Correctly perform a hard redirect for same-origin absolute URLs outside of the router `basename` ([#10076](https://github.com/remix-run/react-router/pull/10076))
@@ -21977,7 +21501,7 @@ Date: 2023-02-27
 
 Date: 2023-02-06
 
-### [](#patch-changes-60)Patch Changes
+### [](#patch-changes-61)Patch Changes
 
 *   Remove inaccurate console warning for POP navigations and update active blocker logic ([#10030](https://github.com/remix-run/react-router/pull/10030))
 *   Only check for differing origin on absolute URL redirects ([#10033](https://github.com/remix-run/react-router/pull/10033))
@@ -22000,7 +21524,7 @@ Support absolute URLs in `<Link to>`. If the URL is for the current origin, it w
     <Link to="https://www.currentorigin.com/path"> {/* Client-side navigation */}
     
 
-### [](#patch-changes-61)Patch Changes
+### [](#patch-changes-62)Patch Changes
 
 *   Fixes 2 separate issues for revalidating fetcher `shouldRevalidate` calls ([#9948](https://github.com/remix-run/react-router/pull/9948))
     *   The `shouldRevalidate` function was only being called for _explicit_ revalidation scenarios (after a mutation, manual `useRevalidator` call, or an `X-Remix-Revalidate` header used for cookie setting in Remix). It was not properly being called on _implicit_ revalidation scenarios that also apply to navigation `loader` revalidation, such as a change in search params or clicking a link for the page we're already on. It's now correctly called in those additional scenarios.
@@ -22027,7 +21551,7 @@ Date: 2023-01-18
 *   Add `unstable_useBlocker`/`unstable_usePrompt` hooks for blocking navigations within the app's location origin ([#9709](https://github.com/remix-run/react-router/pull/9709), [#9932](https://github.com/remix-run/react-router/pull/9932))
 *   Add `preventScrollReset` prop to `<Form>` ([#9886](https://github.com/remix-run/react-router/pull/9886))
 
-### [](#patch-changes-62)Patch Changes
+### [](#patch-changes-63)Patch Changes
 
 *   Added pass-through event listener options argument to `useBeforeUnload` ([#9709](https://github.com/remix-run/react-router/pull/9709))
 *   Fix `generatePath` when optional params are present ([#9764](https://github.com/remix-run/react-router/pull/9764))
@@ -22045,7 +21569,7 @@ Date: 2023-01-18
 
 Date: 2023-01-09
 
-### [](#patch-changes-63)Patch Changes
+### [](#patch-changes-64)Patch Changes
 
 *   Ensure `useId` consistency during SSR ([#9805](https://github.com/remix-run/react-router/pull/9805))
 
@@ -22056,7 +21580,7 @@ Date: 2023-01-09
 
 Date: 2022-12-23
 
-### [](#patch-changes-64)Patch Changes
+### [](#patch-changes-65)Patch Changes
 
 *   Include submission info in `shouldRevalidate` on action redirects ([#9777](https://github.com/remix-run/react-router/pull/9777), [#9782](https://github.com/remix-run/react-router/pull/9782))
 *   Reset `actionData` on action redirect to current location ([#9772](https://github.com/remix-run/react-router/pull/9772))
@@ -22077,7 +21601,7 @@ This minor release is primarily to stabilize our SSR APIs for Data Routers now t
 *   Remove `unstable_` prefix from `createStaticHandler`/`createStaticRouter`/`StaticRouterProvider` ([#9738](https://github.com/remix-run/react-router/pull/9738))
 *   Add `useBeforeUnload()` hook ([#9664](https://github.com/remix-run/react-router/pull/9664))
 
-### [](#patch-changes-65)Patch Changes
+### [](#patch-changes-66)Patch Changes
 
 *   Support uppercase `<Form method>` and `useSubmit` method values ([#9664](https://github.com/remix-run/react-router/pull/9664))
 *   Fix `<button formmethod>` form submission overriddes ([#9664](https://github.com/remix-run/react-router/pull/9664))
@@ -22122,7 +21646,7 @@ This release introduces support for [Optional Route Segments](https://github.com
 
 *   Allows optional routes and optional static segments ([#9650](https://github.com/remix-run/react-router/pull/9650))
 
-### [](#patch-changes-66)Patch Changes
+### [](#patch-changes-67)Patch Changes
 
 *   Stop incorrectly matching on partial named parameters, i.e. `<Route path="prefix-:param">`, to align with how splat parameters work. If you were previously relying on this behavior then it's recommended to extract the static portion of the path at the `useParams` call site: ([#9506](https://github.com/remix-run/react-router/pull/9506))
 
@@ -22158,7 +21682,7 @@ This release introduces support for [Optional Route Segments](https://github.com
 
 Date: 2022-12-07
 
-### [](#patch-changes-67)Patch Changes
+### [](#patch-changes-68)Patch Changes
 
 *   Fix requests sent to revalidating loaders so they reflect a `GET` request ([#9680](https://github.com/remix-run/react-router/pull/9680))
 *   Remove `instanceof Response` checks in favor of `isResponse` ([#9690](https://github.com/remix-run/react-router/pull/9690))
@@ -22173,7 +21697,7 @@ Date: 2022-12-07
 
 Date: 2022-11-30
 
-### [](#patch-changes-68)Patch Changes
+### [](#patch-changes-69)Patch Changes
 
 *   Throw an error if an `action`/`loader` function returns `undefined` as revalidations need to know whether the loader has previously been executed. `undefined` also causes issues during SSR stringification for hydration. You should always ensure your `loader`/`action` returns a value, and you may return `null` if you don't wish to return anything. ([#9511](https://github.com/remix-run/react-router/pull/9511))
 *   Properly handle redirects to external domains ([#9590](https://github.com/remix-run/react-router/pull/9590), [#9654](https://github.com/remix-run/react-router/pull/9654))
@@ -22194,7 +21718,7 @@ Date: 2022-11-30
 
 Date: 2022-11-01
 
-### [](#patch-changes-69)Patch Changes
+### [](#patch-changes-70)Patch Changes
 
 *   Generate correct `<a href>` values when using `createHashRouter` ([#9409](https://github.com/remix-run/react-router/pull/9409))
 *   Better handle encoding/matching with special characters in URLs and route paths ([#9477](https://github.com/remix-run/react-router/pull/9477), [#9496](https://github.com/remix-run/react-router/pull/9496))
@@ -22215,7 +21739,7 @@ Date: 2022-11-01
 
 Date: 2022-10-06
 
-### [](#patch-changes-70)Patch Changes
+### [](#patch-changes-71)Patch Changes
 
 *   Respect `basename` in `useFormAction` ([#9352](https://github.com/remix-run/react-router/pull/9352))
 *   Fix `IndexRouteObject` and `NonIndexRouteObject` types to make `hasErrorElement` optional ([#9394](https://github.com/remix-run/react-router/pull/9394))
@@ -22229,7 +21753,7 @@ Date: 2022-10-06
 
 Date: 2022-09-22
 
-### [](#patch-changes-71)Patch Changes
+### [](#patch-changes-72)Patch Changes
 
 *   Preserve state from `initialEntries` ([#9288](https://github.com/remix-run/react-router/pull/9288))
 *   Preserve `?index` for fetcher get submissions to index routes ([#9312](https://github.com/remix-run/react-router/pull/9312))
@@ -22264,7 +21788,7 @@ Whoa this is a big one! `6.4.0` brings all the data loading and mutation APIs ov
 *   Manage scroll position with `<ScrollRestoration>`
 *   Perform path-relative navigations with `<Link relative="path">` ([#9160](https://github.com/remix-run/react-router/pull/9160))
 
-### [](#patch-changes-72)Patch Changes
+### [](#patch-changes-73)Patch Changes
 
 *   Path resolution is now trailing slash agnostic ([#8861](https://github.com/remix-run/react-router/pull/8861))
 *   `useLocation` returns the scoped location inside a `<Routes location>` component ([#9094](https://github.com/remix-run/react-router/pull/9094))
@@ -22288,7 +21812,7 @@ Date: 2022-03-31
 
 Date: 2022-02-28
 
-### [](#patch-changes-73)Patch Changes
+### [](#patch-changes-74)Patch Changes
 
 *   Fixed nested splat routes that begin with special URL-safe characters ([#8563](https://github.com/remix-run/react-router/pull/8563))
 *   Fixed a bug where index routes were missing route context in some cases ([#8497](https://github.com/remix-run/react-router/pull/8497))
@@ -22300,7 +21824,7 @@ Date: 2022-02-28
 
 Date: 2021-12-17
 
-### [](#patch-changes-74)Patch Changes
+### [](#patch-changes-75)Patch Changes
 
 *   This release updates the internal `history` dependency to `5.2.0`.
 
@@ -22315,7 +21839,7 @@ Date: 2021-12-17
 
 *   We now use statically analyzable CJS exports. This enables named imports in Node ESM scripts ([See the commit](https://github.com/remix-run/react-router/commit/29c7fc8b5f853b0b06ecd0f5682a9bbe6eca0715)).
 
-### [](#patch-changes-75)Patch Changes
+### [](#patch-changes-76)Patch Changes
 
 *   Fixed the `RouteProps` `element` type, which should be a `ReactNode` ([#8473](https://github.com/remix-run/react-router/pull/8473))
 *   Fixed a bug with `useOutlet` for top-level routes ([#8483](https://github.com/remix-run/react-router/pull/8483))
@@ -22327,7 +21851,7 @@ Date: 2021-12-17
 
 Date: 2021-12-11
 
-### [](#patch-changes-76)Patch Changes
+### [](#patch-changes-77)Patch Changes
 
 *   In v6.1.0 we inadvertently shipped a new, undocumented API that will likely introduce bugs ([#7586](https://github.com/remix-run/react-router/pull/7586)). We have flagged `HistoryRouter` as `unstable_HistoryRouter`, as this API will likely need to change before a new major release.
 
@@ -22344,7 +21868,7 @@ Date: 2021-12-10
 *   `<NavLink>` can now receive a child function for access to its props. ([#8164](https://github.com/remix-run/react-router/pull/8164))
 *   Improved TypeScript signature for `useMatch` and `matchPath`. For example, when you call `useMatch("foo/:bar/:baz")`, the path is parsed and the return type will be `PathMatch<"bar" | "baz">`. ([#8030](https://github.com/remix-run/react-router/pull/8030))
 
-### [](#patch-changes-77)Patch Changes
+### [](#patch-changes-78)Patch Changes
 
 *   Fixed a bug that broke support for base64 encoded IDs on nested routes ([#8291](https://github.com/remix-run/react-router/pull/8291))
 *   A few error message improvements ([#8202](https://github.com/remix-run/react-router/pull/8202))
@@ -22356,7 +21880,7 @@ Date: 2021-12-10
 
 Date: 2021-11-09
 
-### [](#patch-changes-78)Patch Changes
+### [](#patch-changes-79)Patch Changes
 
 *   Added the `reloadDocument` prop to `<Link>`. This allows `<Link>` to function like a normal anchor tag by reloading the document after navigation while maintaining the relative `to` resolution ([#8283](https://github.com/remix-run/react-router/pull/8283))
 
@@ -22367,7 +21891,7 @@ Date: 2021-11-09
 
 Date: 2021-11-05
 
-### [](#patch-changes-79)Patch Changes
+### [](#patch-changes-80)Patch Changes
 
 *   Add a default `<StaticRouter location>` value ([#8243](https://github.com/remix-run/react-router/pull/8243))
 *   Add invariant for using `<Route>` inside `<Routes>` to help people make the change ([#8238](https://github.com/remix-run/react-router/pull/8238))
@@ -22502,489 +22026,81 @@ Every mode supports any architecture and deployment target, so the question isn'
 
 This is mostly for the LLMs, but knock yourself out:
 
-API
-
-Framework
-
-Data
-
-Declarative
-
-Await
-
-✅
-
-✅
-
-Form
-
-✅
-
-✅
-
-Link
-
-✅
-
-✅
-
-✅
-
-`<Link discover>`
-
-✅
-
-`<Link prefetch>`
-
-✅
-
-`<Link preventScrollReset>`
-
-✅
-
-✅
-
-Links
-
-✅
-
-Meta
-
-✅
-
-NavLink
-
-✅
-
-✅
-
-✅
-
-`<NavLink discover>`
-
-✅
-
-`<NavLink prefetch>`
-
-✅
-
-`<NavLink preventScrollReset>`
-
-✅
-
-✅
-
-NavLink `isPending`
-
-✅
-
-✅
-
-Navigate
-
-✅
-
-✅
-
-✅
-
-Outlet
-
-✅
-
-✅
-
-✅
-
-PrefetchPageLinks
-
-✅
-
-Route
-
-✅
-
-✅
-
-✅
-
-Routes
-
-✅
-
-✅
-
-✅
-
-Scripts
-
-✅
-
-ScrollRestoration
-
-✅
-
-✅
-
-ServerRouter
-
-✅
-
-usePrompt
-
-✅
-
-✅
-
-✅
-
-useActionData
-
-✅
-
-✅
-
-useAsyncError
-
-✅
-
-✅
-
-useAsyncValue
-
-✅
-
-✅
-
-useBeforeUnload
-
-✅
-
-✅
-
-✅
-
-useBlocker
-
-✅
-
-✅
-
-useFetcher
-
-✅
-
-✅
-
-useFetchers
-
-✅
-
-✅
-
-useFormAction
-
-✅
-
-✅
-
-useHref
-
-✅
-
-✅
-
-✅
-
-useInRouterContext
-
-✅
-
-✅
-
-✅
-
-useLinkClickHandler
-
-✅
-
-✅
-
-✅
-
-useLoaderData
-
-✅
-
-✅
-
-useLocation
-
-✅
-
-✅
-
-✅
-
-useMatch
-
-✅
-
-✅
-
-✅
-
-useMatches
-
-✅
-
-✅
-
-useNavigate
-
-✅
-
-✅
-
-✅
-
-useNavigation
-
-✅
-
-✅
-
-useNavigationType
-
-✅
-
-✅
-
-✅
-
-useOutlet
-
-✅
-
-✅
-
-✅
-
-useOutletContext
-
-✅
-
-✅
-
-✅
-
-useParams
-
-✅
-
-✅
-
-✅
-
-useResolvedPath
-
-✅
-
-✅
-
-✅
-
-useRevalidator
-
-✅
-
-✅
-
-useRouteError
-
-✅
-
-✅
-
-useRouteLoaderData
-
-✅
-
-✅
-
-useRoutes
-
-✅
-
-✅
-
-✅
-
-useSearchParams
-
-✅
-
-✅
-
-✅
-
-useSubmit
-
-✅
-
-✅
-
-useViewTransitionState
-
-✅
-
-✅
-
-isCookieFunction
-
-✅
-
-✅
-
-isSessionFunction
-
-✅
-
-✅
-
-createCookie
-
-✅
-
-✅
-
-createCookieSessionStorage
-
-✅
-
-✅
-
-createMemorySessionStorage
-
-✅
-
-✅
-
-createPath
-
-✅
-
-✅
-
-✅
-
-createRoutesStub
-
-✅
-
-✅
-
-createSearchParams
-
-✅
-
-✅
-
-✅
-
-data
-
-✅
-
-✅
-
-generatePath
-
-✅
-
-✅
-
-✅
-
-href
-
-✅
-
-isCookie
-
-✅
-
-✅
-
-isRouteErrorResponse
-
-✅
-
-✅
-
-isSession
-
-✅
-
-✅
-
-matchPath
-
-✅
-
-✅
-
-✅
-
-matchRoutes
-
-✅
-
-✅
-
-✅
-
-parsePath
-
-✅
-
-✅
-
-✅
-
-redirect
-
-✅
-
-✅
-
-redirectDocument
-
-✅
-
-✅
-
-renderMatches
-
-✅
-
-✅
-
-✅
-
-replace
-
-✅
-
-✅
-
-resolvePath
-
-✅
-
-✅
-
-✅
+| API | Framework | Data | Declarative |
+| --- | --- | --- | --- |
+| Await | ✅ | ✅ |  |
+| Form | ✅ | ✅ |  |
+| Link | ✅ | ✅ | ✅ |
+| `<Link discover>` | ✅ |  |  |
+| `<Link prefetch>` | ✅ |  |  |
+| `<Link preventScrollReset>` | ✅ | ✅ |  |
+| Links | ✅ |  |  |
+| Meta | ✅ |  |  |
+| NavLink | ✅ | ✅ | ✅ |
+| `<NavLink discover>` | ✅ |  |  |
+| `<NavLink prefetch>` | ✅ |  |  |
+| `<NavLink preventScrollReset>` | ✅ | ✅ |  |
+| NavLink `isPending` | ✅ | ✅ |  |
+| Navigate | ✅ | ✅ | ✅ |
+| Outlet | ✅ | ✅ | ✅ |
+| PrefetchPageLinks | ✅ |  |  |
+| Route | ✅ | ✅ | ✅ |
+| Routes | ✅ | ✅ | ✅ |
+| Scripts | ✅ |  |  |
+| ScrollRestoration | ✅ | ✅ |  |
+| ServerRouter | ✅ |  |  |
+| usePrompt | ✅ | ✅ | ✅ |
+| useActionData | ✅ | ✅ |  |
+| useAsyncError | ✅ | ✅ |  |
+| useAsyncValue | ✅ | ✅ |  |
+| useBeforeUnload | ✅ | ✅ | ✅ |
+| useBlocker | ✅ | ✅ |  |
+| useFetcher | ✅ | ✅ |  |
+| useFetchers | ✅ | ✅ |  |
+| useFormAction | ✅ | ✅ |  |
+| useHref | ✅ | ✅ | ✅ |
+| useInRouterContext | ✅ | ✅ | ✅ |
+| useLinkClickHandler | ✅ | ✅ | ✅ |
+| useLoaderData | ✅ | ✅ |  |
+| useLocation | ✅ | ✅ | ✅ |
+| useMatch | ✅ | ✅ | ✅ |
+| useMatches | ✅ | ✅ |  |
+| useNavigate | ✅ | ✅ | ✅ |
+| useNavigation | ✅ | ✅ |  |
+| useNavigationType | ✅ | ✅ | ✅ |
+| useOutlet | ✅ | ✅ | ✅ |
+| useOutletContext | ✅ | ✅ | ✅ |
+| useParams | ✅ | ✅ | ✅ |
+| useResolvedPath | ✅ | ✅ | ✅ |
+| useRevalidator | ✅ | ✅ |  |
+| useRouteError | ✅ | ✅ |  |
+| useRouteLoaderData | ✅ | ✅ |  |
+| useRoutes | ✅ | ✅ | ✅ |
+| useSearchParams | ✅ | ✅ | ✅ |
+| useSubmit | ✅ | ✅ |  |
+| useViewTransitionState | ✅ | ✅ |  |
+| isCookieFunction | ✅ | ✅ |  |
+| isSessionFunction | ✅ | ✅ |  |
+| createCookie | ✅ | ✅ |  |
+| createCookieSessionStorage | ✅ | ✅ |  |
+| createMemorySessionStorage | ✅ | ✅ |  |
+| createPath | ✅ | ✅ | ✅ |
+| createRoutesStub | ✅ | ✅ |  |
+| createSearchParams | ✅ | ✅ | ✅ |
+| data | ✅ | ✅ |  |
+| generatePath | ✅ | ✅ | ✅ |
+| href | ✅ |  |  |
+| isCookie | ✅ | ✅ |  |
+| isRouteErrorResponse | ✅ | ✅ |  |
+| isSession | ✅ | ✅ |  |
+| matchPath | ✅ | ✅ | ✅ |
+| matchRoutes | ✅ | ✅ | ✅ |
+| parsePath | ✅ | ✅ | ✅ |
+| redirect | ✅ | ✅ |  |
+| redirectDocument | ✅ | ✅ |  |
+| renderMatches | ✅ | ✅ | ✅ |
+| replace | ✅ | ✅ |  |
+| resolvePath | ✅ | ✅ | ✅ |
 
 [](#installation)Installation
 =============================
@@ -23642,6 +22758,24 @@ All routes links will be aggregated and rendered through the `<Links />` compone
 ---------------
 
 Route meta defines meta tags to be rendered in the `<Meta />` component, usually placed in the `<head>`.
+
+Since React 19, [using the built-in `<meta>` element](https://react.dev/reference/react-dom/components/meta) is recommended over the use of the route module's `meta` export.
+
+Here is an example of how to use it and the `<title>` element:
+
+    export default function MyRoute() {
+      return (
+        <div>
+          <title>Very cool app</title>
+          <meta property="og:title" content="Very cool app" />
+          <meta
+            name="description"
+            content="This app is the best"
+          />
+          {/* The rest of your route content... */}
+        </div>
+      );
+    }
 
     export function meta() {
       return [
@@ -26397,81 +25531,20 @@ If you prefer not to use the codemod, you can manually update your dependencies.
 
 Expand to see a table of package name changes in alphabetical order
 
-Remix v2 Package
-
-React Router v7 Package
-
-`@remix-run/architect`
-
-➡️
-
-`@react-router/architect`
-
-`@remix-run/cloudflare`
-
-➡️
-
-`@react-router/cloudflare`
-
-`@remix-run/dev`
-
-➡️
-
-`@react-router/dev`
-
-`@remix-run/express`
-
-➡️
-
-`@react-router/express`
-
-`@remix-run/fs-routes`
-
-➡️
-
-`@react-router/fs-routes`
-
-`@remix-run/node`
-
-➡️
-
-`@react-router/node`
-
-`@remix-run/react`
-
-➡️
-
-`react-router`
-
-`@remix-run/route-config`
-
-➡️
-
-`@react-router/dev`
-
-`@remix-run/routes-option-adapter`
-
-➡️
-
-`@react-router/remix-routes-option-adapter`
-
-`@remix-run/serve`
-
-➡️
-
-`@react-router/serve`
-
-`@remix-run/server-runtime`
-
-➡️
-
-`react-router`
-
-`@remix-run/testing`
-
-➡️
-
-`react-router`
+| Remix v2 Package |  | React Router v7 Package |
+| --- | --- | --- |
+| `@remix-run/architect` | ➡️ | `@react-router/architect` |
+| `@remix-run/cloudflare` | ➡️ | `@react-router/cloudflare` |
+| `@remix-run/dev` | ➡️ | `@react-router/dev` |
+| `@remix-run/express` | ➡️ | `@react-router/express` |
+| `@remix-run/fs-routes` | ➡️ | `@react-router/fs-routes` |
+| `@remix-run/node` | ➡️ | `@react-router/node` |
+| `@remix-run/react` | ➡️ | `react-router` |
+| `@remix-run/route-config` | ➡️ | `@react-router/dev` |
+| `@remix-run/routes-option-adapter` | ➡️ | `@react-router/remix-routes-option-adapter` |
+| `@remix-run/serve` | ➡️ | `@react-router/serve` |
+| `@remix-run/server-runtime` | ➡️ | `react-router` |
+| `@remix-run/testing` | ➡️ | `react-router` |
 
 [](#3-change-scripts-in-packagejson)3\. Change `scripts` in `package.json`
 --------------------------------------------------------------------------
@@ -26480,43 +25553,12 @@ If you used the codemod you can skip this step as it was automatically completed
 
 **👉 Update the scripts in your `package.json`**
 
-Script
-
-Remix v2
-
-React Router v7
-
-`dev`
-
-`remix vite:dev`
-
-➡️
-
-`react-router dev`
-
-`build`
-
-`remix vite:build`
-
-➡️
-
-`react-router build`
-
-`start`
-
-`remix-serve build/server/index.js`
-
-➡️
-
-`react-router-serve build/server/index.js`
-
-`typecheck`
-
-`tsc`
-
-➡️
-
-`react-router typegen && tsc`
+| Script | Remix v2 |  | React Router v7 |
+| --- | --- | --- | --- |
+| `dev` | `remix vite:dev` | ➡️ | `react-router dev` |
+| `build` | `remix vite:build` | ➡️ | `react-router build` |
+| `start` | `remix-serve build/server/index.js` | ➡️ | `react-router-serve build/server/index.js` |
+| `typecheck` | `tsc` | ➡️ | `react-router typegen && tsc` |
 
 [](#4-add-a-routests-file)4\. Add a `routes.ts` file
 ----------------------------------------------------
@@ -28126,23 +27168,10 @@ States are available through the className, style, and children render props. Se
 
 Changes the matching logic to make it case-sensitive:
 
-Link
-
-URL
-
-isActive
-
-`<NavLink to="/SpOnGe-bOB" />`
-
-`/sponge-bob`
-
-true
-
-`<NavLink to="/SpOnGe-bOB" caseSensitive />`
-
-`/sponge-bob`
-
-false
+| Link | URL | isActive |
+| --- | --- | --- |
+| `<NavLink to="/SpOnGe-bOB" />` | `/sponge-bob` | true |
+| `<NavLink to="/SpOnGe-bOB" caseSensitive />` | `/sponge-bob` | false |
 
 ### [](#children)children
 
@@ -28202,35 +27231,12 @@ Defines the link discovery behavior
 
 Changes the matching logic for the `active` and `pending` states to only match to the "end" of the NavLinkProps.to. If the URL is longer, it will no longer be considered active.
 
-Link
-
-URL
-
-isActive
-
-`<NavLink to="/tasks" />`
-
-`/tasks`
-
-true
-
-`<NavLink to="/tasks" />`
-
-`/tasks/123`
-
-true
-
-`<NavLink to="/tasks" end />`
-
-`/tasks`
-
-true
-
-`<NavLink to="/tasks" end />`
-
-`/tasks/123`
-
-false
+| Link | URL | isActive |
+| --- | --- | --- |
+| `<NavLink to="/tasks" />` | `/tasks` | true |
+| `<NavLink to="/tasks" />` | `/tasks/123` | true |
+| `<NavLink to="/tasks" end />` | `/tasks` | true |
+| `<NavLink to="/tasks" end />` | `/tasks/123` | false |
 
 `<NavLink to="/">` is an exceptional case because _every_ URL matches `/`. To avoid this matching every single route by default, it effectively ignores the `end` prop and only matches when you're at the root route.
 
@@ -29914,21 +28920,11 @@ Returns the loader data for a given route by route ID.
 
 Route IDs are created automatically. They are simply the path of the route file relative to the app folder without the extension.
 
-Route Filename
-
-Route ID
-
-`app/root.tsx`
-
-`"root"`
-
-`app/routes/teams.tsx`
-
-`"routes/teams"`
-
-`app/whatever/teams.$id.tsx`
-
-`"whatever/teams.$id"`
+| Route Filename | Route ID |
+| --- | --- |
+| `app/root.tsx` | `"root"` |
+| `app/routes/teams.tsx` | `"routes/teams"` |
+| `app/whatever/teams.$id.tsx` | `"whatever/teams.$id"` |
 
 If you created an ID manually, you can use that instead:
 
@@ -31829,23 +30825,10 @@ You can open the network tab in the browser devtools to see that it's not reques
 
 URL segments, layouts, and data are more often than not coupled (tripled?) together. We can see it in this app already:
 
-URL Segment
-
-Component
-
-Data
-
-/
-
-`<App>`
-
-list of contacts
-
-contacts/:contactId
-
-`<Contact>`
-
-individual contact
+| URL Segment | Component | Data |
+| --- | --- | --- |
+| / | `<App>` | list of contacts |
+| contacts/:contactId | `<Contact>` | individual contact |
 
 Because of this natural coupling, React Router has data conventions to get data into your route components easily.
 
@@ -33598,25 +32581,12 @@ When an error is thrown, the "closest error boundary" will be rendered. Consider
 
 The following table shows which error boundary will render given the origin of the error:
 
-error origin
-
-rendered boundary
-
-app.tsx
-
-app.tsx
-
-invoices.tsx
-
-app.tsx
-
-invoice-page.tsx
-
-invoice-page.tsx
-
-payments.tsx
-
-invoice-page.tsx
+| error origin | rendered boundary |
+| --- | --- |
+| app.tsx | app.tsx |
+| invoices.tsx | app.tsx |
+| invoice-page.tsx | invoice-page.tsx |
+| payments.tsx | invoice-page.tsx |
 
 [](#error-sanitization)Error Sanitization
 -----------------------------------------
@@ -34006,17 +32976,10 @@ The filename maps to the route's URL pathname, except for `_index.tsx` which is 
     └── root.tsx
     
 
-URL
-
-Matched Routes
-
-`/`
-
-`app/routes/_index.tsx`
-
-`/about`
-
-`app/routes/about.tsx`
+| URL | Matched Routes |
+| --- | --- |
+| `/` | `app/routes/_index.tsx` |
+| `/about` | `app/routes/about.tsx` |
 
 Note that these routes will be rendered in the outlet of `app/root.tsx` because of [nested routing](../start/framework/routing#nested-routes).
 
@@ -34035,29 +32998,13 @@ Adding a `.` to a route filename will create a `/` in the URL.
     └── root.tsx
     
 
-URL
-
-Matched Route
-
-`/`
-
-`app/routes/_index.tsx`
-
-`/about`
-
-`app/routes/about.tsx`
-
-`/concerts/trending`
-
-`app/routes/concerts.trending.tsx`
-
-`/concerts/salt-lake-city`
-
-`app/routes/concerts.salt-lake-city.tsx`
-
-`/concerts/san-diego`
-
-`app/routes/concerts.san-diego.tsx`
+| URL | Matched Route |
+| --- | --- |
+| `/` | `app/routes/_index.tsx` |
+| `/about` | `app/routes/about.tsx` |
+| `/concerts/trending` | `app/routes/concerts.trending.tsx` |
+| `/concerts/salt-lake-city` | `app/routes/concerts.salt-lake-city.tsx` |
+| `/concerts/san-diego` | `app/routes/concerts.san-diego.tsx` |
 
 The dot delimiter also creates nesting, see the [nesting section](#nested-routes) for more information.
 
@@ -34075,29 +33022,13 @@ Usually your URLs aren't static but data-driven. Dynamic segments allow you to m
     └── root.tsx
     
 
-URL
-
-Matched Route
-
-`/`
-
-`app/routes/_index.tsx`
-
-`/about`
-
-`app/routes/about.tsx`
-
-`/concerts/trending`
-
-`app/routes/concerts.trending.tsx`
-
-`/concerts/salt-lake-city`
-
-`app/routes/concerts.$city.tsx`
-
-`/concerts/san-diego`
-
-`app/routes/concerts.$city.tsx`
+| URL | Matched Route |
+| --- | --- |
+| `/` | `app/routes/_index.tsx` |
+| `/about` | `app/routes/about.tsx` |
+| `/concerts/trending` | `app/routes/concerts.trending.tsx` |
+| `/concerts/salt-lake-city` | `app/routes/concerts.$city.tsx` |
+| `/concerts/san-diego` | `app/routes/concerts.$city.tsx` |
 
 The value will be parsed from the URL and passed to various APIs. We call these values "URL Parameters". The most useful places to access the URL params are in [loaders](../start/framework/data-loading) and [actions](../start/framework/actions).
 
@@ -34140,41 +33071,13 @@ You create nested routes with [dot delimiters](#dot-delimiters). If the filename
 
 All the routes that start with `app/routes/concerts.` will be child routes of `app/routes/concerts.tsx` and render inside the [parent route's outlet](../start/framework/routing#nested-routes).
 
-URL
-
-Matched Route
-
-Layout
-
-`/`
-
-`app/routes/_index.tsx`
-
-`app/root.tsx`
-
-`/about`
-
-`app/routes/about.tsx`
-
-`app/root.tsx`
-
-`/concerts`
-
-`app/routes/concerts._index.tsx`
-
-`app/routes/concerts.tsx`
-
-`/concerts/trending`
-
-`app/routes/concerts.trending.tsx`
-
-`app/routes/concerts.tsx`
-
-`/concerts/salt-lake-city`
-
-`app/routes/concerts.$city.tsx`
-
-`app/routes/concerts.tsx`
+| URL | Matched Route | Layout |
+| --- | --- | --- |
+| `/` | `app/routes/_index.tsx` | `app/root.tsx` |
+| `/about` | `app/routes/about.tsx` | `app/root.tsx` |
+| `/concerts` | `app/routes/concerts._index.tsx` | `app/routes/concerts.tsx` |
+| `/concerts/trending` | `app/routes/concerts.trending.tsx` | `app/routes/concerts.tsx` |
+| `/concerts/salt-lake-city` | `app/routes/concerts.$city.tsx` | `app/routes/concerts.tsx` |
 
 Note you typically want to add an index route when you add nested routes so that something renders inside the parent's outlet when users visit the parent URL directly.
 
@@ -34203,41 +33106,13 @@ Sometimes you want the URL to be nested, but you don't want the automatic layout
     └── root.tsx
     
 
-URL
-
-Matched Route
-
-Layout
-
-`/`
-
-`app/routes/_index.tsx`
-
-`app/root.tsx`
-
-`/about`
-
-`app/routes/about.tsx`
-
-`app/root.tsx`
-
-`/concerts/mine`
-
-`app/routes/concerts_.mine.tsx`
-
-`app/root.tsx`
-
-`/concerts/trending`
-
-`app/routes/concerts.trending.tsx`
-
-`app/routes/concerts.tsx`
-
-`/concerts/salt-lake-city`
-
-`app/routes/concerts.$city.tsx`
-
-`app/routes/concerts.tsx`
+| URL | Matched Route | Layout |
+| --- | --- | --- |
+| `/` | `app/routes/_index.tsx` | `app/root.tsx` |
+| `/about` | `app/routes/about.tsx` | `app/root.tsx` |
+| `/concerts/mine` | `app/routes/concerts_.mine.tsx` | `app/root.tsx` |
+| `/concerts/trending` | `app/routes/concerts.trending.tsx` | `app/routes/concerts.tsx` |
+| `/concerts/salt-lake-city` | `app/routes/concerts.$city.tsx` | `app/routes/concerts.tsx` |
 
 Note that `/concerts/mine` does not nest with `app/routes/concerts.tsx` anymore, but `app/root.tsx`. The `trailing_` underscore creates a path segment, but it does not create layout nesting.
 
@@ -34261,41 +33136,13 @@ Sometimes you want to share a layout with a group of routes without adding any p
     └── root.tsx
     
 
-URL
-
-Matched Route
-
-Layout
-
-`/`
-
-`app/routes/_index.tsx`
-
-`app/root.tsx`
-
-`/login`
-
-`app/routes/_auth.login.tsx`
-
-`app/routes/_auth.tsx`
-
-`/register`
-
-`app/routes/_auth.register.tsx`
-
-`app/routes/_auth.tsx`
-
-`/concerts`
-
-`app/routes/concerts.tsx`
-
-`app/routes/concerts.tsx`
-
-`/concerts/salt-lake-city`
-
-`app/routes/concerts.$city.tsx`
-
-`app/routes/concerts.tsx`
+| URL | Matched Route | Layout |
+| --- | --- | --- |
+| `/` | `app/routes/_index.tsx` | `app/root.tsx` |
+| `/login` | `app/routes/_auth.login.tsx` | `app/routes/_auth.tsx` |
+| `/register` | `app/routes/_auth.register.tsx` | `app/routes/_auth.tsx` |
+| `/concerts` | `app/routes/concerts.tsx` | `app/routes/concerts.tsx` |
+| `/concerts/salt-lake-city` | `app/routes/concerts.$city.tsx` | `app/routes/concerts.tsx` |
 
 Think of the `_leading` underscore as a blanket you're pulling over the filename, hiding the filename from the URL.
 
@@ -34312,37 +33159,15 @@ Wrapping a route segment in parentheses will make the segment optional.
     └── root.tsx
     
 
-URL
-
-Matched Route
-
-`/`
-
-`app/routes/($lang)._index.tsx`
-
-`/categories`
-
-`app/routes/($lang).categories.tsx`
-
-`/en/categories`
-
-`app/routes/($lang).categories.tsx`
-
-`/fr/categories`
-
-`app/routes/($lang).categories.tsx`
-
-`/american-flag-speedo`
-
-`app/routes/($lang)._index.tsx`
-
-`/en/american-flag-speedo`
-
-`app/routes/($lang).$productId.tsx`
-
-`/fr/american-flag-speedo`
-
-`app/routes/($lang).$productId.tsx`
+| URL | Matched Route |
+| --- | --- |
+| `/` | `app/routes/($lang)._index.tsx` |
+| `/categories` | `app/routes/($lang).categories.tsx` |
+| `/en/categories` | `app/routes/($lang).categories.tsx` |
+| `/fr/categories` | `app/routes/($lang).categories.tsx` |
+| `/american-flag-speedo` | `app/routes/($lang)._index.tsx` |
+| `/en/american-flag-speedo` | `app/routes/($lang).$productId.tsx` |
+| `/fr/american-flag-speedo` | `app/routes/($lang).$productId.tsx` |
 
 You may wonder why `/american-flag-speedo` is matching the `($lang)._index.tsx` route instead of `($lang).$productId.tsx`. This is because when you have an optional dynamic param segment followed by another dynamic param, it cannot reliably be determined if a single-segment URL such as `/american-flag-speedo` should match `/:lang` `/:productId`. Optional segments match eagerly and thus it will match `/:lang`. If you have this type of setup it's recommended to look at `params.lang` in the `($lang)._index.tsx` loader and redirect to `/:lang/american-flag-speedo` for the current/default language if `params.lang` is not a valid language code.
 
@@ -34360,37 +33185,15 @@ While [dynamic segments](#dynamic-segments) match a single path segment (the stu
     └── root.tsx
     
 
-URL
-
-Matched Route
-
-`/`
-
-`app/routes/_index.tsx`
-
-`/about`
-
-`app/routes/about.tsx`
-
-`/beef/and/cheese`
-
-`app/routes/$.tsx`
-
-`/files`
-
-`app/routes/files.$.tsx`
-
-`/files/talks/react-conf_old.pdf`
-
-`app/routes/files.$.tsx`
-
-`/files/talks/react-conf_final.pdf`
-
-`app/routes/files.$.tsx`
-
-`/files/talks/react-conf-FINAL-MAY_2024.pdf`
-
-`app/routes/files.$.tsx`
+| URL | Matched Route |
+| --- | --- |
+| `/` | `app/routes/_index.tsx` |
+| `/about` | `app/routes/about.tsx` |
+| `/beef/and/cheese` | `app/routes/$.tsx` |
+| `/files` | `app/routes/files.$.tsx` |
+| `/files/talks/react-conf_old.pdf` | `app/routes/files.$.tsx` |
+| `/files/talks/react-conf_final.pdf` | `app/routes/files.$.tsx` |
+| `/files/talks/react-conf-FINAL-MAY_2024.pdf` | `app/routes/files.$.tsx` |
 
 Similar to dynamic route parameters, you can access the value of the matched path on the splat route's `params` with the `"*"` key.
 
@@ -34405,33 +33208,14 @@ Similar to dynamic route parameters, you can access the value of the matched pat
 
 If you want one of the special characters used for these route conventions to actually be a part of the URL, you can escape the conventions with `[]` characters. This can be especially helpful for [resource routes](../how-to/resource-routes) that include an extension in the URL.
 
-Filename
-
-URL
-
-`app/routes/sitemap[.]xml.tsx`
-
-`/sitemap.xml`
-
-`app/routes/[sitemap.xml].tsx`
-
-`/sitemap.xml`
-
-`app/routes/weird-url.[_index].tsx`
-
-`/weird-url/_index`
-
-`app/routes/dolla-bills-[$].tsx`
-
-`/dolla-bills-$`
-
-`app/routes/[[so-weird]].tsx`
-
-`/[so-weird]`
-
-`app/routes/reports.$id[.pdf].ts`
-
-`/reports/123.pdf`
+| Filename | URL |
+| --- | --- |
+| `app/routes/sitemap[.]xml.tsx` | `/sitemap.xml` |
+| `app/routes/[sitemap.xml].tsx` | `/sitemap.xml` |
+| `app/routes/weird-url.[_index].tsx` | `/weird-url/_index` |
+| `app/routes/dolla-bills-[$].tsx` | `/dolla-bills-$` |
+| `app/routes/[[so-weird]].tsx` | `/[so-weird]` |
+| `app/routes/reports.$id[.pdf].ts` | `/reports/123.pdf` |
 
 [](#folders-for-organization)Folders for Organization
 -----------------------------------------------------
@@ -38295,2298 +37079,81 @@ Every mode supports any architecture and deployment target, so the question isn'
 
 This is mostly for the LLMs, but knock yourself out:
 
-API
-
-Framework
-
-Data
-
-Declarative
-
-Await
-
-✅
-
-✅
-
-Form
-
-✅
-
-✅
-
-Link
-
-✅
-
-✅
-
-✅
-
-`<Link discover>`
-
-✅
-
-`<Link prefetch>`
-
-✅
-
-`<Link preventScrollReset>`
-
-✅
-
-✅
-
-Links
-
-✅
-
-Meta
-
-✅
-
-NavLink
-
-✅
-
-✅
-
-✅
-
-`<NavLink discover>`
-
-✅
-
-`<NavLink prefetch>`
-
-✅
-
-`<NavLink preventScrollReset>`
-
-✅
-
-✅
-
-NavLink `isPending`
-
-✅
-
-✅
-
-Navigate
-
-✅
-
-✅
-
-✅
-
-Outlet
-
-✅
-
-✅
-
-✅
-
-PrefetchPageLinks
-
-✅
-
-Route
-
-✅
-
-✅
-
-✅
-
-Routes
-
-✅
-
-✅
-
-✅
-
-Scripts
-
-✅
-
-ScrollRestoration
-
-✅
-
-✅
-
-ServerRouter
-
-✅
-
-usePrompt
-
-✅
-
-✅
-
-✅
-
-useActionData
-
-✅
-
-✅
-
-useAsyncError
-
-✅
-
-✅
-
-useAsyncValue
-
-✅
-
-✅
-
-useBeforeUnload
-
-✅
-
-✅
-
-✅
-
-useBlocker
-
-✅
-
-✅
-
-useFetcher
-
-✅
-
-✅
-
-useFetchers
-
-✅
-
-✅
-
-useFormAction
-
-✅
-
-✅
-
-useHref
-
-✅
-
-✅
-
-✅
-
-useInRouterContext
-
-✅
-
-✅
-
-✅
-
-useLinkClickHandler
-
-✅
-
-✅
-
-✅
-
-useLoaderData
-
-✅
-
-✅
-
-useLocation
-
-✅
-
-✅
-
-✅
-
-useMatch
-
-✅
-
-✅
-
-✅
-
-useMatches
-
-✅
-
-✅
-
-useNavigate
-
-✅
-
-✅
-
-✅
-
-useNavigation
-
-✅
-
-✅
-
-useNavigationType
-
-✅
-
-✅
-
-✅
-
-useOutlet
-
-✅
-
-✅
-
-✅
-
-useOutletContext
-
-✅
-
-✅
-
-✅
-
-useParams
-
-✅
-
-✅
-
-✅
-
-useResolvedPath
-
-✅
-
-✅
-
-✅
-
-useRevalidator
-
-✅
-
-✅
-
-useRouteError
-
-✅
-
-✅
-
-useRouteLoaderData
-
-✅
-
-✅
-
-useRoutes
-
-✅
-
-✅
-
-✅
-
-useSearchParams
-
-✅
-
-✅
-
-✅
-
-useSubmit
-
-✅
-
-✅
-
-useViewTransitionState
-
-✅
-
-✅
-
-isCookieFunction
-
-✅
-
-✅
-
-isSessionFunction
-
-✅
-
-✅
-
-createCookie
-
-✅
-
-✅
-
-createCookieSessionStorage
-
-✅
-
-✅
-
-createMemorySessionStorage
-
-✅
-
-✅
-
-createPath
-
-✅
-
-✅
-
-✅
-
-createRoutesStub
-
-✅
-
-✅
-
-createSearchParams
-
-✅
-
-✅
-
-✅
-
-data
-
-✅
-
-✅
-
-generatePath
-
-✅
-
-✅
-
-✅
-
-href
-
-✅
-
-isCookie
-
-✅
-
-✅
-
-isRouteErrorResponse
-
-✅
-
-✅
-
-isSession
-
-✅
-
-✅
-
-matchPath
-
-✅
-
-✅
-
-✅
-
-matchRoutes
-
-✅
-
-✅
-
-✅
-
-parsePath
-
-✅
-
-✅
-
-✅
-
-redirect
-
-✅
-
-✅
-
-redirectDocument
-
-✅
-
-✅
-
-renderMatches
-
-✅
-
-✅
-
-✅
-
-replace
-
-✅
-
-✅
-
-resolvePath
-
-✅
-
-✅
-
-✅
-
-[](#picking-a-mode)Picking a Mode
-=================================
-
-React Router is a multi-strategy router for React. There are three primary ways, or "modes", to use it in your app. Across the docs you'll see these icons indicating which mode the content is relevant to:
-
-*   [Framework](../../start/modes "Available with Framework")
-*   [Data](../../start/modes "Available with Data")
-*   [Declarative](../../start/modes "Available with Declarative")
-
-The features available in each mode are additive, so moving from Declarative to Data to Framework simply adds more features at the cost of architectural control. So pick your mode based on how much control or how much help you want from React Router.
-
-The mode depends on which "top level" router API you're using:
-
-**Declarative**
-
-Declarative mode enables basic routing features like matching URLs to components, navigating around the app, and providing active states with APIs like `<Link>`, `useNavigate`, and `useLocation`.
-
-    import { BrowserRouter } from "react-router";
-    
-    ReactDOM.createRoot(root).render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    );
-    
-
-**Data**
-
-By moving route configuration outside of React rendering, Data Mode adds data loading, actions, pending states and more with APIs like `loader`, `action`, and `useFetcher`.
-
-    import {
-      createBrowserRouter,
-      RouterProvider,
-    } from "react-router";
-    
-    let router = createBrowserRouter([
-      {
-        path: "/",
-        Component: Root,
-        loader: loadRootData,
-      },
-    ]);
-    
-    ReactDOM.createRoot(root).render(
-      <RouterProvider router={router} />
-    );
-    
-
-**Framework**
-
-Framework Mode wraps Data Mode with a Vite plugin to add the full React Router experience with:
-
-*   typesafe `href`
-*   typesafe Route Module API
-*   intelligent code splitting
-*   SPA, SSR, and static rendering strategies
-*   and more
-
-    import { index, route } from "@react-router/dev/routes";
-    
-    export default [
-      index("./home.tsx"),
-      route("products/:pid", "./product.tsx"),
-    ];
-    
-
-You'll then have access to the Route Module API with typesafe params, loaderData, code splitting, SPA/SSR/SSG strategies, and more.
-
-    import { Route } from "+./types/product.tsx";
-    
-    export async function loader({ params }: Route.LoaderArgs) {
-      let product = await getProduct(params.pid);
-      return { product };
-    }
-    
-    export default function Product({
-      loaderData,
-    }: Route.ComponentProps) {
-      return <div>{loaderData.product.name}</div>;
-    }
-    
-
-[](#decision-advice)Decision Advice
------------------------------------
-
-Every mode supports any architecture and deployment target, so the question isn't really about if you want SSR, SPA, etc. It's about how much you want to do yourself.
-
-**Use Framework Mode if you:**
-
-*   are too new to have an opinion
-*   are considering Next.js, Solid Start, SvelteKit, Astro, TanStack Start, etc. and want to compare
-*   just want to build something with React
-*   might want to server render, might not
-*   are coming from Remix (React Router v7 is the "next version" after Remix v2)
-*   are migrating from Next.js
-
-[→ Get Started with Framework Mode](./framework/installation).
-
-**Use Data Mode if you:**
-
-*   want data features but also want to have control over bundling, data, and server abstractions
-*   started a data router in v6.4 and are happy with it
-
-[→ Get Started with Data Mode](./data/custom).
-
-**Use Declarative Mode if you:**
-
-*   want to use React Router as simply as possible
-*   are coming from v6 and are happy with the `<BrowserRouter>`
-*   have a data layer that either skips pending states (like local first, background data replication/sync) or has its own abstractions for them
-*   are coming from Create React App (you may want to consider framework mode though)
-
-[→ Get Started with Declarative Mode](./declarative/installation).
-
-[](#api--mode-availability-table)API + Mode Availability Table
---------------------------------------------------------------
-
-This is mostly for the LLMs, but knock yourself out:
-
-API
-
-Framework
-
-Data
-
-Declarative
-
-Await
-
-✅
-
-✅
-
-Form
-
-✅
-
-✅
-
-Link
-
-✅
-
-✅
-
-✅
-
-`<Link discover>`
-
-✅
-
-`<Link prefetch>`
-
-✅
-
-`<Link preventScrollReset>`
-
-✅
-
-✅
-
-Links
-
-✅
-
-Meta
-
-✅
-
-NavLink
-
-✅
-
-✅
-
-✅
-
-`<NavLink discover>`
-
-✅
-
-`<NavLink prefetch>`
-
-✅
-
-`<NavLink preventScrollReset>`
-
-✅
-
-✅
-
-NavLink `isPending`
-
-✅
-
-✅
-
-Navigate
-
-✅
-
-✅
-
-✅
-
-Outlet
-
-✅
-
-✅
-
-✅
-
-PrefetchPageLinks
-
-✅
-
-Route
-
-✅
-
-✅
-
-✅
-
-Routes
-
-✅
-
-✅
-
-✅
-
-Scripts
-
-✅
-
-ScrollRestoration
-
-✅
-
-✅
-
-ServerRouter
-
-✅
-
-usePrompt
-
-✅
-
-✅
-
-✅
-
-useActionData
-
-✅
-
-✅
-
-useAsyncError
-
-✅
-
-✅
-
-useAsyncValue
-
-✅
-
-✅
-
-useBeforeUnload
-
-✅
-
-✅
-
-✅
-
-useBlocker
-
-✅
-
-✅
-
-useFetcher
-
-✅
-
-✅
-
-useFetchers
-
-✅
-
-✅
-
-useFormAction
-
-✅
-
-✅
-
-useHref
-
-✅
-
-✅
-
-✅
-
-useInRouterContext
-
-✅
-
-✅
-
-✅
-
-useLinkClickHandler
-
-✅
-
-✅
-
-✅
-
-useLoaderData
-
-✅
-
-✅
-
-useLocation
-
-✅
-
-✅
-
-✅
-
-useMatch
-
-✅
-
-✅
-
-✅
-
-useMatches
-
-✅
-
-✅
-
-useNavigate
-
-✅
-
-✅
-
-✅
-
-useNavigation
-
-✅
-
-✅
-
-useNavigationType
-
-✅
-
-✅
-
-✅
-
-useOutlet
-
-✅
-
-✅
-
-✅
-
-useOutletContext
-
-✅
-
-✅
-
-✅
-
-useParams
-
-✅
-
-✅
-
-✅
-
-useResolvedPath
-
-✅
-
-✅
-
-✅
-
-useRevalidator
-
-✅
-
-✅
-
-useRouteError
-
-✅
-
-✅
-
-useRouteLoaderData
-
-✅
-
-✅
-
-useRoutes
-
-✅
-
-✅
-
-✅
-
-useSearchParams
-
-✅
-
-✅
-
-✅
-
-useSubmit
-
-✅
-
-✅
-
-useViewTransitionState
-
-✅
-
-✅
-
-isCookieFunction
-
-✅
-
-✅
-
-isSessionFunction
-
-✅
-
-✅
-
-createCookie
-
-✅
-
-✅
-
-createCookieSessionStorage
-
-✅
-
-✅
-
-createMemorySessionStorage
-
-✅
-
-✅
-
-createPath
-
-✅
-
-✅
-
-✅
-
-createRoutesStub
-
-✅
-
-✅
-
-createSearchParams
-
-✅
-
-✅
-
-✅
-
-data
-
-✅
-
-✅
-
-generatePath
-
-✅
-
-✅
-
-✅
-
-href
-
-✅
-
-isCookie
-
-✅
-
-✅
-
-isRouteErrorResponse
-
-✅
-
-✅
-
-isSession
-
-✅
-
-✅
-
-matchPath
-
-✅
-
-✅
-
-✅
-
-matchRoutes
-
-✅
-
-✅
-
-✅
-
-parsePath
-
-✅
-
-✅
-
-✅
-
-redirect
-
-✅
-
-✅
-
-redirectDocument
-
-✅
-
-✅
-
-renderMatches
-
-✅
-
-✅
-
-✅
-
-replace
-
-✅
-
-✅
-
-resolvePath
-
-✅
-
-✅
-
-✅
-
-[](#picking-a-mode)Picking a Mode
-=================================
-
-React Router is a multi-strategy router for React. There are three primary ways, or "modes", to use it in your app. Across the docs you'll see these icons indicating which mode the content is relevant to:
-
-*   [Framework](../../start/modes "Available with Framework")
-*   [Data](../../start/modes "Available with Data")
-*   [Declarative](../../start/modes "Available with Declarative")
-
-The features available in each mode are additive, so moving from Declarative to Data to Framework simply adds more features at the cost of architectural control. So pick your mode based on how much control or how much help you want from React Router.
-
-The mode depends on which "top level" router API you're using:
-
-**Declarative**
-
-Declarative mode enables basic routing features like matching URLs to components, navigating around the app, and providing active states with APIs like `<Link>`, `useNavigate`, and `useLocation`.
-
-    import { BrowserRouter } from "react-router";
-    
-    ReactDOM.createRoot(root).render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    );
-    
-
-**Data**
-
-By moving route configuration outside of React rendering, Data Mode adds data loading, actions, pending states and more with APIs like `loader`, `action`, and `useFetcher`.
-
-    import {
-      createBrowserRouter,
-      RouterProvider,
-    } from "react-router";
-    
-    let router = createBrowserRouter([
-      {
-        path: "/",
-        Component: Root,
-        loader: loadRootData,
-      },
-    ]);
-    
-    ReactDOM.createRoot(root).render(
-      <RouterProvider router={router} />
-    );
-    
-
-**Framework**
-
-Framework Mode wraps Data Mode with a Vite plugin to add the full React Router experience with:
-
-*   typesafe `href`
-*   typesafe Route Module API
-*   intelligent code splitting
-*   SPA, SSR, and static rendering strategies
-*   and more
-
-    import { index, route } from "@react-router/dev/routes";
-    
-    export default [
-      index("./home.tsx"),
-      route("products/:pid", "./product.tsx"),
-    ];
-    
-
-You'll then have access to the Route Module API with typesafe params, loaderData, code splitting, SPA/SSR/SSG strategies, and more.
-
-    import { Route } from "+./types/product.tsx";
-    
-    export async function loader({ params }: Route.LoaderArgs) {
-      let product = await getProduct(params.pid);
-      return { product };
-    }
-    
-    export default function Product({
-      loaderData,
-    }: Route.ComponentProps) {
-      return <div>{loaderData.product.name}</div>;
-    }
-    
-
-[](#decision-advice)Decision Advice
------------------------------------
-
-Every mode supports any architecture and deployment target, so the question isn't really about if you want SSR, SPA, etc. It's about how much you want to do yourself.
-
-**Use Framework Mode if you:**
-
-*   are too new to have an opinion
-*   are considering Next.js, Solid Start, SvelteKit, Astro, TanStack Start, etc. and want to compare
-*   just want to build something with React
-*   might want to server render, might not
-*   are coming from Remix (React Router v7 is the "next version" after Remix v2)
-*   are migrating from Next.js
-
-[→ Get Started with Framework Mode](./framework/installation).
-
-**Use Data Mode if you:**
-
-*   want data features but also want to have control over bundling, data, and server abstractions
-*   started a data router in v6.4 and are happy with it
-
-[→ Get Started with Data Mode](./data/custom).
-
-**Use Declarative Mode if you:**
-
-*   want to use React Router as simply as possible
-*   are coming from v6 and are happy with the `<BrowserRouter>`
-*   have a data layer that either skips pending states (like local first, background data replication/sync) or has its own abstractions for them
-*   are coming from Create React App (you may want to consider framework mode though)
-
-[→ Get Started with Declarative Mode](./declarative/installation).
-
-[](#api--mode-availability-table)API + Mode Availability Table
---------------------------------------------------------------
-
-This is mostly for the LLMs, but knock yourself out:
-
-API
-
-Framework
-
-Data
-
-Declarative
-
-Await
-
-✅
-
-✅
-
-Form
-
-✅
-
-✅
-
-Link
-
-✅
-
-✅
-
-✅
-
-`<Link discover>`
-
-✅
-
-`<Link prefetch>`
-
-✅
-
-`<Link preventScrollReset>`
-
-✅
-
-✅
-
-Links
-
-✅
-
-Meta
-
-✅
-
-NavLink
-
-✅
-
-✅
-
-✅
-
-`<NavLink discover>`
-
-✅
-
-`<NavLink prefetch>`
-
-✅
-
-`<NavLink preventScrollReset>`
-
-✅
-
-✅
-
-NavLink `isPending`
-
-✅
-
-✅
-
-Navigate
-
-✅
-
-✅
-
-✅
-
-Outlet
-
-✅
-
-✅
-
-✅
-
-PrefetchPageLinks
-
-✅
-
-Route
-
-✅
-
-✅
-
-✅
-
-Routes
-
-✅
-
-✅
-
-✅
-
-Scripts
-
-✅
-
-ScrollRestoration
-
-✅
-
-✅
-
-ServerRouter
-
-✅
-
-usePrompt
-
-✅
-
-✅
-
-✅
-
-useActionData
-
-✅
-
-✅
-
-useAsyncError
-
-✅
-
-✅
-
-useAsyncValue
-
-✅
-
-✅
-
-useBeforeUnload
-
-✅
-
-✅
-
-✅
-
-useBlocker
-
-✅
-
-✅
-
-useFetcher
-
-✅
-
-✅
-
-useFetchers
-
-✅
-
-✅
-
-useFormAction
-
-✅
-
-✅
-
-useHref
-
-✅
-
-✅
-
-✅
-
-useInRouterContext
-
-✅
-
-✅
-
-✅
-
-useLinkClickHandler
-
-✅
-
-✅
-
-✅
-
-useLoaderData
-
-✅
-
-✅
-
-useLocation
-
-✅
-
-✅
-
-✅
-
-useMatch
-
-✅
-
-✅
-
-✅
-
-useMatches
-
-✅
-
-✅
-
-useNavigate
-
-✅
-
-✅
-
-✅
-
-useNavigation
-
-✅
-
-✅
-
-useNavigationType
-
-✅
-
-✅
-
-✅
-
-useOutlet
-
-✅
-
-✅
-
-✅
-
-useOutletContext
-
-✅
-
-✅
-
-✅
-
-useParams
-
-✅
-
-✅
-
-✅
-
-useResolvedPath
-
-✅
-
-✅
-
-✅
-
-useRevalidator
-
-✅
-
-✅
-
-useRouteError
-
-✅
-
-✅
-
-useRouteLoaderData
-
-✅
-
-✅
-
-useRoutes
-
-✅
-
-✅
-
-✅
-
-useSearchParams
-
-✅
-
-✅
-
-✅
-
-useSubmit
-
-✅
-
-✅
-
-useViewTransitionState
-
-✅
-
-✅
-
-isCookieFunction
-
-✅
-
-✅
-
-isSessionFunction
-
-✅
-
-✅
-
-createCookie
-
-✅
-
-✅
-
-createCookieSessionStorage
-
-✅
-
-✅
-
-createMemorySessionStorage
-
-✅
-
-✅
-
-createPath
-
-✅
-
-✅
-
-✅
-
-createRoutesStub
-
-✅
-
-✅
-
-createSearchParams
-
-✅
-
-✅
-
-✅
-
-data
-
-✅
-
-✅
-
-generatePath
-
-✅
-
-✅
-
-✅
-
-href
-
-✅
-
-isCookie
-
-✅
-
-✅
-
-isRouteErrorResponse
-
-✅
-
-✅
-
-isSession
-
-✅
-
-✅
-
-matchPath
-
-✅
-
-✅
-
-✅
-
-matchRoutes
-
-✅
-
-✅
-
-✅
-
-parsePath
-
-✅
-
-✅
-
-✅
-
-redirect
-
-✅
-
-✅
-
-redirectDocument
-
-✅
-
-✅
-
-renderMatches
-
-✅
-
-✅
-
-✅
-
-replace
-
-✅
-
-✅
-
-resolvePath
-
-✅
-
-✅
-
-✅
-
-[](#picking-a-mode)Picking a Mode
-=================================
-
-React Router is a multi-strategy router for React. There are three primary ways, or "modes", to use it in your app. Across the docs you'll see these icons indicating which mode the content is relevant to:
-
-*   [Framework](../../start/modes "Available with Framework")
-*   [Data](../../start/modes "Available with Data")
-*   [Declarative](../../start/modes "Available with Declarative")
-
-The features available in each mode are additive, so moving from Declarative to Data to Framework simply adds more features at the cost of architectural control. So pick your mode based on how much control or how much help you want from React Router.
-
-The mode depends on which "top level" router API you're using:
-
-**Declarative**
-
-Declarative mode enables basic routing features like matching URLs to components, navigating around the app, and providing active states with APIs like `<Link>`, `useNavigate`, and `useLocation`.
-
-    import { BrowserRouter } from "react-router";
-    
-    ReactDOM.createRoot(root).render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    );
-    
-
-**Data**
-
-By moving route configuration outside of React rendering, Data Mode adds data loading, actions, pending states and more with APIs like `loader`, `action`, and `useFetcher`.
-
-    import {
-      createBrowserRouter,
-      RouterProvider,
-    } from "react-router";
-    
-    let router = createBrowserRouter([
-      {
-        path: "/",
-        Component: Root,
-        loader: loadRootData,
-      },
-    ]);
-    
-    ReactDOM.createRoot(root).render(
-      <RouterProvider router={router} />
-    );
-    
-
-**Framework**
-
-Framework Mode wraps Data Mode with a Vite plugin to add the full React Router experience with:
-
-*   typesafe `href`
-*   typesafe Route Module API
-*   intelligent code splitting
-*   SPA, SSR, and static rendering strategies
-*   and more
-
-    import { index, route } from "@react-router/dev/routes";
-    
-    export default [
-      index("./home.tsx"),
-      route("products/:pid", "./product.tsx"),
-    ];
-    
-
-You'll then have access to the Route Module API with typesafe params, loaderData, code splitting, SPA/SSR/SSG strategies, and more.
-
-    import { Route } from "+./types/product.tsx";
-    
-    export async function loader({ params }: Route.LoaderArgs) {
-      let product = await getProduct(params.pid);
-      return { product };
-    }
-    
-    export default function Product({
-      loaderData,
-    }: Route.ComponentProps) {
-      return <div>{loaderData.product.name}</div>;
-    }
-    
-
-[](#decision-advice)Decision Advice
------------------------------------
-
-Every mode supports any architecture and deployment target, so the question isn't really about if you want SSR, SPA, etc. It's about how much you want to do yourself.
-
-**Use Framework Mode if you:**
-
-*   are too new to have an opinion
-*   are considering Next.js, Solid Start, SvelteKit, Astro, TanStack Start, etc. and want to compare
-*   just want to build something with React
-*   might want to server render, might not
-*   are coming from Remix (React Router v7 is the "next version" after Remix v2)
-*   are migrating from Next.js
-
-[→ Get Started with Framework Mode](./framework/installation).
-
-**Use Data Mode if you:**
-
-*   want data features but also want to have control over bundling, data, and server abstractions
-*   started a data router in v6.4 and are happy with it
-
-[→ Get Started with Data Mode](./data/custom).
-
-**Use Declarative Mode if you:**
-
-*   want to use React Router as simply as possible
-*   are coming from v6 and are happy with the `<BrowserRouter>`
-*   have a data layer that either skips pending states (like local first, background data replication/sync) or has its own abstractions for them
-*   are coming from Create React App (you may want to consider framework mode though)
-
-[→ Get Started with Declarative Mode](./declarative/installation).
-
-[](#api--mode-availability-table)API + Mode Availability Table
---------------------------------------------------------------
-
-This is mostly for the LLMs, but knock yourself out:
-
-API
-
-Framework
-
-Data
-
-Declarative
-
-Await
-
-✅
-
-✅
-
-Form
-
-✅
-
-✅
-
-Link
-
-✅
-
-✅
-
-✅
-
-`<Link discover>`
-
-✅
-
-`<Link prefetch>`
-
-✅
-
-`<Link preventScrollReset>`
-
-✅
-
-✅
-
-Links
-
-✅
-
-Meta
-
-✅
-
-NavLink
-
-✅
-
-✅
-
-✅
-
-`<NavLink discover>`
-
-✅
-
-`<NavLink prefetch>`
-
-✅
-
-`<NavLink preventScrollReset>`
-
-✅
-
-✅
-
-NavLink `isPending`
-
-✅
-
-✅
-
-Navigate
-
-✅
-
-✅
-
-✅
-
-Outlet
-
-✅
-
-✅
-
-✅
-
-PrefetchPageLinks
-
-✅
-
-Route
-
-✅
-
-✅
-
-✅
-
-Routes
-
-✅
-
-✅
-
-✅
-
-Scripts
-
-✅
-
-ScrollRestoration
-
-✅
-
-✅
-
-ServerRouter
-
-✅
-
-usePrompt
-
-✅
-
-✅
-
-✅
-
-useActionData
-
-✅
-
-✅
-
-useAsyncError
-
-✅
-
-✅
-
-useAsyncValue
-
-✅
-
-✅
-
-useBeforeUnload
-
-✅
-
-✅
-
-✅
-
-useBlocker
-
-✅
-
-✅
-
-useFetcher
-
-✅
-
-✅
-
-useFetchers
-
-✅
-
-✅
-
-useFormAction
-
-✅
-
-✅
-
-useHref
-
-✅
-
-✅
-
-✅
-
-useInRouterContext
-
-✅
-
-✅
-
-✅
-
-useLinkClickHandler
-
-✅
-
-✅
-
-✅
-
-useLoaderData
-
-✅
-
-✅
-
-useLocation
-
-✅
-
-✅
-
-✅
-
-useMatch
-
-✅
-
-✅
-
-✅
-
-useMatches
-
-✅
-
-✅
-
-useNavigate
-
-✅
-
-✅
-
-✅
-
-useNavigation
-
-✅
-
-✅
-
-useNavigationType
-
-✅
-
-✅
-
-✅
-
-useOutlet
-
-✅
-
-✅
-
-✅
-
-useOutletContext
-
-✅
-
-✅
-
-✅
-
-useParams
-
-✅
-
-✅
-
-✅
-
-useResolvedPath
-
-✅
-
-✅
-
-✅
-
-useRevalidator
-
-✅
-
-✅
-
-useRouteError
-
-✅
-
-✅
-
-useRouteLoaderData
-
-✅
-
-✅
-
-useRoutes
-
-✅
-
-✅
-
-✅
-
-useSearchParams
-
-✅
-
-✅
-
-✅
-
-useSubmit
-
-✅
-
-✅
-
-useViewTransitionState
-
-✅
-
-✅
-
-isCookieFunction
-
-✅
-
-✅
-
-isSessionFunction
-
-✅
-
-✅
-
-createCookie
-
-✅
-
-✅
-
-createCookieSessionStorage
-
-✅
-
-✅
-
-createMemorySessionStorage
-
-✅
-
-✅
-
-createPath
-
-✅
-
-✅
-
-✅
-
-createRoutesStub
-
-✅
-
-✅
-
-createSearchParams
-
-✅
-
-✅
-
-✅
-
-data
-
-✅
-
-✅
-
-generatePath
-
-✅
-
-✅
-
-✅
-
-href
-
-✅
-
-isCookie
-
-✅
-
-✅
-
-isRouteErrorResponse
-
-✅
-
-✅
-
-isSession
-
-✅
-
-✅
-
-matchPath
-
-✅
-
-✅
-
-✅
-
-matchRoutes
-
-✅
-
-✅
-
-✅
-
-parsePath
-
-✅
-
-✅
-
-✅
-
-redirect
-
-✅
-
-✅
-
-redirectDocument
-
-✅
-
-✅
-
-renderMatches
-
-✅
-
-✅
-
-✅
-
-replace
-
-✅
-
-✅
-
-resolvePath
-
-✅
-
-✅
-
-✅
+| API | Framework | Data | Declarative |
+| --- | --- | --- | --- |
+| Await | ✅ | ✅ |  |
+| Form | ✅ | ✅ |  |
+| Link | ✅ | ✅ | ✅ |
+| `<Link discover>` | ✅ |  |  |
+| `<Link prefetch>` | ✅ |  |  |
+| `<Link preventScrollReset>` | ✅ | ✅ |  |
+| Links | ✅ |  |  |
+| Meta | ✅ |  |  |
+| NavLink | ✅ | ✅ | ✅ |
+| `<NavLink discover>` | ✅ |  |  |
+| `<NavLink prefetch>` | ✅ |  |  |
+| `<NavLink preventScrollReset>` | ✅ | ✅ |  |
+| NavLink `isPending` | ✅ | ✅ |  |
+| Navigate | ✅ | ✅ | ✅ |
+| Outlet | ✅ | ✅ | ✅ |
+| PrefetchPageLinks | ✅ |  |  |
+| Route | ✅ | ✅ | ✅ |
+| Routes | ✅ | ✅ | ✅ |
+| Scripts | ✅ |  |  |
+| ScrollRestoration | ✅ | ✅ |  |
+| ServerRouter | ✅ |  |  |
+| usePrompt | ✅ | ✅ | ✅ |
+| useActionData | ✅ | ✅ |  |
+| useAsyncError | ✅ | ✅ |  |
+| useAsyncValue | ✅ | ✅ |  |
+| useBeforeUnload | ✅ | ✅ | ✅ |
+| useBlocker | ✅ | ✅ |  |
+| useFetcher | ✅ | ✅ |  |
+| useFetchers | ✅ | ✅ |  |
+| useFormAction | ✅ | ✅ |  |
+| useHref | ✅ | ✅ | ✅ |
+| useInRouterContext | ✅ | ✅ | ✅ |
+| useLinkClickHandler | ✅ | ✅ | ✅ |
+| useLoaderData | ✅ | ✅ |  |
+| useLocation | ✅ | ✅ | ✅ |
+| useMatch | ✅ | ✅ | ✅ |
+| useMatches | ✅ | ✅ |  |
+| useNavigate | ✅ | ✅ | ✅ |
+| useNavigation | ✅ | ✅ |  |
+| useNavigationType | ✅ | ✅ | ✅ |
+| useOutlet | ✅ | ✅ | ✅ |
+| useOutletContext | ✅ | ✅ | ✅ |
+| useParams | ✅ | ✅ | ✅ |
+| useResolvedPath | ✅ | ✅ | ✅ |
+| useRevalidator | ✅ | ✅ |  |
+| useRouteError | ✅ | ✅ |  |
+| useRouteLoaderData | ✅ | ✅ |  |
+| useRoutes | ✅ | ✅ | ✅ |
+| useSearchParams | ✅ | ✅ | ✅ |
+| useSubmit | ✅ | ✅ |  |
+| useViewTransitionState | ✅ | ✅ |  |
+| isCookieFunction | ✅ | ✅ |  |
+| isSessionFunction | ✅ | ✅ |  |
+| createCookie | ✅ | ✅ |  |
+| createCookieSessionStorage | ✅ | ✅ |  |
+| createMemorySessionStorage | ✅ | ✅ |  |
+| createPath | ✅ | ✅ | ✅ |
+| createRoutesStub | ✅ | ✅ |  |
+| createSearchParams | ✅ | ✅ | ✅ |
+| data | ✅ | ✅ |  |
+| generatePath | ✅ | ✅ | ✅ |
+| href | ✅ |  |  |
+| isCookie | ✅ | ✅ |  |
+| isRouteErrorResponse | ✅ | ✅ |  |
+| isSession | ✅ | ✅ |  |
+| matchPath | ✅ | ✅ | ✅ |
+| matchRoutes | ✅ | ✅ | ✅ |
+| parsePath | ✅ | ✅ | ✅ |
+| redirect | ✅ | ✅ |  |
+| redirectDocument | ✅ | ✅ |  |
+| renderMatches | ✅ | ✅ | ✅ |
+| replace | ✅ | ✅ |  |
+| resolvePath | ✅ | ✅ | ✅ |
 
 [](#upgrading-from-v6)Upgrading from v6
 =======================================
@@ -40991,81 +37558,20 @@ If you prefer not to use the codemod, you can manually update your dependencies.
 
 Expand to see a table of package name changes in alphabetical order
 
-Remix v2 Package
-
-React Router v7 Package
-
-`@remix-run/architect`
-
-➡️
-
-`@react-router/architect`
-
-`@remix-run/cloudflare`
-
-➡️
-
-`@react-router/cloudflare`
-
-`@remix-run/dev`
-
-➡️
-
-`@react-router/dev`
-
-`@remix-run/express`
-
-➡️
-
-`@react-router/express`
-
-`@remix-run/fs-routes`
-
-➡️
-
-`@react-router/fs-routes`
-
-`@remix-run/node`
-
-➡️
-
-`@react-router/node`
-
-`@remix-run/react`
-
-➡️
-
-`react-router`
-
-`@remix-run/route-config`
-
-➡️
-
-`@react-router/dev`
-
-`@remix-run/routes-option-adapter`
-
-➡️
-
-`@react-router/remix-routes-option-adapter`
-
-`@remix-run/serve`
-
-➡️
-
-`@react-router/serve`
-
-`@remix-run/server-runtime`
-
-➡️
-
-`react-router`
-
-`@remix-run/testing`
-
-➡️
-
-`react-router`
+| Remix v2 Package |  | React Router v7 Package |
+| --- | --- | --- |
+| `@remix-run/architect` | ➡️ | `@react-router/architect` |
+| `@remix-run/cloudflare` | ➡️ | `@react-router/cloudflare` |
+| `@remix-run/dev` | ➡️ | `@react-router/dev` |
+| `@remix-run/express` | ➡️ | `@react-router/express` |
+| `@remix-run/fs-routes` | ➡️ | `@react-router/fs-routes` |
+| `@remix-run/node` | ➡️ | `@react-router/node` |
+| `@remix-run/react` | ➡️ | `react-router` |
+| `@remix-run/route-config` | ➡️ | `@react-router/dev` |
+| `@remix-run/routes-option-adapter` | ➡️ | `@react-router/remix-routes-option-adapter` |
+| `@remix-run/serve` | ➡️ | `@react-router/serve` |
+| `@remix-run/server-runtime` | ➡️ | `react-router` |
+| `@remix-run/testing` | ➡️ | `react-router` |
 
 [](#3-change-scripts-in-packagejson)3\. Change `scripts` in `package.json`
 --------------------------------------------------------------------------
@@ -41074,43 +37580,12 @@ If you used the codemod you can skip this step as it was automatically completed
 
 **👉 Update the scripts in your `package.json`**
 
-Script
-
-Remix v2
-
-React Router v7
-
-`dev`
-
-`remix vite:dev`
-
-➡️
-
-`react-router dev`
-
-`build`
-
-`remix vite:build`
-
-➡️
-
-`react-router build`
-
-`start`
-
-`remix-serve build/server/index.js`
-
-➡️
-
-`react-router-serve build/server/index.js`
-
-`typecheck`
-
-`tsc`
-
-➡️
-
-`react-router typegen && tsc`
+| Script | Remix v2 |  | React Router v7 |
+| --- | --- | --- | --- |
+| `dev` | `remix vite:dev` | ➡️ | `react-router dev` |
+| `build` | `remix vite:build` | ➡️ | `react-router build` |
+| `start` | `remix-serve build/server/index.js` | ➡️ | `react-router-serve build/server/index.js` |
+| `typecheck` | `tsc` | ➡️ | `react-router typegen && tsc` |
 
 [](#4-add-a-routests-file)4\. Add a `routes.ts` file
 ----------------------------------------------------

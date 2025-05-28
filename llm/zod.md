@@ -1,4 +1,4 @@
-zod version: 3.25.20, last updated: 2025-05-22T06:23:52.817Z
+zod version: 3.25.32, last updated: 2025-05-28T10:46:05.749Z
 
 On this page
 
@@ -216,6 +216,8 @@ SDKs & Terraform providers for your API
 
 [](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
 
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
 [Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
 
 [
@@ -246,7 +248,7 @@ Huge thanks to [Clerk](https://go.clerk.com/zod-clerk), who supported my work on
 [Versioning](?id=versioning)
 ----------------------------
 
-To simplify the migration process both for users and Zod's ecosystem of associated libraries, Zod 4 will initially published alongside Zod 3 as part of the `zod@3.25` release. Despite the version number, it it considered stable and ready for production use.
+To simplify the migration process both for users and Zod's ecosystem of associated libraries, Zod 4 will initially published alongside Zod 3 as part of the `zod@3.25` release. Despite the version number, it is considered stable and ready for production use.
 
 To upgrade:
 
@@ -482,17 +484,10 @@ Consider the following simple script.
 
 It's about as simple as it gets when it comes to validation. That's intentional; it's a good way to measure the _core bundle size_—the code that will end up in the bundle even in simple cases. We'll bundle this with `rollup` using both Zod 3 and Zod 4 and compare the final bundles.
 
-Package
-
-Bundle (gzip)
-
-`zod/v3`
-
-`12.47kb`
-
-`zod/v4`
-
-`5.36kb`
+| Package | Bundle (gzip) |
+| --- | --- |
+| `zod/v3` | `12.47kb` |
+| `zod/v4` | `5.36kb` |
 
 The core bundle is ~57% smaller in Zod 4 (2.3x). That's good! But we can do a lot better.
 
@@ -588,21 +583,11 @@ Here's the script from above, updated to use `"zod/v4-mini"` instead of `"zod"`.
 
 When we build this with `rollup`, the gzipped bundle size is `1.88kb`. That's an 85% (6.6x) reduction in core bundle size compared to `zod@3`.
 
-Package
-
-Bundle (gzip)
-
-`zod/v3`
-
-`12.47kb`
-
-`zod/v4`
-
-`5.36kb`
-
-`zod/v4-mini`
-
-`1.88kb`
+| Package | Bundle (gzip) |
+| --- | --- |
+| `zod/v3` | `12.47kb` |
+| `zod/v4` | `5.36kb` |
+| `zod/v4-mini` | `1.88kb` |
 
 Learn more on the dedicated [`zod/v4-mini`](/packages/mini) docs page. Complete API details are mixed into existing documentation pages; code blocks contain separate tabs for `"Zod"` and `"Zod Mini"` wherever their APIs diverge.
 
@@ -1125,7 +1110,7 @@ Error maps can also now return a plain `string` (instead of `{message: string}`)
 
 Zod 4Zod 3
 
-    z.string({
+    z.string().min(5, {
       error: (issue) => {
         if (issue.code === "too_small") {
           return `Value must be >${issue.minimum}`
@@ -1302,7 +1287,7 @@ The input type of all coerced booleans is now `unknown`.
 [`.default()` updates](?id=default-updates)
 -------------------------------------------
 
-The application of `.default()` has changed in a subtle way. If the input is `undefined`, `ZodDefault` short-circuits the parsing process and returns the default value. The the default value must be assignable to the _output type_.
+The application of `.default()` has changed in a subtle way. If the input is `undefined`, `ZodDefault` short-circuits the parsing process and returns the default value. The default value must be assignable to the _output type_.
 
     const schema = z.string()
       .transform(val => val.length)
@@ -1854,6 +1839,8 @@ SDKs & Terraform providers for your API
 
 [](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
 
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
 [Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
 
 [
@@ -1939,7 +1926,7 @@ ZodZod Mini
 
 To avoid a `try/catch` block, you can use the `.safeParse()` method to get back a plain result object containing either the successfully parsed data or a `ZodError`. The result type is a [discriminated union](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions), so you can handle both cases conveniently.
 
-    const result = Player.parse({ username: 42, xp: "100" });
+    const result = Player.safeParse({ username: 42, xp: "100" });
     if (!result.success) {
       result.error;   // ZodError instance
     } else {
@@ -2171,17 +2158,16 @@ The RFC 4122 UUID spec requires the first two bits of byte 8 to be `10`. Other U
 
 ### [URLs](?id=urls)
 
-To validate any WHATWG-compatible URL.
+To validate any WHATWG-compatible URL:
 
     const schema = z.url();
      
     schema.parse("https://example.com"); // ✅
     schema.parse("http://localhost"); // ✅
-     
-    schema.parse("mailto:noreply@zod.dev"); // ❌
-    schema.parse("sup"); // ❌
+    schema.parse("mailto:noreply@zod.dev"); // ✅
+    schema.parse("sup"); // ✅
 
-Internally this uses the `new URL()` constructor to perform validation. This may behave differently across platforms and runtimes but is generally the most rigorous way to validate URIs/URLs.
+As you can see this is quite permissive. Internally this uses the `new URL()` constructor to valid inputs; this behavior may differ across platforms and runtimes but it's the mostly rigorous way to validate URIs/URLs on any given JS runtime/engine.
 
 To validate the hostname against a specific regex:
 
@@ -2196,6 +2182,17 @@ To validate the protocol against a specific regex, use the `protocol` param.
      
     schema.parse("https://example.com"); // ✅
     schema.parse("http://example.com"); // ❌
+
+**Web URLs** — In many cases, you'll want to validate Web URLs specifically. Here's the recommended schema for doing so:
+
+    const httpUrl = z.url({
+      protocol: /^https?$/,
+      hostname: z.regexes.domain
+    });
+
+This restricts the protocol to `http`/`https` and ensures the hostname is a valid domain name with the `z.regexes.domain` regular expression:
+
+    /^([a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$/
 
 ### [ISO datetimes](?id=iso-datetimes)
 
@@ -2609,7 +2606,7 @@ To define a _loose_ schema that allows unknown keys to pass through:
 
 ### [`.catchall()`](?id=catchall)
 
-To defina a _catchall schema_ that will be used to validate any unrecognized keys:
+To define a _catchall schema_ that will be used to validate any unrecognized keys:
 
     const DogWithStrings = z.object({
       name: z.string(),
@@ -2658,11 +2655,11 @@ Inspired by TypeScript's built-in `Pick` and `Omit` utility types, Zod provides 
 Starting from this initial schema:
 
     const Recipe = z.object({
-      name: z.string(),
+      title: z.string(),
       description: z.string().optional(),
       ingredients: z.array(z.string()),
     });
-    // { id: string; name: string; ingredients: string[] }
+    // { title: string; description?: string | undefined; ingredients: string[] }
 
 To pick certain keys:
 
@@ -3402,8 +3399,8 @@ Function schemas have an `.implement()` method which accepts a function and retu
       return input.trim().length;
     });
      
-    trimmedLength("sandwich"); // => 8
-    trimmedLength(" asdf "); // => 4
+    computeTrimmedLength("sandwich"); // => 8
+    computeTrimmedLength(" asdf "); // => 4
 
 This function will throw a `ZodError` if the input is invalid:
 
@@ -3464,7 +3461,7 @@ Every issue contains a `message` property with a human-readable error message. E
 [The `error` param](?id=the-error-param)
 ----------------------------------------
 
-Virtually every Zod API accepts an optional error message parameter.
+Virtually every Zod API accepts an optional error message.
 
     z.string("Not a string!");
 
@@ -3490,7 +3487,7 @@ ZodZod Mini
     z.string().min(5, "Too short!");
     z.uuid("Bad UUID!");
     z.iso.date("Bad date!");
-    z.array(z.string(), "Bad array!");
+    z.array(z.string(), "Not an array!");
     z.array(z.string()).min(5, "Too few items!");
     z.set(z.string(), "Bad set!");
 
@@ -3506,23 +3503,19 @@ ZodZod Mini
     z.array(z.string()).min(5, { error: "Too few items!" });
     z.set(z.string(), { error: "Bad set!" });
 
-The `error` param optionally accepts a function. This function will be called at parse time if a valiation error occurs.
+The `error` param optionally accepts a function. An error customization function is known as an **error map** in Zod terminology. The error map will run at parse time if a valiation error occurs.
 
     z.string({ error: ()=>`[${Date.now()}]: Validation failure.` });
 
 **Note** — In Zod v3, there were separate params for `message` (a string) and `errorMap` (a function). These have been unified in Zod 4 as `error`.
 
-The `error` function received a context object you can use to customize the error message based on the `input` or other validation information.
-
-ZodZod Mini
+The error map receives a context object you can use to customize the error message based on the validation issue.
 
     z.string({
-      error: (iss) => iss.input===undefined ? "Field is required." : "Invalid input."
+      error: (iss) => iss.input === undefined ? "Field is required." : "Invalid input."
     });
 
 For advanced cases, the `iss` object provides additional information you can use to customize the error.
-
-ZodZod Mini
 
     z.string({
       error: (iss) => {
@@ -3541,6 +3534,20 @@ Depending on the API you are using, there may be additional properties available
         iss.minimum; // the minimum value
         iss.inclusive; // whether the minimum is inclusive
         return `Password must have ${iss.minimum} characters or more`;
+      },
+    });
+
+Return `undefined` to avoid setting an error message. This is useful for customizing certain error messages but not others. Zod will yield control to the next error map in the [precedence chain](#error-precedence).
+
+    z.int64({
+      error: (issue) => {
+        // override too_big error message
+        if (issue.code === "too_big") {
+          return { message: `Value must be <${issue.maximum}` };
+        }
+     
+        //  defer to default
+        return undefined;
       },
     });
 
@@ -3664,15 +3671,18 @@ The following locales are available:
 *   `id` — Indonesian
 *   `it` — Italian
 *   `ja` — Japanese
+*   `kh` — Khmer
 *   `ko` — Korean
 *   `mk` — Macedonian
 *   `ms` — Malay
+*   `nl` — Dutch
 *   `no` — Norwegian
 *   `ota` — Türkî
 *   `pl` — Polish
 *   `pt` — Portuguese
 *   `ru` — Russian
 *   `sl` — Slovenian
+*   `sv` — Swedish
 *   `ta` — Tamil
 *   `th` — Thai
 *   `tr` — Türkçe
@@ -4140,7 +4150,7 @@ Below is a quick reference for each supported parameter. Each one is explained i
     interface ToJSONSchemaParams {
       /** The JSON Schema version to target.
        * - `"draft-2020-12"` — Default. JSON Schema Draft 2020-12
-       * - `"draft-7"` — Default. JSON Schema Draft 7 */
+       * - `"draft-7"` — JSON Schema Draft 7 */
       target?: "draft-7" | "draft-2020-12";
      
       /** A registry used to look up metadata for each schema. 
@@ -4279,7 +4289,7 @@ Instead you can set the `reused` option to `"ref"` to extract these schemas into
 
 ### [`override`](?id=override)
 
-To define some custom override logic, use `override`. The provided callback has access to the original Zod schema and the default JSON Schema. _This function should dircectly modify `ctx.jsonSchema`._
+To define some custom override logic, use `override`. The provided callback has access to the original Zod schema and the default JSON Schema. _This function should directly modify `ctx.jsonSchema`._
 
     const mySchema = /* ... */
     z.toJSONSchema(mySchema, {
@@ -4290,6 +4300,20 @@ To define some custom override logic, use `override`. The provided callback has 
         // directly modify
         ctx.jsonSchema.whatever = "sup";
       }
+    });
+
+Note that unrepresentable types will throw an `Error` before this functions is called. If you are trying to define custom behavior for an unrepresentable type, you'll need to use set the `unrepresentable: "any"` alongside `override`.
+
+    // support z.date() as ISO datetime strings
+    const result = z.toJSONSchema(z.date(), {
+      unrepresentable: "any",
+      override: (ctx) => {
+        const def = ctx.zodSchema._zod.def;
+        if(def.type ==="date"){
+          ctx.jsonSchema.type = "string";
+          ctx.jsonSchema.format = "date-time";
+        }
+      },
     });
 
 ### [`io`](?id=io)
@@ -4427,159 +4451,55 @@ There are a growing number of tools that are built atop or support Zod natively!
 [API Libraries](?id=api-libraries)
 ----------------------------------
 
-Name
-
-Stars
-
-Zod 4 support
-
-Description
-
-[`tRPC`](https://github.com/trpc/trpc)
-
-⭐️ 37323
-
-⭐️
-
-Build end-to-end typesafe APIs without GraphQL.
-
-[`oRPC`](https://orpc.unnoq.com/)
-
-⭐️ 1930
-
-⭐️
-
-Typesafe APIs Made Simple
-
-[`GQLoom`](https://gqloom.dev/)
-
-⭐️ 50
-
-⭐️
-
-Weave GraphQL schema and resolvers using Zod.
+| Name | Stars | Zod 4 support | Description |
+| --- | --- | --- | --- |
+| [`tRPC`](https://github.com/trpc/trpc) | ⭐️ 37376 | ⭐️ | Build end-to-end typesafe APIs without GraphQL. |
+| [`oRPC`](https://orpc.unnoq.com/) | ⭐️ 2000 | ⭐️ | Typesafe APIs Made Simple |
+| [`GQLoom`](https://gqloom.dev/) | ⭐️ 51 | ⭐️ | Weave GraphQL schema and resolvers using Zod. |
 
 [Form Integrations](?id=form-integrations)
 ------------------------------------------
 
-Name
-
-Stars
-
-Zod 4 support
-
-Description
-
-[`@regle/schemas`](https://github.com/victorgarciaesgi/regle/tree/main/packages/schemas)
-
-⭐️ 192
-
-⭐️
-
-Headless form validation library for Vue.js.
+| Name | Stars | Zod 4 support | Description |
+| --- | --- | --- | --- |
+| [`conform`](https://conform.guide/api/zod/parseWithZod) | ⭐️ 2298 | ⭐️ | A type-safe form validation library utilizing web fundamentals to progressively enhance HTML Forms with full support for server frameworks like Remix and Next.js. |
+| [`@regle/schemas`](https://github.com/victorgarciaesgi/regle/tree/main/packages/schemas) | ⭐️ 195 | ⭐️ | Headless form validation library for Vue.js. |
 
 [Zod to X](?id=zod-to-x)
 ------------------------
 
-Name
-
-Stars
-
-Zod 4 support
-
-Description
+| Name | Stars | Zod 4 support | Description |
+| --- | --- | --- | --- |
 
 [X to Zod](?id=x-to-zod)
 ------------------------
 
-Name
-
-Stars
-
-Zod 4 support
-
-Description
-
-[`orval`](https://github.com/orval-labs/orval)
-
-⭐️ 3989
-
-⭐️
-
-Generate Zod schemas from OpenAPI schemas
-
-[`kubb`](https://github.com/kubb-labs/kubb)
-
-⭐️ 1135
-
-⭐️
-
-The ultimate toolkit for working with APIs.
+| Name | Stars | Zod 4 support | Description |
+| --- | --- | --- | --- |
+| [`orval`](https://github.com/orval-labs/orval) | ⭐️ 4030 | ⭐️ | Generate Zod schemas from OpenAPI schemas |
+| [`kubb`](https://github.com/kubb-labs/kubb) | ⭐️ 1154 | ⭐️ | The ultimate toolkit for working with APIs. |
 
 [Mocking Libraries](?id=mocking-libraries)
 ------------------------------------------
 
-Name
-
-Stars
-
-Zod 4 support
-
-Description
-
-[`zod-schema-faker`](https://github.com/soc221b/zod-schema-faker)
-
-⭐️ 55
-
-⭐️
-
-Generate mock data from zod schemas. Powered by @faker-js/faker and randexp.js.
-
-[`zocker`](https://zocker.sigrist.dev)
-
-⭐️ 36
-
-⭐️ ✅
-
-Generates valid, semantically meaningful data for your Zod schemas.
+| Name | Stars | Zod 4 support | Description |
+| --- | --- | --- | --- |
+| [`zod-schema-faker`](https://github.com/soc221b/zod-schema-faker) | ⭐️ 57 | ⭐️ | Generate mock data from zod schemas. Powered by @faker-js/faker and randexp.js. |
+| [`zocker`](https://zocker.sigrist.dev) | ⭐️ 36 | ⭐️ ✅ | Generates valid, semantically meaningful data for your Zod schemas. |
 
 [Powered by Zod](?id=powered-by-zod)
 ------------------------------------
 
-Name
-
-Stars
-
-Zod 4 support
-
-Description
-
-[`Composable Functions`](https://github.com/seasonedcc/composable-functions)
-
-⭐️ 706
-
-⭐️
-
-Types and functions to make composition easy and safe.
-
-[`zod-config`](https://github.com/alexmarqs/zod-config)
-
-⭐️ 92
-
-⭐️
-
-Load configurations across multiple sources with flexible adapters, ensuring type safety with Zod.
+| Name | Stars | Zod 4 support | Description |
+| --- | --- | --- | --- |
+| [`Composable Functions`](https://github.com/seasonedcc/composable-functions) | ⭐️ 708 | ⭐️ | Types and functions to make composition easy and safe. |
+| [`zod-config`](https://github.com/alexmarqs/zod-config) | ⭐️ 92 | ⭐️ | Load configurations across multiple sources with flexible adapters, ensuring type safety with Zod. |
 
 [Zod Utilities](?id=zod-utilities)
 ----------------------------------
 
-Name
-
-Stars
-
-Zod 4 support
-
-Description
+| Name | Stars | Zod 4 support | Description |
+| --- | --- | --- | --- |
 
 [Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/ecosystem.mdx)
 
@@ -5113,9 +5033,12 @@ The base class for all Zod schemas is `$ZodType`. It accepts two generic paramet
       | $ZodCatch
       | $ZodFile;
 
-All `zod/v4/core` subclasses only contain a single property: `_zod`. This property is an object containing the schemas _internals_. The goal is to make `zod/v4/core` as extensible and unopinionated as possible. Other libraries can "build their own Zod" on top of these classes without `zod/v4/core` cluttering up the interface.
+### Inheritance diagram
 
-Refer to the implementations of `zod/v4` and `zod/v4-mini` for examples of how to extend these classes.
+[Internals](?id=internals)
+--------------------------
+
+All `zod/v4/core` subclasses only contain a single property: `_zod`. This property is an object containing the schemas _internals_. The goal is to make `zod/v4/core` as extensible and unopinionated as possible. Other libraries can "build their own Zod" on top of these classes without `zod/v4/core` cluttering up the interface. Refer to the implementations of `zod/v4` and `zod/v4-mini` for examples of how to extend these classes.
 
 The `_zod` internals property contains some notable properties:
 
@@ -5169,6 +5092,19 @@ There are a number of subclasses of `$ZodString` that implement various _string 
       | $ZodBase64URL
       | $ZodE164
       | $ZodJWT
+
+[Parsing](?id=parsing)
+----------------------
+
+As the Zod Core schema classes have no methods, there are top-level functions for parsing data.
+
+    import * as z from "zod/v4/core";
+     
+    const schema = new z.$ZodString({ type: "string" });
+    z.parse(schema, "hello");
+    z.safeParse(schema, "hello");
+    await z.parseAsync(schema, "hello");
+    await z.safeParseAsync(schema, "hello");
 
 [Checks](?id=checks)
 --------------------
@@ -5557,6 +5493,8 @@ SDKs & Terraform providers for your API
 
 [](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
 
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
 [Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
 
 [
@@ -5587,7 +5525,7 @@ Huge thanks to [Clerk](https://go.clerk.com/zod-clerk), who supported my work on
 [Versioning](?id=versioning)
 ----------------------------
 
-To simplify the migration process both for users and Zod's ecosystem of associated libraries, Zod 4 will initially published alongside Zod 3 as part of the `zod@3.25` release. Despite the version number, it it considered stable and ready for production use.
+To simplify the migration process both for users and Zod's ecosystem of associated libraries, Zod 4 will initially published alongside Zod 3 as part of the `zod@3.25` release. Despite the version number, it is considered stable and ready for production use.
 
 To upgrade:
 
@@ -5823,17 +5761,10 @@ Consider the following simple script.
 
 It's about as simple as it gets when it comes to validation. That's intentional; it's a good way to measure the _core bundle size_—the code that will end up in the bundle even in simple cases. We'll bundle this with `rollup` using both Zod 3 and Zod 4 and compare the final bundles.
 
-Package
-
-Bundle (gzip)
-
-`zod/v3`
-
-`12.47kb`
-
-`zod/v4`
-
-`5.36kb`
+| Package | Bundle (gzip) |
+| --- | --- |
+| `zod/v3` | `12.47kb` |
+| `zod/v4` | `5.36kb` |
 
 The core bundle is ~57% smaller in Zod 4 (2.3x). That's good! But we can do a lot better.
 
@@ -5929,21 +5860,11 @@ Here's the script from above, updated to use `"zod/v4-mini"` instead of `"zod"`.
 
 When we build this with `rollup`, the gzipped bundle size is `1.88kb`. That's an 85% (6.6x) reduction in core bundle size compared to `zod@3`.
 
-Package
-
-Bundle (gzip)
-
-`zod/v3`
-
-`12.47kb`
-
-`zod/v4`
-
-`5.36kb`
-
-`zod/v4-mini`
-
-`1.88kb`
+| Package | Bundle (gzip) |
+| --- | --- |
+| `zod/v3` | `12.47kb` |
+| `zod/v4` | `5.36kb` |
+| `zod/v4-mini` | `1.88kb` |
 
 Learn more on the dedicated [`zod/v4-mini`](/packages/mini) docs page. Complete API details are mixed into existing documentation pages; code blocks contain separate tabs for `"Zod"` and `"Zod Mini"` wherever their APIs diverge.
 
@@ -6630,6 +6551,8 @@ SDKs & Terraform providers for your API
 
 [](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
 
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
 [Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
 
 [
@@ -6862,6 +6785,8 @@ SDKs & Terraform providers for your API
 
 [](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
 
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
 [Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
 
 [
@@ -7094,6 +7019,8 @@ SDKs & Terraform providers for your API
 
 [](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
 
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
 [Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
 
 [
@@ -7325,6 +7252,8 @@ SDKs & Terraform providers for your API
 [](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
 
 [](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
 
 [Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
 
@@ -7514,17 +7443,16 @@ The RFC 4122 UUID spec requires the first two bits of byte 8 to be `10`. Other U
 
 ### [URLs](?id=urls)
 
-To validate any WHATWG-compatible URL.
+To validate any WHATWG-compatible URL:
 
     const schema = z.url();
      
     schema.parse("https://example.com"); // ✅
     schema.parse("http://localhost"); // ✅
-     
-    schema.parse("mailto:noreply@zod.dev"); // ❌
-    schema.parse("sup"); // ❌
+    schema.parse("mailto:noreply@zod.dev"); // ✅
+    schema.parse("sup"); // ✅
 
-Internally this uses the `new URL()` constructor to perform validation. This may behave differently across platforms and runtimes but is generally the most rigorous way to validate URIs/URLs.
+As you can see this is quite permissive. Internally this uses the `new URL()` constructor to valid inputs; this behavior may differ across platforms and runtimes but it's the mostly rigorous way to validate URIs/URLs on any given JS runtime/engine.
 
 To validate the hostname against a specific regex:
 
@@ -7539,6 +7467,17 @@ To validate the protocol against a specific regex, use the `protocol` param.
      
     schema.parse("https://example.com"); // ✅
     schema.parse("http://example.com"); // ❌
+
+**Web URLs** — In many cases, you'll want to validate Web URLs specifically. Here's the recommended schema for doing so:
+
+    const httpUrl = z.url({
+      protocol: /^https?$/,
+      hostname: z.regexes.domain
+    });
+
+This restricts the protocol to `http`/`https` and ensures the hostname is a valid domain name with the `z.regexes.domain` regular expression:
+
+    /^([a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$/
 
 ### [ISO datetimes](?id=iso-datetimes)
 
@@ -7952,7 +7891,7 @@ To define a _loose_ schema that allows unknown keys to pass through:
 
 ### [`.catchall()`](?id=catchall)
 
-To defina a _catchall schema_ that will be used to validate any unrecognized keys:
+To define a _catchall schema_ that will be used to validate any unrecognized keys:
 
     const DogWithStrings = z.object({
       name: z.string(),
@@ -8001,11 +7940,11 @@ Inspired by TypeScript's built-in `Pick` and `Omit` utility types, Zod provides 
 Starting from this initial schema:
 
     const Recipe = z.object({
-      name: z.string(),
+      title: z.string(),
       description: z.string().optional(),
       ingredients: z.array(z.string()),
     });
-    // { id: string; name: string; ingredients: string[] }
+    // { title: string; description?: string | undefined; ingredients: string[] }
 
 To pick certain keys:
 
@@ -8745,8 +8684,8 @@ Function schemas have an `.implement()` method which accepts a function and retu
       return input.trim().length;
     });
      
-    trimmedLength("sandwich"); // => 8
-    trimmedLength(" asdf "); // => 4
+    computeTrimmedLength("sandwich"); // => 8
+    computeTrimmedLength(" asdf "); // => 4
 
 This function will throw a `ZodError` if the input is invalid:
 
@@ -8992,469 +8931,7 @@ SDKs & Terraform providers for your API
 
 [](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
 
-[Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
-
-[
-
-Next
-
-Migration guide
-
-](/v4/changelog)[
-
-Next
-
-Basic usage
-
-](/basics)
-
-On this page
-
-Zod
-===
-
-TypeScript-first schema validation with static type inference
-
-[](https://github.com/colinhacks/zod/actions?query=branch%3Amain)[](https://twitter.com/colinhacks)[](https://opensource.org/licenses/MIT)[](https://www.npmjs.com/package/zod)[](https://github.com/colinhacks/zod)
-
-[Website](https://zod.dev)  •  [Discord](https://discord.gg/RcG33DQJdf)  •  [𝕏](https://twitter.com/colinhacks)  •  [Bluesky](https://bsky.app/profile/zod.dev)  
-
-  
-
-Zod 4 is now stable! Read the [release notes here](/v4).
-
-  
-  
-  
-
-Featured sponsor: Jazz
-----------------------
-
-[
-
-](https://jazz.tools/?utm_source=zod)
-
-Interested in featuring? [Get in touch.](mailto:sponsorship@colinhacks.com)
-
-[Introduction](?id=introduction)
---------------------------------
-
-Zod is a TypeScript-first validation library. Using Zod, you can define _schemas_ you can use to validate data, from a simple `string` to a complex nested object.
-
-    import { z } from "zod/v4";
-     
-    const User = z.object({
-      name: z.string(),
-    });
-     
-    // some untrusted data...
-    const input = { /* stuff */ };
-     
-    // the parsed result is validated and type safe!
-    const data = User.parse(input);
-     
-    // so you can use it with confidence :)
-    console.log(data.name);
-
-[Features](?id=features)
-------------------------
-
-*   Zero external dependencies
-*   Works in Node.js and all modern browsers
-*   Tiny: 2kb core bundle (gzipped)
-*   Immutable API: methods return a new instance
-*   Concise interface
-*   Works with TypeScript and plain JS
-*   Built-in JSON Schema conversion
-*   Extensive ecosystem
-
-[Installation](?id=installation)
---------------------------------
-
-    npm install zod       # npm
-    deno add npm:zod      # deno
-    yarn add zod          # yarn
-    bun add zod           # bun
-    pnpm add zod          # pnpm
-
-Zod also publishes a canary version on every commit. To install the canary:
-
-    npm install zod@canary       # npm
-    deno add npm:zod@canary      # deno
-    yarn add zod@canary          # yarn
-    bun add zod@canary           # bun
-    pnpm add zod@canary          # pnpm
-
-[Requirements](?id=requirements)
---------------------------------
-
-Zod is tested against _TypeScript v5.5_ and later. Older versions may work but are not officially supported.
-
-### [`"strict"`](?id=strict)
-
-You must enable `strict` mode in your `tsconfig.json`. This is a best practice for all TypeScript projects.
-
-    // tsconfig.json
-    {
-      // ...
-      "compilerOptions": {
-        // ...
-        "strict": true
-      }
-    }
-
-### [`"moduleResolution"`](?id=moduleresolution)
-
-Your `"moduleResolution"` should be set to one of the following. The legacy `"node"` and `"classic"` modes are not supported, as they do not support subpath imports.
-
-*   `"node16"` (default if `"module"` is set to `"node16"`/`"node18"`)
-*   `"nodenext"` (default if `"module"` is set to `"nodenext"`)
-*   `"bundler"`
-
-  
-
-[Sponsors](?id=sponsors)
-------------------------
-
-Sponsorship at any level is appreciated and encouraged. If you built a paid product using Zod, consider one of the [corporate tiers](https://github.com/sponsors/colinhacks).
-
-### [Platinum](?id=platinum)
-
-[
-
-](https://www.coderabbit.ai/)
-
-Cut code review time & bugs in half
-
-[coderabbit.ai](https://www.coderabbit.ai/)
-
-  
-
-### [Gold](?id=gold)
-
-[](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
-
-The API platform for sending notifications
-
-[courier.com](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
-
-[](https://liblab.com/?utm_source=zod)
-
-Generate better SDKs for your APIs
-
-[liblab.com](https://liblab.com/?utm_source=zod)
-
-[](https://neon.tech)
-
-Serverless Postgres — Ship faster
-
-[neon.tech](https://neon.tech)
-
-[](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
-
-Build AI apps and workflows with Retool AI
-
-[retool.com](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
-
-[](https://stainlessapi.com)
-
-Generate best-in-class SDKs
-
-[stainlessapi.com](https://stainlessapi.com)
-
-[](https://speakeasy.com/?utm_source=zod+docs)
-
-SDKs & Terraform providers for your API
-
-[speakeasy.com](https://speakeasy.com/?utm_source=zod+docs)
-
-  
-
-### [Silver](?id=silver)
-
-[nitric.io](https://nitric.io/)
-
-[propelauth.com](https://www.propelauth.com/)
-
-[cerbos.dev](https://cerbos.dev/)
-
-[scalar.com](https://scalar.com/)
-
-[trigger.dev](https://trigger.dev)
-
-[transloadit.com](https://transloadit.com/?utm_source=zod&utm_medium=referral&utm_campaign=sponsorship&utm_content=github)
-
-[infisical.com](https://infisical.com)
-
-[whop.com](https://whop.com/)
-
-[cryptojobslist.com](https://cryptojobslist.com/)
-
-[plain.com](https://plain.com/)
-
-[inngest.com](https://inngest.com/)
-
-[storyblok.com](https://storyblok.com/)
-
-[mux.link/zod](https://mux.link/zod)
-
-[juno.build](https://juno.build/?utm_source=zod)
-
-  
-
-### [Bronze](?id=bronze)
-
-[](https://www.val.town/)[val.town](https://www.val.town/)
-
-[](https://www.route4me.com/)[route4me.com](https://www.route4me.com/)
-
-[](https://encore.dev)[encore.dev](https://encore.dev)
-
-[](https://www.replay.io/)[replay.io](https://www.replay.io/)
-
-[](https://www.numeric.io)[numeric.io](https://www.numeric.io)
-
-[](https://marcatopartners.com)[marcatopartners.com](https://marcatopartners.com)
-
-[](https://interval.com)[interval.com](https://interval.com)
-
-[](https://seasoned.cc)[seasoned.cc](https://seasoned.cc)
-
-[](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
-
-[](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
-
-[Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
-
-[
-
-Next
-
-Migration guide
-
-](/v4/changelog)[
-
-Next
-
-Basic usage
-
-](/basics)
-
-On this page
-
-Zod
-===
-
-TypeScript-first schema validation with static type inference
-
-[](https://github.com/colinhacks/zod/actions?query=branch%3Amain)[](https://twitter.com/colinhacks)[](https://opensource.org/licenses/MIT)[](https://www.npmjs.com/package/zod)[](https://github.com/colinhacks/zod)
-
-[Website](https://zod.dev)  •  [Discord](https://discord.gg/RcG33DQJdf)  •  [𝕏](https://twitter.com/colinhacks)  •  [Bluesky](https://bsky.app/profile/zod.dev)  
-
-  
-
-Zod 4 is now stable! Read the [release notes here](/v4).
-
-  
-  
-  
-
-Featured sponsor: Jazz
-----------------------
-
-[
-
-](https://jazz.tools/?utm_source=zod)
-
-Interested in featuring? [Get in touch.](mailto:sponsorship@colinhacks.com)
-
-[Introduction](?id=introduction)
---------------------------------
-
-Zod is a TypeScript-first validation library. Using Zod, you can define _schemas_ you can use to validate data, from a simple `string` to a complex nested object.
-
-    import { z } from "zod/v4";
-     
-    const User = z.object({
-      name: z.string(),
-    });
-     
-    // some untrusted data...
-    const input = { /* stuff */ };
-     
-    // the parsed result is validated and type safe!
-    const data = User.parse(input);
-     
-    // so you can use it with confidence :)
-    console.log(data.name);
-
-[Features](?id=features)
-------------------------
-
-*   Zero external dependencies
-*   Works in Node.js and all modern browsers
-*   Tiny: 2kb core bundle (gzipped)
-*   Immutable API: methods return a new instance
-*   Concise interface
-*   Works with TypeScript and plain JS
-*   Built-in JSON Schema conversion
-*   Extensive ecosystem
-
-[Installation](?id=installation)
---------------------------------
-
-    npm install zod       # npm
-    deno add npm:zod      # deno
-    yarn add zod          # yarn
-    bun add zod           # bun
-    pnpm add zod          # pnpm
-
-Zod also publishes a canary version on every commit. To install the canary:
-
-    npm install zod@canary       # npm
-    deno add npm:zod@canary      # deno
-    yarn add zod@canary          # yarn
-    bun add zod@canary           # bun
-    pnpm add zod@canary          # pnpm
-
-[Requirements](?id=requirements)
---------------------------------
-
-Zod is tested against _TypeScript v5.5_ and later. Older versions may work but are not officially supported.
-
-### [`"strict"`](?id=strict)
-
-You must enable `strict` mode in your `tsconfig.json`. This is a best practice for all TypeScript projects.
-
-    // tsconfig.json
-    {
-      // ...
-      "compilerOptions": {
-        // ...
-        "strict": true
-      }
-    }
-
-### [`"moduleResolution"`](?id=moduleresolution)
-
-Your `"moduleResolution"` should be set to one of the following. The legacy `"node"` and `"classic"` modes are not supported, as they do not support subpath imports.
-
-*   `"node16"` (default if `"module"` is set to `"node16"`/`"node18"`)
-*   `"nodenext"` (default if `"module"` is set to `"nodenext"`)
-*   `"bundler"`
-
-  
-
-[Sponsors](?id=sponsors)
-------------------------
-
-Sponsorship at any level is appreciated and encouraged. If you built a paid product using Zod, consider one of the [corporate tiers](https://github.com/sponsors/colinhacks).
-
-### [Platinum](?id=platinum)
-
-[
-
-](https://www.coderabbit.ai/)
-
-Cut code review time & bugs in half
-
-[coderabbit.ai](https://www.coderabbit.ai/)
-
-  
-
-### [Gold](?id=gold)
-
-[](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
-
-The API platform for sending notifications
-
-[courier.com](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
-
-[](https://liblab.com/?utm_source=zod)
-
-Generate better SDKs for your APIs
-
-[liblab.com](https://liblab.com/?utm_source=zod)
-
-[](https://neon.tech)
-
-Serverless Postgres — Ship faster
-
-[neon.tech](https://neon.tech)
-
-[](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
-
-Build AI apps and workflows with Retool AI
-
-[retool.com](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
-
-[](https://stainlessapi.com)
-
-Generate best-in-class SDKs
-
-[stainlessapi.com](https://stainlessapi.com)
-
-[](https://speakeasy.com/?utm_source=zod+docs)
-
-SDKs & Terraform providers for your API
-
-[speakeasy.com](https://speakeasy.com/?utm_source=zod+docs)
-
-  
-
-### [Silver](?id=silver)
-
-[nitric.io](https://nitric.io/)
-
-[propelauth.com](https://www.propelauth.com/)
-
-[cerbos.dev](https://cerbos.dev/)
-
-[scalar.com](https://scalar.com/)
-
-[trigger.dev](https://trigger.dev)
-
-[transloadit.com](https://transloadit.com/?utm_source=zod&utm_medium=referral&utm_campaign=sponsorship&utm_content=github)
-
-[infisical.com](https://infisical.com)
-
-[whop.com](https://whop.com/)
-
-[cryptojobslist.com](https://cryptojobslist.com/)
-
-[plain.com](https://plain.com/)
-
-[inngest.com](https://inngest.com/)
-
-[storyblok.com](https://storyblok.com/)
-
-[mux.link/zod](https://mux.link/zod)
-
-[juno.build](https://juno.build/?utm_source=zod)
-
-  
-
-### [Bronze](?id=bronze)
-
-[](https://www.val.town/)[val.town](https://www.val.town/)
-
-[](https://www.route4me.com/)[route4me.com](https://www.route4me.com/)
-
-[](https://encore.dev)[encore.dev](https://encore.dev)
-
-[](https://www.replay.io/)[replay.io](https://www.replay.io/)
-
-[](https://www.numeric.io)[numeric.io](https://www.numeric.io)
-
-[](https://marcatopartners.com)[marcatopartners.com](https://marcatopartners.com)
-
-[](https://interval.com)[interval.com](https://interval.com)
-
-[](https://seasoned.cc)[seasoned.cc](https://seasoned.cc)
-
-[](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
-
-[](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
 
 [Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
 
@@ -9688,6 +9165,8 @@ SDKs & Terraform providers for your API
 
 [](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
 
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
 [Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
 
 [
@@ -9920,6 +9399,8 @@ SDKs & Terraform providers for your API
 
 [](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
 
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
 [Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
 
 [
@@ -10151,6 +9632,476 @@ SDKs & Terraform providers for your API
 [](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
 
 [](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
+[Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
+
+[
+
+Next
+
+Migration guide
+
+](/v4/changelog)[
+
+Next
+
+Basic usage
+
+](/basics)
+
+On this page
+
+Zod
+===
+
+TypeScript-first schema validation with static type inference
+
+[](https://github.com/colinhacks/zod/actions?query=branch%3Amain)[](https://twitter.com/colinhacks)[](https://opensource.org/licenses/MIT)[](https://www.npmjs.com/package/zod)[](https://github.com/colinhacks/zod)
+
+[Website](https://zod.dev)  •  [Discord](https://discord.gg/RcG33DQJdf)  •  [𝕏](https://twitter.com/colinhacks)  •  [Bluesky](https://bsky.app/profile/zod.dev)  
+
+  
+
+Zod 4 is now stable! Read the [release notes here](/v4).
+
+  
+  
+  
+
+Featured sponsor: Jazz
+----------------------
+
+[
+
+](https://jazz.tools/?utm_source=zod)
+
+Interested in featuring? [Get in touch.](mailto:sponsorship@colinhacks.com)
+
+[Introduction](?id=introduction)
+--------------------------------
+
+Zod is a TypeScript-first validation library. Using Zod, you can define _schemas_ you can use to validate data, from a simple `string` to a complex nested object.
+
+    import { z } from "zod/v4";
+     
+    const User = z.object({
+      name: z.string(),
+    });
+     
+    // some untrusted data...
+    const input = { /* stuff */ };
+     
+    // the parsed result is validated and type safe!
+    const data = User.parse(input);
+     
+    // so you can use it with confidence :)
+    console.log(data.name);
+
+[Features](?id=features)
+------------------------
+
+*   Zero external dependencies
+*   Works in Node.js and all modern browsers
+*   Tiny: 2kb core bundle (gzipped)
+*   Immutable API: methods return a new instance
+*   Concise interface
+*   Works with TypeScript and plain JS
+*   Built-in JSON Schema conversion
+*   Extensive ecosystem
+
+[Installation](?id=installation)
+--------------------------------
+
+    npm install zod       # npm
+    deno add npm:zod      # deno
+    yarn add zod          # yarn
+    bun add zod           # bun
+    pnpm add zod          # pnpm
+
+Zod also publishes a canary version on every commit. To install the canary:
+
+    npm install zod@canary       # npm
+    deno add npm:zod@canary      # deno
+    yarn add zod@canary          # yarn
+    bun add zod@canary           # bun
+    pnpm add zod@canary          # pnpm
+
+[Requirements](?id=requirements)
+--------------------------------
+
+Zod is tested against _TypeScript v5.5_ and later. Older versions may work but are not officially supported.
+
+### [`"strict"`](?id=strict)
+
+You must enable `strict` mode in your `tsconfig.json`. This is a best practice for all TypeScript projects.
+
+    // tsconfig.json
+    {
+      // ...
+      "compilerOptions": {
+        // ...
+        "strict": true
+      }
+    }
+
+### [`"moduleResolution"`](?id=moduleresolution)
+
+Your `"moduleResolution"` should be set to one of the following. The legacy `"node"` and `"classic"` modes are not supported, as they do not support subpath imports.
+
+*   `"node16"` (default if `"module"` is set to `"node16"`/`"node18"`)
+*   `"nodenext"` (default if `"module"` is set to `"nodenext"`)
+*   `"bundler"`
+
+  
+
+[Sponsors](?id=sponsors)
+------------------------
+
+Sponsorship at any level is appreciated and encouraged. If you built a paid product using Zod, consider one of the [corporate tiers](https://github.com/sponsors/colinhacks).
+
+### [Platinum](?id=platinum)
+
+[
+
+](https://www.coderabbit.ai/)
+
+Cut code review time & bugs in half
+
+[coderabbit.ai](https://www.coderabbit.ai/)
+
+  
+
+### [Gold](?id=gold)
+
+[](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+The API platform for sending notifications
+
+[courier.com](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+[](https://liblab.com/?utm_source=zod)
+
+Generate better SDKs for your APIs
+
+[liblab.com](https://liblab.com/?utm_source=zod)
+
+[](https://neon.tech)
+
+Serverless Postgres — Ship faster
+
+[neon.tech](https://neon.tech)
+
+[](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+Build AI apps and workflows with Retool AI
+
+[retool.com](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+[](https://stainlessapi.com)
+
+Generate best-in-class SDKs
+
+[stainlessapi.com](https://stainlessapi.com)
+
+[](https://speakeasy.com/?utm_source=zod+docs)
+
+SDKs & Terraform providers for your API
+
+[speakeasy.com](https://speakeasy.com/?utm_source=zod+docs)
+
+  
+
+### [Silver](?id=silver)
+
+[nitric.io](https://nitric.io/)
+
+[propelauth.com](https://www.propelauth.com/)
+
+[cerbos.dev](https://cerbos.dev/)
+
+[scalar.com](https://scalar.com/)
+
+[trigger.dev](https://trigger.dev)
+
+[transloadit.com](https://transloadit.com/?utm_source=zod&utm_medium=referral&utm_campaign=sponsorship&utm_content=github)
+
+[infisical.com](https://infisical.com)
+
+[whop.com](https://whop.com/)
+
+[cryptojobslist.com](https://cryptojobslist.com/)
+
+[plain.com](https://plain.com/)
+
+[inngest.com](https://inngest.com/)
+
+[storyblok.com](https://storyblok.com/)
+
+[mux.link/zod](https://mux.link/zod)
+
+[juno.build](https://juno.build/?utm_source=zod)
+
+  
+
+### [Bronze](?id=bronze)
+
+[](https://www.val.town/)[val.town](https://www.val.town/)
+
+[](https://www.route4me.com/)[route4me.com](https://www.route4me.com/)
+
+[](https://encore.dev)[encore.dev](https://encore.dev)
+
+[](https://www.replay.io/)[replay.io](https://www.replay.io/)
+
+[](https://www.numeric.io)[numeric.io](https://www.numeric.io)
+
+[](https://marcatopartners.com)[marcatopartners.com](https://marcatopartners.com)
+
+[](https://interval.com)[interval.com](https://interval.com)
+
+[](https://seasoned.cc)[seasoned.cc](https://seasoned.cc)
+
+[](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
+
+[](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
+[Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
+
+[
+
+Next
+
+Migration guide
+
+](/v4/changelog)[
+
+Next
+
+Basic usage
+
+](/basics)
+
+On this page
+
+Zod
+===
+
+TypeScript-first schema validation with static type inference
+
+[](https://github.com/colinhacks/zod/actions?query=branch%3Amain)[](https://twitter.com/colinhacks)[](https://opensource.org/licenses/MIT)[](https://www.npmjs.com/package/zod)[](https://github.com/colinhacks/zod)
+
+[Website](https://zod.dev)  •  [Discord](https://discord.gg/RcG33DQJdf)  •  [𝕏](https://twitter.com/colinhacks)  •  [Bluesky](https://bsky.app/profile/zod.dev)  
+
+  
+
+Zod 4 is now stable! Read the [release notes here](/v4).
+
+  
+  
+  
+
+Featured sponsor: Jazz
+----------------------
+
+[
+
+](https://jazz.tools/?utm_source=zod)
+
+Interested in featuring? [Get in touch.](mailto:sponsorship@colinhacks.com)
+
+[Introduction](?id=introduction)
+--------------------------------
+
+Zod is a TypeScript-first validation library. Using Zod, you can define _schemas_ you can use to validate data, from a simple `string` to a complex nested object.
+
+    import { z } from "zod/v4";
+     
+    const User = z.object({
+      name: z.string(),
+    });
+     
+    // some untrusted data...
+    const input = { /* stuff */ };
+     
+    // the parsed result is validated and type safe!
+    const data = User.parse(input);
+     
+    // so you can use it with confidence :)
+    console.log(data.name);
+
+[Features](?id=features)
+------------------------
+
+*   Zero external dependencies
+*   Works in Node.js and all modern browsers
+*   Tiny: 2kb core bundle (gzipped)
+*   Immutable API: methods return a new instance
+*   Concise interface
+*   Works with TypeScript and plain JS
+*   Built-in JSON Schema conversion
+*   Extensive ecosystem
+
+[Installation](?id=installation)
+--------------------------------
+
+    npm install zod       # npm
+    deno add npm:zod      # deno
+    yarn add zod          # yarn
+    bun add zod           # bun
+    pnpm add zod          # pnpm
+
+Zod also publishes a canary version on every commit. To install the canary:
+
+    npm install zod@canary       # npm
+    deno add npm:zod@canary      # deno
+    yarn add zod@canary          # yarn
+    bun add zod@canary           # bun
+    pnpm add zod@canary          # pnpm
+
+[Requirements](?id=requirements)
+--------------------------------
+
+Zod is tested against _TypeScript v5.5_ and later. Older versions may work but are not officially supported.
+
+### [`"strict"`](?id=strict)
+
+You must enable `strict` mode in your `tsconfig.json`. This is a best practice for all TypeScript projects.
+
+    // tsconfig.json
+    {
+      // ...
+      "compilerOptions": {
+        // ...
+        "strict": true
+      }
+    }
+
+### [`"moduleResolution"`](?id=moduleresolution)
+
+Your `"moduleResolution"` should be set to one of the following. The legacy `"node"` and `"classic"` modes are not supported, as they do not support subpath imports.
+
+*   `"node16"` (default if `"module"` is set to `"node16"`/`"node18"`)
+*   `"nodenext"` (default if `"module"` is set to `"nodenext"`)
+*   `"bundler"`
+
+  
+
+[Sponsors](?id=sponsors)
+------------------------
+
+Sponsorship at any level is appreciated and encouraged. If you built a paid product using Zod, consider one of the [corporate tiers](https://github.com/sponsors/colinhacks).
+
+### [Platinum](?id=platinum)
+
+[
+
+](https://www.coderabbit.ai/)
+
+Cut code review time & bugs in half
+
+[coderabbit.ai](https://www.coderabbit.ai/)
+
+  
+
+### [Gold](?id=gold)
+
+[](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+The API platform for sending notifications
+
+[courier.com](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+[](https://liblab.com/?utm_source=zod)
+
+Generate better SDKs for your APIs
+
+[liblab.com](https://liblab.com/?utm_source=zod)
+
+[](https://neon.tech)
+
+Serverless Postgres — Ship faster
+
+[neon.tech](https://neon.tech)
+
+[](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+Build AI apps and workflows with Retool AI
+
+[retool.com](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+[](https://stainlessapi.com)
+
+Generate best-in-class SDKs
+
+[stainlessapi.com](https://stainlessapi.com)
+
+[](https://speakeasy.com/?utm_source=zod+docs)
+
+SDKs & Terraform providers for your API
+
+[speakeasy.com](https://speakeasy.com/?utm_source=zod+docs)
+
+  
+
+### [Silver](?id=silver)
+
+[nitric.io](https://nitric.io/)
+
+[propelauth.com](https://www.propelauth.com/)
+
+[cerbos.dev](https://cerbos.dev/)
+
+[scalar.com](https://scalar.com/)
+
+[trigger.dev](https://trigger.dev)
+
+[transloadit.com](https://transloadit.com/?utm_source=zod&utm_medium=referral&utm_campaign=sponsorship&utm_content=github)
+
+[infisical.com](https://infisical.com)
+
+[whop.com](https://whop.com/)
+
+[cryptojobslist.com](https://cryptojobslist.com/)
+
+[plain.com](https://plain.com/)
+
+[inngest.com](https://inngest.com/)
+
+[storyblok.com](https://storyblok.com/)
+
+[mux.link/zod](https://mux.link/zod)
+
+[juno.build](https://juno.build/?utm_source=zod)
+
+  
+
+### [Bronze](?id=bronze)
+
+[](https://www.val.town/)[val.town](https://www.val.town/)
+
+[](https://www.route4me.com/)[route4me.com](https://www.route4me.com/)
+
+[](https://encore.dev)[encore.dev](https://encore.dev)
+
+[](https://www.replay.io/)[replay.io](https://www.replay.io/)
+
+[](https://www.numeric.io)[numeric.io](https://www.numeric.io)
+
+[](https://marcatopartners.com)[marcatopartners.com](https://marcatopartners.com)
+
+[](https://interval.com)[interval.com](https://interval.com)
+
+[](https://seasoned.cc)[seasoned.cc](https://seasoned.cc)
+
+[](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
+
+[](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
 
 [Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
 
@@ -10220,7 +10171,7 @@ Error maps can also now return a plain `string` (instead of `{message: string}`)
 
 Zod 4Zod 3
 
-    z.string({
+    z.string().min(5, {
       error: (issue) => {
         if (issue.code === "too_small") {
           return `Value must be >${issue.minimum}`
@@ -10397,7 +10348,7 @@ The input type of all coerced booleans is now `unknown`.
 [`.default()` updates](?id=default-updates)
 -------------------------------------------
 
-The application of `.default()` has changed in a subtle way. If the input is `undefined`, `ZodDefault` short-circuits the parsing process and returns the default value. The the default value must be assignable to the _output type_.
+The application of `.default()` has changed in a subtle way. If the input is `undefined`, `ZodDefault` short-circuits the parsing process and returns the default value. The default value must be assignable to the _output type_.
 
     const schema = z.string()
       .transform(val => val.length)
@@ -10802,7 +10753,7 @@ ZodZod Mini
 
 To avoid a `try/catch` block, you can use the `.safeParse()` method to get back a plain result object containing either the successfully parsed data or a `ZodError`. The result type is a [discriminated union](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions), so you can handle both cases conveniently.
 
-    const result = Player.parse({ username: 42, xp: "100" });
+    const result = Player.safeParse({ username: 42, xp: "100" });
     if (!result.success) {
       result.error;   // ZodError instance
     } else {
@@ -10861,3 +10812,2577 @@ Next
 Defining schemas
 
 ](/api)
+
+On this page
+
+Zod
+===
+
+TypeScript-first schema validation with static type inference
+
+[](https://github.com/colinhacks/zod/actions?query=branch%3Amain)[](https://twitter.com/colinhacks)[](https://opensource.org/licenses/MIT)[](https://www.npmjs.com/package/zod)[](https://github.com/colinhacks/zod)
+
+[Website](https://zod.dev)  •  [Discord](https://discord.gg/RcG33DQJdf)  •  [𝕏](https://twitter.com/colinhacks)  •  [Bluesky](https://bsky.app/profile/zod.dev)  
+
+  
+
+Zod 4 is now stable! Read the [release notes here](/v4).
+
+  
+  
+  
+
+Featured sponsor: Jazz
+----------------------
+
+[
+
+](https://jazz.tools/?utm_source=zod)
+
+Interested in featuring? [Get in touch.](mailto:sponsorship@colinhacks.com)
+
+[Introduction](?id=introduction)
+--------------------------------
+
+Zod is a TypeScript-first validation library. Using Zod, you can define _schemas_ you can use to validate data, from a simple `string` to a complex nested object.
+
+    import { z } from "zod/v4";
+     
+    const User = z.object({
+      name: z.string(),
+    });
+     
+    // some untrusted data...
+    const input = { /* stuff */ };
+     
+    // the parsed result is validated and type safe!
+    const data = User.parse(input);
+     
+    // so you can use it with confidence :)
+    console.log(data.name);
+
+[Features](?id=features)
+------------------------
+
+*   Zero external dependencies
+*   Works in Node.js and all modern browsers
+*   Tiny: 2kb core bundle (gzipped)
+*   Immutable API: methods return a new instance
+*   Concise interface
+*   Works with TypeScript and plain JS
+*   Built-in JSON Schema conversion
+*   Extensive ecosystem
+
+[Installation](?id=installation)
+--------------------------------
+
+    npm install zod       # npm
+    deno add npm:zod      # deno
+    yarn add zod          # yarn
+    bun add zod           # bun
+    pnpm add zod          # pnpm
+
+Zod also publishes a canary version on every commit. To install the canary:
+
+    npm install zod@canary       # npm
+    deno add npm:zod@canary      # deno
+    yarn add zod@canary          # yarn
+    bun add zod@canary           # bun
+    pnpm add zod@canary          # pnpm
+
+[Requirements](?id=requirements)
+--------------------------------
+
+Zod is tested against _TypeScript v5.5_ and later. Older versions may work but are not officially supported.
+
+### [`"strict"`](?id=strict)
+
+You must enable `strict` mode in your `tsconfig.json`. This is a best practice for all TypeScript projects.
+
+    // tsconfig.json
+    {
+      // ...
+      "compilerOptions": {
+        // ...
+        "strict": true
+      }
+    }
+
+### [`"moduleResolution"`](?id=moduleresolution)
+
+Your `"moduleResolution"` should be set to one of the following. The legacy `"node"` and `"classic"` modes are not supported, as they do not support subpath imports.
+
+*   `"node16"` (default if `"module"` is set to `"node16"`/`"node18"`)
+*   `"nodenext"` (default if `"module"` is set to `"nodenext"`)
+*   `"bundler"`
+
+  
+
+[Sponsors](?id=sponsors)
+------------------------
+
+Sponsorship at any level is appreciated and encouraged. If you built a paid product using Zod, consider one of the [corporate tiers](https://github.com/sponsors/colinhacks).
+
+### [Platinum](?id=platinum)
+
+[
+
+](https://www.coderabbit.ai/)
+
+Cut code review time & bugs in half
+
+[coderabbit.ai](https://www.coderabbit.ai/)
+
+  
+
+### [Gold](?id=gold)
+
+[](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+The API platform for sending notifications
+
+[courier.com](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+[](https://liblab.com/?utm_source=zod)
+
+Generate better SDKs for your APIs
+
+[liblab.com](https://liblab.com/?utm_source=zod)
+
+[](https://neon.tech)
+
+Serverless Postgres — Ship faster
+
+[neon.tech](https://neon.tech)
+
+[](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+Build AI apps and workflows with Retool AI
+
+[retool.com](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+[](https://stainlessapi.com)
+
+Generate best-in-class SDKs
+
+[stainlessapi.com](https://stainlessapi.com)
+
+[](https://speakeasy.com/?utm_source=zod+docs)
+
+SDKs & Terraform providers for your API
+
+[speakeasy.com](https://speakeasy.com/?utm_source=zod+docs)
+
+  
+
+### [Silver](?id=silver)
+
+[nitric.io](https://nitric.io/)
+
+[propelauth.com](https://www.propelauth.com/)
+
+[cerbos.dev](https://cerbos.dev/)
+
+[scalar.com](https://scalar.com/)
+
+[trigger.dev](https://trigger.dev)
+
+[transloadit.com](https://transloadit.com/?utm_source=zod&utm_medium=referral&utm_campaign=sponsorship&utm_content=github)
+
+[infisical.com](https://infisical.com)
+
+[whop.com](https://whop.com/)
+
+[cryptojobslist.com](https://cryptojobslist.com/)
+
+[plain.com](https://plain.com/)
+
+[inngest.com](https://inngest.com/)
+
+[storyblok.com](https://storyblok.com/)
+
+[mux.link/zod](https://mux.link/zod)
+
+[juno.build](https://juno.build/?utm_source=zod)
+
+  
+
+### [Bronze](?id=bronze)
+
+[](https://www.val.town/)[val.town](https://www.val.town/)
+
+[](https://www.route4me.com/)[route4me.com](https://www.route4me.com/)
+
+[](https://encore.dev)[encore.dev](https://encore.dev)
+
+[](https://www.replay.io/)[replay.io](https://www.replay.io/)
+
+[](https://www.numeric.io)[numeric.io](https://www.numeric.io)
+
+[](https://marcatopartners.com)[marcatopartners.com](https://marcatopartners.com)
+
+[](https://interval.com)[interval.com](https://interval.com)
+
+[](https://seasoned.cc)[seasoned.cc](https://seasoned.cc)
+
+[](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
+
+[](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
+[Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
+
+[
+
+Next
+
+Migration guide
+
+](/v4/changelog)[
+
+Next
+
+Basic usage
+
+](/basics)
+
+On this page
+
+Zod
+===
+
+TypeScript-first schema validation with static type inference
+
+[](https://github.com/colinhacks/zod/actions?query=branch%3Amain)[](https://twitter.com/colinhacks)[](https://opensource.org/licenses/MIT)[](https://www.npmjs.com/package/zod)[](https://github.com/colinhacks/zod)
+
+[Website](https://zod.dev)  •  [Discord](https://discord.gg/RcG33DQJdf)  •  [𝕏](https://twitter.com/colinhacks)  •  [Bluesky](https://bsky.app/profile/zod.dev)  
+
+  
+
+Zod 4 is now stable! Read the [release notes here](/v4).
+
+  
+  
+  
+
+Featured sponsor: Jazz
+----------------------
+
+[
+
+](https://jazz.tools/?utm_source=zod)
+
+Interested in featuring? [Get in touch.](mailto:sponsorship@colinhacks.com)
+
+[Introduction](?id=introduction)
+--------------------------------
+
+Zod is a TypeScript-first validation library. Using Zod, you can define _schemas_ you can use to validate data, from a simple `string` to a complex nested object.
+
+    import { z } from "zod/v4";
+     
+    const User = z.object({
+      name: z.string(),
+    });
+     
+    // some untrusted data...
+    const input = { /* stuff */ };
+     
+    // the parsed result is validated and type safe!
+    const data = User.parse(input);
+     
+    // so you can use it with confidence :)
+    console.log(data.name);
+
+[Features](?id=features)
+------------------------
+
+*   Zero external dependencies
+*   Works in Node.js and all modern browsers
+*   Tiny: 2kb core bundle (gzipped)
+*   Immutable API: methods return a new instance
+*   Concise interface
+*   Works with TypeScript and plain JS
+*   Built-in JSON Schema conversion
+*   Extensive ecosystem
+
+[Installation](?id=installation)
+--------------------------------
+
+    npm install zod       # npm
+    deno add npm:zod      # deno
+    yarn add zod          # yarn
+    bun add zod           # bun
+    pnpm add zod          # pnpm
+
+Zod also publishes a canary version on every commit. To install the canary:
+
+    npm install zod@canary       # npm
+    deno add npm:zod@canary      # deno
+    yarn add zod@canary          # yarn
+    bun add zod@canary           # bun
+    pnpm add zod@canary          # pnpm
+
+[Requirements](?id=requirements)
+--------------------------------
+
+Zod is tested against _TypeScript v5.5_ and later. Older versions may work but are not officially supported.
+
+### [`"strict"`](?id=strict)
+
+You must enable `strict` mode in your `tsconfig.json`. This is a best practice for all TypeScript projects.
+
+    // tsconfig.json
+    {
+      // ...
+      "compilerOptions": {
+        // ...
+        "strict": true
+      }
+    }
+
+### [`"moduleResolution"`](?id=moduleresolution)
+
+Your `"moduleResolution"` should be set to one of the following. The legacy `"node"` and `"classic"` modes are not supported, as they do not support subpath imports.
+
+*   `"node16"` (default if `"module"` is set to `"node16"`/`"node18"`)
+*   `"nodenext"` (default if `"module"` is set to `"nodenext"`)
+*   `"bundler"`
+
+  
+
+[Sponsors](?id=sponsors)
+------------------------
+
+Sponsorship at any level is appreciated and encouraged. If you built a paid product using Zod, consider one of the [corporate tiers](https://github.com/sponsors/colinhacks).
+
+### [Platinum](?id=platinum)
+
+[
+
+](https://www.coderabbit.ai/)
+
+Cut code review time & bugs in half
+
+[coderabbit.ai](https://www.coderabbit.ai/)
+
+  
+
+### [Gold](?id=gold)
+
+[](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+The API platform for sending notifications
+
+[courier.com](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+[](https://liblab.com/?utm_source=zod)
+
+Generate better SDKs for your APIs
+
+[liblab.com](https://liblab.com/?utm_source=zod)
+
+[](https://neon.tech)
+
+Serverless Postgres — Ship faster
+
+[neon.tech](https://neon.tech)
+
+[](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+Build AI apps and workflows with Retool AI
+
+[retool.com](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+[](https://stainlessapi.com)
+
+Generate best-in-class SDKs
+
+[stainlessapi.com](https://stainlessapi.com)
+
+[](https://speakeasy.com/?utm_source=zod+docs)
+
+SDKs & Terraform providers for your API
+
+[speakeasy.com](https://speakeasy.com/?utm_source=zod+docs)
+
+  
+
+### [Silver](?id=silver)
+
+[nitric.io](https://nitric.io/)
+
+[propelauth.com](https://www.propelauth.com/)
+
+[cerbos.dev](https://cerbos.dev/)
+
+[scalar.com](https://scalar.com/)
+
+[trigger.dev](https://trigger.dev)
+
+[transloadit.com](https://transloadit.com/?utm_source=zod&utm_medium=referral&utm_campaign=sponsorship&utm_content=github)
+
+[infisical.com](https://infisical.com)
+
+[whop.com](https://whop.com/)
+
+[cryptojobslist.com](https://cryptojobslist.com/)
+
+[plain.com](https://plain.com/)
+
+[inngest.com](https://inngest.com/)
+
+[storyblok.com](https://storyblok.com/)
+
+[mux.link/zod](https://mux.link/zod)
+
+[juno.build](https://juno.build/?utm_source=zod)
+
+  
+
+### [Bronze](?id=bronze)
+
+[](https://www.val.town/)[val.town](https://www.val.town/)
+
+[](https://www.route4me.com/)[route4me.com](https://www.route4me.com/)
+
+[](https://encore.dev)[encore.dev](https://encore.dev)
+
+[](https://www.replay.io/)[replay.io](https://www.replay.io/)
+
+[](https://www.numeric.io)[numeric.io](https://www.numeric.io)
+
+[](https://marcatopartners.com)[marcatopartners.com](https://marcatopartners.com)
+
+[](https://interval.com)[interval.com](https://interval.com)
+
+[](https://seasoned.cc)[seasoned.cc](https://seasoned.cc)
+
+[](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
+
+[](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
+[Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
+
+[
+
+Next
+
+Migration guide
+
+](/v4/changelog)[
+
+Next
+
+Basic usage
+
+](/basics)
+
+On this page
+
+Zod
+===
+
+TypeScript-first schema validation with static type inference
+
+[](https://github.com/colinhacks/zod/actions?query=branch%3Amain)[](https://twitter.com/colinhacks)[](https://opensource.org/licenses/MIT)[](https://www.npmjs.com/package/zod)[](https://github.com/colinhacks/zod)
+
+[Website](https://zod.dev)  •  [Discord](https://discord.gg/RcG33DQJdf)  •  [𝕏](https://twitter.com/colinhacks)  •  [Bluesky](https://bsky.app/profile/zod.dev)  
+
+  
+
+Zod 4 is now stable! Read the [release notes here](/v4).
+
+  
+  
+  
+
+Featured sponsor: Jazz
+----------------------
+
+[
+
+](https://jazz.tools/?utm_source=zod)
+
+Interested in featuring? [Get in touch.](mailto:sponsorship@colinhacks.com)
+
+[Introduction](?id=introduction)
+--------------------------------
+
+Zod is a TypeScript-first validation library. Using Zod, you can define _schemas_ you can use to validate data, from a simple `string` to a complex nested object.
+
+    import { z } from "zod/v4";
+     
+    const User = z.object({
+      name: z.string(),
+    });
+     
+    // some untrusted data...
+    const input = { /* stuff */ };
+     
+    // the parsed result is validated and type safe!
+    const data = User.parse(input);
+     
+    // so you can use it with confidence :)
+    console.log(data.name);
+
+[Features](?id=features)
+------------------------
+
+*   Zero external dependencies
+*   Works in Node.js and all modern browsers
+*   Tiny: 2kb core bundle (gzipped)
+*   Immutable API: methods return a new instance
+*   Concise interface
+*   Works with TypeScript and plain JS
+*   Built-in JSON Schema conversion
+*   Extensive ecosystem
+
+[Installation](?id=installation)
+--------------------------------
+
+    npm install zod       # npm
+    deno add npm:zod      # deno
+    yarn add zod          # yarn
+    bun add zod           # bun
+    pnpm add zod          # pnpm
+
+Zod also publishes a canary version on every commit. To install the canary:
+
+    npm install zod@canary       # npm
+    deno add npm:zod@canary      # deno
+    yarn add zod@canary          # yarn
+    bun add zod@canary           # bun
+    pnpm add zod@canary          # pnpm
+
+[Requirements](?id=requirements)
+--------------------------------
+
+Zod is tested against _TypeScript v5.5_ and later. Older versions may work but are not officially supported.
+
+### [`"strict"`](?id=strict)
+
+You must enable `strict` mode in your `tsconfig.json`. This is a best practice for all TypeScript projects.
+
+    // tsconfig.json
+    {
+      // ...
+      "compilerOptions": {
+        // ...
+        "strict": true
+      }
+    }
+
+### [`"moduleResolution"`](?id=moduleresolution)
+
+Your `"moduleResolution"` should be set to one of the following. The legacy `"node"` and `"classic"` modes are not supported, as they do not support subpath imports.
+
+*   `"node16"` (default if `"module"` is set to `"node16"`/`"node18"`)
+*   `"nodenext"` (default if `"module"` is set to `"nodenext"`)
+*   `"bundler"`
+
+  
+
+[Sponsors](?id=sponsors)
+------------------------
+
+Sponsorship at any level is appreciated and encouraged. If you built a paid product using Zod, consider one of the [corporate tiers](https://github.com/sponsors/colinhacks).
+
+### [Platinum](?id=platinum)
+
+[
+
+](https://www.coderabbit.ai/)
+
+Cut code review time & bugs in half
+
+[coderabbit.ai](https://www.coderabbit.ai/)
+
+  
+
+### [Gold](?id=gold)
+
+[](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+The API platform for sending notifications
+
+[courier.com](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+[](https://liblab.com/?utm_source=zod)
+
+Generate better SDKs for your APIs
+
+[liblab.com](https://liblab.com/?utm_source=zod)
+
+[](https://neon.tech)
+
+Serverless Postgres — Ship faster
+
+[neon.tech](https://neon.tech)
+
+[](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+Build AI apps and workflows with Retool AI
+
+[retool.com](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+[](https://stainlessapi.com)
+
+Generate best-in-class SDKs
+
+[stainlessapi.com](https://stainlessapi.com)
+
+[](https://speakeasy.com/?utm_source=zod+docs)
+
+SDKs & Terraform providers for your API
+
+[speakeasy.com](https://speakeasy.com/?utm_source=zod+docs)
+
+  
+
+### [Silver](?id=silver)
+
+[nitric.io](https://nitric.io/)
+
+[propelauth.com](https://www.propelauth.com/)
+
+[cerbos.dev](https://cerbos.dev/)
+
+[scalar.com](https://scalar.com/)
+
+[trigger.dev](https://trigger.dev)
+
+[transloadit.com](https://transloadit.com/?utm_source=zod&utm_medium=referral&utm_campaign=sponsorship&utm_content=github)
+
+[infisical.com](https://infisical.com)
+
+[whop.com](https://whop.com/)
+
+[cryptojobslist.com](https://cryptojobslist.com/)
+
+[plain.com](https://plain.com/)
+
+[inngest.com](https://inngest.com/)
+
+[storyblok.com](https://storyblok.com/)
+
+[mux.link/zod](https://mux.link/zod)
+
+[juno.build](https://juno.build/?utm_source=zod)
+
+  
+
+### [Bronze](?id=bronze)
+
+[](https://www.val.town/)[val.town](https://www.val.town/)
+
+[](https://www.route4me.com/)[route4me.com](https://www.route4me.com/)
+
+[](https://encore.dev)[encore.dev](https://encore.dev)
+
+[](https://www.replay.io/)[replay.io](https://www.replay.io/)
+
+[](https://www.numeric.io)[numeric.io](https://www.numeric.io)
+
+[](https://marcatopartners.com)[marcatopartners.com](https://marcatopartners.com)
+
+[](https://interval.com)[interval.com](https://interval.com)
+
+[](https://seasoned.cc)[seasoned.cc](https://seasoned.cc)
+
+[](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
+
+[](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
+[Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
+
+[
+
+Next
+
+Migration guide
+
+](/v4/changelog)[
+
+Next
+
+Basic usage
+
+](/basics)
+
+On this page
+
+Zod
+===
+
+TypeScript-first schema validation with static type inference
+
+[](https://github.com/colinhacks/zod/actions?query=branch%3Amain)[](https://twitter.com/colinhacks)[](https://opensource.org/licenses/MIT)[](https://www.npmjs.com/package/zod)[](https://github.com/colinhacks/zod)
+
+[Website](https://zod.dev)  •  [Discord](https://discord.gg/RcG33DQJdf)  •  [𝕏](https://twitter.com/colinhacks)  •  [Bluesky](https://bsky.app/profile/zod.dev)  
+
+  
+
+Zod 4 is now stable! Read the [release notes here](/v4).
+
+  
+  
+  
+
+Featured sponsor: Jazz
+----------------------
+
+[
+
+](https://jazz.tools/?utm_source=zod)
+
+Interested in featuring? [Get in touch.](mailto:sponsorship@colinhacks.com)
+
+[Introduction](?id=introduction)
+--------------------------------
+
+Zod is a TypeScript-first validation library. Using Zod, you can define _schemas_ you can use to validate data, from a simple `string` to a complex nested object.
+
+    import { z } from "zod/v4";
+     
+    const User = z.object({
+      name: z.string(),
+    });
+     
+    // some untrusted data...
+    const input = { /* stuff */ };
+     
+    // the parsed result is validated and type safe!
+    const data = User.parse(input);
+     
+    // so you can use it with confidence :)
+    console.log(data.name);
+
+[Features](?id=features)
+------------------------
+
+*   Zero external dependencies
+*   Works in Node.js and all modern browsers
+*   Tiny: 2kb core bundle (gzipped)
+*   Immutable API: methods return a new instance
+*   Concise interface
+*   Works with TypeScript and plain JS
+*   Built-in JSON Schema conversion
+*   Extensive ecosystem
+
+[Installation](?id=installation)
+--------------------------------
+
+    npm install zod       # npm
+    deno add npm:zod      # deno
+    yarn add zod          # yarn
+    bun add zod           # bun
+    pnpm add zod          # pnpm
+
+Zod also publishes a canary version on every commit. To install the canary:
+
+    npm install zod@canary       # npm
+    deno add npm:zod@canary      # deno
+    yarn add zod@canary          # yarn
+    bun add zod@canary           # bun
+    pnpm add zod@canary          # pnpm
+
+[Requirements](?id=requirements)
+--------------------------------
+
+Zod is tested against _TypeScript v5.5_ and later. Older versions may work but are not officially supported.
+
+### [`"strict"`](?id=strict)
+
+You must enable `strict` mode in your `tsconfig.json`. This is a best practice for all TypeScript projects.
+
+    // tsconfig.json
+    {
+      // ...
+      "compilerOptions": {
+        // ...
+        "strict": true
+      }
+    }
+
+### [`"moduleResolution"`](?id=moduleresolution)
+
+Your `"moduleResolution"` should be set to one of the following. The legacy `"node"` and `"classic"` modes are not supported, as they do not support subpath imports.
+
+*   `"node16"` (default if `"module"` is set to `"node16"`/`"node18"`)
+*   `"nodenext"` (default if `"module"` is set to `"nodenext"`)
+*   `"bundler"`
+
+  
+
+[Sponsors](?id=sponsors)
+------------------------
+
+Sponsorship at any level is appreciated and encouraged. If you built a paid product using Zod, consider one of the [corporate tiers](https://github.com/sponsors/colinhacks).
+
+### [Platinum](?id=platinum)
+
+[
+
+](https://www.coderabbit.ai/)
+
+Cut code review time & bugs in half
+
+[coderabbit.ai](https://www.coderabbit.ai/)
+
+  
+
+### [Gold](?id=gold)
+
+[](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+The API platform for sending notifications
+
+[courier.com](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+[](https://liblab.com/?utm_source=zod)
+
+Generate better SDKs for your APIs
+
+[liblab.com](https://liblab.com/?utm_source=zod)
+
+[](https://neon.tech)
+
+Serverless Postgres — Ship faster
+
+[neon.tech](https://neon.tech)
+
+[](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+Build AI apps and workflows with Retool AI
+
+[retool.com](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+[](https://stainlessapi.com)
+
+Generate best-in-class SDKs
+
+[stainlessapi.com](https://stainlessapi.com)
+
+[](https://speakeasy.com/?utm_source=zod+docs)
+
+SDKs & Terraform providers for your API
+
+[speakeasy.com](https://speakeasy.com/?utm_source=zod+docs)
+
+  
+
+### [Silver](?id=silver)
+
+[nitric.io](https://nitric.io/)
+
+[propelauth.com](https://www.propelauth.com/)
+
+[cerbos.dev](https://cerbos.dev/)
+
+[scalar.com](https://scalar.com/)
+
+[trigger.dev](https://trigger.dev)
+
+[transloadit.com](https://transloadit.com/?utm_source=zod&utm_medium=referral&utm_campaign=sponsorship&utm_content=github)
+
+[infisical.com](https://infisical.com)
+
+[whop.com](https://whop.com/)
+
+[cryptojobslist.com](https://cryptojobslist.com/)
+
+[plain.com](https://plain.com/)
+
+[inngest.com](https://inngest.com/)
+
+[storyblok.com](https://storyblok.com/)
+
+[mux.link/zod](https://mux.link/zod)
+
+[juno.build](https://juno.build/?utm_source=zod)
+
+  
+
+### [Bronze](?id=bronze)
+
+[](https://www.val.town/)[val.town](https://www.val.town/)
+
+[](https://www.route4me.com/)[route4me.com](https://www.route4me.com/)
+
+[](https://encore.dev)[encore.dev](https://encore.dev)
+
+[](https://www.replay.io/)[replay.io](https://www.replay.io/)
+
+[](https://www.numeric.io)[numeric.io](https://www.numeric.io)
+
+[](https://marcatopartners.com)[marcatopartners.com](https://marcatopartners.com)
+
+[](https://interval.com)[interval.com](https://interval.com)
+
+[](https://seasoned.cc)[seasoned.cc](https://seasoned.cc)
+
+[](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
+
+[](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
+[Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
+
+[
+
+Next
+
+Migration guide
+
+](/v4/changelog)[
+
+Next
+
+Basic usage
+
+](/basics)
+
+On this page
+
+Zod
+===
+
+TypeScript-first schema validation with static type inference
+
+[](https://github.com/colinhacks/zod/actions?query=branch%3Amain)[](https://twitter.com/colinhacks)[](https://opensource.org/licenses/MIT)[](https://www.npmjs.com/package/zod)[](https://github.com/colinhacks/zod)
+
+[Website](https://zod.dev)  •  [Discord](https://discord.gg/RcG33DQJdf)  •  [𝕏](https://twitter.com/colinhacks)  •  [Bluesky](https://bsky.app/profile/zod.dev)  
+
+  
+
+Zod 4 is now stable! Read the [release notes here](/v4).
+
+  
+  
+  
+
+Featured sponsor: Jazz
+----------------------
+
+[
+
+](https://jazz.tools/?utm_source=zod)
+
+Interested in featuring? [Get in touch.](mailto:sponsorship@colinhacks.com)
+
+[Introduction](?id=introduction)
+--------------------------------
+
+Zod is a TypeScript-first validation library. Using Zod, you can define _schemas_ you can use to validate data, from a simple `string` to a complex nested object.
+
+    import { z } from "zod/v4";
+     
+    const User = z.object({
+      name: z.string(),
+    });
+     
+    // some untrusted data...
+    const input = { /* stuff */ };
+     
+    // the parsed result is validated and type safe!
+    const data = User.parse(input);
+     
+    // so you can use it with confidence :)
+    console.log(data.name);
+
+[Features](?id=features)
+------------------------
+
+*   Zero external dependencies
+*   Works in Node.js and all modern browsers
+*   Tiny: 2kb core bundle (gzipped)
+*   Immutable API: methods return a new instance
+*   Concise interface
+*   Works with TypeScript and plain JS
+*   Built-in JSON Schema conversion
+*   Extensive ecosystem
+
+[Installation](?id=installation)
+--------------------------------
+
+    npm install zod       # npm
+    deno add npm:zod      # deno
+    yarn add zod          # yarn
+    bun add zod           # bun
+    pnpm add zod          # pnpm
+
+Zod also publishes a canary version on every commit. To install the canary:
+
+    npm install zod@canary       # npm
+    deno add npm:zod@canary      # deno
+    yarn add zod@canary          # yarn
+    bun add zod@canary           # bun
+    pnpm add zod@canary          # pnpm
+
+[Requirements](?id=requirements)
+--------------------------------
+
+Zod is tested against _TypeScript v5.5_ and later. Older versions may work but are not officially supported.
+
+### [`"strict"`](?id=strict)
+
+You must enable `strict` mode in your `tsconfig.json`. This is a best practice for all TypeScript projects.
+
+    // tsconfig.json
+    {
+      // ...
+      "compilerOptions": {
+        // ...
+        "strict": true
+      }
+    }
+
+### [`"moduleResolution"`](?id=moduleresolution)
+
+Your `"moduleResolution"` should be set to one of the following. The legacy `"node"` and `"classic"` modes are not supported, as they do not support subpath imports.
+
+*   `"node16"` (default if `"module"` is set to `"node16"`/`"node18"`)
+*   `"nodenext"` (default if `"module"` is set to `"nodenext"`)
+*   `"bundler"`
+
+  
+
+[Sponsors](?id=sponsors)
+------------------------
+
+Sponsorship at any level is appreciated and encouraged. If you built a paid product using Zod, consider one of the [corporate tiers](https://github.com/sponsors/colinhacks).
+
+### [Platinum](?id=platinum)
+
+[
+
+](https://www.coderabbit.ai/)
+
+Cut code review time & bugs in half
+
+[coderabbit.ai](https://www.coderabbit.ai/)
+
+  
+
+### [Gold](?id=gold)
+
+[](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+The API platform for sending notifications
+
+[courier.com](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+[](https://liblab.com/?utm_source=zod)
+
+Generate better SDKs for your APIs
+
+[liblab.com](https://liblab.com/?utm_source=zod)
+
+[](https://neon.tech)
+
+Serverless Postgres — Ship faster
+
+[neon.tech](https://neon.tech)
+
+[](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+Build AI apps and workflows with Retool AI
+
+[retool.com](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+[](https://stainlessapi.com)
+
+Generate best-in-class SDKs
+
+[stainlessapi.com](https://stainlessapi.com)
+
+[](https://speakeasy.com/?utm_source=zod+docs)
+
+SDKs & Terraform providers for your API
+
+[speakeasy.com](https://speakeasy.com/?utm_source=zod+docs)
+
+  
+
+### [Silver](?id=silver)
+
+[nitric.io](https://nitric.io/)
+
+[propelauth.com](https://www.propelauth.com/)
+
+[cerbos.dev](https://cerbos.dev/)
+
+[scalar.com](https://scalar.com/)
+
+[trigger.dev](https://trigger.dev)
+
+[transloadit.com](https://transloadit.com/?utm_source=zod&utm_medium=referral&utm_campaign=sponsorship&utm_content=github)
+
+[infisical.com](https://infisical.com)
+
+[whop.com](https://whop.com/)
+
+[cryptojobslist.com](https://cryptojobslist.com/)
+
+[plain.com](https://plain.com/)
+
+[inngest.com](https://inngest.com/)
+
+[storyblok.com](https://storyblok.com/)
+
+[mux.link/zod](https://mux.link/zod)
+
+[juno.build](https://juno.build/?utm_source=zod)
+
+  
+
+### [Bronze](?id=bronze)
+
+[](https://www.val.town/)[val.town](https://www.val.town/)
+
+[](https://www.route4me.com/)[route4me.com](https://www.route4me.com/)
+
+[](https://encore.dev)[encore.dev](https://encore.dev)
+
+[](https://www.replay.io/)[replay.io](https://www.replay.io/)
+
+[](https://www.numeric.io)[numeric.io](https://www.numeric.io)
+
+[](https://marcatopartners.com)[marcatopartners.com](https://marcatopartners.com)
+
+[](https://interval.com)[interval.com](https://interval.com)
+
+[](https://seasoned.cc)[seasoned.cc](https://seasoned.cc)
+
+[](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
+
+[](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
+[Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
+
+[
+
+Next
+
+Migration guide
+
+](/v4/changelog)[
+
+Next
+
+Basic usage
+
+](/basics)
+
+On this page
+
+Zod
+===
+
+TypeScript-first schema validation with static type inference
+
+[](https://github.com/colinhacks/zod/actions?query=branch%3Amain)[](https://twitter.com/colinhacks)[](https://opensource.org/licenses/MIT)[](https://www.npmjs.com/package/zod)[](https://github.com/colinhacks/zod)
+
+[Website](https://zod.dev)  •  [Discord](https://discord.gg/RcG33DQJdf)  •  [𝕏](https://twitter.com/colinhacks)  •  [Bluesky](https://bsky.app/profile/zod.dev)  
+
+  
+
+Zod 4 is now stable! Read the [release notes here](/v4).
+
+  
+  
+  
+
+Featured sponsor: Jazz
+----------------------
+
+[
+
+](https://jazz.tools/?utm_source=zod)
+
+Interested in featuring? [Get in touch.](mailto:sponsorship@colinhacks.com)
+
+[Introduction](?id=introduction)
+--------------------------------
+
+Zod is a TypeScript-first validation library. Using Zod, you can define _schemas_ you can use to validate data, from a simple `string` to a complex nested object.
+
+    import { z } from "zod/v4";
+     
+    const User = z.object({
+      name: z.string(),
+    });
+     
+    // some untrusted data...
+    const input = { /* stuff */ };
+     
+    // the parsed result is validated and type safe!
+    const data = User.parse(input);
+     
+    // so you can use it with confidence :)
+    console.log(data.name);
+
+[Features](?id=features)
+------------------------
+
+*   Zero external dependencies
+*   Works in Node.js and all modern browsers
+*   Tiny: 2kb core bundle (gzipped)
+*   Immutable API: methods return a new instance
+*   Concise interface
+*   Works with TypeScript and plain JS
+*   Built-in JSON Schema conversion
+*   Extensive ecosystem
+
+[Installation](?id=installation)
+--------------------------------
+
+    npm install zod       # npm
+    deno add npm:zod      # deno
+    yarn add zod          # yarn
+    bun add zod           # bun
+    pnpm add zod          # pnpm
+
+Zod also publishes a canary version on every commit. To install the canary:
+
+    npm install zod@canary       # npm
+    deno add npm:zod@canary      # deno
+    yarn add zod@canary          # yarn
+    bun add zod@canary           # bun
+    pnpm add zod@canary          # pnpm
+
+[Requirements](?id=requirements)
+--------------------------------
+
+Zod is tested against _TypeScript v5.5_ and later. Older versions may work but are not officially supported.
+
+### [`"strict"`](?id=strict)
+
+You must enable `strict` mode in your `tsconfig.json`. This is a best practice for all TypeScript projects.
+
+    // tsconfig.json
+    {
+      // ...
+      "compilerOptions": {
+        // ...
+        "strict": true
+      }
+    }
+
+### [`"moduleResolution"`](?id=moduleresolution)
+
+Your `"moduleResolution"` should be set to one of the following. The legacy `"node"` and `"classic"` modes are not supported, as they do not support subpath imports.
+
+*   `"node16"` (default if `"module"` is set to `"node16"`/`"node18"`)
+*   `"nodenext"` (default if `"module"` is set to `"nodenext"`)
+*   `"bundler"`
+
+  
+
+[Sponsors](?id=sponsors)
+------------------------
+
+Sponsorship at any level is appreciated and encouraged. If you built a paid product using Zod, consider one of the [corporate tiers](https://github.com/sponsors/colinhacks).
+
+### [Platinum](?id=platinum)
+
+[
+
+](https://www.coderabbit.ai/)
+
+Cut code review time & bugs in half
+
+[coderabbit.ai](https://www.coderabbit.ai/)
+
+  
+
+### [Gold](?id=gold)
+
+[](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+The API platform for sending notifications
+
+[courier.com](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+[](https://liblab.com/?utm_source=zod)
+
+Generate better SDKs for your APIs
+
+[liblab.com](https://liblab.com/?utm_source=zod)
+
+[](https://neon.tech)
+
+Serverless Postgres — Ship faster
+
+[neon.tech](https://neon.tech)
+
+[](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+Build AI apps and workflows with Retool AI
+
+[retool.com](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+[](https://stainlessapi.com)
+
+Generate best-in-class SDKs
+
+[stainlessapi.com](https://stainlessapi.com)
+
+[](https://speakeasy.com/?utm_source=zod+docs)
+
+SDKs & Terraform providers for your API
+
+[speakeasy.com](https://speakeasy.com/?utm_source=zod+docs)
+
+  
+
+### [Silver](?id=silver)
+
+[nitric.io](https://nitric.io/)
+
+[propelauth.com](https://www.propelauth.com/)
+
+[cerbos.dev](https://cerbos.dev/)
+
+[scalar.com](https://scalar.com/)
+
+[trigger.dev](https://trigger.dev)
+
+[transloadit.com](https://transloadit.com/?utm_source=zod&utm_medium=referral&utm_campaign=sponsorship&utm_content=github)
+
+[infisical.com](https://infisical.com)
+
+[whop.com](https://whop.com/)
+
+[cryptojobslist.com](https://cryptojobslist.com/)
+
+[plain.com](https://plain.com/)
+
+[inngest.com](https://inngest.com/)
+
+[storyblok.com](https://storyblok.com/)
+
+[mux.link/zod](https://mux.link/zod)
+
+[juno.build](https://juno.build/?utm_source=zod)
+
+  
+
+### [Bronze](?id=bronze)
+
+[](https://www.val.town/)[val.town](https://www.val.town/)
+
+[](https://www.route4me.com/)[route4me.com](https://www.route4me.com/)
+
+[](https://encore.dev)[encore.dev](https://encore.dev)
+
+[](https://www.replay.io/)[replay.io](https://www.replay.io/)
+
+[](https://www.numeric.io)[numeric.io](https://www.numeric.io)
+
+[](https://marcatopartners.com)[marcatopartners.com](https://marcatopartners.com)
+
+[](https://interval.com)[interval.com](https://interval.com)
+
+[](https://seasoned.cc)[seasoned.cc](https://seasoned.cc)
+
+[](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
+
+[](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
+[Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
+
+[
+
+Next
+
+Migration guide
+
+](/v4/changelog)[
+
+Next
+
+Basic usage
+
+](/basics)
+
+On this page
+
+Zod
+===
+
+TypeScript-first schema validation with static type inference
+
+[](https://github.com/colinhacks/zod/actions?query=branch%3Amain)[](https://twitter.com/colinhacks)[](https://opensource.org/licenses/MIT)[](https://www.npmjs.com/package/zod)[](https://github.com/colinhacks/zod)
+
+[Website](https://zod.dev)  •  [Discord](https://discord.gg/RcG33DQJdf)  •  [𝕏](https://twitter.com/colinhacks)  •  [Bluesky](https://bsky.app/profile/zod.dev)  
+
+  
+
+Zod 4 is now stable! Read the [release notes here](/v4).
+
+  
+  
+  
+
+Featured sponsor: Jazz
+----------------------
+
+[
+
+](https://jazz.tools/?utm_source=zod)
+
+Interested in featuring? [Get in touch.](mailto:sponsorship@colinhacks.com)
+
+[Introduction](?id=introduction)
+--------------------------------
+
+Zod is a TypeScript-first validation library. Using Zod, you can define _schemas_ you can use to validate data, from a simple `string` to a complex nested object.
+
+    import { z } from "zod/v4";
+     
+    const User = z.object({
+      name: z.string(),
+    });
+     
+    // some untrusted data...
+    const input = { /* stuff */ };
+     
+    // the parsed result is validated and type safe!
+    const data = User.parse(input);
+     
+    // so you can use it with confidence :)
+    console.log(data.name);
+
+[Features](?id=features)
+------------------------
+
+*   Zero external dependencies
+*   Works in Node.js and all modern browsers
+*   Tiny: 2kb core bundle (gzipped)
+*   Immutable API: methods return a new instance
+*   Concise interface
+*   Works with TypeScript and plain JS
+*   Built-in JSON Schema conversion
+*   Extensive ecosystem
+
+[Installation](?id=installation)
+--------------------------------
+
+    npm install zod       # npm
+    deno add npm:zod      # deno
+    yarn add zod          # yarn
+    bun add zod           # bun
+    pnpm add zod          # pnpm
+
+Zod also publishes a canary version on every commit. To install the canary:
+
+    npm install zod@canary       # npm
+    deno add npm:zod@canary      # deno
+    yarn add zod@canary          # yarn
+    bun add zod@canary           # bun
+    pnpm add zod@canary          # pnpm
+
+[Requirements](?id=requirements)
+--------------------------------
+
+Zod is tested against _TypeScript v5.5_ and later. Older versions may work but are not officially supported.
+
+### [`"strict"`](?id=strict)
+
+You must enable `strict` mode in your `tsconfig.json`. This is a best practice for all TypeScript projects.
+
+    // tsconfig.json
+    {
+      // ...
+      "compilerOptions": {
+        // ...
+        "strict": true
+      }
+    }
+
+### [`"moduleResolution"`](?id=moduleresolution)
+
+Your `"moduleResolution"` should be set to one of the following. The legacy `"node"` and `"classic"` modes are not supported, as they do not support subpath imports.
+
+*   `"node16"` (default if `"module"` is set to `"node16"`/`"node18"`)
+*   `"nodenext"` (default if `"module"` is set to `"nodenext"`)
+*   `"bundler"`
+
+  
+
+[Sponsors](?id=sponsors)
+------------------------
+
+Sponsorship at any level is appreciated and encouraged. If you built a paid product using Zod, consider one of the [corporate tiers](https://github.com/sponsors/colinhacks).
+
+### [Platinum](?id=platinum)
+
+[
+
+](https://www.coderabbit.ai/)
+
+Cut code review time & bugs in half
+
+[coderabbit.ai](https://www.coderabbit.ai/)
+
+  
+
+### [Gold](?id=gold)
+
+[](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+The API platform for sending notifications
+
+[courier.com](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+[](https://liblab.com/?utm_source=zod)
+
+Generate better SDKs for your APIs
+
+[liblab.com](https://liblab.com/?utm_source=zod)
+
+[](https://neon.tech)
+
+Serverless Postgres — Ship faster
+
+[neon.tech](https://neon.tech)
+
+[](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+Build AI apps and workflows with Retool AI
+
+[retool.com](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+[](https://stainlessapi.com)
+
+Generate best-in-class SDKs
+
+[stainlessapi.com](https://stainlessapi.com)
+
+[](https://speakeasy.com/?utm_source=zod+docs)
+
+SDKs & Terraform providers for your API
+
+[speakeasy.com](https://speakeasy.com/?utm_source=zod+docs)
+
+  
+
+### [Silver](?id=silver)
+
+[nitric.io](https://nitric.io/)
+
+[propelauth.com](https://www.propelauth.com/)
+
+[cerbos.dev](https://cerbos.dev/)
+
+[scalar.com](https://scalar.com/)
+
+[trigger.dev](https://trigger.dev)
+
+[transloadit.com](https://transloadit.com/?utm_source=zod&utm_medium=referral&utm_campaign=sponsorship&utm_content=github)
+
+[infisical.com](https://infisical.com)
+
+[whop.com](https://whop.com/)
+
+[cryptojobslist.com](https://cryptojobslist.com/)
+
+[plain.com](https://plain.com/)
+
+[inngest.com](https://inngest.com/)
+
+[storyblok.com](https://storyblok.com/)
+
+[mux.link/zod](https://mux.link/zod)
+
+[juno.build](https://juno.build/?utm_source=zod)
+
+  
+
+### [Bronze](?id=bronze)
+
+[](https://www.val.town/)[val.town](https://www.val.town/)
+
+[](https://www.route4me.com/)[route4me.com](https://www.route4me.com/)
+
+[](https://encore.dev)[encore.dev](https://encore.dev)
+
+[](https://www.replay.io/)[replay.io](https://www.replay.io/)
+
+[](https://www.numeric.io)[numeric.io](https://www.numeric.io)
+
+[](https://marcatopartners.com)[marcatopartners.com](https://marcatopartners.com)
+
+[](https://interval.com)[interval.com](https://interval.com)
+
+[](https://seasoned.cc)[seasoned.cc](https://seasoned.cc)
+
+[](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
+
+[](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
+[Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
+
+[
+
+Next
+
+Migration guide
+
+](/v4/changelog)[
+
+Next
+
+Basic usage
+
+](/basics)
+
+On this page
+
+Zod
+===
+
+TypeScript-first schema validation with static type inference
+
+[](https://github.com/colinhacks/zod/actions?query=branch%3Amain)[](https://twitter.com/colinhacks)[](https://opensource.org/licenses/MIT)[](https://www.npmjs.com/package/zod)[](https://github.com/colinhacks/zod)
+
+[Website](https://zod.dev)  •  [Discord](https://discord.gg/RcG33DQJdf)  •  [𝕏](https://twitter.com/colinhacks)  •  [Bluesky](https://bsky.app/profile/zod.dev)  
+
+  
+
+Zod 4 is now stable! Read the [release notes here](/v4).
+
+  
+  
+  
+
+Featured sponsor: Jazz
+----------------------
+
+[
+
+](https://jazz.tools/?utm_source=zod)
+
+Interested in featuring? [Get in touch.](mailto:sponsorship@colinhacks.com)
+
+[Introduction](?id=introduction)
+--------------------------------
+
+Zod is a TypeScript-first validation library. Using Zod, you can define _schemas_ you can use to validate data, from a simple `string` to a complex nested object.
+
+    import { z } from "zod/v4";
+     
+    const User = z.object({
+      name: z.string(),
+    });
+     
+    // some untrusted data...
+    const input = { /* stuff */ };
+     
+    // the parsed result is validated and type safe!
+    const data = User.parse(input);
+     
+    // so you can use it with confidence :)
+    console.log(data.name);
+
+[Features](?id=features)
+------------------------
+
+*   Zero external dependencies
+*   Works in Node.js and all modern browsers
+*   Tiny: 2kb core bundle (gzipped)
+*   Immutable API: methods return a new instance
+*   Concise interface
+*   Works with TypeScript and plain JS
+*   Built-in JSON Schema conversion
+*   Extensive ecosystem
+
+[Installation](?id=installation)
+--------------------------------
+
+    npm install zod       # npm
+    deno add npm:zod      # deno
+    yarn add zod          # yarn
+    bun add zod           # bun
+    pnpm add zod          # pnpm
+
+Zod also publishes a canary version on every commit. To install the canary:
+
+    npm install zod@canary       # npm
+    deno add npm:zod@canary      # deno
+    yarn add zod@canary          # yarn
+    bun add zod@canary           # bun
+    pnpm add zod@canary          # pnpm
+
+[Requirements](?id=requirements)
+--------------------------------
+
+Zod is tested against _TypeScript v5.5_ and later. Older versions may work but are not officially supported.
+
+### [`"strict"`](?id=strict)
+
+You must enable `strict` mode in your `tsconfig.json`. This is a best practice for all TypeScript projects.
+
+    // tsconfig.json
+    {
+      // ...
+      "compilerOptions": {
+        // ...
+        "strict": true
+      }
+    }
+
+### [`"moduleResolution"`](?id=moduleresolution)
+
+Your `"moduleResolution"` should be set to one of the following. The legacy `"node"` and `"classic"` modes are not supported, as they do not support subpath imports.
+
+*   `"node16"` (default if `"module"` is set to `"node16"`/`"node18"`)
+*   `"nodenext"` (default if `"module"` is set to `"nodenext"`)
+*   `"bundler"`
+
+  
+
+[Sponsors](?id=sponsors)
+------------------------
+
+Sponsorship at any level is appreciated and encouraged. If you built a paid product using Zod, consider one of the [corporate tiers](https://github.com/sponsors/colinhacks).
+
+### [Platinum](?id=platinum)
+
+[
+
+](https://www.coderabbit.ai/)
+
+Cut code review time & bugs in half
+
+[coderabbit.ai](https://www.coderabbit.ai/)
+
+  
+
+### [Gold](?id=gold)
+
+[](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+The API platform for sending notifications
+
+[courier.com](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+[](https://liblab.com/?utm_source=zod)
+
+Generate better SDKs for your APIs
+
+[liblab.com](https://liblab.com/?utm_source=zod)
+
+[](https://neon.tech)
+
+Serverless Postgres — Ship faster
+
+[neon.tech](https://neon.tech)
+
+[](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+Build AI apps and workflows with Retool AI
+
+[retool.com](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+[](https://stainlessapi.com)
+
+Generate best-in-class SDKs
+
+[stainlessapi.com](https://stainlessapi.com)
+
+[](https://speakeasy.com/?utm_source=zod+docs)
+
+SDKs & Terraform providers for your API
+
+[speakeasy.com](https://speakeasy.com/?utm_source=zod+docs)
+
+  
+
+### [Silver](?id=silver)
+
+[nitric.io](https://nitric.io/)
+
+[propelauth.com](https://www.propelauth.com/)
+
+[cerbos.dev](https://cerbos.dev/)
+
+[scalar.com](https://scalar.com/)
+
+[trigger.dev](https://trigger.dev)
+
+[transloadit.com](https://transloadit.com/?utm_source=zod&utm_medium=referral&utm_campaign=sponsorship&utm_content=github)
+
+[infisical.com](https://infisical.com)
+
+[whop.com](https://whop.com/)
+
+[cryptojobslist.com](https://cryptojobslist.com/)
+
+[plain.com](https://plain.com/)
+
+[inngest.com](https://inngest.com/)
+
+[storyblok.com](https://storyblok.com/)
+
+[mux.link/zod](https://mux.link/zod)
+
+[juno.build](https://juno.build/?utm_source=zod)
+
+  
+
+### [Bronze](?id=bronze)
+
+[](https://www.val.town/)[val.town](https://www.val.town/)
+
+[](https://www.route4me.com/)[route4me.com](https://www.route4me.com/)
+
+[](https://encore.dev)[encore.dev](https://encore.dev)
+
+[](https://www.replay.io/)[replay.io](https://www.replay.io/)
+
+[](https://www.numeric.io)[numeric.io](https://www.numeric.io)
+
+[](https://marcatopartners.com)[marcatopartners.com](https://marcatopartners.com)
+
+[](https://interval.com)[interval.com](https://interval.com)
+
+[](https://seasoned.cc)[seasoned.cc](https://seasoned.cc)
+
+[](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
+
+[](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
+[Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
+
+[
+
+Next
+
+Migration guide
+
+](/v4/changelog)[
+
+Next
+
+Basic usage
+
+](/basics)
+
+On this page
+
+Zod
+===
+
+TypeScript-first schema validation with static type inference
+
+[](https://github.com/colinhacks/zod/actions?query=branch%3Amain)[](https://twitter.com/colinhacks)[](https://opensource.org/licenses/MIT)[](https://www.npmjs.com/package/zod)[](https://github.com/colinhacks/zod)
+
+[Website](https://zod.dev)  •  [Discord](https://discord.gg/RcG33DQJdf)  •  [𝕏](https://twitter.com/colinhacks)  •  [Bluesky](https://bsky.app/profile/zod.dev)  
+
+  
+
+Zod 4 is now stable! Read the [release notes here](/v4).
+
+  
+  
+  
+
+Featured sponsor: Jazz
+----------------------
+
+[
+
+](https://jazz.tools/?utm_source=zod)
+
+Interested in featuring? [Get in touch.](mailto:sponsorship@colinhacks.com)
+
+[Introduction](?id=introduction)
+--------------------------------
+
+Zod is a TypeScript-first validation library. Using Zod, you can define _schemas_ you can use to validate data, from a simple `string` to a complex nested object.
+
+    import { z } from "zod/v4";
+     
+    const User = z.object({
+      name: z.string(),
+    });
+     
+    // some untrusted data...
+    const input = { /* stuff */ };
+     
+    // the parsed result is validated and type safe!
+    const data = User.parse(input);
+     
+    // so you can use it with confidence :)
+    console.log(data.name);
+
+[Features](?id=features)
+------------------------
+
+*   Zero external dependencies
+*   Works in Node.js and all modern browsers
+*   Tiny: 2kb core bundle (gzipped)
+*   Immutable API: methods return a new instance
+*   Concise interface
+*   Works with TypeScript and plain JS
+*   Built-in JSON Schema conversion
+*   Extensive ecosystem
+
+[Installation](?id=installation)
+--------------------------------
+
+    npm install zod       # npm
+    deno add npm:zod      # deno
+    yarn add zod          # yarn
+    bun add zod           # bun
+    pnpm add zod          # pnpm
+
+Zod also publishes a canary version on every commit. To install the canary:
+
+    npm install zod@canary       # npm
+    deno add npm:zod@canary      # deno
+    yarn add zod@canary          # yarn
+    bun add zod@canary           # bun
+    pnpm add zod@canary          # pnpm
+
+[Requirements](?id=requirements)
+--------------------------------
+
+Zod is tested against _TypeScript v5.5_ and later. Older versions may work but are not officially supported.
+
+### [`"strict"`](?id=strict)
+
+You must enable `strict` mode in your `tsconfig.json`. This is a best practice for all TypeScript projects.
+
+    // tsconfig.json
+    {
+      // ...
+      "compilerOptions": {
+        // ...
+        "strict": true
+      }
+    }
+
+### [`"moduleResolution"`](?id=moduleresolution)
+
+Your `"moduleResolution"` should be set to one of the following. The legacy `"node"` and `"classic"` modes are not supported, as they do not support subpath imports.
+
+*   `"node16"` (default if `"module"` is set to `"node16"`/`"node18"`)
+*   `"nodenext"` (default if `"module"` is set to `"nodenext"`)
+*   `"bundler"`
+
+  
+
+[Sponsors](?id=sponsors)
+------------------------
+
+Sponsorship at any level is appreciated and encouraged. If you built a paid product using Zod, consider one of the [corporate tiers](https://github.com/sponsors/colinhacks).
+
+### [Platinum](?id=platinum)
+
+[
+
+](https://www.coderabbit.ai/)
+
+Cut code review time & bugs in half
+
+[coderabbit.ai](https://www.coderabbit.ai/)
+
+  
+
+### [Gold](?id=gold)
+
+[](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+The API platform for sending notifications
+
+[courier.com](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+[](https://liblab.com/?utm_source=zod)
+
+Generate better SDKs for your APIs
+
+[liblab.com](https://liblab.com/?utm_source=zod)
+
+[](https://neon.tech)
+
+Serverless Postgres — Ship faster
+
+[neon.tech](https://neon.tech)
+
+[](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+Build AI apps and workflows with Retool AI
+
+[retool.com](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+[](https://stainlessapi.com)
+
+Generate best-in-class SDKs
+
+[stainlessapi.com](https://stainlessapi.com)
+
+[](https://speakeasy.com/?utm_source=zod+docs)
+
+SDKs & Terraform providers for your API
+
+[speakeasy.com](https://speakeasy.com/?utm_source=zod+docs)
+
+  
+
+### [Silver](?id=silver)
+
+[nitric.io](https://nitric.io/)
+
+[propelauth.com](https://www.propelauth.com/)
+
+[cerbos.dev](https://cerbos.dev/)
+
+[scalar.com](https://scalar.com/)
+
+[trigger.dev](https://trigger.dev)
+
+[transloadit.com](https://transloadit.com/?utm_source=zod&utm_medium=referral&utm_campaign=sponsorship&utm_content=github)
+
+[infisical.com](https://infisical.com)
+
+[whop.com](https://whop.com/)
+
+[cryptojobslist.com](https://cryptojobslist.com/)
+
+[plain.com](https://plain.com/)
+
+[inngest.com](https://inngest.com/)
+
+[storyblok.com](https://storyblok.com/)
+
+[mux.link/zod](https://mux.link/zod)
+
+[juno.build](https://juno.build/?utm_source=zod)
+
+  
+
+### [Bronze](?id=bronze)
+
+[](https://www.val.town/)[val.town](https://www.val.town/)
+
+[](https://www.route4me.com/)[route4me.com](https://www.route4me.com/)
+
+[](https://encore.dev)[encore.dev](https://encore.dev)
+
+[](https://www.replay.io/)[replay.io](https://www.replay.io/)
+
+[](https://www.numeric.io)[numeric.io](https://www.numeric.io)
+
+[](https://marcatopartners.com)[marcatopartners.com](https://marcatopartners.com)
+
+[](https://interval.com)[interval.com](https://interval.com)
+
+[](https://seasoned.cc)[seasoned.cc](https://seasoned.cc)
+
+[](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
+
+[](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
+[Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
+
+[
+
+Next
+
+Migration guide
+
+](/v4/changelog)[
+
+Next
+
+Basic usage
+
+](/basics)
+
+On this page
+
+Zod
+===
+
+TypeScript-first schema validation with static type inference
+
+[](https://github.com/colinhacks/zod/actions?query=branch%3Amain)[](https://twitter.com/colinhacks)[](https://opensource.org/licenses/MIT)[](https://www.npmjs.com/package/zod)[](https://github.com/colinhacks/zod)
+
+[Website](https://zod.dev)  •  [Discord](https://discord.gg/RcG33DQJdf)  •  [𝕏](https://twitter.com/colinhacks)  •  [Bluesky](https://bsky.app/profile/zod.dev)  
+
+  
+
+Zod 4 is now stable! Read the [release notes here](/v4).
+
+  
+  
+  
+
+Featured sponsor: Jazz
+----------------------
+
+[
+
+](https://jazz.tools/?utm_source=zod)
+
+Interested in featuring? [Get in touch.](mailto:sponsorship@colinhacks.com)
+
+[Introduction](?id=introduction)
+--------------------------------
+
+Zod is a TypeScript-first validation library. Using Zod, you can define _schemas_ you can use to validate data, from a simple `string` to a complex nested object.
+
+    import { z } from "zod/v4";
+     
+    const User = z.object({
+      name: z.string(),
+    });
+     
+    // some untrusted data...
+    const input = { /* stuff */ };
+     
+    // the parsed result is validated and type safe!
+    const data = User.parse(input);
+     
+    // so you can use it with confidence :)
+    console.log(data.name);
+
+[Features](?id=features)
+------------------------
+
+*   Zero external dependencies
+*   Works in Node.js and all modern browsers
+*   Tiny: 2kb core bundle (gzipped)
+*   Immutable API: methods return a new instance
+*   Concise interface
+*   Works with TypeScript and plain JS
+*   Built-in JSON Schema conversion
+*   Extensive ecosystem
+
+[Installation](?id=installation)
+--------------------------------
+
+    npm install zod       # npm
+    deno add npm:zod      # deno
+    yarn add zod          # yarn
+    bun add zod           # bun
+    pnpm add zod          # pnpm
+
+Zod also publishes a canary version on every commit. To install the canary:
+
+    npm install zod@canary       # npm
+    deno add npm:zod@canary      # deno
+    yarn add zod@canary          # yarn
+    bun add zod@canary           # bun
+    pnpm add zod@canary          # pnpm
+
+[Requirements](?id=requirements)
+--------------------------------
+
+Zod is tested against _TypeScript v5.5_ and later. Older versions may work but are not officially supported.
+
+### [`"strict"`](?id=strict)
+
+You must enable `strict` mode in your `tsconfig.json`. This is a best practice for all TypeScript projects.
+
+    // tsconfig.json
+    {
+      // ...
+      "compilerOptions": {
+        // ...
+        "strict": true
+      }
+    }
+
+### [`"moduleResolution"`](?id=moduleresolution)
+
+Your `"moduleResolution"` should be set to one of the following. The legacy `"node"` and `"classic"` modes are not supported, as they do not support subpath imports.
+
+*   `"node16"` (default if `"module"` is set to `"node16"`/`"node18"`)
+*   `"nodenext"` (default if `"module"` is set to `"nodenext"`)
+*   `"bundler"`
+
+  
+
+[Sponsors](?id=sponsors)
+------------------------
+
+Sponsorship at any level is appreciated and encouraged. If you built a paid product using Zod, consider one of the [corporate tiers](https://github.com/sponsors/colinhacks).
+
+### [Platinum](?id=platinum)
+
+[
+
+](https://www.coderabbit.ai/)
+
+Cut code review time & bugs in half
+
+[coderabbit.ai](https://www.coderabbit.ai/)
+
+  
+
+### [Gold](?id=gold)
+
+[](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+The API platform for sending notifications
+
+[courier.com](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+[](https://liblab.com/?utm_source=zod)
+
+Generate better SDKs for your APIs
+
+[liblab.com](https://liblab.com/?utm_source=zod)
+
+[](https://neon.tech)
+
+Serverless Postgres — Ship faster
+
+[neon.tech](https://neon.tech)
+
+[](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+Build AI apps and workflows with Retool AI
+
+[retool.com](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+[](https://stainlessapi.com)
+
+Generate best-in-class SDKs
+
+[stainlessapi.com](https://stainlessapi.com)
+
+[](https://speakeasy.com/?utm_source=zod+docs)
+
+SDKs & Terraform providers for your API
+
+[speakeasy.com](https://speakeasy.com/?utm_source=zod+docs)
+
+  
+
+### [Silver](?id=silver)
+
+[nitric.io](https://nitric.io/)
+
+[propelauth.com](https://www.propelauth.com/)
+
+[cerbos.dev](https://cerbos.dev/)
+
+[scalar.com](https://scalar.com/)
+
+[trigger.dev](https://trigger.dev)
+
+[transloadit.com](https://transloadit.com/?utm_source=zod&utm_medium=referral&utm_campaign=sponsorship&utm_content=github)
+
+[infisical.com](https://infisical.com)
+
+[whop.com](https://whop.com/)
+
+[cryptojobslist.com](https://cryptojobslist.com/)
+
+[plain.com](https://plain.com/)
+
+[inngest.com](https://inngest.com/)
+
+[storyblok.com](https://storyblok.com/)
+
+[mux.link/zod](https://mux.link/zod)
+
+[juno.build](https://juno.build/?utm_source=zod)
+
+  
+
+### [Bronze](?id=bronze)
+
+[](https://www.val.town/)[val.town](https://www.val.town/)
+
+[](https://www.route4me.com/)[route4me.com](https://www.route4me.com/)
+
+[](https://encore.dev)[encore.dev](https://encore.dev)
+
+[](https://www.replay.io/)[replay.io](https://www.replay.io/)
+
+[](https://www.numeric.io)[numeric.io](https://www.numeric.io)
+
+[](https://marcatopartners.com)[marcatopartners.com](https://marcatopartners.com)
+
+[](https://interval.com)[interval.com](https://interval.com)
+
+[](https://seasoned.cc)[seasoned.cc](https://seasoned.cc)
+
+[](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
+
+[](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
+[Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
+
+[
+
+Next
+
+Migration guide
+
+](/v4/changelog)[
+
+Next
+
+Basic usage
+
+](/basics)
+
+On this page
+
+Zod
+===
+
+TypeScript-first schema validation with static type inference
+
+[](https://github.com/colinhacks/zod/actions?query=branch%3Amain)[](https://twitter.com/colinhacks)[](https://opensource.org/licenses/MIT)[](https://www.npmjs.com/package/zod)[](https://github.com/colinhacks/zod)
+
+[Website](https://zod.dev)  •  [Discord](https://discord.gg/RcG33DQJdf)  •  [𝕏](https://twitter.com/colinhacks)  •  [Bluesky](https://bsky.app/profile/zod.dev)  
+
+  
+
+Zod 4 is now stable! Read the [release notes here](/v4).
+
+  
+  
+  
+
+Featured sponsor: Jazz
+----------------------
+
+[
+
+](https://jazz.tools/?utm_source=zod)
+
+Interested in featuring? [Get in touch.](mailto:sponsorship@colinhacks.com)
+
+[Introduction](?id=introduction)
+--------------------------------
+
+Zod is a TypeScript-first validation library. Using Zod, you can define _schemas_ you can use to validate data, from a simple `string` to a complex nested object.
+
+    import { z } from "zod/v4";
+     
+    const User = z.object({
+      name: z.string(),
+    });
+     
+    // some untrusted data...
+    const input = { /* stuff */ };
+     
+    // the parsed result is validated and type safe!
+    const data = User.parse(input);
+     
+    // so you can use it with confidence :)
+    console.log(data.name);
+
+[Features](?id=features)
+------------------------
+
+*   Zero external dependencies
+*   Works in Node.js and all modern browsers
+*   Tiny: 2kb core bundle (gzipped)
+*   Immutable API: methods return a new instance
+*   Concise interface
+*   Works with TypeScript and plain JS
+*   Built-in JSON Schema conversion
+*   Extensive ecosystem
+
+[Installation](?id=installation)
+--------------------------------
+
+    npm install zod       # npm
+    deno add npm:zod      # deno
+    yarn add zod          # yarn
+    bun add zod           # bun
+    pnpm add zod          # pnpm
+
+Zod also publishes a canary version on every commit. To install the canary:
+
+    npm install zod@canary       # npm
+    deno add npm:zod@canary      # deno
+    yarn add zod@canary          # yarn
+    bun add zod@canary           # bun
+    pnpm add zod@canary          # pnpm
+
+[Requirements](?id=requirements)
+--------------------------------
+
+Zod is tested against _TypeScript v5.5_ and later. Older versions may work but are not officially supported.
+
+### [`"strict"`](?id=strict)
+
+You must enable `strict` mode in your `tsconfig.json`. This is a best practice for all TypeScript projects.
+
+    // tsconfig.json
+    {
+      // ...
+      "compilerOptions": {
+        // ...
+        "strict": true
+      }
+    }
+
+### [`"moduleResolution"`](?id=moduleresolution)
+
+Your `"moduleResolution"` should be set to one of the following. The legacy `"node"` and `"classic"` modes are not supported, as they do not support subpath imports.
+
+*   `"node16"` (default if `"module"` is set to `"node16"`/`"node18"`)
+*   `"nodenext"` (default if `"module"` is set to `"nodenext"`)
+*   `"bundler"`
+
+  
+
+[Sponsors](?id=sponsors)
+------------------------
+
+Sponsorship at any level is appreciated and encouraged. If you built a paid product using Zod, consider one of the [corporate tiers](https://github.com/sponsors/colinhacks).
+
+### [Platinum](?id=platinum)
+
+[
+
+](https://www.coderabbit.ai/)
+
+Cut code review time & bugs in half
+
+[coderabbit.ai](https://www.coderabbit.ai/)
+
+  
+
+### [Gold](?id=gold)
+
+[](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+The API platform for sending notifications
+
+[courier.com](https://www.courier.com/?utm_source=zod&utm_campaign=osssponsors)
+
+[](https://liblab.com/?utm_source=zod)
+
+Generate better SDKs for your APIs
+
+[liblab.com](https://liblab.com/?utm_source=zod)
+
+[](https://neon.tech)
+
+Serverless Postgres — Ship faster
+
+[neon.tech](https://neon.tech)
+
+[](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+Build AI apps and workflows with Retool AI
+
+[retool.com](https://retool.com/?utm_source=github&utm_medium=referral&utm_campaign=zod)
+
+[](https://stainlessapi.com)
+
+Generate best-in-class SDKs
+
+[stainlessapi.com](https://stainlessapi.com)
+
+[](https://speakeasy.com/?utm_source=zod+docs)
+
+SDKs & Terraform providers for your API
+
+[speakeasy.com](https://speakeasy.com/?utm_source=zod+docs)
+
+  
+
+### [Silver](?id=silver)
+
+[nitric.io](https://nitric.io/)
+
+[propelauth.com](https://www.propelauth.com/)
+
+[cerbos.dev](https://cerbos.dev/)
+
+[scalar.com](https://scalar.com/)
+
+[trigger.dev](https://trigger.dev)
+
+[transloadit.com](https://transloadit.com/?utm_source=zod&utm_medium=referral&utm_campaign=sponsorship&utm_content=github)
+
+[infisical.com](https://infisical.com)
+
+[whop.com](https://whop.com/)
+
+[cryptojobslist.com](https://cryptojobslist.com/)
+
+[plain.com](https://plain.com/)
+
+[inngest.com](https://inngest.com/)
+
+[storyblok.com](https://storyblok.com/)
+
+[mux.link/zod](https://mux.link/zod)
+
+[juno.build](https://juno.build/?utm_source=zod)
+
+  
+
+### [Bronze](?id=bronze)
+
+[](https://www.val.town/)[val.town](https://www.val.town/)
+
+[](https://www.route4me.com/)[route4me.com](https://www.route4me.com/)
+
+[](https://encore.dev)[encore.dev](https://encore.dev)
+
+[](https://www.replay.io/)[replay.io](https://www.replay.io/)
+
+[](https://www.numeric.io)[numeric.io](https://www.numeric.io)
+
+[](https://marcatopartners.com)[marcatopartners.com](https://marcatopartners.com)
+
+[](https://interval.com)[interval.com](https://interval.com)
+
+[](https://seasoned.cc)[seasoned.cc](https://seasoned.cc)
+
+[](https://www.bamboocreative.nz/)[bamboocreative.nz](https://www.bamboocreative.nz/)
+
+[](https://github.com/jasonLaster)[github.com/jasonLaster](https://github.com/jasonLaster)
+
+[](https://www.clipboardhealth.com/engineering)[clipboardhealth.com/engineering](https://www.clipboardhealth.com/engineering)
+
+[Edit on GitHub](https://github.com/colinhacks/zod/blob/v4/packages/docs/content/index.mdx)
+
+[
+
+Next
+
+Migration guide
+
+](/v4/changelog)[
+
+Next
+
+Basic usage
+
+](/basics)

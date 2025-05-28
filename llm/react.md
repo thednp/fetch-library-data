@@ -1,4 +1,4 @@
-react version: 19.1.0, last updated: 2025-05-21T10:58:23.655Z
+react version: 19.1.0, last updated: 2025-05-25T14:47:54.781Z
 
 [API Reference](/reference/react)
 
@@ -16677,6 +16677,7 @@ prerender[](#undefined "Link for this heading")
     *   [Rendering a React tree to a stream of static HTML](#rendering-a-react-tree-to-a-stream-of-static-html)
     *   [Rendering a React tree to a string of static HTML](#rendering-a-react-tree-to-a-string-of-static-html)
     *   [Waiting for all data to load](#waiting-for-all-data-to-load)
+    *   [Aborting prerendering](#aborting-prerendering)
 *   [Troubleshooting](#troubleshooting)
     *   [My stream doesn’t start until the entire app is rendered](#my-stream-doesnt-start-until-the-entire-app-is-rendered)
 
@@ -16712,7 +16713,7 @@ On the client, call [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) to 
     *   **optional** `namespaceURI`: A string with the root [namespace URI](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElementNS#important_namespace_uris) for the stream. Defaults to regular HTML. Pass `'http://www.w3.org/2000/svg'` for SVG or `'http://www.w3.org/1998/Math/MathML'` for MathML.
     *   **optional** `onError`: A callback that fires whenever there is a server error, whether [recoverable](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-outside-the-shell) or [not.](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-inside-the-shell) By default, this only calls `console.error`. If you override it to [log crash reports,](/reference/react-dom/server/renderToReadableStream#logging-crashes-on-the-server) make sure that you still call `console.error`. You can also use it to [adjust the status code](/reference/react-dom/server/renderToReadableStream#setting-the-status-code) before the shell is emitted.
     *   **optional** `progressiveChunkSize`: The number of bytes in a chunk. [Read more about the default heuristic.](https://github.com/facebook/react/blob/14c2be8dac2d5482fda8a0906a31d239df8551fc/packages/react-server/src/ReactFizzServer.js#L210-L225)
-    *   **optional** `signal`: An [abort signal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) that lets you [abort server rendering](/reference/react-dom/server/renderToReadableStream#aborting-server-rendering) and render the rest on the client.
+    *   **optional** `signal`: An [abort signal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) that lets you [abort prerendering](#aborting-prerendering) and render the rest on the client.
 
 #### Returns[](#returns "Link for Returns ")
 
@@ -16721,6 +16722,10 @@ On the client, call [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) to 
 *   If rendering the is successful, the Promise will resolve to an object containing:
     *   `prelude`: a [Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) of HTML. You can use this stream to send a response in chunks, or you can read the entire stream into a string.
 *   If rendering fails, the Promise will be rejected. [Use this to output a fallback shell.](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-inside-the-shell)
+
+#### Caveats[](#caveats "Link for Caveats ")
+
+`nonce` is not an available option when prerendering. Nonces must be unique per request and if you use nonces to secure your application with [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) it would be inappropriate and insecure to include the a nonce value in the prerender itself.
 
 ### Note
 
@@ -16817,6 +16822,16 @@ Suspense-enabled data fetching without the use of an opinionated framework is no
 
 * * *
 
+### Aborting prerendering[](#aborting-prerendering "Link for Aborting prerendering ")
+
+You can force the prerender to “give up” after a timeout:
+
+    async function renderToString() {  const controller = new AbortController();  setTimeout(() => {    controller.abort()  }, 10000);  try {    // the prelude will contain all the HTML that was prerendered    // before the controller aborted.    const {prelude} = await prerender(<App />, {      signal: controller.signal,    });    //...
+
+Any Suspense boundaries with incomplete children will be included in the prelude in the fallback state.
+
+* * *
+
 Troubleshooting[](#troubleshooting "Link for Troubleshooting ")
 ---------------------------------------------------------------
 
@@ -16853,6 +16868,7 @@ prerenderToNodeStream[](#undefined "Link for this heading")
     *   [Rendering a React tree to a stream of static HTML](#rendering-a-react-tree-to-a-stream-of-static-html)
     *   [Rendering a React tree to a string of static HTML](#rendering-a-react-tree-to-a-string-of-static-html)
     *   [Waiting for all data to load](#waiting-for-all-data-to-load)
+    *   [Aborting prerendering](#aborting-prerendering)
 *   [Troubleshooting](#troubleshooting)
     *   [My stream doesn’t start until the entire app is rendered](#my-stream-doesnt-start-until-the-entire-app-is-rendered)
 
@@ -16888,7 +16904,7 @@ On the client, call [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) to 
     *   **optional** `namespaceURI`: A string with the root [namespace URI](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElementNS#important_namespace_uris) for the stream. Defaults to regular HTML. Pass `'http://www.w3.org/2000/svg'` for SVG or `'http://www.w3.org/1998/Math/MathML'` for MathML.
     *   **optional** `onError`: A callback that fires whenever there is a server error, whether [recoverable](/reference/react-dom/server/renderToPipeableStream#recovering-from-errors-outside-the-shell) or [not.](/reference/react-dom/server/renderToPipeableStream#recovering-from-errors-inside-the-shell) By default, this only calls `console.error`. If you override it to [log crash reports,](/reference/react-dom/server/renderToPipeableStream#logging-crashes-on-the-server) make sure that you still call `console.error`. You can also use it to [adjust the status code](/reference/react-dom/server/renderToPipeableStream#setting-the-status-code) before the shell is emitted.
     *   **optional** `progressiveChunkSize`: The number of bytes in a chunk. [Read more about the default heuristic.](https://github.com/facebook/react/blob/14c2be8dac2d5482fda8a0906a31d239df8551fc/packages/react-server/src/ReactFizzServer.js#L210-L225)
-    *   **optional** `signal`: An [abort signal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) that lets you [abort server rendering](/reference/react-dom/server/renderToPipeableStream#aborting-server-rendering) and render the rest on the client.
+    *   **optional** `signal`: An [abort signal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) that lets you [abort prerendering](#aborting-prerendering) and render the rest on the client.
 
 #### Returns[](#returns "Link for Returns ")
 
@@ -16897,6 +16913,10 @@ On the client, call [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) to 
 *   If rendering the is successful, the Promise will resolve to an object containing:
     *   `prelude`: a [Node.js Stream.](https://nodejs.org/api/stream.html) of HTML. You can use this stream to send a response in chunks, or you can read the entire stream into a string.
 *   If rendering fails, the Promise will be rejected. [Use this to output a fallback shell.](/reference/react-dom/server/renderToPipeableStream#recovering-from-errors-inside-the-shell)
+
+#### Caveats[](#caveats "Link for Caveats ")
+
+`nonce` is not an available option when prerendering. Nonces must be unique per request and if you use nonces to secure your application with [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) it would be inappropriate and insecure to include the a nonce value in the prerender itself.
 
 ### Note
 
@@ -16990,6 +17010,16 @@ Suspense **does not** detect when data is fetched inside an Effect or event hand
 The exact way you would load data in the `Posts` component above depends on your framework. If you use a Suspense-enabled framework, you’ll find the details in its data fetching documentation.
 
 Suspense-enabled data fetching without the use of an opinionated framework is not yet supported. The requirements for implementing a Suspense-enabled data source are unstable and undocumented. An official API for integrating data sources with Suspense will be released in a future version of React.
+
+* * *
+
+### Aborting prerendering[](#aborting-prerendering "Link for Aborting prerendering ")
+
+You can force the prerender to “give up” after a timeout:
+
+    async function renderToString() {  const controller = new AbortController();  setTimeout(() => {    controller.abort()  }, 10000);  try {    // the prelude will contain all the HTML that was prerendered    // before the controller aborted.    const {prelude} = await prerenderToNodeStream(<App />, {      signal: controller.signal,    });    //...
+
+Any Suspense boundaries with incomplete children will be included in the prelude in the fallback state.
 
 * * *
 

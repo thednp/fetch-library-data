@@ -1,4 +1,4 @@
-solid-meta version: 0.28.1, last updated: 2025-05-21T10:57:52.443Z
+solid-meta version: 0.28.1, last updated: 2025-05-25T14:47:54.915Z
 
 [Overview](/#overview)
 ======================

@@ -1,4 +1,4 @@
-@sveltejs/kit version: 2.21.1, last updated: 2025-05-21T10:58:23.862Z
+@sveltejs/kit version: 2.21.1, last updated: 2025-05-25T14:47:55.354Z
 
 *   ### Getting started
     
@@ -8185,9 +8185,9 @@ Since all of these variables are unchanged between build time and run time when 
 Skew protection[](#Skew-protection)
 -----------------------------------
 
-When a new version of your app is deployed, assets belonging to the previous version may no longer be accessible. If a user is actively using your app when this happens, it can cause errors when they navigate — this is known as _version skew_. SvelteKit mitigates this by detecting errors resulting from version skew and causing a hard reload to get the latest version of the app, but this will cause any client-side state to be lost. (You can also proactively mitigate it by observing the [`updated`]($app-stores#updated) store value, which tells clients when a new version has been deployed.)
+When a new version of your app is deployed, assets belonging to the previous version may no longer be accessible. If a user is actively using your app when this happens, it can cause errors when they navigate — this is known as _version skew_. SvelteKit mitigates this by detecting errors resulting from version skew and causing a hard reload to get the latest version of the app, but this will cause any client-side state to be lost. (You can also proactively mitigate it by observing [`updated.current`]($app-state#updated) from `$app/state`, which tells clients when a new version has been deployed.)
 
-[Skew protection](https://vercel.com/docs/deployments/skew-protection) is a Vercel feature that routes client requests to their original deployment. When a user visits your app, a cookie is set with the deployment ID, and any subsequent requests will be routed to that deployment for as long as skew protection is active. When they reload the page, they will get the newest deployment. (The `updated` store is exempted from this behaviour, and so will continue to report new deployments.) To enable it, visit the Advanced section of your project settings on Vercel.
+[Skew protection](https://vercel.com/docs/deployments/skew-protection) is a Vercel feature that routes client requests to their original deployment. When a user visits your app, a cookie is set with the deployment ID, and any subsequent requests will be routed to that deployment for as long as skew protection is active. When they reload the page, they will get the newest deployment. (`updated.current` is exempted from this behaviour, and so will continue to report new deployments.) To enable it, visit the Advanced section of your project settings on Vercel.
 
 Cookie-based skew protection comes with one caveat: if a user has multiple versions of your app open in multiple tabs, requests from older versions will be routed to the newer one, meaning they will fall back to SvelteKit’s built-in skew protection.
 
@@ -12818,7 +12818,8 @@ While SvelteKit does not have any specific integration with [view transitions](h
     onNavigate must be called during a component initialization. It remains active as long as the component is mounted.
     onNavigate((navigation: OnNavigatenavigation) => {
     	if (!var document: DocumentMDN Reference
-    document.startViewTransition) return;
+    document.Document.startViewTransition(callbackOptions?: ViewTransitionUpdateCallback): ViewTransitionMDN Reference
+    startViewTransition) return;
     
     	return new var Promise: PromiseConstructor
     new <void | (() => void)>(executor: (resolve: (value: void | (() => void) | PromiseLike<void | (() => void)>) => void, reject: (reason?: any) => void) => void) => Promise<void | (() => void)>Creates a new Promise.
@@ -12826,7 +12827,8 @@ While SvelteKit does not have any specific integration with [view transitions](h
     a resolve callback used to resolve the promise with a value or the result of another promise,
     and a reject callback used to reject the promise with a provided reason or error.Promise((resolve: (value: void | (() => void) | PromiseLike<void | (() => void)>) => voidresolve) => {
     		var document: DocumentMDN Reference
-    document.startViewTransition(async () => {
+    document.Document.startViewTransition(callbackOptions?: ViewTransitionUpdateCallback): ViewTransitionMDN Reference
+    startViewTransition(async () => {
     			resolve: (value: void | (() => void) | PromiseLike<void | (() => void)>) => voidresolve();
     			await navigation: OnNavigatenavigation.Navigation.complete: Promise<void>A promise that resolves once the navigation is complete, and rejects if the navigation
     fails or is aborted. In the case of a willUnload navigation, the promise will never resolve
@@ -13970,17 +13972,10 @@ Pages and layouts[](#Pages-and-layouts)
 
 Routes now are made up of the folder name exclusively to remove ambiguity, the folder names leading up to a `+page.svelte` correspond to the route. See [the routing docs](routing) for an overview. The following shows a old/new comparison:
 
-Old
-
-New
-
-routes/about/index.svelte
-
-routes/about/+page.svelte
-
-routes/about.svelte
-
-routes/about/+page.svelte
+| Old | New |
+| --- | --- |
+| routes/about/index.svelte | routes/about/+page.svelte |
+| routes/about.svelte | routes/about/+page.svelte |
 
 Your custom error page component should be renamed from `_error.svelte` to `+error.svelte`. Any `_layout.svelte` files should likewise be renamed `+layout.svelte`. [Any other files are ignored](routing#Other-files).
 

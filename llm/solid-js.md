@@ -1,4 +1,4 @@
-solid-js version: 1.9.7, last updated: 2025-05-21T10:58:23.595Z
+solid-js version: 1.9.7, last updated: 2025-05-25T14:47:54.882Z
 
 Quick start
 ===========
@@ -1352,39 +1352,13 @@ While you can use a [derived signal](/concepts/derived-values/derived-signals) t
 
 Both memos and effects are important when managing reactive computations and side effects. They, however, serve different purposes and each has their own unique behaviors.
 
-Memos
-
-Effects
-
-Return value
-
-Yes - returns a getter for the result of the computation or derived state.
-
-Does not return a value but executes a block of code in response to changes.
-
-Caches results
-
-Yes
-
-No
-
-Behavior
-
-Function argument should be pure without reactive side effects.
-
-Function argument can cause side effects like UI updates or data fetches.
-
-Dependency tracking.
-
-Yes
-
-Yes
-
-Example use cases
-
-Transforming data structures, computing aggregated values, derived state, or other expensive computations.
-
-UI updates, network requests, or external integrations.
+|  | Memos | Effects |
+| --- | --- | --- |
+| Return value | Yes - returns a getter for the result of the computation or derived state. | Does not return a value but executes a block of code in response to changes. |
+| Caches results | Yes | No |
+| Behavior | Function argument should be pure without reactive side effects. | Function argument can cause side effects like UI updates or data fetches. |
+| Dependency tracking. | Yes | Yes |
+| Example use cases | Transforming data structures, computing aggregated values, derived state, or other expensive computations. | UI updates, network requests, or external integrations. |
 
 * * *
 

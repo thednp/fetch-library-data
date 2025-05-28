@@ -1,4 +1,4 @@
-svelte version: 5.32.1, last updated: 2025-05-21T10:58:23.770Z
+svelte version: 5.33.4, last updated: 2025-05-28T10:46:05.797Z
 
 *   ### Introduction
     
@@ -891,9 +891,7 @@ Unlike other frameworks you may have encountered, there is no API for interactin
 
 If `$state` is used with an array or a simple object, the result is a deeply reactive _state proxy_. [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) allow Svelte to run code when you read or write properties, including via methods like `array.push(...)`, triggering granular updates.
 
-> Class instances are not proxied. You can create [reactive state fields](#Classes) on classes that you define. Svelte provides reactive implementations of built-ins like `Set` and `Map` that can be imported from [`svelte/reactivity`](svelte-reactivity).
-
-State is proxified recursively until Svelte finds something other than an array or simple object. In a case like this...
+State is proxified recursively until Svelte finds something other than an array or simple object (like a class). In a case like this...
 
     let let todos: {
         done: boolean;
@@ -967,7 +965,7 @@ Note that if you destructure a reactive value, the references are not reactive �
 
 ### Classes[](#Classes)
 
-You can also use `$state` in class fields (whether public or private), or as the first assignment to a property immediately inside the `constructor`:
+Class instances are not proxied. Instead, you can use `$state` in class fields (whether public or private), or as the first assignment to a property immediately inside the `constructor`:
 
     class class TodoTodo {
     	Todo.done: booleandone = function $state<false>(initial: false): false (+1 overload)
@@ -1027,6 +1025,8 @@ You can either use an inline function...
     	}
     }
 
+> Svelte provides reactive implementations of built-in classes like `Set` and `Map` that can be imported from [`svelte/reactivity`](svelte-reactivity).
+
 $state.raw[](#$state.raw)
 -------------------------
 
@@ -1085,6 +1085,8 @@ State declared with `$state.raw` cannot be mutated; it can only be _reassigned_.
     };
 
 This can improve performance with large arrays and objects that you weren’t planning to mutate anyway, since it avoids the cost of making them reactive. Note that raw state can _contain_ reactive state (for example, a raw array of reactive objects).
+
+As with `$state`, you can declare class fields using `$state.raw`.
 
 $state.snapshot[](#$state.snapshot)
 -----------------------------------
@@ -5545,6 +5547,7 @@ SvelteTemplate syntax
 *   [Passing attachments to components](#Passing-attachments-to-components)
 *   [Controlling when attachments re-run](#Controlling-when-attachments-re-run)
 *   [Creating attachments programmatically](#Creating-attachments-programmatically)
+*   [Converting actions to attachments](#Converting-actions-to-attachments)
 
 Attachments are functions that run in an [effect]($effect) when an element is mounted to the DOM or when [state]($state) read inside the function updates.
 
@@ -5769,6 +5772,11 @@ Creating attachments programmatically[](#Creating-attachments-programmatically)
 -------------------------------------------------------------------------------
 
 To add attachments to an object that will be spread onto a component or element, use [`createAttachmentKey`](svelte-attachments#createAttachmentKey).
+
+Converting actions to attachments[](#Converting-actions-to-attachments)
+-----------------------------------------------------------------------
+
+If you’re using a library that only provides actions, you can convert them to attachments with [`fromAction`](svelte-attachments#fromAction), allowing you to (for example) use them with components.
 
 [Edit this page on GitHub](https://github.com/sveltejs/svelte/edit/main/documentation/docs/03-template-syntax/09-@attach.md) [llms.txt](/docs/svelte/@attach/llms.txt)
 
@@ -6289,25 +6297,43 @@ Checkboxes can be in an [indeterminate](https://developer.mozilla.org/en-US/docs
 <input bind:group>[](#input-bind:group)
 ---------------------------------------
 
-Inputs that work together can use `bind:group`.
+Inputs that work together can use `bind:group` ([demo](/playground/untitled#H4sIAAAAAAAAE62T32_TMBDH_5XDQkpbrct7SCMGEvCEECDxsO7BSW6L2c227EvbKOv_jp0f6jYhQKJv5_P3PvdL1wstH1Bk4hMSGdgbRzUssFaM9VJciFtF6EV23QvubNRFR_BPUVfWXvodEkdfKT3-zl8Zzag5YETuK6csF1u9ZUIGNo4VkYQNvPYsGRfJF5JKJ8s3QRJE6WoFb2Nq6K-ck13u2Sl9Vxxhlc6QUBIFnz9Brm9ifJ6esun81XoNd860FmtwslYGlLYte5AO4aHlVhJ1gIeKWq92COt1iMtJlkhFPkgh1rHZiiF6K6BUus4G5KafGznCTlIbVUMfQZUWMJh5OrL-C_qjMYSwb1DyiH7iOEuCb1ZpWTUjfHqcwC_GWDVY3ZfmME_SGttSmD9IHaYatvWHIc6xLyqad3mq6KuqcCwnWn9p8p-p71BqP2IH81zc9w2in-od7XORP7ayCpd5YCeXI_-p59mObPF9WmwGpx3nqS2Gzw8TO3zOaS5_GqUXyQUkS3h8hOSz0ZhMESHGc0c4Hm3MAn00t1wrb0l2GZRkqvt4sXwczm6Qh8vnUJzI2LV4vAkvqWgfehTZrSSPx19WiVfFfAQAAA==)):
+
+BurritoChooser
 
     <script>
     	let tortilla = $state('Plain');
     
-    	/** @type {Array<string>} */
+    	/** @type {string[]} */
     	let fillings = $state([]);
     </script>
     
     <!-- grouped radio inputs are mutually exclusive -->
-    <input type="radio" bind:group={tortilla} value="Plain" />
-    <input type="radio" bind:group={tortilla} value="Whole wheat" />
-    <input type="radio" bind:group={tortilla} value="Spinach" />
+    <label><input type="radio" bind:group={tortilla} value="Plain" /> Plain</label>
+    <label><input type="radio" bind:group={tortilla} value="Whole wheat" /> Whole wheat</label>
+    <label><input type="radio" bind:group={tortilla} value="Spinach" /> Spinach</label>
     
     <!-- grouped checkbox inputs populate an array -->
-    <input type="checkbox" bind:group={fillings} value="Rice" />
-    <input type="checkbox" bind:group={fillings} value="Beans" />
-    <input type="checkbox" bind:group={fillings} value="Cheese" />
-    <input type="checkbox" bind:group={fillings} value="Guac (extra)" />
+    <label><input type="checkbox" bind:group={fillings} value="Rice" /> Rice</label>
+    <label><input type="checkbox" bind:group={fillings} value="Beans" /> Beans</label>
+    <label><input type="checkbox" bind:group={fillings} value="Cheese" /> Cheese</label>
+    <label><input type="checkbox" bind:group={fillings} value="Guac (extra)" /> Guac (extra)</label>
+
+    <script lang="ts">
+    	let tortilla = $state('Plain');
+    	let fillings: string[] = $state([]);
+    </script>
+    
+    <!-- grouped radio inputs are mutually exclusive -->
+    <label><input type="radio" bind:group={tortilla} value="Plain" /> Plain</label>
+    <label><input type="radio" bind:group={tortilla} value="Whole wheat" /> Whole wheat</label>
+    <label><input type="radio" bind:group={tortilla} value="Spinach" /> Spinach</label>
+    
+    <!-- grouped checkbox inputs populate an array -->
+    <label><input type="checkbox" bind:group={fillings} value="Rice" /> Rice</label>
+    <label><input type="checkbox" bind:group={fillings} value="Beans" /> Beans</label>
+    <label><input type="checkbox" bind:group={fillings} value="Cheese" /> Cheese</label>
+    <label><input type="checkbox" bind:group={fillings} value="Guac (extra)" /> Guac (extra)</label>
 
 > `bind:group` only works if the inputs are in the same Svelte component.
 
@@ -10889,7 +10915,8 @@ Instantiates a component and mounts it to the given target:
         $on?(type: string, callback: (e: any) => void): () => void;
         $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>>(component: ComponentType<...> | Component<...>, options: MountOptions<...>): {
-        ...;
+        $on?(type: string, callback: (e: any) => void): () => void;
+        $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>Mounts a component to the given target and returns the exports and potentially the props (if compiled with accessors: true) of the component.
     Transitions will play during the initial render unless the intro option is set to false.
     mount(const App: LegacyComponentTypeApp, {
@@ -10937,7 +10964,8 @@ If `options.outro` is `true`, [transitions](transition) will play before the com
         $on?(type: string, callback: (e: any) => void): () => void;
         $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>>(component: ComponentType<...> | Component<...>, options: MountOptions<...>): {
-        ...;
+        $on?(type: string, callback: (e: any) => void): () => void;
+        $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>Mounts a component to the given target and returns the exports and potentially the props (if compiled with accessors: true) of the component.
     Transitions will play during the initial render unless the intro option is set to false.
     mount(const App: LegacyComponentTypeApp, { target: Document | Element | ShadowRootTarget element where the component will be mounted.
@@ -11029,7 +11057,8 @@ Like `mount`, but will reuse up any HTML rendered by Svelte’s SSR output (from
     } & Record<...>>(component: ComponentType<...> | Component<...>, options: {
         ...;
     }): {
-        ...;
+        $on?(type: string, callback: (e: any) => void): () => void;
+        $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>Hydrates a component on the given target and returns the exports and potentially the props (if compiled with accessors: true) of the component
     hydrate(const App: LegacyComponentTypeApp, {
     	target: Document | Element | ShadowRoottarget: var document: DocumentMDN Reference
@@ -11633,7 +11662,8 @@ component.test
         $on?(type: string, callback: (e: any) => void): () => void;
         $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>>(component: ComponentType<...> | Component<...>, options: MountOptions<...>): {
-        ...;
+        $on?(type: string, callback: (e: any) => void): () => void;
+        $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>Mounts a component to the given target and returns the exports and potentially the props (if compiled with accessors: true) of the component.
     Transitions will play during the initial render unless the intro option is set to false.
     mount(const Component: LegacyComponentTypeComponent, {
@@ -11649,7 +11679,7 @@ component.test
     	expect<string>(actual: string, message?: string): Assertion<string> (+1 overload)expect(var document: DocumentMDN Reference
     document.Document.body: HTMLElementSpecifies the beginning and end of the document body.
     MDN Reference
-    body.InnerHTML.innerHTML: stringMDN Reference
+    body.Element.innerHTML: stringMDN Reference
     innerHTML).JestAssertion<string>.toBe: <string>(expected: string) => voidChecks that a value is what you expect. It calls Object.is to compare values.
     Don’t use toBe with floating-point numbers.
     @exampleexpect(result).toBe(42);
@@ -11670,7 +11700,7 @@ component.test
     	expect<string>(actual: string, message?: string): Assertion<string> (+1 overload)expect(var document: DocumentMDN Reference
     document.Document.body: HTMLElementSpecifies the beginning and end of the document body.
     MDN Reference
-    body.InnerHTML.innerHTML: stringMDN Reference
+    body.Element.innerHTML: stringMDN Reference
     innerHTML).JestAssertion<string>.toBe: <string>(expected: string) => voidChecks that a value is what you expect. It calls Object.is to compare values.
     Don’t use toBe with floating-point numbers.
     @exampleexpect(result).toBe(42);
@@ -12405,7 +12435,7 @@ Once a custom element has been defined, it can be used as a regular DOM element:
     var document: DocumentMDN Reference
     document.Document.body: HTMLElementSpecifies the beginning and end of the document body.
     MDN Reference
-    body.InnerHTML.innerHTML: stringMDN Reference
+    body.Element.innerHTML: stringMDN Reference
     innerHTML = `
     	<my-element>
     		<p>This is some slotted content</p>
@@ -12730,7 +12760,7 @@ There are now stricter types for `createEventDispatcher`, `Action`, `ActionRetur
     property and can contain any type of data.
     The event dispatcher can be typed to narrow the allowed event names and the type of the detail argument:
     const dispatch = createEventDispatcher&#x3C;{
-     loaded: never; // does not take a detail argument
+     loaded: null; // does not take a detail argument
      change: string; // takes a detail argument of type string, which is required
      optional: number | null; // takes an optional detail argument of type number
     }>();@deprecatedUse callback props and/or the $host() rune instead — see migration guidecreateEventDispatcher } from 'svelte';
@@ -12756,7 +12786,7 @@ There are now stricter types for `createEventDispatcher`, `Action`, `ActionRetur
     property and can contain any type of data.
     The event dispatcher can be typed to narrow the allowed event names and the type of the detail argument:
     const dispatch = createEventDispatcher&#x3C;{
-     loaded: never; // does not take a detail argument
+     loaded: null; // does not take a detail argument
      change: string; // takes a detail argument of type string, which is required
      optional: number | null; // takes an optional detail argument of type number
     }>();@deprecatedUse callback props and/or the $host() rune instead — see migration guidecreateEventDispatcher<{
@@ -14010,7 +14040,8 @@ In Svelte 3 and 4, components are classes. In Svelte 5 they are functions and sh
         $on?(type: string, callback: (e: any) => void): () => void;
         $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>>(component: ComponentType<...> | Component<...>, options: MountOptions<...>): {
-        ...;
+        $on?(type: string, callback: (e: any) => void): () => void;
+        $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>Mounts a component to the given target and returns the exports and potentially the props (if compiled with accessors: true) of the component.
     Transitions will play during the initial render unless the intro option is set to false.
     mount(const App: LegacyComponentTypeApp, { target: Document | Element | ShadowRootTarget element where the component will be mounted.
@@ -14042,7 +14073,8 @@ For `$on`, instead of listening to events, pass them via the `events` property o
         $on?(type: string, callback: (e: any) => void): () => void;
         $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>>(component: ComponentType<...> | Component<...>, options: MountOptions<...>): {
-        ...;
+        $on?(type: string, callback: (e: any) => void): () => void;
+        $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>Mounts a component to the given target and returns the exports and potentially the props (if compiled with accessors: true) of the component.
     Transitions will play during the initial render unless the intro option is set to false.
     mount(const App: LegacyComponentTypeApp, { target: Document | Element | ShadowRootTarget element where the component will be mounted.
@@ -14083,7 +14115,8 @@ For `$set`, use `$state` instead to create a reactive property object and manipu
         $on?(type: string, callback: (e: any) => void): () => void;
         $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>>(component: ComponentType<...> | Component<...>, options: MountOptions<...>): {
-        ...;
+        $on?(type: string, callback: (e: any) => void): () => void;
+        $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>Mounts a component to the given target and returns the exports and potentially the props (if compiled with accessors: true) of the component.
     Transitions will play during the initial render unless the intro option is set to false.
     mount(const App: LegacyComponentTypeApp, { target: Document | Element | ShadowRootTarget element where the component will be mounted.
@@ -14123,7 +14156,8 @@ For `$destroy`, use `unmount` instead.
         $on?(type: string, callback: (e: any) => void): () => void;
         $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>>(component: ComponentType<...> | Component<...>, options: MountOptions<...>): {
-        ...;
+        $on?(type: string, callback: (e: any) => void): () => void;
+        $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>Mounts a component to the given target and returns the exports and potentially the props (if compiled with accessors: true) of the component.
     Transitions will play during the initial render unless the intro option is set to false.
     mount(const App: LegacyComponentTypeApp, { target: Document | Element | ShadowRootTarget element where the component will be mounted.
@@ -14426,7 +14460,8 @@ Alternatively, if the place where they are instantiated is under your control, y
         $on?(type: string, callback: (e: any) => void): () => void;
         $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>>(component: ComponentType<...> | Component<...>, options: MountOptions<...>): {
-        ...;
+        $on?(type: string, callback: (e: any) => void): () => void;
+        $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>Mounts a component to the given target and returns the exports and potentially the props (if compiled with accessors: true) of the component.
     Transitions will play during the initial render unless the intro option is set to false.
     mount(const App: LegacyComponentTypeApp, { target: Document | Element | ShadowRootTarget element where the component will be mounted.
@@ -15068,7 +15103,7 @@ svelte
     property and can contain any type of data.
     The event dispatcher can be typed to narrow the allowed event names and the type of the detail argument:
     const dispatch = createEventDispatcher&#x3C;{
-     loaded: never; // does not take a detail argument
+     loaded: null; // does not take a detail argument
      change: string; // takes a detail argument of type string, which is required
      optional: number | null; // takes an optional detail argument of type number
     }>();@deprecatedUse callback props and/or the $host() rune instead — see migration guidecreateEventDispatcher,
@@ -15405,7 +15440,8 @@ Returns a `Promise` that resolves after transitions have completed if `options.o
         $on?(type: string, callback: (e: any) => void): () => void;
         $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>>(component: ComponentType<...> | Component<...>, options: MountOptions<...>): {
-        ...;
+        $on?(type: string, callback: (e: any) => void): () => void;
+        $set?(props: Partial<Record<string, any>>): void;
     } & Record<...>Mounts a component to the given target and returns the exports and potentially the props (if compiled with accessors: true) of the component.
     Transitions will play during the initial render unless the intro option is set to false.
     mount(const App: LegacyComponentTypeApp, { target: Document | Element | ShadowRootTarget element where the component will be mounted.
@@ -16288,9 +16324,33 @@ svelte/attachments
 
 *   [svelte/attachments](/docs/svelte/svelte-attachments)
 *   [createAttachmentKey](#createAttachmentKey)
+*   [fromAction](#fromAction)
 *   [Attachment](#Attachment)
 
-    import { import createAttachmentKeycreateAttachmentKey } from 'svelte/attachments';
+    import { function createAttachmentKey(): symbolCreates an object key that will be recognised as an attachment when the object is spread onto an element,
+    as a programmatic alternative to using {@attach ...}. This can be useful for library authors, though
+    is generally not needed when building an app.
+    &#x3C;script>
+    	import { createAttachmentKey } from 'svelte/attachments';
+    
+    	const props = {
+    		class: 'cool',
+    		onclick: () => alert('clicked'),
+    		[createAttachmentKey()]: (node) => {
+    			node.textContent = 'attached!';
+    		}
+    	};
+    &#x3C;/script>
+    
+    &#x3C;button {...props}>click me&#x3C;/button>@since5.29createAttachmentKey, function fromAction<E extends EventTarget, T extends unknown>(action: Action<E, T, Record<never, any>> | ((element: E, arg: T) => void | ActionReturn<T, Record<never, any>>), fn: () => T): Attachment<E> (+1 overload)Converts an action into an attachment keeping the same behavior.
+    It’s useful if you want to start using attachments on components but you have actions provided by a library.
+    Note that the second argument, if provided, must be a function that returns the argument to the
+    action function, not the argument itself.
+    &#x3C;!-- with an action -->
+    &#x3C;div use:foo={bar}>...&#x3C;/div>
+    
+    &#x3C;!-- with an attachment -->
+    &#x3C;div {@attach fromAction(foo, () => bar)}>...&#x3C;/div>fromAction } from 'svelte/attachments';
 
 createAttachmentKey[](#createAttachmentKey)
 -------------------------------------------
@@ -16314,6 +16374,35 @@ Creates an object key that will be recognised as an attachment when the object i
     <button {...props}>click me</button>
 
     function createAttachmentKey(): symbol;
+
+fromAction[](#fromAction)
+-------------------------
+
+Converts an [action](/docs/svelte/use) into an [attachment](/docs/svelte/@attach) keeping the same behavior. It’s useful if you want to start using attachments on components but you have actions provided by a library.
+
+Note that the second argument, if provided, must be a function that _returns_ the argument to the action function, not the argument itself.
+
+    <!-- with an action -->
+    <div use:foo={bar}>...</div>
+    
+    <!-- with an attachment -->
+    <div {@attach fromAction(foo, () => bar)}>...</div>
+
+    function fromAction<
+    	E extends EventTarget,
+    	T extends unknown
+    >(
+    	action:
+    		| Action<E, T>
+    		| ((element: E, arg: T) => void | ActionReturn<T>),
+    	fn: () => T
+    ): Attachment<E>;
+
+    function fromAction<E extends EventTarget>(
+    	action:
+    		| Action<E, void>
+    		| ((element: E) => void | ActionReturn<void>)
+    ): Attachment<E>;
 
 Attachment[](#Attachment)
 -------------------------
@@ -17091,6 +17180,16 @@ If `true`, your HTML comments will be preserved in the output. By default, they 
 *   default `false`
 
 If `true`, whitespace inside and between elements is kept as you typed it, rather than removed or collapsed to a single space where possible.
+
+    fragments?: 'html' | 'tree';
+
+*   default `'html'`
+*   available since v5.33
+
+Which strategy to use when cloning DOM fragments:
+
+*   `html` populates a `<template>` with `innerHTML` and clones it. This is faster, but cannot be used if your app’s [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) includes [`require-trusted-types-for 'script'`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)
+*   `tree` creates the fragment one element at a time and _then_ clones it. This is slower, but works everywhere
 
     runes?: boolean | undefined;
 
@@ -18883,11 +18982,136 @@ Svelte provides reactive versions of various built-ins like [`Map`](https://deve
     &#x3C;/script>
     
     &#x3C;h1>{large.current ? 'large screen' : 'small screen'}&#x3C;/h1>@extendsReactiveValue<boolean> *@since5.7.0MediaQuery,
-    	class SvelteDateSvelteDate,
-    	class SvelteMap<K, V>SvelteMap,
-    	class SvelteSet<T>SvelteSet,
-    	class SvelteURLSvelteURL,
-    	class SvelteURLSearchParamsSvelteURLSearchParams,
+    	class SvelteDateA reactive version of the built-in Date object.
+    Reading the date (whether with methods like date.getTime() or date.toString(), or via things like Intl.DateTimeFormat)
+    in an effect or derived
+    will cause it to be re-evaluated when the value of the date changes.
+    &#x3C;script>
+    	import { SvelteDate } from 'svelte/reactivity';
+    
+    	const date = new SvelteDate();
+    
+    	const formatter = new Intl.DateTimeFormat(undefined, {
+    	  hour: 'numeric',
+    	  minute: 'numeric',
+    	  second: 'numeric'
+    	});
+    
+    	$effect(() => {
+    		const interval = setInterval(() => {
+    			date.setTime(Date.now());
+    		}, 1000);
+    
+    		return () => {
+    			clearInterval(interval);
+    		};
+    	});
+    &#x3C;/script>
+    
+    &#x3C;p>The time is {formatter.format(date)}&#x3C;/p>SvelteDate,
+    	class SvelteMap<K, V>A reactive version of the built-in Map object.
+    Reading contents of the map (by iterating, or by reading map.size or calling map.get(...) or map.has(...) as in the tic-tac-toe example below) in an effect or derived
+    will cause it to be re-evaluated as necessary when the map is updated.
+    Note that values in a reactive map are not made deeply reactive.
+    &#x3C;script>
+    	import { SvelteMap } from 'svelte/reactivity';
+    	import { result } from './game.js';
+    
+    	let board = new SvelteMap();
+    	let player = $state('x');
+    	let winner = $derived(result(board));
+    
+    	function reset() {
+    		player = 'x';
+    		board.clear();
+    	}
+    &#x3C;/script>
+    
+    &#x3C;div class="board">
+    	{#each Array(9), i}
+    		&#x3C;button
+    			disabled={board.has(i) || winner}
+    			onclick={() => {
+    				board.set(i, player);
+    				player = player === 'x' ? 'o' : 'x';
+    			}}
+    		>{board.get(i)}&#x3C;/button>
+    	{/each}
+    &#x3C;/div>
+    
+    {#if winner}
+    	&#x3C;p>{winner} wins!&#x3C;/p>
+    	&#x3C;button onclick={reset}>reset&#x3C;/button>
+    {:else}
+    	&#x3C;p>{player} is next&#x3C;/p>
+    {/if}SvelteMap,
+    	class SvelteSet<T>A reactive version of the built-in Set object.
+    Reading contents of the set (by iterating, or by reading set.size or calling set.has(...) as in the example below) in an effect or derived
+    will cause it to be re-evaluated as necessary when the set is updated.
+    Note that values in a reactive set are not made deeply reactive.
+    &#x3C;script>
+    	import { SvelteSet } from 'svelte/reactivity';
+    	let monkeys = new SvelteSet();
+    
+    	function toggle(monkey) {
+    		if (monkeys.has(monkey)) {
+    			monkeys.delete(monkey);
+    		} else {
+    			monkeys.add(monkey);
+    		}
+    	}
+    &#x3C;/script>
+    
+    {#each ['🙈', '🙉', '🙊'] as monkey}
+    	&#x3C;button onclick={() => toggle(monkey)}>{monkey}&#x3C;/button>
+    {/each}
+    
+    &#x3C;button onclick={() => monkeys.clear()}>clear&#x3C;/button>
+    
+    {#if monkeys.has('🙈')}&#x3C;p>see no evil&#x3C;/p>{/if}
+    {#if monkeys.has('🙉')}&#x3C;p>hear no evil&#x3C;/p>{/if}
+    {#if monkeys.has('🙊')}&#x3C;p>speak no evil&#x3C;/p>{/if}SvelteSet,
+    	class SvelteURLA reactive version of the built-in URL object.
+    Reading properties of the URL (such as url.href or url.pathname) in an effect or derived
+    will cause it to be re-evaluated as necessary when the URL changes.
+    The searchParams property is an instance of SvelteURLSearchParams.
+    Example:
+    &#x3C;script>
+    	import { SvelteURL } from 'svelte/reactivity';
+    
+    	const url = new SvelteURL('https://example.com/path');
+    &#x3C;/script>
+    
+    &#x3C;!-- changes to these... -->
+    &#x3C;input bind:value={url.protocol} />
+    &#x3C;input bind:value={url.hostname} />
+    &#x3C;input bind:value={url.pathname} />
+    
+    &#x3C;hr />
+    
+    &#x3C;!-- will update `href` and vice versa -->
+    &#x3C;input bind:value={url.href} size="65" />SvelteURL,
+    	class SvelteURLSearchParamsA reactive version of the built-in URLSearchParams object.
+    Reading its contents (by iterating, or by calling params.get(...) or params.getAll(...) as in the example below) in an effect or derived
+    will cause it to be re-evaluated as necessary when the params are updated.
+    &#x3C;script>
+    	import { SvelteURLSearchParams } from 'svelte/reactivity';
+    
+    	const params = new SvelteURLSearchParams('message=hello');
+    
+    	let key = $state('key');
+    	let value = $state('value');
+    &#x3C;/script>
+    
+    &#x3C;input bind:value={key} />
+    &#x3C;input bind:value={value} />
+    &#x3C;button onclick={() => params.append(key, value)}>append&#x3C;/button>
+    
+    &#x3C;p>?{params.toString()}&#x3C;/p>
+    
+    {#each params as [key, value]}
+    	&#x3C;p>{key}: {value}&#x3C;/p>
+    {/each}SvelteURLSearchParams,
     	function createSubscriber(start: (update: () => void) => (() => void) | void): () => voidReturns a subscribe function that, if called in an effect (including expressions in the template),
     calls its start callback with an update function. Whenever update is called, the effect re-runs.
     If start returns a function, it will be called when the effect is destroyed.
@@ -21550,6 +21774,21 @@ In some situations a selector may target an element that is not ‘visible’ to
       }
     </style>
 
+### element\_implicitly\_closed[](#element_implicitly_closed)
+
+    This element is implicitly closed by the following `%tag%`, which can cause an unexpected DOM structure. Add an explicit `%closing%` to avoid surprises.
+
+In HTML, some elements are implicitly closed by another element. For example, you cannot nest a `<p>` inside another `<p>`:
+
+    <!-- this HTML... -->
+    <p><p>hello</p>
+    
+    <!-- results in this DOM structure -->
+    <p></p>
+    <p>hello</p>
+
+Similarly, a parent element’s closing tag will implicitly close all child elements, even if the `</` was a typo and you meant to create a _new_ element. To avoid ambiguity, it’s always a good idea to have an explicit closing tag.
+
 ### element\_invalid\_self\_closing\_tag[](#element_invalid_self_closing_tag)
 
     Self-closing HTML tags for non-void elements are ambiguous — use `<%name% ...></%name%>` rather than `<%name% ... />`
@@ -22512,6 +22751,17 @@ Child
 
 To fix it, either create callback props to communicate changes, or mark `person` as [`$bindable`]($bindable).
 
+### select\_multiple\_invalid\_value[](#Client-warnings-select_multiple_invalid_value)
+
+    The `value` property of a `<select multiple>` element should be an array, but it received a non-array value. The selection will be kept as is.
+
+When using `<select multiple value={...}>`, Svelte will mark all selected `<option>` elements as selected by iterating over the array passed to `value`. If `value` is not an array, Svelte will emit this warning and keep the selected options as they are.
+
+To silence the warning, ensure that `value`:
+
+*   is an array for an explicit selection
+*   is `null` or `undefined` to keep the selection as is
+
 ### state\_proxy\_equality\_mismatch[](#Client-warnings-state_proxy_equality_mismatch)
 
     Reactive `$state(...)` proxies and the values they proxy have different identities. Because of this, comparisons with `%operator%` will produce unexpected results
@@ -22593,12 +22843,12 @@ Elements such as `<input>` cannot have content, any children passed to these ele
            ...;
        };
      };
-     ... 207 more ...;
+     ... 211 more ...;
      readonly sessionStorage: {
        ...;
      };
             };
-            ... 921 more ...;
+            ... 946 more ...;
             undefined: undefined;
         };
     }snapshot = namespace $state
@@ -24687,47 +24937,14 @@ A client-side component — that is, a component compiled with `generate: 'dom'`
 
 The following initialisation options can be provided:
 
-option
-
-default
-
-description
-
-`target`
-
-**none**
-
-An `HTMLElement` or `ShadowRoot` to render to. This option is required
-
-`anchor`
-
-`null`
-
-A child of `target` to render the component immediately before
-
-`props`
-
-`{}`
-
-An object of properties to supply to the component
-
-`context`
-
-`new Map()`
-
-A `Map` of root-level context key-value pairs to supply to the component
-
-`hydrate`
-
-`false`
-
-See below
-
-`intro`
-
-`false`
-
-If `true`, will play transitions on initial render, rather than waiting for subsequent state changes
+| option | default | description |
+| --- | --- | --- |
+| `target` | **none** | An `HTMLElement` or `ShadowRoot` to render to. This option is required |
+| `anchor` | `null` | A child of `target` to render the component immediately before |
+| `props` | `{}` | An object of properties to supply to the component |
+| `context` | `new Map()` | A `Map` of root-level context key-value pairs to supply to the component |
+| `hydrate` | `false` | See below |
+| `intro` | `false` | If `true`, will play transitions on initial render, rather than waiting for subsequent state changes |
 
 Existing children of `target` are left where they are.
 
@@ -24959,37 +25176,16 @@ You can import a Svelte component directly into Node using `svelte/register`.
 
 The `.render()` method accepts the following parameters:
 
-parameter
-
-default
-
-description
-
-`props`
-
-`{}`
-
-An object of properties to supply to the component
-
-`options`
-
-`{}`
-
-An object of options
+| parameter | default | description |
+| --- | --- | --- |
+| `props` | `{}` | An object of properties to supply to the component |
+| `options` | `{}` | An object of options |
 
 The `options` object takes in the following options:
 
-option
-
-default
-
-description
-
-`context`
-
-`new Map()`
-
-A `Map` of root-level context key-value pairs to supply to the component
+| option | default | description |
+| --- | --- | --- |
+| `context` | `new Map()` | A `Map` of root-level context key-value pairs to supply to the component |
 
     const { const head: anyhead, const html: anyhtml, const css: anycss } = App.render(
     	// props

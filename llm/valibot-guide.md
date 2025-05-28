@@ -1,4 +1,4 @@
-valibot version: 1.1.0, last updated: 2025-05-21T10:58:23.459Z
+valibot version: 1.1.0, last updated: 2025-05-25T14:47:54.801Z
 
 [](#installation)Installation
 =============================
@@ -1283,137 +1283,40 @@ We will be publishing a [blog post](/blog/valibot-v0.31.0-is-finally-available/)
 
 Most of the names are the same as before. However, there are some exceptions. The following table shows all names that have changed.
 
-v0.30.0
-
-v0.31.0
-
-`anyAsync`
-
-[`any`](/api/any/)
-
-`BaseSchema`
-
-[`GenericSchema`](/api/GenericSchema/)
-
-`bigintAsync`
-
-[`bigint`](/api/bigint/)
-
-`blobAsync`
-
-[`blob`](/api/blob/)
-
-`booleanAsync`
-
-[`boolean`](/api/boolean/)
-
-`custom`
-
-[`check`](/api/check/)
-
-`customAsync`
-
-[`checkAsync`](/api/checkAsync/)
-
-`coerce`
-
-[`pipe`](/api/pipe/), [`unknown`](/api/unknown/) and [`transform`](/api/transform/)
-
-`dateAsync`
-
-[`date`](/api/date/)
-
-`enumAsync`
-
-[`enum_`](/api/enum/)
-
-`Input`
-
-[`InferInput`](/api/InferInput/)
-
-`instanceAsync`
-
-[`instance`](/api/instance/)
-
-`literalAsync`
-
-[`literal`](/api/literal/)
-
-`nanAsync`
-
-[`nan`](/api/nan/)
-
-`neverAsync`
-
-[`never`](/api/never/)
-
-`nullAsync`
-
-[`null_`](/api/null/)
-
-`numberAsync`
-
-[`number`](/api/number/)
-
-`Output`
-
-[`InferOutput`](/api/InferOutput/)
-
-`picklistAsync`
-
-[`picklist`](/api/picklist/)
-
-`SchemaConfig`
-
-[`Config`](/api/Config/)
-
-`special`
-
-[`custom`](/api/custom/)
-
-`specialAsync`
-
-[`customAsync`](/api/customAsync/)
-
-`SchemaConfig`
-
-[`Config`](/api/string/)
-
-`stringAsync`
-
-[`string`](/api/string/)
-
-`symbolAsync`
-
-[`symbol`](/api/symbol/)
-
-`undefinedAsync`
-
-[`undefined_`](/api/undefined/)
-
-`unknownAsync`
-
-[`unknown`](/api/unknown/)
-
-`toCustom`
-
-[`transform`](/api/transform/)
-
-`toTrimmed`
-
-[`trim`](/api/trim/)
-
-`toTrimmedEnd`
-
-[`trimEnd`](/api/trimEnd/)
-
-`toTrimmedStart`
-
-[`trimStart`](/api/trimStart/)
-
-`voidAsync`
-
-[`void_`](/api/void/)
+| v0.30.0 | v0.31.0 |
+| --- | --- |
+| `anyAsync` | [`any`](/api/any/) |
+| `BaseSchema` | [`GenericSchema`](/api/GenericSchema/) |
+| `bigintAsync` | [`bigint`](/api/bigint/) |
+| `blobAsync` | [`blob`](/api/blob/) |
+| `booleanAsync` | [`boolean`](/api/boolean/) |
+| `custom` | [`check`](/api/check/) |
+| `customAsync` | [`checkAsync`](/api/checkAsync/) |
+| `coerce` | [`pipe`](/api/pipe/), [`unknown`](/api/unknown/) and [`transform`](/api/transform/) |
+| `dateAsync` | [`date`](/api/date/) |
+| `enumAsync` | [`enum_`](/api/enum/) |
+| `Input` | [`InferInput`](/api/InferInput/) |
+| `instanceAsync` | [`instance`](/api/instance/) |
+| `literalAsync` | [`literal`](/api/literal/) |
+| `nanAsync` | [`nan`](/api/nan/) |
+| `neverAsync` | [`never`](/api/never/) |
+| `nullAsync` | [`null_`](/api/null/) |
+| `numberAsync` | [`number`](/api/number/) |
+| `Output` | [`InferOutput`](/api/InferOutput/) |
+| `picklistAsync` | [`picklist`](/api/picklist/) |
+| `SchemaConfig` | [`Config`](/api/Config/) |
+| `special` | [`custom`](/api/custom/) |
+| `specialAsync` | [`customAsync`](/api/customAsync/) |
+| `SchemaConfig` | [`Config`](/api/string/) |
+| `stringAsync` | [`string`](/api/string/) |
+| `symbolAsync` | [`symbol`](/api/symbol/) |
+| `undefinedAsync` | [`undefined_`](/api/undefined/) |
+| `unknownAsync` | [`unknown`](/api/unknown/) |
+| `toCustom` | [`transform`](/api/transform/) |
+| `toTrimmed` | [`trim`](/api/trim/) |
+| `toTrimmedEnd` | [`trimEnd`](/api/trimEnd/) |
+| `toTrimmedStart` | [`trimStart`](/api/trimStart/) |
+| `voidAsync` | [`void_`](/api/void/) |
 
 [](#special-cases)Special cases
 -------------------------------
@@ -1486,153 +1389,44 @@ We recommend that you read our [mental model](/guides/mental-model/) guide to un
 
 Most of the names are the same as in Zod. However, there are some exceptions. The following table shows all names that have changed.
 
-Zod
-
-Valibot
-
-`and`
-
-[`intersect`](/api/intersect/)
-
-`catch`
-
-[`fallback`](/api/fallback/)
-
-`catchall`
-
-[`objectWithRest`](/api/objectWithRest/)
-
-`coerce`
-
-[`pipe`](/api/pipe/), [`unknown`](/api/unknown/) and [`transform`](/api/transform/)
-
-`datetime`
-
-[`isoDate`](/api/isoDate/), [`isoDateTime`](/api/isoDateTime/)
-
-`default`
-
-[`optional`](/api/optional/)
-
-`discriminatedUnion`
-
-[`variant`](/api/variant/)
-
-`element`
-
-`item`
-
-`enum`
-
-[`picklist`](/api/picklist/)
-
-`extend`
-
-[Object merging](/guides/intersections/#merge-objects)
-
-`gt`
-
-[`gtValue`](/api/gtValue/)
-
-`gte`
-
-[`minValue`](/api/minValue/)
-
-`infer`
-
-[`InferOutput`](/api/InferOutput/)
-
-`int`
-
-[`integer`](/api/integer/)
-
-`input`
-
-[`InferInput`](/api/InferInput/)
-
-`instanceof`
-
-[`instance`](/api/instance/)
-
-`intersection`
-
-[`intersect`](/api/intersect/)
-
-`lt`
-
-[`ltValue`](/api/ltValue/)
-
-`lte`
-
-[`maxValue`](/api/maxValue/)
-
-`max`
-
-[`maxLength`](/api/maxLength/), [`maxSize`](/api/maxSize/), [`maxValue`](/api/maxValue/)
-
-`min`
-
-[`minLength`](/api/minLength/), [`minSize`](/api/minSize/), [`minValue`](/api/minValue/)
-
-`nativeEnum`
-
-[`enum`](/api/enum/)
-
-`negative`
-
-[`maxValue`](/api/maxValue/)
-
-`nonnegative`
-
-[`minValue`](/api/minValue/)
-
-`nonpositive`
-
-[`maxValue`](/api/maxValue/)
-
-`or`
-
-[`union`](/api/union/)
-
-`output`
-
-[`InferOutput`](/api/InferOutput/)
-
-`passthrough`
-
-[`looseObject`](/api/looseObject/)
-
-`positive`
-
-[`minValue`](/api/minValue/)
-
-`refine`
-
-[`check`](/api/check/), [`forward`](/api/forward/)
-
-`rest`
-
-[`tuple`](/api/tuple/)
-
-`safe`
-
-[`safeInteger`](/api/safeInteger/)
-
-`shape`
-
-`entries`
-
-`strict`
-
-[`strictObject`](/api/strictObject/)
-
-`strip`
-
-[`object`](/api/object/)
-
-`superRefine`
-
-[`rawCheck`](/api/rawCheck/), [`rawTransform`](/api/rawTransform/)
+| Zod | Valibot |
+| --- | --- |
+| `and` | [`intersect`](/api/intersect/) |
+| `catch` | [`fallback`](/api/fallback/) |
+| `catchall` | [`objectWithRest`](/api/objectWithRest/) |
+| `coerce` | [`pipe`](/api/pipe/), [`unknown`](/api/unknown/) and [`transform`](/api/transform/) |
+| `datetime` | [`isoDate`](/api/isoDate/), [`isoDateTime`](/api/isoDateTime/) |
+| `default` | [`optional`](/api/optional/) |
+| `discriminatedUnion` | [`variant`](/api/variant/) |
+| `element` | `item` |
+| `enum` | [`picklist`](/api/picklist/) |
+| `extend` | [Object merging](/guides/intersections/#merge-objects) |
+| `gt` | [`gtValue`](/api/gtValue/) |
+| `gte` | [`minValue`](/api/minValue/) |
+| `infer` | [`InferOutput`](/api/InferOutput/) |
+| `int` | [`integer`](/api/integer/) |
+| `input` | [`InferInput`](/api/InferInput/) |
+| `instanceof` | [`instance`](/api/instance/) |
+| `intersection` | [`intersect`](/api/intersect/) |
+| `lt` | [`ltValue`](/api/ltValue/) |
+| `lte` | [`maxValue`](/api/maxValue/) |
+| `max` | [`maxLength`](/api/maxLength/), [`maxSize`](/api/maxSize/), [`maxValue`](/api/maxValue/) |
+| `min` | [`minLength`](/api/minLength/), [`minSize`](/api/minSize/), [`minValue`](/api/minValue/) |
+| `nativeEnum` | [`enum`](/api/enum/) |
+| `negative` | [`maxValue`](/api/maxValue/) |
+| `nonnegative` | [`minValue`](/api/minValue/) |
+| `nonpositive` | [`maxValue`](/api/maxValue/) |
+| `or` | [`union`](/api/union/) |
+| `output` | [`InferOutput`](/api/InferOutput/) |
+| `passthrough` | [`looseObject`](/api/looseObject/) |
+| `positive` | [`minValue`](/api/minValue/) |
+| `refine` | [`check`](/api/check/), [`forward`](/api/forward/) |
+| `rest` | [`tuple`](/api/tuple/) |
+| `safe` | [`safeInteger`](/api/safeInteger/) |
+| `shape` | `entries` |
+| `strict` | [`strictObject`](/api/strictObject/) |
+| `strip` | [`object`](/api/object/) |
+| `superRefine` | [`rawCheck`](/api/rawCheck/), [`rawTransform`](/api/rawTransform/) |
 
 [](#other-details)Other details
 -------------------------------

@@ -1,4 +1,4 @@
-vanjs version: 0.1.1, last updated: 2025-05-21T10:57:52.610Z
+vanjs version: 0.1.1, last updated: 2025-05-25T14:47:54.753Z
 
 **VanJS**: A 1.0kB Grab 'n Go Reactive UI Framework without React/JSX
 =====================================================================
@@ -121,107 +121,24 @@ See also: [A Guide to Reading **VanJS** Codebase](/about#source-guide)
 
 **VanJS** can be extended via add-ons. Add-ons add more features to **VanJS** and/or provide an alternative styled API. Below is a curated list of add-ons built by **VanJS** community:
 
-Add-on
-
-Description
-
-Author
-
-[Van Cone](https://medium-tech.github.io/van-cone-website/)
-
-An SPA framework add-on for **VanJS**
-
-[b-rad-c](https://github.com/b-rad-c)
-
-[van\_element](https://van-element.pages.dev/)
-
-Web Components with **VanJS**
-
-[Atmos4](https://github.com/Atmos4)
-
-[VanJS Feather](https://thednp.github.io/vanjs-feather/)
-
-Feather Icons for **VanJS**
-
-[thednp](https://github.com/thednp)
-
-[van\_dml.js](https://github.com/vanjs-org/van/blob/main/addons/van_dml)
-
-A new flavour of composition for **VanJS**
-
-[Eckehard](https://github.com/efpage)
-
-[van-jsx](https://github.com/vanjs-org/van/blob/main/addons/van_jsx)
-
-A JSX wrapper for **VanJS**, for people who like the JSX syntax more
-
-[cqh963852](https://github.com/cqh963852)
-
-[vanjs-router](https://github.com/iuroc/vanjs-router)
-
-A router solution for **VanJS** (`README.md` in simplified Chinese)
-
-[欧阳鹏](https://github.com/iuroc)
-
-[VanJS Routing](https://github.com/kwameopareasiedu/vanjs-routing)
-
-Yet another routing solution for **VanJS**
-
-[Kwame Opare Asiedu](https://github.com/kwameopareasiedu)
-
-[VanJS Form](https://github.com/kwameopareasiedu/vanjs-form)
-
-Fully typed form state management library (with validation) for **VanJS**
-
-[Kwame Opare Asiedu](https://github.com/kwameopareasiedu)
-
-[vanjs-bootstrap](https://github.com/WilliCommer/vanjs-bootstrap)
-
-**VanJS** Bootstrap Components
-
-[Willi Commer](https://github.com/WilliCommer)
-
-[vanrx](https://github.com/MeddahAbdellah/vanrx)
-
-An ultra-lightweight Redux addon for **VanJS**
-
-[Meddah Abdallah](https://github.com/MeddahAbdellah)
-
-[VanFS](https://github.com/ken-okabe/vanfs)
-
-1:1 bindings from F# to **VanJS**
-
-[Ken Okabe](https://github.com/ken-okabe)
-
-[Van-wrapper](https://github.com/zakarialaoui10/van-wrapper)
-
-A tool that facilitates the rendering of **VanJS** elements within other popular frameworks
-
-[Zakaria Elalaoui](https://github.com/zakarialaoui10)
-
-[Create VanJS](https://github.com/thednp/create-vanjs)
-
-The fastest way to kickstart your first **VanJS** Project: `npm create vanjs@latest`
-
-[thednp](https://github.com/thednp)
-
-[Vite Plugin for VanJS](https://github.com/thednp/vite-plugin-vanjs)
-
-A mini meta-framework for **VanJS** featuring routing, metadata, isomorphic rendering and JSX transformation
-
-[thednp](https://github.com/thednp)
-
-[Vite VanJS SVG](https://github.com/thednp/vite-vanjs-svg)
-
-A Vite plugin to transform SVG files to **VanJS** components on the fly
-
-[thednp](https://github.com/thednp)
-
-[VanJS Lucide](https://thednp.github.io/vanjs-lucide)
-
-Lucide Icons for **VanJS**
-
-[thednp](https://github.com/thednp)
+| Add-on | Description | Author |
+| --- | --- | --- |
+| [Van Cone](https://medium-tech.github.io/van-cone-website/) | An SPA framework add-on for **VanJS** | [b-rad-c](https://github.com/b-rad-c) |
+| [van\_element](https://van-element.pages.dev/) | Web Components with **VanJS** | [Atmos4](https://github.com/Atmos4) |
+| [VanJS Feather](https://thednp.github.io/vanjs-feather/) | Feather Icons for **VanJS** | [thednp](https://github.com/thednp) |
+| [van\_dml.js](https://github.com/vanjs-org/van/blob/main/addons/van_dml) | A new flavour of composition for **VanJS** | [Eckehard](https://github.com/efpage) |
+| [van-jsx](https://github.com/vanjs-org/van/blob/main/addons/van_jsx) | A JSX wrapper for **VanJS**, for people who like the JSX syntax more | [cqh963852](https://github.com/cqh963852) |
+| [vanjs-router](https://github.com/iuroc/vanjs-router) | A router solution for **VanJS** (`README.md` in simplified Chinese) | [欧阳鹏](https://github.com/iuroc) |
+| [VanJS Routing](https://github.com/kwameopareasiedu/vanjs-routing) | Yet another routing solution for **VanJS** | [Kwame Opare Asiedu](https://github.com/kwameopareasiedu) |
+| [VanJS Form](https://github.com/kwameopareasiedu/vanjs-form) | Fully typed form state management library (with validation) for **VanJS** | [Kwame Opare Asiedu](https://github.com/kwameopareasiedu) |
+| [vanjs-bootstrap](https://github.com/WilliCommer/vanjs-bootstrap) | **VanJS** Bootstrap Components | [Willi Commer](https://github.com/WilliCommer) |
+| [vanrx](https://github.com/MeddahAbdellah/vanrx) | An ultra-lightweight Redux addon for **VanJS** | [Meddah Abdallah](https://github.com/MeddahAbdellah) |
+| [VanFS](https://github.com/ken-okabe/vanfs) | 1:1 bindings from F# to **VanJS** | [Ken Okabe](https://github.com/ken-okabe) |
+| [Van-wrapper](https://github.com/zakarialaoui10/van-wrapper) | A tool that facilitates the rendering of **VanJS** elements within other popular frameworks | [Zakaria Elalaoui](https://github.com/zakarialaoui10) |
+| [Create VanJS](https://github.com/thednp/create-vanjs) | The fastest way to kickstart your first **VanJS** Project: `npm create vanjs@latest` | [thednp](https://github.com/thednp) |
+| [Vite Plugin for VanJS](https://github.com/thednp/vite-plugin-vanjs) | A mini meta-framework for **VanJS** featuring routing, metadata, isomorphic rendering and JSX transformation | [thednp](https://github.com/thednp) |
+| [Vite VanJS SVG](https://github.com/thednp/vite-vanjs-svg) | A Vite plugin to transform SVG files to **VanJS** components on the fly | [thednp](https://github.com/thednp) |
+| [VanJS Lucide](https://thednp.github.io/vanjs-lucide) | Lucide Icons for **VanJS** | [thednp](https://github.com/thednp) |
 
 [Support & Feedback](#support-feedback)
 ---------------------------------------
@@ -234,7 +151,7 @@ Lucide Icons for **VanJS**
 
 > _In the name of **Van**illa of the House **J**ava**S**cript, [the First of its name](/about#name), Smallest Reactive UI Framework, 1.0kB JSX-free Grab 'n Go Library, [Scripting Language](https://vanjs.org/about#story) for GUI, [GPT-Empowered](https://chat.openai.com/g/g-7tcSHUu27-vanjs-app-builder) Toolkit, by the word of Tao of the House Xin, Founder and Maintainer of **VanJS**, I do hereby grant you the permission of **VanJS** under [MIT License](https://github.com/vanjs-org/van/blob/main/LICENSE)._
 
-Contact us: [@taoxin](https://x.com/intent/follow?region=follow_link&screen_name=taoxin) / [Tao Xin](https://github.com/Tao-VanJS) / [\[email protected\]](/cdn-cgi/l/email-protection#f98d9896b98f9897938ad7968b9e) / [Tao Xin](https://www.linkedin.com/in/taoxin/)
+Contact us: [@taoxin](https://x.com/intent/follow?region=follow_link&screen_name=taoxin) / [Tao Xin](https://github.com/Tao-VanJS) / [\[email protected\]](/cdn-cgi/l/email-protection#cabeaba58abcaba4a0b9e4a5b8ad) / [Tao Xin](https://www.linkedin.com/in/taoxin/)
 
 **VanJS**: Getting Started
 ==========================
@@ -391,22 +308,7 @@ With the line, `a`, `div`, `p` are functions that create `<a>`, `<div>`, `<p>` H
 
 We will use `div` function as an example, the API reference for `div` tag function is as below:
 
-**Signature**
-
-`div([props], ...children) => <the created DOM element>`
-
-**Description**
-
-Creates an `[HTMLDivElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivElement)` with `props` as its properties and `children` as its child nodes.
-
-**Parameters**
-
-*   **`props`** - optional, a plain JavaScript object whose keys and values are the keys and values of the properties of the created HTML element. Keys should be `string`, and each value can be a primitive (`string`, `number`, `boolean` or `bigint`), `null`, a primitive-valued or `null`\-valued `State` object, or a `function` for a `State`\-derived property. We will explain the behavior of [`State`\-typed](#state-typed-prop) and [`State`\-derived](#state-derived-prop) properties in State Binding section below. For keys like `on...`, the value should be a `function` to represent the event handler.
-*   **`children`** - caller can provide 0 or more children as arguments to represent the child nodes of the created HTML element. Each child can be a valid DOM node, a primitive (`string`, `number`, `boolean` or `bigint`), `null`, `undefined`, a primitive-valued or `null`/`undefined`\-valued `State` object, a `function` for a `State`\-derived child, or an `[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)` of children. `null`/`undefined`\-valued children will be ignored. A `[Text node](https://developer.mozilla.org/en-US/docs/Web/API/Text)` will be created for each primitive-typed argument. We will explain the behavior of [`State`\-typed child](#state-typed-child) and [`State`\-derived child](#state-derived-child) in State Binding section below. For DOM node, it shouldn't be already connected to a document tree (`[isConnected](https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected)` property should be `false`). i.e.: You should not declare an existing DOM node in the current document as the child node of the newly created element.
-
-**Returns**
-
-The `[HTMLDivElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivElement)` object just created.
+<table><tbody><tr><td><b>Signature</b></td><td><code class="language-js">div([props], ...children) =&gt; &lt;the created DOM element&gt;</code></td></tr><tr><td><b>Description</b></td><td>Creates an <code class="symbol"><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivElement" class="w3-hover-opacity">HTMLDivElement</a></code> with <code class="symbol">props</code> as its properties and <code class="symbol">children</code> as its child nodes.</td></tr><tr><td><b>Parameters</b></td><td><ul><li><b><code class="symbol">props</code></b> - optional, a plain JavaScript object whose keys and values are the keys and values of the properties of the created HTML element. Keys should be <code class="symbol">string</code>, and each value can be a primitive (<code class="symbol">string</code>, <code class="symbol">number</code>, <code class="symbol">boolean</code> or <code class="symbol">bigint</code>), <code class="symbol">null</code>, a primitive-valued or <code class="symbol">null</code>-valued <code class="symbol">State</code> object, or a <code class="symbol">function</code> for a <code class="symbol">State</code>-derived property. We will explain the behavior of <a href="#state-typed-prop" class="w3-hover-opacity"><code class="symbol">State</code>-typed</a> and <a href="#state-derived-prop" class="w3-hover-opacity"><code class="symbol">State</code>-derived</a> properties in State Binding section below. For keys like <code class="symbol">on...</code>, the value should be a <code class="symbol">function</code> to represent the event handler.</li><li><b><code class="symbol">children</code></b> - caller can provide 0 or more children as arguments to represent the child nodes of the created HTML element. Each child can be a valid DOM node, a primitive (<code class="symbol">string</code>, <code class="symbol">number</code>, <code class="symbol">boolean</code> or <code class="symbol">bigint</code>), <code class="symbol">null</code>, <code class="symbol">undefined</code>, a primitive-valued or <code class="symbol">null</code>/<code class="symbol">undefined</code>-valued <code class="symbol">State</code> object, a <code class="symbol">function</code> for a <code class="symbol">State</code>-derived child, or an <code class="symbol"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="w3-hover-opacity">Array</a></code> of children. <code class="symbol">null</code>/<code class="symbol">undefined</code>-valued children will be ignored. A <code class="symbol"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Text" class="w3-hover-opacity">Text node</a></code> will be created for each primitive-typed argument. We will explain the behavior of <a href="#state-typed-child" class="w3-hover-opacity"><code class="symbol">State</code>-typed child</a> and <a href="#state-derived-child" class="w3-hover-opacity"><code class="symbol">State</code>-derived child</a> in State Binding section below. For DOM node, it shouldn't be already connected to a document tree (<code class="symbol"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected" class="w3-hover-opacity">isConnected</a></code> property should be <code class="symbol">false</code>). i.e.: You should not declare an existing DOM node in the current document as the child node of the newly created element.</li></ul></td></tr><tr><td><b>Returns</b></td><td>The <code class="symbol"><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivElement" class="w3-hover-opacity">HTMLDivElement</a></code> object just created.</td></tr></tbody></table>
 
 ### [SVG and MathML Support](#svg-and-mathml-support)
 
@@ -445,21 +347,7 @@ Similarly, math formulas can be created with `[MathML](https://developer.mozilla
 
 ### [API reference `van.tags` (for elements with custom namespace URI)](#api-tagsns)
 
-**Signature**
-
-`van.tags(namespaceURI) => <the created tags object for elements with specified namespaceURI>`
-
-**Description**
-
-Creates a tags `[Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)` object similar to `[van.tags](#api-tags)` for elements with specified `namespaceURI`.
-
-**Parameters**
-
-*   **`namespaceURI`** - a string for the `namespaceURI` property of elements created via tag functions.
-
-**Returns**
-
-The created tags object.
+<table><tbody><tr><td><b>Signature</b></td><td><code class="language-js">van.tags(namespaceURI) =&gt; &lt;the created tags object for elements with specified namespaceURI&gt;</code></td></tr><tr><td><b>Description</b></td><td>Creates a tags <code class="symbol"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy" class="w3-hover-opacity">Proxy</a></code> object similar to <code class="symbol"><a href="#api-tags" class="w3-hover-opacity">van.tags</a></code> for elements with specified <code class="symbol">namespaceURI</code>.</td></tr><tr><td><b>Parameters</b></td><td><ul><li><b><code class="symbol">namespaceURI</code></b> - a string for the <code class="symbol">namespaceURI</code> property of elements created via tag functions.</li></ul></td></tr><tr><td><b>Returns</b></td><td>The created tags object.</td></tr></tbody></table>
 
 ### [Specifying `options` of `createElement` or `createElementNS`](#specifying-options-of-createelement-or-createelementns)
 
@@ -487,22 +375,7 @@ You can also specify `[options](https://developer.mozilla.org/en-US/docs/Web/API
 
 `van.add` function is similar to tag functions described above. Instead of creating a new HTML element with specified properties and children, `van.add` function mutates its first argument (which is an existing `[Element node](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)`) by appending 0 or more children with `[appendChild](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)` calls:
 
-**Signature**
-
-`van.add(dom, ...children) => dom`
-
-**Description**
-
-Mutates `dom` by appending 0 or more child nodes to it. Returns `dom` for possibly further chaining.
-
-**Parameters**
-
-*   **`dom`** - an existing DOM element (or `[DocumentFragment](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment)` _since **VanJS** [1.5.5](https://github.com/vanjs-org/van/discussions/290#discussioncomment-12956581)_) that we want to append children to.
-*   **`children`** - caller can provide 0 or more `children` as arguments to represent the child nodes we want to append to `dom`. Each child can be a valid DOM node, a primitive, `null`, `undefined`, a primitive-valued or `null`/`undefined`\-valued `State` object, a `function` for a `State`\-derived child, or an `[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)` of children. `null`/`undefined`\-valued children will be ignored. A `[Text node](https://developer.mozilla.org/en-US/docs/Web/API/Text)` will be created for each primitive-typed argument. [`State`\-typed child](#state-typed-child) and [`State`\-derived child](#state-derived-child) behave the same way as in tag function. For DOM node, it shouldn't be already connected to a document tree (`[isConnected](https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected)` property should be `false`). i.e.: You should not append an existing DOM node in the current document to `dom`. If 0 children is provided, this function is a no-op.
-
-**Returns**
-
-`dom`
+<table><tbody><tr><td><b>Signature</b></td><td><code class="language-js">van.add(dom, ...children) =&gt; dom</code></td></tr><tr><td><b>Description</b></td><td>Mutates <code class="symbol">dom</code> by appending 0 or more child nodes to it. Returns <code class="symbol">dom</code> for possibly further chaining.</td></tr><tr><td><b>Parameters</b></td><td><ul><li><b><code class="symbol">dom</code></b> - an existing DOM element (or <code class="symbol"><a href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment" class="w3-hover-opacity">DocumentFragment</a></code> <i>since <b>VanJS</b> <a href="https://github.com/vanjs-org/van/discussions/290#discussioncomment-12956581" class="w3-hover-opacity">1.5.5</a></i>) that we want to append children to.</li><li><b><code class="symbol">children</code></b> - caller can provide 0 or more <code class="symbol">children</code> as arguments to represent the child nodes we want to append to <code class="symbol">dom</code>. Each child can be a valid DOM node, a primitive, <code class="symbol">null</code>, <code class="symbol">undefined</code>, a primitive-valued or <code class="symbol">null</code>/<code class="symbol">undefined</code>-valued <code class="symbol">State</code> object, a <code class="symbol">function</code> for a <code class="symbol">State</code>-derived child, or an <code class="symbol"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="w3-hover-opacity">Array</a></code> of children. <code class="symbol">null</code>/<code class="symbol">undefined</code>-valued children will be ignored. A <code class="symbol"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Text" class="w3-hover-opacity">Text node</a></code> will be created for each primitive-typed argument. <a href="#state-typed-child" class="w3-hover-opacity"><code class="symbol">State</code>-typed child</a> and <a href="#state-derived-child" class="w3-hover-opacity"><code class="symbol">State</code>-derived child</a> behave the same way as in tag function. For DOM node, it shouldn't be already connected to a document tree (<code class="symbol"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected" class="w3-hover-opacity">isConnected</a></code> property should be <code class="symbol">false</code>). i.e.: You should not append an existing DOM node in the current document to <code class="symbol">dom</code>. If 0 children is provided, this function is a no-op.</li></ul></td></tr><tr><td><b>Returns</b></td><td><code class="symbol">dom</code></td></tr></tbody></table>
 
 ### [DOM nodes already in the document tree can't be used as `children`](#dom-nodes-already-in-the-document-tree-can-t-be-used-as-children)
 
@@ -613,21 +486,7 @@ The code below illustrates how a `State` object can be used:
 
 ### [API reference: `van.state`](#api-state)
 
-**Signature**
-
-`van.state(initVal) => <the created State object>`
-
-**Description**
-
-Creates a `State` object with its init value specified in the argument.
-
-**Parameters**
-
-*   **`initVal`** - the init value of the `State` object to be created.
-
-**Returns**
-
-The created `State` object.
+<table><tbody><tr><td><b>Signature</b></td><td><code class="language-js">van.state(initVal) =&gt; &lt;the created State object&gt;</code></td></tr><tr><td><b>Description</b></td><td>Creates a <code class="symbol">State</code> object with its init value specified in the argument.</td></tr><tr><td><b>Parameters</b></td><td><ul><li><b><code class="symbol">initVal</code></b> - the init value of the <code class="symbol">State</code> object to be created.</li></ul></td></tr><tr><td><b>Returns</b></td><td>The created <code class="symbol">State</code> object.</td></tr></tbody></table>
 
 ### [Public interface of `State` objects](#public-interface-of-state-objects)
 
@@ -668,21 +527,7 @@ Derived states can be declared via `van.derive`, as illustrated in the example b
 
 ### [API reference: `van.derive`](#api-derive)
 
-**Signature**
-
-`van.derive(f) => <the created derived state>`
-
-**Description**
-
-Creates a derived `State` object based on the derivation function `f`. The `val` of the derived state is always in sync with the result of `f`. i.e.: whenever the `val` of its dependency changes, `f` will be called to update the `val` of the derived state, synchronously.
-
-**Parameters**
-
-*   **`f`** - The derivation function, which takes no parameter and returns a single value.
-
-**Returns**
-
-The created derived `State` object.
+<table><tbody><tr><td><b>Signature</b></td><td><code class="language-js">van.derive(f) =&gt; &lt;the created derived state&gt;</code></td></tr><tr><td><b>Description</b></td><td>Creates a derived <code class="symbol">State</code> object based on the derivation function <code class="symbol">f</code>. The <code class="symbol">val</code> of the derived state is always in sync with the result of <code class="symbol">f</code>. i.e.: whenever the <code class="symbol">val</code> of its dependency changes, <code class="symbol">f</code> will be called to update the <code class="symbol">val</code> of the derived state, synchronously.</td></tr><tr><td><b>Parameters</b></td><td><ul><li><b><code class="symbol">f</code></b> - The derivation function, which takes no parameter and returns a single value.</li></ul></td></tr><tr><td><b>Returns</b></td><td>The created derived <code class="symbol">State</code> object.</td></tr></tbody></table>
 
 Note that: Since [**VanJS** 1.5.0](https://github.com/vanjs-org/van/discussions/290), we have changed the execution of state derivation from synchronous to asynchronous as an optimization to avoid potentially unnecessary derivations. That is, instead of executing state derivations immediately, the derivations are scheduled to execute as soon as the next event cycle of browser context (i.e.: after the current call stack is cleared, which is equivalent to `setTimeout(..., 0)`). The effect of the asynchronous derivation can be illustrated by the code below:
 
@@ -1792,21 +1637,10 @@ The code below implements a `Calculator App` similar to the one that you are usi
 
 Notably, this `Calculator App` is equivalent to the React-based implementation here: [github.com/ahfarmer/calculator](https://github.com/ahfarmer/calculator). Here is the size comparison of the total package between the 2 apps:
 
-VanJS-based App
-
-React-based App
-
-**\# of files:**
-
-2
-
-16
-
-**\# of lines:**
-
-143
-
-616
+|  | VanJS-based App | React-based App |
+| --- | --- | --- |
+| **\# of files:** | 2 | 16 |
+| **\# of lines:** | 143 | 616 |
 
 As you can see, not only **VanJS** is **~50 times** smaller than React, apps built with **VanJS** also tends to be much slimmer.
 
@@ -2240,91 +2074,24 @@ See [github.com/vanjs-org/van/tree/main/demo/terminal](https://github.com/vanjs-
 
 * * *
 
-Besides the official **VanJS** examples, there are also sample apps from the great **VanJS** community. Below is a curated list (contact [\[email protected\]](/cdn-cgi/l/email-protection#087c6967487e6966627b26677a6f) to add yours):
+Besides the official **VanJS** examples, there are also sample apps from the great **VanJS** community. Below is a curated list (contact [\[email protected\]](/cdn-cgi/l/email-protection#4a3e2b250a3c2b2420396425382d) to add yours):
 
-Author
-
-Project
-
-Preview
-
-[Yahia Berashish](https://github.com/yahia-berashish)
-
-[**VanJS** JavaScript and TypeScript Vite Template](https://github.com/vitejs/awesome-vite#vanjs)
-
-[link](https://codesandbox.io/p/sandbox/github/yahia-berashish/vite-vanjs-ts/tree/main)
-
-[artydev](https://github.com/artydev)
-
-[**VanJS** Series](https://dev.to/artydev/series/23075)
-
-[barrymun](https://github.com/barrymun)
-
-[Division Game](https://github.com/barrymun/division-game)
-
-[link](http://barrymun.vanjs-division-game.surge.sh/)
-
-[enpitsuLin](https://github.com/enpitsuLin)
-
-[TODO App](https://github.com/enpitsuLin/vanjs-todomvc)
-
-[link](https://codesandbox.io/p/sandbox/github/enpitsuLin/vanjs-todomvc/tree/master?file=%2Fsrc%2Fmain.ts%3A8%2C1)
-
-[Kwame Opare Asiedu](https://github.com/kwameopareasiedu)
-
-[TODO App](https://github.com/kwameopareasiedu/vanjs-todo) with routing and authentication
-
-[link](https://kwameopareasiedu.github.io/vanjs-todo/)
-
-[董凯](https://github.com/CodeByZack)
-
-[Local Share](https://github.com/CodeByZack/local-share) - A tool for transferring files over LAN, using the WebRTC tech
-
-[link](https://share.zackdk.com/)
-
-[Kane](https://github.com/csm-kb)
-
-[**VanJS** Chart.js graph render](https://github.com/csm-kb/vanjs-chartjs-example)
-
-[link](https://codesandbox.io/p/devbox/github/csm-kb/vanjs-chartjs-example/tree/main/?file=%2Fsrc%2Fmain.ts)
-
-[Neven DREAN](https://github.com/ndrean)
-
-[Modal Component & Routing with **VanJS**](https://github.com/ndrean/vanjs-dialog-modal)
-
-[link](https://githubbox.com/ndrean/vanjs-dialog-modal)
-
-[b rad c](https://github.com/b-rad-c)
-
-[**VanJS** SPA Template](https://github.com/vanjs-org/van/tree/main/addons/van_cone/examples/spa-app)
-
-[link](https://codesandbox.io/p/devbox/github/vanjs-org/van/tree/main/addons/van_cone/examples/spa-app)
-
-[Vlad Sirenko](https://github.com/SirenkoVladd)
-
-[**VanJS** with Leaflet](https://github.com/sirenkovladd/vanjs-leaflet-example)
-
-[link](https://codesandbox.io/p/devbox/github/sirenkovladd/vanjs-leaflet-example/tree/main/?file=%2Fsrc%2Fmain.js)
-
-[kangaroolab](https://github.com/kangaroolab)
-
-[tippy: a local first note app](https://github.com/kangaroolab/tippy)
-
-[link](https://kangaroolab.github.io/tippy/)
-
-[Jeremy R. Travis](https://github.com/JTravis76)
-
-[Budget Dashboard](https://github.com/JTravis76/budget-dashboard)
-
-[link](https://jtravis76.github.io/budget-dashboard/)
-
-[FredericHeem](https://github.com/FredericHeem)
-
-[Multi-Page App Starter Kit under 5kB](https://github.com/FredericHeem/van-kit)
-
-[FredericHeem](https://github.com/FredericHeem)
-
-[**VanJS** Playground with Vite](https://github.com/FredericHeem/van-playground)
+| Author | Project | Preview |
+| --- | --- | --- |
+| [Yahia Berashish](https://github.com/yahia-berashish) | [**VanJS** JavaScript and TypeScript Vite Template](https://github.com/vitejs/awesome-vite#vanjs) | [link](https://codesandbox.io/p/sandbox/github/yahia-berashish/vite-vanjs-ts/tree/main) |
+| [artydev](https://github.com/artydev) | [**VanJS** Series](https://dev.to/artydev/series/23075) |  |
+| [barrymun](https://github.com/barrymun) | [Division Game](https://github.com/barrymun/division-game) | [link](http://barrymun.vanjs-division-game.surge.sh/) |
+| [enpitsuLin](https://github.com/enpitsuLin) | [TODO App](https://github.com/enpitsuLin/vanjs-todomvc) | [link](https://codesandbox.io/p/sandbox/github/enpitsuLin/vanjs-todomvc/tree/master?file=%2Fsrc%2Fmain.ts%3A8%2C1) |
+| [Kwame Opare Asiedu](https://github.com/kwameopareasiedu) | [TODO App](https://github.com/kwameopareasiedu/vanjs-todo) with routing and authentication | [link](https://kwameopareasiedu.github.io/vanjs-todo/) |
+| [董凯](https://github.com/CodeByZack) | [Local Share](https://github.com/CodeByZack/local-share) - A tool for transferring files over LAN, using the WebRTC tech | [link](https://share.zackdk.com/) |
+| [Kane](https://github.com/csm-kb) | [**VanJS** Chart.js graph render](https://github.com/csm-kb/vanjs-chartjs-example) | [link](https://codesandbox.io/p/devbox/github/csm-kb/vanjs-chartjs-example/tree/main/?file=%2Fsrc%2Fmain.ts) |
+| [Neven DREAN](https://github.com/ndrean) | [Modal Component & Routing with **VanJS**](https://github.com/ndrean/vanjs-dialog-modal) | [link](https://githubbox.com/ndrean/vanjs-dialog-modal) |
+| [b rad c](https://github.com/b-rad-c) | [**VanJS** SPA Template](https://github.com/vanjs-org/van/tree/main/addons/van_cone/examples/spa-app) | [link](https://codesandbox.io/p/devbox/github/vanjs-org/van/tree/main/addons/van_cone/examples/spa-app) |
+| [Vlad Sirenko](https://github.com/SirenkoVladd) | [**VanJS** with Leaflet](https://github.com/sirenkovladd/vanjs-leaflet-example) | [link](https://codesandbox.io/p/devbox/github/sirenkovladd/vanjs-leaflet-example/tree/main/?file=%2Fsrc%2Fmain.js) |
+| [kangaroolab](https://github.com/kangaroolab) | [tippy: a local first note app](https://github.com/kangaroolab/tippy) | [link](https://kangaroolab.github.io/tippy/) |
+| [Jeremy R. Travis](https://github.com/JTravis76) | [Budget Dashboard](https://github.com/JTravis76/budget-dashboard) | [link](https://jtravis76.github.io/budget-dashboard/) |
+| [FredericHeem](https://github.com/FredericHeem) | [Multi-Page App Starter Kit under 5kB](https://github.com/FredericHeem/van-kit) |  |
+| [FredericHeem](https://github.com/FredericHeem) | [**VanJS** Playground with Vite](https://github.com/FredericHeem/van-playground) |  |
 
 HTML/MD Snippet to 🍦**VanJS** Code
 ===================================
@@ -3372,29 +3139,31 @@ You can find all relevant **Mini-Van** files to download in the table below:
 
 Click the link to download the file, or 📋 to copy the import line from CDN.
 
-Files
-
-Description
-
+| Files | Description |
+| --- | --- |
+| 
     mini-van-0.6.3.min.jsCopy import line📋
 
     mini-van-0.6.3.min.d.ts
 
-Minified script file for ES6 modules, optimized for bundle size.
+ | Minified script file for ES6 modules, optimized for bundle size. |
+| 
 
     mini-van-0.6.3.jsCopy import line📋
 
     mini-van-0.6.3.d.ts
 
-The source file without minification.
+ | The source file without minification. |
+| 
 
     van-0.6.3.nomodule.min.jsCopy import line📋
 
-Similar to `mini-van-0.6.3.min.js`, but designed to work in non-module context, such as inline JavaScript or `<script type="text/javascript">`.
+ | Similar to `mini-van-0.6.3.min.js`, but designed to work in non-module context, such as inline JavaScript or `<script type="text/javascript">`. |
+| 
 
     van-0.6.3.nomodule.jsCopy import line📋
 
-Similar to `mini-van-0.6.3.js`, but designed to work in non-module context, such as inline JavaScript or `<script type="text/javascript">`.
+ | Similar to `mini-van-0.6.3.js`, but designed to work in non-module context, such as inline JavaScript or `<script type="text/javascript">`. |
 
 [API Reference](#api-reference)
 -------------------------------
@@ -3421,7 +3190,7 @@ We're looking for the 1.0 milestone (commitment to API stability) soon, your pre
 
 [Star](https://github.com/vanjs-org/mini-van) [Watch](https://github.com/vanjs-org/mini-van/subscription) [Issue](https://github.com/vanjs-org/mini-van/issues) [Follow @vanjs-org](https://github.com/vanjs-org)
 
-Contact us: [\[email protected\]](/cdn-cgi/l/email-protection#92e6f3fdd2e4f3fcf8e1bcfde0f5)
+Contact us: [\[email protected\]](/cdn-cgi/l/email-protection#2d594c426d5b4c43475e03425f4a)
 
 **VanJS**: Fullstack Rendering (SSR, CSR and Hydration)
 =======================================================
@@ -3726,22 +3495,7 @@ Note that, this is an illustrative example to show how to make the entire hydrat
 
 ### [API reference: `van.hydrate`](#api-hydrate)
 
-**Signature**
-
-`van.hydrate(dom, f) => undefined`
-
-**Description**
-
-Hydrates the SSR component `dom` with the hydration function `f`.
-
-**Parameters**
-
-*   **`dom`** - The root DOM node of the SSR component we want to hydrate.
-*   **`f`** - The hydration function, which takes a DOM node as its input parameter and returns the new version of the DOM node. The hydration function describes how we want to convert an existing DOM node into a new one with added reactivity. If the `val` property of any states are referenced in the hydration function, the hydrated component will be bound to the dependency states (i.e.: reactive to the changes of the referenced states). In this case, the behavior of the hydrated component will be similar to a [`State`\-derived child node](/tutorial#state-derived-child).
-
-**Returns**
-
-`undefined`
+<table><tbody><tr><td><b>Signature</b></td><td><code class="language-js">van.hydrate(dom, f) =&gt; undefined</code></td></tr><tr><td><b>Description</b></td><td>Hydrates the SSR component <code class="symbol">dom</code> with the hydration function <code class="symbol">f</code>.</td></tr><tr><td><b>Parameters</b></td><td><ul><li><b><code class="symbol">dom</code></b> - The root DOM node of the SSR component we want to hydrate.</li><li><b><code class="symbol">f</code></b> - The hydration function, which takes a DOM node as its input parameter and returns the new version of the DOM node. The hydration function describes how we want to convert an existing DOM node into a new one with added reactivity. If the <code class="symbol">val</code> property of any states are referenced in the hydration function, the hydrated component will be bound to the dependency states (i.e.: reactive to the changes of the referenced states). In this case, the behavior of the hydrated component will be similar to a <a href="/tutorial#state-derived-child" class="w3-hover-opacity"><code class="symbol">State</code>-derived child node</a>.</li></ul></td></tr><tr><td><b>Returns</b></td><td><code class="symbol">undefined</code></td></tr></tbody></table>
 
 [Demo](#demo)
 -------------
@@ -3913,21 +3667,7 @@ Note that, not only you can set the value of each individual leaf field, you can
 
 #### [API reference: `vanX.reactive`](#api-reactive)
 
-**Signature**
-
-`vanX.reactive(obj) => <the created reactive object>`
-
-**Description**
-
-Converts the input object `obj` into a reactive object.
-
-**Parameters**
-
-*   **`obj`** - Can be a plain object or an object of an existing JavaScript class. `obj` can have deeply nested fields. The original `obj` shouldn't be accessed anymore after the `vanX.reactive(obj)` call.
-
-**Returns**
-
-The created reactive object.
+<table><tbody><tr><td><b>Signature</b></td><td><code class="language-js">vanX.reactive(obj) =&gt; &lt;the created reactive object&gt;</code></td></tr><tr><td><b>Description</b></td><td>Converts the input object <code class="symbol">obj</code> into a reactive object.</td></tr><tr><td><b>Parameters</b></td><td><ul><li><b><code class="symbol">obj</code></b> - Can be a plain object or an object of an existing JavaScript class. <code class="symbol">obj</code> can have deeply nested fields. The original <code class="symbol">obj</code> shouldn't be accessed anymore after the <code class="language-js">vanX.reactive(obj)</code> call.</li></ul></td></tr><tr><td><b>Returns</b></td><td>The created reactive object.</td></tr></tbody></table>
 
 ⚠️ **Caveat**: The passed-in `obj` object shouldn't have any `State` fields. Doing so will result in states of other `State` objects, which is [invalid](/tutorial#public-interface-of-state-objects) in **VanJS**.
 
@@ -3966,21 +3706,7 @@ will lead to `ReferenceError` as `data` variable is not yet defined when the cal
 
 #### [API reference: `vanX.calc`](#api-calc)
 
-**Signature**
-
-`vanX.calc(f) => <the created calculated field>`
-
-**Description**
-
-Creates a calculated field for a reactive object based on the calculation function`f`.
-
-**Parameters**
-
-*   **`f`** - The calculation function.
-
-**Returns**
-
-The created calculated field.
+<table><tbody><tr><td><b>Signature</b></td><td><code class="language-js">vanX.calc(f) =&gt; &lt;the created calculated field&gt;</code></td></tr><tr><td><b>Description</b></td><td>Creates a calculated field for a reactive object based on the calculation function<code class="symbol">f</code>.</td></tr><tr><td><b>Parameters</b></td><td><ul><li><b><code class="symbol">f</code></b> - The calculation function.</li></ul></td></tr><tr><td><b>Returns</b></td><td>The created calculated field.</td></tr></tbody></table>
 
 ### [Get the underlying `State` object](#get-the-underlying-state-object)
 
@@ -4012,21 +3738,7 @@ Note that, `stateFields` only gets the underlying state fields for one layer of 
 
 #### [API reference: `vanX.stateFields`](#api-stateFields)
 
-**Signature**
-
-`vanX.stateFields(obj) => <an object for all underlying state fields of obj>`
-
-**Description**
-
-Given a reactive object `obj`, returns an object for all the underlying state fields of `obj`. For instance, if `obj` is `{a: 1, b: 2}`, `{a: van.state(1), b: van.state(2)}` will be returned.
-
-**Parameters**
-
-*   **`obj`** - The input reactive object.
-
-**Returns**
-
-An object for all the underlying state fields of `obj`.
+<table><tbody><tr><td><b>Signature</b></td><td><code class="language-js">vanX.stateFields(obj) =&gt; &lt;an object for all underlying state fields of obj&gt;</code></td></tr><tr><td><b>Description</b></td><td>Given a reactive object <code class="symbol">obj</code>, returns an object for all the underlying state fields of <code class="symbol">obj</code>. For instance, if <code class="symbol">obj</code> is <code class="language-js">{a: 1, b: 2}</code>, <code class="language-js">{a: van.state(1), b: van.state(2)}</code> will be returned.</td></tr><tr><td><b>Parameters</b></td><td><ul><li><b><code class="symbol">obj</code></b> - The input reactive object.</li></ul></td></tr><tr><td><b>Returns</b></td><td>An object for all the underlying state fields of <code class="symbol">obj</code>.</td></tr></tbody></table>
 
 ### [Get the raw field value without registering the dependency](#get-the-raw-field-value)
 
@@ -4042,21 +3754,7 @@ Note that, `vanX.raw` can access deeply nested fields without registering the de
 
 #### [API reference: `vanX.raw`](#api-raw)
 
-**Signature**
-
-`vanX.raw(obj) => <an object for getting the field values of obj without registering the dependency>`
-
-**Description**
-
-Given a reactive object `obj`, returns an object whose field values equal to the field values of `obj`, but accessing its fields won't register the dependency.
-
-**Parameters**
-
-*   **`obj`** - The input reactive object.
-
-**Returns**
-
-An object with which you can get the field values of `obj` without registering the dependency.
+<table><tbody><tr><td><b>Signature</b></td><td><code class="language-js">vanX.raw(obj) =&gt; &lt;an object for getting the field values of obj without registering the dependency&gt;</code></td></tr><tr><td><b>Description</b></td><td>Given a reactive object <code class="symbol">obj</code>, returns an object whose field values equal to the field values of <code class="symbol">obj</code>, but accessing its fields won't register the dependency.</td></tr><tr><td><b>Parameters</b></td><td><ul><li><b><code class="symbol">obj</code></b> - The input reactive object.</li></ul></td></tr><tr><td><b>Returns</b></td><td>An object with which you can get the field values of <code class="symbol">obj</code> without registering the dependency.</td></tr></tbody></table>
 
 ### [Add reactivity to existing JavaScript classes](#add-reactivity-to-existing-javascript-classes)
 
@@ -4120,21 +3818,7 @@ Below is the whole example that illustrates how `vanX.noreactive` helps a reacti
 
 #### [API reference: `vanX.noreactive`](#api-noreactive)
 
-**Signature**
-
-`vanX.noreactive(obj) => <the object exempted from reactivity conversion>`
-
-**Description**
-
-Marks an object so that it won't be converted into a reactive object.
-
-**Parameters**
-
-*   **`obj`** - The input object which you want to exempt from being converted into a reactive object.
-
-**Returns**
-
-The object exempted from reactivity conversion.
+<table><tbody><tr><td><b>Signature</b></td><td><code class="language-js">vanX.noreactive(obj) =&gt; &lt;the object exempted from reactivity conversion&gt;</code></td></tr><tr><td><b>Description</b></td><td>Marks an object so that it won't be converted into a reactive object.</td></tr><tr><td><b>Parameters</b></td><td><ul><li><b><code class="symbol">obj</code></b> - The input object which you want to exempt from being converted into a reactive object.</li></ul></td></tr><tr><td><b>Returns</b></td><td>The object exempted from reactivity conversion.</td></tr></tbody></table>
 
 ### [A comprehensive example](#a-comprehensive-example)
 
@@ -4193,28 +3877,7 @@ In addition, for `Array`\-based input `items`, you can call `[shift](https://dev
 
 #### [API Reference: `vanX.list`](#api-list)
 
-**Signature**
-
-`vanX.list(container, items, itemFunc) => <the root element of the created DOM tree>`
-
-**Description**
-
-Creates a DOM tree for a list of UI elements based on the input reactive object `items`.
-
-**Parameters**
-
-*   **`container`** - Can be a [tag function](/tutorial#api-tags) or a DOM element for the container element of the list of UI elements.
-    *   If `container` is a tag function, such as `van.tags.ul` it means we want to create a `<ul>` element as the container of the list. Indeed, any function that returns a DOM element can be passed as the `container` argument.
-    *   _(requires **VanX** [0.4.0](https://github.com/vanjs-org/van/discussions/292) or later)_ If `container` is a DOM element, it will be used directly as the container of the list. Usually, this is useful to specify the container element with some customized property values, such as `div({class: "item-list"})` for `<div class="item-list">`.
-*   **`items`** - A reactive object that holds the data for the list. Can be an `Array` (for non-keyed input) or a plain object (for keyed input).
-*   **`itemFunc`** - The function (`(v, deleter, k) => Node`) that is used to generate the UI element (or rarely, text node) for each list item. The function takes the following parameters:
-    *   `v` - A `State` object corresponding to each list item. You can directly use it as a `State`\-based [property](/tutorial#state-typed-prop) / [child node](/tutorial#state-typed-child), read its value for building the UI element, and/or set its value in some event handlers.
-    *   `deleter` - a function (`() => void`) that can be used in the event handler to delete the entire item. Typically the `deleter` function can be used as the `onclick` handler of a deletion button.
-    *   `k` - _(requires **VanX** 0.2.0 or later)_ the key of the corresponding list item, which is the index if `items` is an `Array` or the property key if `items` is a plain object.
-
-**Returns**
-
-The root element of the created DOM tree.
+<table><tbody><tr><td><b>Signature</b></td><td><code class="language-js">vanX.list(container, items, itemFunc) =&gt; &lt;the root element of the created DOM tree&gt;</code></td></tr><tr><td><b>Description</b></td><td>Creates a DOM tree for a list of UI elements based on the input reactive object <code class="symbol">items</code>.</td></tr><tr><td><b>Parameters</b></td><td><ul><li><b><code class="symbol">container</code></b> - Can be a <a href="/tutorial#api-tags" class="w3-hover-opacity">tag function</a> or a DOM element for the container element of the list of UI elements.<ul><li>If <code class="symbol">container</code> is a tag function, such as <code class="language-js">van.tags.ul</code> it means we want to create a <code class="language-html">&lt;ul&gt;</code> element as the container of the list. Indeed, any function that returns a DOM element can be passed as the <code class="symbol">container</code> argument.</li><li><i>(requires <b>VanX</b> <a href="https://github.com/vanjs-org/van/discussions/292" class="w3-hover-opacity">0.4.0</a> or later)</i> If <code class="symbol">container</code> is a DOM element, it will be used directly as the container of the list. Usually, this is useful to specify the container element with some customized property values, such as <code class="language-js">div({class: "item-list"})</code> for <code class="language-html">&lt;div class="item-list"&gt;</code>.</li></ul></li><li><b><code class="symbol">items</code></b> - A reactive object that holds the data for the list. Can be an <code class="symbol">Array</code> (for non-keyed input) or a plain object (for keyed input).</li><li><b><code class="symbol">itemFunc</code></b> - The function (<code class="language-js">(v, deleter, k) =&gt; Node</code>) that is used to generate the UI element (or rarely, text node) for each list item. The function takes the following parameters:<ul><li><code class="symbol">v</code> - A <code class="symbol">State</code> object corresponding to each list item. You can directly use it as a <code class="symbol">State</code>-based <a href="/tutorial#state-typed-prop" class="w3-hover-opacity">property</a> / <a href="/tutorial#state-typed-child" class="w3-hover-opacity">child node</a>, read its value for building the UI element, and/or set its value in some event handlers.</li><li><code class="symbol">deleter</code> - a function (<code class="language-js">() =&gt; void</code>) that can be used in the event handler to delete the entire item. Typically the <code class="symbol">deleter</code> function can be used as the <code class="symbol">onclick</code> handler of a deletion button.</li><li><code class="symbol">k</code> - <i>(requires <b>VanX</b> 0.2.0 or later)</i> the key of the corresponding list item, which is the index if <code class="symbol">items</code> is an <code class="symbol">Array</code> or the property key if <code class="symbol">items</code> is a plain object.</li></ul></li></ul></td></tr><tr><td><b>Returns</b></td><td>The root element of the created DOM tree.</td></tr></tbody></table>
 
 ### [A simplified TODO App](#a-simplified-todo-app)
 
@@ -4304,24 +3967,7 @@ In addition to updating the `items` object one item at a time, we also provide t
 
 #### [API reference: `vanX.replace`](#api-replace)
 
-**Signature**
-
-`vanX.replace(obj, replacement) => obj`
-
-**Description**
-
-Updates the reactive object `obj` and UI elements bound to it based on the data provided by `replacement`.
-
-**Parameters**
-
-*   **`obj`** - The reactive object that you want to update.
-*   **`replacement`** - Can be a plain array / object, or a function.
-    *   _(requires **VanX** [0.4.0](https://github.com/vanjs-org/van/discussions/292) or later)_ If `replacement` is a plain array / object, directly update `obj` with the values provided in `replacement`.
-    *   If `replacement` is a function, it will take the current values of `obj` as input and returns the new values of the update. The input parameter of the function depends on the type of `obj`. If `obj` is an array (for non-keyed data), `replacement` will take its values as an array (after eliminating [holes](#holes-in-the-array)) and return the updated values as another array. If `obj` is a plain object (for keyed data), `replacement` will take its values as an array of key value pairs (the data you would get with `Object.entries(items)`) and return the updated values as another array of key value pairs.
-
-**Returns**
-
-`obj`
+<table><tbody><tr><td><b>Signature</b></td><td><code class="language-js">vanX.replace(obj, replacement) =&gt; obj</code></td></tr><tr><td><b>Description</b></td><td>Updates the reactive object <code class="symbol">obj</code> and UI elements bound to it based on the data provided by <code class="symbol">replacement</code>.</td></tr><tr><td><b>Parameters</b></td><td><ul><li><b><code class="symbol">obj</code></b> - The reactive object that you want to update.</li><li><b><code class="symbol">replacement</code></b> - Can be a plain array / object, or a function.<ul><li><i>(requires <b>VanX</b> <a href="https://github.com/vanjs-org/van/discussions/292" class="w3-hover-opacity">0.4.0</a> or later)</i> If <code class="symbol">replacement</code> is a plain array / object, directly update <code class="symbol">obj</code> with the values provided in <code class="symbol">replacement</code>.</li><li>If <code class="symbol">replacement</code> is a function, it will take the current values of <code class="symbol">obj</code> as input and returns the new values of the update. The input parameter of the function depends on the type of <code class="symbol">obj</code>. If <code class="symbol">obj</code> is an array (for non-keyed data), <code class="symbol">replacement</code> will take its values as an array (after eliminating <a href="#holes-in-the-array" class="w3-hover-opacity">holes</a>) and return the updated values as another array. If <code class="symbol">obj</code> is a plain object (for keyed data), <code class="symbol">replacement</code> will take its values as an array of key value pairs (the data you would get with <code class="language-js">Object.entries(items)</code>) and return the updated values as another array of key value pairs.</li></ul></li></ul></td></tr><tr><td><b>Returns</b></td><td><code class="language-ts">obj</code></td></tr></tbody></table>
 
 ⚠️ **Caveat**: [Calculated fields](#calculated-fields) are not allowed in `obj` and `replacement`.
 
@@ -4525,21 +4171,7 @@ You can serialize the entire app state into a single string, via `JSON.stringify
 
 #### [API reference: `vanX.compact`](#api-compact)
 
-**Signature**
-
-`vanX.compact(obj) => <a new object with holes in all arrays eliminated>`
-
-**Description**
-
-Traverse the entire object tree of the input reactive object `obj` and returns a new object with holes in all encountered arrays eliminated. The input object `obj` remains unchanged.
-
-**Parameters**
-
-*   **`obj`** - The input reactive object.
-
-**Returns**
-
-A new object with holes eliminated.
+<table><tbody><tr><td><b>Signature</b></td><td><code class="language-js">vanX.compact(obj) =&gt; &lt;a new object with holes in all arrays eliminated&gt;</code></td></tr><tr><td><b>Description</b></td><td>Traverse the entire object tree of the input reactive object <code class="symbol">obj</code> and returns a new object with holes in all encountered arrays eliminated. The input object <code class="symbol">obj</code> remains unchanged.</td></tr><tr><td><b>Parameters</b></td><td><ul><li><b><code class="symbol">obj</code></b> - The input reactive object.</li></ul></td></tr><tr><td><b>Returns</b></td><td>A new object with holes eliminated.</td></tr></tbody></table>
 
 [API Index](#api-index)
 -----------------------

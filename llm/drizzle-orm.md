@@ -1,4 +1,4 @@
-drizzle-orm version: 0.43.1, last updated: 2025-05-21T10:58:23.686Z
+drizzle-orm version: 0.43.1, last updated: 2025-05-25T14:47:55.082Z
 
 Get started with Drizzle
 ========================
@@ -410,6 +410,5862 @@ Sam Meech-Ward
 
 
 ](https://driz.link/yt/-JnEuvPmt-Q)
+
+meet drizzle
+
+[Get started](/docs/get-started) [Why Drizzle?](/docs/overview) [Guides](/docs/guides) [Tutorials](/docs/tutorials) [Latest releases](/docs/latest-releases) [Gotchas](/docs/gotchas)
+
+Fundamentals
+
+[Schema](/docs/sql-schema-declaration) [Database connection](/docs/connect-overview) [Query data](/docs/data-querying) [Migrations](/docs/migrations)
+
+Connect
+
+[PostgreSQL](/docs/get-started-postgresql) [Gel](/docs/get-started-gel) [MySQL](/docs/get-started-mysql) [SQLite](/docs/get-started-sqlite) [SingleStore](/docs/get-started-singlestore)
+
+[Neon](/docs/connect-neon) [Vercel Postgres](/docs/connect-vercel-postgres) [Supabase](/docs/connect-supabase) [Xata](/docs/connect-xata) [PGLite](/docs/connect-pglite) [Nile](/docs/connect-nile) [Bun SQL](/docs/connect-bun-sql)
+
+[PlanetScale](/docs/connect-planetscale) [TiDB](/docs/connect-tidb)
+
+[Turso](/docs/connect-turso) [Cloudflare D1](/docs/connect-cloudflare-d1) [Bun SQLite](/docs/connect-bun-sqlite) [Cloudflare Durable Objects](/docs/connect-cloudflare-do)
+
+[Expo SQLite](/docs/connect-expo-sqlite) [OP SQLite](/docs/connect-op-sqlite) [React Native SQLite](/docs/connect-react-native-sqlite)
+
+[AWS Data API Postgres](/docs/connect-aws-data-api-pg) [AWS Data API MySQL](/docs/connect-aws-data-api-mysql)
+
+[Drizzle Proxy](/docs/connect-drizzle-proxy)
+
+Expand
+
+Manage schema
+
+Data types [Indexes & Constraints](/docs/indexes-constraints) [Sequences](/docs/sequences) [Views](/docs/views) [Schemas](/docs/schemas) [Row-Level Security (RLS)](/docs/rls) Extensions [Relations](/docs/relations)
+
+Migrations
+
+[Overview](/docs/kit-overview) [`generate`](/docs/drizzle-kit-generate) [`migrate`](/docs/drizzle-kit-migrate) [`push`](/docs/drizzle-kit-push) [`pull`](/docs/drizzle-kit-pull) [`export`](/docs/drizzle-kit-export) [`check`](/docs/drizzle-kit-check) [`up`](/docs/drizzle-kit-up) [`studio`](/docs/drizzle-kit-studio) [Custom migrations](/docs/kit-custom-migrations) [Migrations for teams](/docs/kit-migrations-for-teams) [Web and mobile](/docs/kit-web-mobile) [drizzle.config.ts](/docs/drizzle-config-file)
+
+Seeding
+
+[Overview](/docs/seed-overview) [Generators](/docs/seed-functions) [Versioning](/docs/seed-versioning)
+
+Access your data
+
+[Query](/docs/rqb) [Select](/docs/select) [Insert](/docs/insert) [Update](/docs/update) [Delete](/docs/delete) [Filters](/docs/operators) [Utils](/docs/query-utils) [Joins](/docs/joins) [Magic sql\`\` operator](/docs/sql)
+
+Performance
+
+[Queries](/docs/perf-queries) [Serverless](/docs/perf-serverless)
+
+Advanced
+
+[Set Operations](/docs/set-operations) [Generated Columns](/docs/generated-columns) [Transactions](/docs/transactions) [Batch](/docs/batch-api) [Cache](/docs/cache) [Dynamic query building](/docs/dynamic-query-building) [Read Replicas](/docs/read-replicas) [Custom types](/docs/custom-types) [Goodies](/docs/goodies)
+
+Extensions
+
+[Prisma](/docs/prisma) [ESLint Plugin](/docs/eslint-plugin) [drizzle-zod](/docs/zod) [drizzle-typebox](/docs/typebox) [drizzle-valibot](/docs/valibot) [drizzle-arktype](/docs/arktype) [drizzle-graphql](/docs/graphql)
+
+System Light Dark
+
+[
+
+Become a Sponsor
+
+](https://driz.link/sponsor)[
+
+Twitter
+
+](https://mobile.twitter.com/DrizzleORM)[
+
+Discord
+
+](https://discord.gg/yfjTbVXMW4)
+
+ORM for you to settleship ship ship
+
+JavaScript
+
+TypeScript
+
+[
+
+Get Started
+
+](/docs/get-started)[
+
+Documentation
+
+](/docs/overview)
+
+Search Docs
+
+Ask Docs
+
+0000
+
+23
+
+Play
+
+Normal
+
+powered by [3310snake.com](https://3310snake.com/)
+
+We ship decently fast
+---------------------
+
+### Drizzle Team and Active Contributors
+
+Andrew Sherman
+
+Dan Kochetov
+
+Alex Blokh
+
+Mykhailo Stratovych
+
+Roman Nabukhotnyi
+
+Vladislav Stohnii
+
+Serhii Reka
+
+Oleksii Khomenko
+
+Artem Odiiko
+
+Vitalii Staryk
+
+angelelz
+
+rphlmr
+
+mario564
+
+Simon Sardorf
+
+[
+
+v1.0 release
+
+75%
+
+](/roadmap)
+
+June 2024
+
+July 2024
+
+*   We've had podcast on [syntax.fm](https://www.youtube.com/watch?v=Hh9xqRWYEJs) 🎙️ Drizzle <> Sytnax merch drop - [see here](https://x.com/DrizzleORM/status/1815793307877871912)
+    
+*   **ORM [v0.32.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.32.1) release**
+    
+    *   improved indexes API and typings
+    *   support for limit 0
+    *   array and notInArray accept empty \[\]
+    
+*   **Community highlights** • [drizzle.run](https://drizzle.run) ships [schema visualizer](https://drizzle.run/visualizer) 👀 • [sst dev](https://x.com/thdxr/status/1818439495361937781) & drizzle studio update • [Hono + Drizzle](https://github.com/rhinobase/honohub) headless CMS • TypeScript based [down migrations](https://github.com/drepkovsky/drizzle-migrations)
+    
+*   **Drizzle Kit goes open-source 🎉** • 2hrs release stream on Jul 30th • added programmatic access • [v0.23.1 release](https://github.com/drizzle-team/drizzle-kit-mirror/releases/tag/v0.23.1) with bugfixes
+    
+*   **Landing page update 🎉** • our team is 10 devs, now you know • showcase active contributors • TypeScript and JavaScript mention • v1.0 release timeline with a roadmap! • calendar section for our iterations • quick access docs search and ask ai • snake game board 🐍
+    
+*   added [announcments](/announcements) page
+    
+*   **Updated tutorials:** • [Drizzle <> Vercel Postgres](/docs/tutorials/drizzle-with-vercel) • [Drizzle <> Turso](/docs/tutorials/drizzle-with-turso) • [Drizzle <> Neon Postgres](/docs/tutorials/drizzle-with-neon) • [Todo App with Neon Postgres](/docs/tutorials/drizzle-nextjs-neon)
+    
+
+August 2024
+
+*   [**Drizzle Gateway**](https://x.com/DrizzleORM/status/1820462321942036749) closed alpha release 🎉
+    
+*   [**Brocli**](https://github.com/drizzle-team/brocli) - our new open-source library 👀
+    
+*   [Snake Game](https://3310snake.com/) released 🎉 have some fun we've had a lot of fun
+    
+*   **Kit [v0.24.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.24.0) release** **Breaking changes:**
+    
+    *   Fixed [Composite primary key order is not consistent](https://github.com/drizzle-team/drizzle-kit-mirror/issues/342) by removing `sort` in SQLite
+    
+    **Bug fixes:**
+    
+    *   [\[BUG\] When using double type columns, import is not inserted](https://github.com/drizzle-team/drizzle-kit-mirror/issues/403)
+    *   [\[BUG\] A number value is specified as the default for a column of type char](https://github.com/drizzle-team/drizzle-kit-mirror/issues/404)
+    *   [\[BUG\]: Array default in migrations are wrong](https://github.com/drizzle-team/drizzle-orm/issues/2621)
+    *   [\[FEATURE\]: Simpler default array fields](https://github.com/drizzle-team/drizzle-orm/issues/2709)
+    *   [\[BUG\]: drizzle-kit generate succeeds but generates invalid SQL for default(\[\]) - Postgres](https://github.com/drizzle-team/drizzle-orm/issues/2432)
+    *   [\[BUG\]: Incorrect type for array column default value](https://github.com/drizzle-team/drizzle-orm/issues/2334)
+    *   [\[BUG\]: error: column is of type integer\[\] but default expression is of type integer](https://github.com/drizzle-team/drizzle-orm/issues/2224)
+    *   [\[BUG\]: Default value in array generating wrong migration file](https://github.com/drizzle-team/drizzle-orm/issues/1003)
+    *   [\[BUG\]: enum as array, not possible?](https://github.com/drizzle-team/drizzle-orm/issues/1564)
+    
+*   **ORM [v0.33.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.33.0) release** **Breaking changes:**
+    
+    *   [\[BUG\]: jsonb always inserted as a json string when using postgres-js](https://github.com/drizzle-team/drizzle-orm/issues/724)
+    *   [\[BUG\]: jsonb type on postgres implement incorrectly](https://github.com/drizzle-team/drizzle-orm/issues/1511)
+    
+    **Bug fixes:**
+    
+    *   [\[BUG\]: boolean mode not working with prepared statements (bettersqlite)](https://github.com/drizzle-team/drizzle-orm/issues/2568)
+    *   [\[BUG\]: isTable helper function is not working](https://github.com/drizzle-team/drizzle-orm/issues/2672)
+    *   [\[BUG\]: Documentation is outdated on inArray and notInArray Methods](https://github.com/drizzle-team/drizzle-orm/issues/2690)
+    
+*   **Kit [v0.23.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.23.2) release**
+    
+    *   fixed a bug in PostgreSQL with push and introspect where the `**schemaFilter**` object was passed. It was detecting enums even in schemas that were not defined in the **`schemaFilter`**.
+    *   fixed the `**drizzle-kit up**` command to work as expected, starting from the sequences release
+    
+*   **ORM [v0.32.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.32.2) release**
+    
+    *   fix AWS Data API type hints bugs in RQB
+    *   fix set transactions in MySQL bug
+    *   add forwaring dependencies within useLiveQuery, fixes [#2651](https://github.com/drizzle-team/drizzle-orm/issues/2651)
+    *   export additional types from SQLite package, like `AnySQLiteUpdate`
+    
+*   **Updated tutorials:** • [Drizzle with Supabase Database](/docs/tutorials/drizzle-with-supabase) • [Drizzle with Vercel Edge Functions](/docs/tutorials/drizzle-with-vercel-edge-functions)
+    
+*   We've updated [benchmarks](https://x.com/DrizzleORM/status/1826693369357369712) 🚀
+    
+
+September 2024
+
+*   Some Tweets
+    
+
+October 2024
+
+*   **ORM [v0.36.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.0) release** **Row-Level Security Support for PostgreSQL**
+    
+    *   Manage roles
+    *   Manage policies
+    *   Enable RLS for tables
+    *   Enable RLS for views!
+    *   Special import `drizzle-orm/neon` for `Neon`
+    *   Special import `drizzle-orm/supabase` for `Supabase`
+    
+*   **Kit [v0.27.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.0) release** **Row-Level Security Support for PostgreSQL**
+    
+    *   Manage roles
+    *   Manage policies
+    *   Enable RLS for tables
+    *   Enable RLS for views!
+    *   Special import `drizzle-orm/neon` for `Neon`
+    *   Special import `drizzle-orm/supabase` for `Supabase`
+    
+*   Documentation site restructure and improvements
+    
+    *   New "Get Started" section
+    *   New "Fundamentals" section
+    *   "Connect" is now flat and has proper navigation
+    *   The Kit section is gone, and you now have a "Migrations" section with full information about the Kit
+    *   Updated UI
+    *   Content restructuring
+    *   And more
+    
+*   **ORM [v0.34.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.34.0) release** **Breaking changes:**
+    
+    *   Added new dialect "Turso" that needs a newer libsql version
+    
+    **Features:**
+    
+    *   LibSQL/Turso and SQLite migration updates
+    *   SQLite "generate" and "push" statement updates
+    *   LibSQL/Turso "generate" and "push" statement updates
+    *   New `casing` param in `drizzle-orm`
+    *   Monodriver: A new and easy way to start using Drizzle
+    *   Schema improvements: Optional names for columns and callback in Drizzle table
+    *   New "count" API
+    *   Ability to execute raw strings
+    *   Exposed db.$client
+    
+*   **Kit [v0.25.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.25.0) release** **Breaking changes:**
+    
+    *   Added new dialect "Turso" that needs a newer libsql version
+    
+    **Features:**
+    
+    *   LibSQL/Turso and SQLite migration updates
+    *   SQLite "generate" and "push" statement updates
+    *   LibSQL/Turso "generate" and "push" statement updates
+    *   New `casing` param in `drizzle-kit`
+    
+
+November 2024
+
+*   **🎉 OneDollarStats is now available in Open Alpha release!** [OneDollarStats](https://onedollarstats.com/) is a $1 per month web analytics built by Drizzle Team
+    
+*   **🎉 New `drizzle-seed` package is now available** For more info check our [seed documentation](https://orm.drizzle.team/docs/seed-overview)
+    
+*   **ORM [v0.36.4](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.4) release**
+    
+    *   Added .$withAuth() API for Neon HTTP driver
+    *   Added OVERRIDING SYSTEM VALUE api to db.insert()
+    
+*   **ORM [v0.36.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.3) release**
+    
+    *   Support for UPDATE ... FROM in PostgreSQL and SQLite
+    *   Support for INSERT INTO ... SELECT in all dialects
+    
+*   **Kit [v0.28.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.28.1) release** and **ORM [v0.36.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.2) release**
+    
+    *   Support more types in like, notLike, ilike and notIlike expressions
+    *   Fixed typos in repository: thanks @armandsalle, @masto, @wackbyte, @Asher-JH, @MaxLeiter
+    *   fix: wrong dialect set in mysql/sqlite introspect
+    *   Fixed .generated behavior with non-strict tsconfig
+    *   Fix Drizzle ORM for expo-sqlite
+    *   Fixed lack of schema name on columns in sql
+    *   fix: Adjust neon http driver entity kind
+    *   Export PgIntegerBuilderInitial type
+    *   \[MySQL\] Correct $returningId() implementation to correctly store selected fields
+    
+*   **Kit [v0.28.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.28.0) release** and **ORM [v0.36.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.1) release**
+    
+    *   Added an OHM static imports checker to identify unexpected imports within a chain of imports in the drizzle-kit repo. For example, it checks if drizzle-orm is imported before drizzle-kit and verifies if the drizzle-orm import is available in your project.
+    *   Adding more columns to Supabase auth.users table schema
+    
+    **Bug Fixes***   \[BUG\]: Using sql.placeholder with limit and/or offset for a prepared statement produces TS error
+    *   \[BUG\] If a query I am trying to modify with a dynamic query (....$dynamic()) contains any placeholders, I'm getting an error that says No value for placeholder.... provided
+    *   \[BUG\]: Error thrown when trying to insert an array of new rows using generatedAlwaysAsIdentity() for the id column
+    *   \[BUG\]: Unable to Use BigInt Types with Bun and Drizzle
+    *   \[BUG\]: \[drizzle-kit\]: Fix breakpoints option cannot be disabled
+    *   \[BUG\]: drizzle-kit introspect: SMALLINT import missing and incorrect DECIMAL UNSIGNED handling
+    *   Unsigned tinyints preventing migrations
+    *   \[BUG\]: Can't parse float(8,2) from database (precision and scale and/or unsigned breaks float types)
+    *   \[BUG\]: PgEnum generated migration doesn't escape single quotes
+    *   \[BUG\]: single quote not escaped correctly in migration file
+    *   \[BUG\]: Migrations does not escape single quotes
+    *   \[BUG\]: Issue with quoted default string values
+    *   \[BUG\]: SQl commands in wrong roder
+    *   \[BUG\]: Time with precision in drizzle-orm/pg-core adds double-quotes around type
+    *   \[BUG\]: Postgres push fails due to lack of quotes
+    *   \[BUG\]: TypeError: Cannot read properties of undefined (reading 'compositePrimaryKeys')
+    *   \[BUG\]: drizzle-kit introspect generates CURRENT\_TIMESTAMP without sql operator on date column
+    *   \[BUG\]: Drizzle-kit introspect doesn't pull correct defautl statement
+    *   \[BUG\]: Problem on MacBook - This statement does not return data. Use run() instead
+    *   \[BUG\]: Enum column names that are used as arrays are not quoted
+    *   \[BUG\]: drizzle-kit generate ignores index operators
+    *   dialect param config error message is wrong
+    *   \[BUG\]: Error setting default enum field values
+    *   \[BUG\]: drizzle-kit does not respect the order of columns configured in primaryKey()
+    *   \[BUG\]: Cannot drop Unique Constraint MySQL
+    
+*   **Kit [v0.27.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.2) release**
+    
+    *   Fix \[BUG\]: Undefined properties when using drizzle-kit push
+    *   Fix TypeError: Cannot read properties of undefined (reading 'isRLSEnabled')
+    *   Fix push bugs, when pushing a schema with linked policy to a table from drizzle-orm/supabase
+    
+*   **Kit [v0.27.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.1) release**
+    
+    *   Fix: \[BUG\]: When using RLS policies and Views, the view is the last clause generated
+    
+
+December 2024
+
+*   **drizzle-seed [v0.3.0](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.3.0.md) release**
+    
+    *   The seed function can now accept Drizzle Relations objects and treat them as foreign key constraints
+    
+*   **ORM [v0.38.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.3) release**
+    
+    *   Fix incorrect deprecation detection for table declarations
+    *   SingleStore dialect support for all validator packages
+    
+*   **drizzle-seed [v0.2.1](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.2.1.md) release**
+    
+    *   We are introducing a new parameter, version, to the seed function options. This parameter, which controls generator versioning, has been added to make it easier to update deterministic generators in the future.
+    *   interval unique generator was changed and upgraded to v2
+    *   string generators were changed and upgraded to v2
+    
+*   **ORM [v0.38.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.2) release**
+    
+    *   New features for MySQL users: USE INDEX, FORCE INDEX and IGNORE INDEX for MySQL
+    
+*   **Kit [v0.30.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.1) release**
+    
+    *   New command: drizzle-kit export
+    
+*   **drizzle-seed [v0.1.3](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.1.3.md) release**
+    
+    *   Added support for postgres uuid columns
+    *   Added support for postgres array columns
+    *   Added support for cyclic tables. You can now seed tables with cyclic relations.
+    
+    **Bug Fixes***   \[BUG\]: reset fails with a syntax error if using a - in pgTableCreator to prefix tables
+    *   seeding a table with columns that have .default(sql\`\`) will result in an error
+    
+*   ORM bug fixes
+    
+    *   \[FEATURE\]: publish packages un-minified
+    *   Don't allow unknown keys in drizzle-zod refinement
+    *   \[BUG\]:drizzle-zod not working with pgSchema
+    *   Add createUpdateSchema to drizzle-zod
+    *   \[BUG\]:drizzle-zod produces wrong type
+    *   \[BUG\]:Drizzle-zod:Boolean and Serial types from Schema are defined as enum when using CreateInsertSchema and CreateSelectSchema
+    *   \[BUG\]: Drizzle typebox enum array wrong schema and type
+    *   \[BUG\]:drizzle-zod not working with pgSchema
+    *   \[BUG\]: drizzle-zod not parsing arrays correctly
+    *   \[BUG\]: Drizzle typebox not supporting array
+    *   \[FEATURE\]: Export factory functions from drizzle-zod to allow usage with extended Zod classes
+    *   \[FEATURE\]: Add support for new pipe syntax for drizzle-valibot
+    *   \[BUG\]: drizzle-zod's createInsertSchema() can't handle column of type vector
+    *   \[BUG\]: drizzle-typebox fails to map geometry column to type-box schema
+    *   \[BUG\]: drizzle-valibot does not provide types for returned schemas
+    *   \[BUG\]: Drizzle-typebox types SQLite real field to string
+    *   \[BUG\]: drizzle-zod: documented usage generates type error with exactOptionalPropertyTypes
+    *   \[BUG\]: drizzle-zod does not respect/count db type range
+    *   \[BUG\]: drizzle-zod not overriding optional
+    *   \[BUG\]:drizzle-zod doesn't accept custom id value
+    *   \[FEATURE\]: Support for Database Views in Drizzle Zod
+    *   \[BUG\]: drizzle-valibot return type any
+    *   \[BUG\]: drizzle-zod Type generation results in undefined types
+    *   \[BUG\]: GeneratedAlwaysAs
+    *   \[FEATURE\]: $inferSelect on a view
+    *   \[BUG\]:Can't infer props from view in schema
+    
+*   **ORM [v0.38.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.0) release**
+    
+    *   Added new function getViewSelectedFields
+    *   Added $inferSelect function to views
+    *   Added InferSelectViewModel type for views
+    *   Added isView function
+    
+*   **Kit [v0.30.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.0) release** Starting from this update, the PostgreSQL dialect will align with the behavior of all other dialects. It will no longer include IF NOT EXISTS, $DO, or similar statements, which could cause incorrect DDL statements to not fail when an object already exists in the database and should actually fail.
+    
+*   **Kit [v0.29.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.29.0) release** and **ORM [v0.37.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.37.0) release**
+    
+    *   New dialect **SingleStore** is available in Drizzle
+    *   New driver for **Durable Objects SQLite** is available in Drizzle
+    *   \[BUG\]: $with is undefined on withReplicas
+    *   \[BUG\]: Neon serverless driver accepts authToken as a promise, but the $withAuth does not
+    
+
+January
+
+*   **ORM [v0.39.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.39.1) release**
+    
+    *   Fixed SQLite onConflict clauses being overwritten instead of stacked
+    *   Added view support to aliasedTable()
+    *   Fixed sql builder prefixing aliased views and tables with their schema
+    
+*   **Kit [v0.30.4](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.4) release**
+    
+    *   Fix bug that generates incorrect syntax when introspect in mysql
+    *   Fix a bug that caused incorrect syntax output when introspect in unsigned columns
+    
+*   **Bug Fixes***   Allow INSERT in CTEs (WITH clauses)\]
+    *   Support Raw SQL in CTE Query Builder\]
+    *   Include pre-defined database objects related to Neon Identity in drizzle-orm\]
+    *   $count is undefined on withReplicas\]
+    *   get\[Materialized\]ViewName, ie getTableName but for (materialized) views.\]
+    *   $count API error with vercel-postgres\]
+    *   Cannot use schema.coerce on refining drizzle-zod types\]
+    *   Type Coercion in drizzle-zod\]
+    *   The inferred type of X cannot be named without a reference ...
+    *   drizzle-zod excessively deep and possibly infinite types\]
+    
+*   **ORM [v0.39.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.39.0) release**
+    
+    *   You can now use the new Bun SQL driver released in Bun v1.2.0 with Drizzle
+    *   WITH now supports INSERT, UPDATE, DELETE and raw sql template
+    *   New tables in /neon import
+    *   Added getViewName util function
+    
+*   **Kit [v0.30.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.3) release**
+    
+    *   As SingleStore did not support certain DDL statements before this release, you might encounter an error indicating that some schema changes cannot be applied due to a database issue. Starting from this version, drizzle-kit will detect such cases and initiate table recreation with data transfer between the tables
+    
+
+February
+
+*   **Drizzle Studio updates:**
+    
+    *   Added the ability to create/alter tables.
+    *   Added the ability to create/alter views.
+    *   Added the ability to refresh db schema.
+    *   Improved dropdowns.
+    *   Improved style customization.
+    *   Added filter by entity type (table/view).
+    *   Revised dependency tree and reduced bundle size.
+    *   Added database metadata to bug report.
+    *   Added range selection with copy/paste capability.
+    
+*   **ORM [v0.40.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.40.0) release**
+    
+    *   Drizzle is getting a new Gel dialect with its own types and Gel-specific logic. In this first iteration, almost all query-building features have been copied from the PostgreSQL dialect since Gel is fully PostgreSQL-compatible. The only change in this iteration is the data types. The Gel dialect has a different set of available data types, and all mappings for these types have been designed to avoid any extra conversions on Drizzle's side. This means you will insert and select exactly the same data as supported by the Gel protocol.
+    
+*   **Kit [v0.30.5](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.5) release**
+    
+    *   Drizzle is getting a new Gel dialect with its own types and Gel-specific logic. Kit is getting new "gel" dialect option
+    
+
+March
+
+*   **ORM [v0.41.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.41.0) release**
+    
+    *   `bigint`, `number` modes for `SQLite`, `MySQL`, `PostgreSQL`, `SingleStore` `decimal` & `numeric` column types
+    *   Changed behavior of `sql-js` query preparation
+    *   Fixed `MySQL`, `SingleStore` `varchar` allowing not specifying `length` in config
+    *   Fixed `MySQL`, `SingleStore` `binary`, `varbinary` data\\\\type mismatches
+    *   Fixed `numeric`\\\\`decimal` data\\\\type mismatches
+    *   Fixed `drizzle-studio` + `AWS Data Api` connection issue
+    *   Fixed `isConfig` utility function checking types of wrong fields
+    *   Enabled `supportBigNumbers` in auto-created `mysql2` driver instances
+    *   Fixed custom schema tables querying in RQBv1
+    *   Removed in-driver mapping for postgres types
+    *   Fixed `SQLite` `buffer`\-mode `blob` sometimes returning `number[]`
+    
+*   **Drizzle Studio updates:**
+    
+    *   Added new setting option for expanding subviews.
+    *   Added date and time pickers.
+    *   New settings option for pagination by page or limit offset.
+    *   Improved error handling for INSERT/UPDATE/DELETE statements in data table.
+    *   Added column type to header cell.
+    *   Added export in xlsx format.
+    *   Added callback on bug report button click.
+    *   Added ability to customize the error page.
+    *   Added css variable for run query button color.
+    *   Fixed issues with rowid.
+    *   Improved SQL console with snippet system.
+    
+*   **ORM [v0.40.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.40.1) release**
+    
+    *   Updates to neon-http for @neondatabase/[\[email protected\]](/cdn-cgi/l/email-protection). Starting from this version, drizzle-orm will be compatible with both @neondatabase/serverless <1.0 and >1.0
+    
+
+April
+
+this month
+
+Performance
+
+Drizzle doesn't slow you down
+
+[](/benchmarks)
+
+[Go to benchmark results](/benchmarks)
+
+Drizzle
+
+v0.33.0
+
+Bun v1.1.25
+
+Bun v1.1.25Node 22.6.0 (Current)Node v20.16.0 (LTS)Node v18.20.4 (LTS)
+
+Prisma
+
+v5.18.0
+
+Bun v1.1.25
+
+Bun v1.1.25Node 22.6.0 (Current)Node v20.16.0 (LTS)Node v18.20.4 (LTS)
+
+QueriesJoins
+
+avg latency: 0.0ms
+
+avg latency: 0.0ms
+
+avg: 0 req/sec
+
+Failed requests
+
+Drizzle handled xNaN more requests
+
+0
+
+avg: 0 req/sec
+
+Failed requests
+
+Drizzle handled xNaN more requests
+
+0
+
+avg CPU load: 0.0%
+
+avg CPU load: 0.0%
+
+[Go to benchmark results](/benchmarks)
+
+Live on the edge
+
+We support every major serverful and serverless runtime
+
+Cloudflare Workers
+
+Supabase functions
+
+Vercel functions
+
+Deno deploy
+
+Bun
+
+Lagon
+
+Fly.io
+
+ElectronJS
+
+Expo
+
+React Native
+
+Browser
+
+Connect to any database
+
+We support all platform-specific, tcp, http and websocket based drivers
+
+[
+
+our sponsor
+
+Gel
+
+](https://driz.link/edgedb)
+
+PlanetScale
+
+[
+
+our sponsor
+
+Neon
+
+](https://driz.link/neon)
+
+Vercel Postgres
+
+[
+
+our sponsor
+
+Turso
+
+](https://driz.link/turso)
+
+Supabase
+
+[
+
+our sponsor
+
+Xata
+
+](https://driz.link/xataio)
+
+PostgreSQL
+
+[
+
+our sponsor
+
+TiDB
+
+](https://driz.link/silver-sponsor-tidb)
+
+MySQL
+
+[
+
+our sponsor
+
+Tembo
+
+](https://driz.link/tembo)
+
+LiteFS
+
+[
+
+our sponsor
+
+SQLite Cloud
+
+](https://driz.link/sqlitecloud)
+
+SQLite
+
+[
+
+our sponsor
+
+SingleStore
+
+](https://driz.link/singlestore)
+
+Web SQLite
+
+[
+
+not yet sponsor
+
+Prisma Postgres
+
+](https://driz.link/rickroll)
+
+Drizzle Studio
+
+Explore and manipulate your data
+
+[Documentation](/drizzle-studio/overview) [Live demo](https://demo.drizzle.studio)
+
+Our Sponsors
+
+You help us build a better future
+
+[Become a sponsor](https://driz.link/sponsor)
+
+Pricing
+
+Just kidding, Drizzle is free and open-source  
+You can still make your contribution!
+
+[Give us a star](https://github.com/drizzle-team/drizzle-orm) [Subscribe on Twitter](https://mobile.twitter.com/DrizzleORM) [Join our community](https://discord.gg/yfjTbVXMW4)
+
+Buy us some ramen 🍜
+
+[Become a sponsor](https://driz.link/sponsor)
+
+Developers love Drizzle ORM!
+
+[
+
+Dax
+
+@thdxr
+
+I hate Drizzle
+
+
+
+
+
+](https://x.com/thdxr/status/1719129834901721353?s=20)[
+
+Anthony Shew
+
+@anthonysheww
+
+I hate @DrizzleOrm so much that I wrote the Auth.js adapter for it.
+
+
+
+
+
+](https://x.com/anthonysheww/status/1688973391917969408?s=20)[
+
+Adam
+
+@adamdotdev
+
+i know this won't get me on the homepage, but @DrizzleORM is so good
+
+
+
+
+
+](https://x.com/adamdotdev/status/1749463315355508917?s=20)
+
+Some Body
+
+@dont\_know
+
+Django had it in 2008
+
+[
+
+Eddy Vinck
+
+@EddyVinckk
+
+I love @DrizzleORM that's it, that's the tweet
+
+
+
+
+
+](https://x.com/EddyVinckk/status/1770052528941478333?s=20)[
+
+Jacob Wolf 🐝
+
+@JacobWolf
+
+I love @DrizzleORM.
+
+
+
+
+
+](https://x.com/JacobWolf/status/1768061278776349151?s=20)[
+
+Theo
+
+@t3dotgg
+
+Drizzle is terrible. It doesn’t even support Mongo.
+
+
+
+
+
+](https://x.com/t3dotgg/status/1787604253860847775)[
+
+Aaron Francis
+
+@aarondfrancis
+
+Y'all should just copy everything Eloquent has
+
+
+
+
+
+](https://x.com/aarondfrancis/status/1641145228189892613?s=20)[
+
+Ofelquis Gimenes
+
+@imfelquis
+
+unpredictable results is what feeds the human race, ban Drizzle now and all this typing gibberish all together
+
+
+
+
+
+](https://x.com/imfelquis/status/1709919386931462516?s=20)[
+
+James Perkins
+
+@james\_r\_perkins
+
+Sorry @DrizzleORM you suck!
+
+
+
+
+
+](https://x.com/james_r_perkins/status/1766156735155196201?s=20)[
+
+tslamoon
+
+@tslamoon1
+
+I'll shave my head if drizzle adds MSSQL support by the end of September.
+
+
+
+
+
+](https://x.com/tslamoon1/status/1700416378237530419?s=20)[
+
+fks
+
+@FredKSchott
+
+Astro DB is powered by Drizzle! ... and we regret everything omg this thing sucks
+
+
+
+
+
+](https://x.com/FredKSchott/status/1767646959656194473?s=20)[
+
+Ray
+
+@\_raynirola
+
+DrizzleOrm is not an "ORM", it's merely a overrated typesafe sql wrapper, not even a query builder.
+
+
+
+
+
+](https://x.com/_raynirola/status/1666028176789872642?s=20)[
+
+SaltyAom
+
+@saltyAom
+
+Prisma Bun: 1.4 MB/s Drizzle Bun: 9.8 MB/s
+
+
+
+
+
+](https://x.com/saltyAom/status/1767783124342276526?s=20)[
+
+Christoffer Bjelke
+
+@chribjel
+
+How many times has this little shit snuck into your dependencies?
+
+
+
+
+
+](https://x.com/chribjel/status/1778851727954837727)[
+
+Roma Zvarych
+
+@hisbvdis
+
+I have finally switched from @prisma to @DrizzleORM. It was not easy. Dear Drizzle Team, you have created an awesome orm with awfull documentation. Anyway, good for you, thanks and good luck.
+
+
+
+
+
+](https://x.com/hisbvdis/status/1807783878515400977)[
+
+Aoki
+
+@aokijs
+
+Honestly, fuck the benchmarks. I don‘t care which one‘s faster. All I can say is that Drizzle made my life working with databases dramastically better and that‘s all that matters for me. Thanks for your hard work 🙏🏻
+
+
+
+
+
+](https://x.com/aokijs/status/1833840766839325109)[
+
+Matija Marohnić
+
+@silvenon
+
+Every time I hear about @DrizzleORM.
+
+
+
+
+
+](https://x.com/silvenon/status/1843003214402314695)[
+
+Joseph Mama 🐀
+
+@spacesexdragon
+
+
+
+](https://x.com/spacesexdragon/status/1843381135134675236)[
+
+Broda Noel
+
+@BrodaNoel
+
+Is this a joke? Because if this is a joke, it's really really really bad joke, because now I'm fucking hating @DrizzleORM without even knowing who they are. I mean, this is not a good marketing strategy if this was a marketing-joke. And if it's actually true, I'll hate them more.
+
+
+
+
+
+](https://x.com/BrodaNoel/status/1913248949252616287)
+
+[
+
+](/)
+
+Headless TypeScript ORM with a head.
+
+[](https://github.com/drizzle-team/drizzle-orm)[](https://discord.gg/yfjTbVXMW4)[](https://twitter.com/DrizzleORM)
+
+Documentation
+
+[Get Started](/docs/overview) [Manage Schema](/docs/sql-schema-declaration) [Access Data](/docs/rqb) [Migrations](/docs/kit-overview)
+
+Resources
+
+[Drizzle Studio](/drizzle-studio/overview) [Benchmarks](/benchmarks)
+
+Learn
+
+[Guides](/docs/guides) [Tutorials](/docs/tutorials) [Latest Releases](/docs/latest-releases)
+
+meet drizzle
+
+[Get started](/docs/get-started) [Why Drizzle?](/docs/overview) [Guides](/docs/guides) [Tutorials](/docs/tutorials) [Latest releases](/docs/latest-releases) [Gotchas](/docs/gotchas)
+
+Fundamentals
+
+[Schema](/docs/sql-schema-declaration) [Database connection](/docs/connect-overview) [Query data](/docs/data-querying) [Migrations](/docs/migrations)
+
+Connect
+
+[PostgreSQL](/docs/get-started-postgresql) [Gel](/docs/get-started-gel) [MySQL](/docs/get-started-mysql) [SQLite](/docs/get-started-sqlite) [SingleStore](/docs/get-started-singlestore)
+
+[Neon](/docs/connect-neon) [Vercel Postgres](/docs/connect-vercel-postgres) [Supabase](/docs/connect-supabase) [Xata](/docs/connect-xata) [PGLite](/docs/connect-pglite) [Nile](/docs/connect-nile) [Bun SQL](/docs/connect-bun-sql)
+
+[PlanetScale](/docs/connect-planetscale) [TiDB](/docs/connect-tidb)
+
+[Turso](/docs/connect-turso) [Cloudflare D1](/docs/connect-cloudflare-d1) [Bun SQLite](/docs/connect-bun-sqlite) [Cloudflare Durable Objects](/docs/connect-cloudflare-do)
+
+[Expo SQLite](/docs/connect-expo-sqlite) [OP SQLite](/docs/connect-op-sqlite) [React Native SQLite](/docs/connect-react-native-sqlite)
+
+[AWS Data API Postgres](/docs/connect-aws-data-api-pg) [AWS Data API MySQL](/docs/connect-aws-data-api-mysql)
+
+[Drizzle Proxy](/docs/connect-drizzle-proxy)
+
+Expand
+
+Manage schema
+
+Data types [Indexes & Constraints](/docs/indexes-constraints) [Sequences](/docs/sequences) [Views](/docs/views) [Schemas](/docs/schemas) [Row-Level Security (RLS)](/docs/rls) Extensions [Relations](/docs/relations)
+
+Migrations
+
+[Overview](/docs/kit-overview) [`generate`](/docs/drizzle-kit-generate) [`migrate`](/docs/drizzle-kit-migrate) [`push`](/docs/drizzle-kit-push) [`pull`](/docs/drizzle-kit-pull) [`export`](/docs/drizzle-kit-export) [`check`](/docs/drizzle-kit-check) [`up`](/docs/drizzle-kit-up) [`studio`](/docs/drizzle-kit-studio) [Custom migrations](/docs/kit-custom-migrations) [Migrations for teams](/docs/kit-migrations-for-teams) [Web and mobile](/docs/kit-web-mobile) [drizzle.config.ts](/docs/drizzle-config-file)
+
+Seeding
+
+[Overview](/docs/seed-overview) [Generators](/docs/seed-functions) [Versioning](/docs/seed-versioning)
+
+Access your data
+
+[Query](/docs/rqb) [Select](/docs/select) [Insert](/docs/insert) [Update](/docs/update) [Delete](/docs/delete) [Filters](/docs/operators) [Utils](/docs/query-utils) [Joins](/docs/joins) [Magic sql\`\` operator](/docs/sql)
+
+Performance
+
+[Queries](/docs/perf-queries) [Serverless](/docs/perf-serverless)
+
+Advanced
+
+[Set Operations](/docs/set-operations) [Generated Columns](/docs/generated-columns) [Transactions](/docs/transactions) [Batch](/docs/batch-api) [Cache](/docs/cache) [Dynamic query building](/docs/dynamic-query-building) [Read Replicas](/docs/read-replicas) [Custom types](/docs/custom-types) [Goodies](/docs/goodies)
+
+Extensions
+
+[Prisma](/docs/prisma) [ESLint Plugin](/docs/eslint-plugin) [drizzle-zod](/docs/zod) [drizzle-typebox](/docs/typebox) [drizzle-valibot](/docs/valibot) [drizzle-arktype](/docs/arktype) [drizzle-graphql](/docs/graphql)
+
+System Light Dark
+
+[
+
+Become a Sponsor
+
+](https://driz.link/sponsor)[
+
+Twitter
+
+](https://mobile.twitter.com/DrizzleORM)[
+
+Discord
+
+](https://discord.gg/yfjTbVXMW4)
+
+ORM for you to settleship ship ship
+
+JavaScript
+
+TypeScript
+
+[
+
+Get Started
+
+](/docs/get-started)[
+
+Documentation
+
+](/docs/overview)
+
+Search Docs
+
+Ask Docs
+
+0000
+
+23
+
+Play
+
+Normal
+
+powered by [3310snake.com](https://3310snake.com/)
+
+We ship decently fast
+---------------------
+
+### Drizzle Team and Active Contributors
+
+Andrew Sherman
+
+Dan Kochetov
+
+Alex Blokh
+
+Mykhailo Stratovych
+
+Roman Nabukhotnyi
+
+Vladislav Stohnii
+
+Serhii Reka
+
+Oleksii Khomenko
+
+Artem Odiiko
+
+Vitalii Staryk
+
+angelelz
+
+rphlmr
+
+mario564
+
+Simon Sardorf
+
+[
+
+v1.0 release
+
+75%
+
+](/roadmap)
+
+June 2024
+
+July 2024
+
+*   We've had podcast on [syntax.fm](https://www.youtube.com/watch?v=Hh9xqRWYEJs) 🎙️ Drizzle <> Sytnax merch drop - [see here](https://x.com/DrizzleORM/status/1815793307877871912)
+    
+*   **ORM [v0.32.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.32.1) release**
+    
+    *   improved indexes API and typings
+    *   support for limit 0
+    *   array and notInArray accept empty \[\]
+    
+*   **Community highlights** • [drizzle.run](https://drizzle.run) ships [schema visualizer](https://drizzle.run/visualizer) 👀 • [sst dev](https://x.com/thdxr/status/1818439495361937781) & drizzle studio update • [Hono + Drizzle](https://github.com/rhinobase/honohub) headless CMS • TypeScript based [down migrations](https://github.com/drepkovsky/drizzle-migrations)
+    
+*   **Drizzle Kit goes open-source 🎉** • 2hrs release stream on Jul 30th • added programmatic access • [v0.23.1 release](https://github.com/drizzle-team/drizzle-kit-mirror/releases/tag/v0.23.1) with bugfixes
+    
+*   **Landing page update 🎉** • our team is 10 devs, now you know • showcase active contributors • TypeScript and JavaScript mention • v1.0 release timeline with a roadmap! • calendar section for our iterations • quick access docs search and ask ai • snake game board 🐍
+    
+*   added [announcments](/announcements) page
+    
+*   **Updated tutorials:** • [Drizzle <> Vercel Postgres](/docs/tutorials/drizzle-with-vercel) • [Drizzle <> Turso](/docs/tutorials/drizzle-with-turso) • [Drizzle <> Neon Postgres](/docs/tutorials/drizzle-with-neon) • [Todo App with Neon Postgres](/docs/tutorials/drizzle-nextjs-neon)
+    
+
+August 2024
+
+*   [**Drizzle Gateway**](https://x.com/DrizzleORM/status/1820462321942036749) closed alpha release 🎉
+    
+*   [**Brocli**](https://github.com/drizzle-team/brocli) - our new open-source library 👀
+    
+*   [Snake Game](https://3310snake.com/) released 🎉 have some fun we've had a lot of fun
+    
+*   **Kit [v0.24.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.24.0) release** **Breaking changes:**
+    
+    *   Fixed [Composite primary key order is not consistent](https://github.com/drizzle-team/drizzle-kit-mirror/issues/342) by removing `sort` in SQLite
+    
+    **Bug fixes:**
+    
+    *   [\[BUG\] When using double type columns, import is not inserted](https://github.com/drizzle-team/drizzle-kit-mirror/issues/403)
+    *   [\[BUG\] A number value is specified as the default for a column of type char](https://github.com/drizzle-team/drizzle-kit-mirror/issues/404)
+    *   [\[BUG\]: Array default in migrations are wrong](https://github.com/drizzle-team/drizzle-orm/issues/2621)
+    *   [\[FEATURE\]: Simpler default array fields](https://github.com/drizzle-team/drizzle-orm/issues/2709)
+    *   [\[BUG\]: drizzle-kit generate succeeds but generates invalid SQL for default(\[\]) - Postgres](https://github.com/drizzle-team/drizzle-orm/issues/2432)
+    *   [\[BUG\]: Incorrect type for array column default value](https://github.com/drizzle-team/drizzle-orm/issues/2334)
+    *   [\[BUG\]: error: column is of type integer\[\] but default expression is of type integer](https://github.com/drizzle-team/drizzle-orm/issues/2224)
+    *   [\[BUG\]: Default value in array generating wrong migration file](https://github.com/drizzle-team/drizzle-orm/issues/1003)
+    *   [\[BUG\]: enum as array, not possible?](https://github.com/drizzle-team/drizzle-orm/issues/1564)
+    
+*   **ORM [v0.33.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.33.0) release** **Breaking changes:**
+    
+    *   [\[BUG\]: jsonb always inserted as a json string when using postgres-js](https://github.com/drizzle-team/drizzle-orm/issues/724)
+    *   [\[BUG\]: jsonb type on postgres implement incorrectly](https://github.com/drizzle-team/drizzle-orm/issues/1511)
+    
+    **Bug fixes:**
+    
+    *   [\[BUG\]: boolean mode not working with prepared statements (bettersqlite)](https://github.com/drizzle-team/drizzle-orm/issues/2568)
+    *   [\[BUG\]: isTable helper function is not working](https://github.com/drizzle-team/drizzle-orm/issues/2672)
+    *   [\[BUG\]: Documentation is outdated on inArray and notInArray Methods](https://github.com/drizzle-team/drizzle-orm/issues/2690)
+    
+*   **Kit [v0.23.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.23.2) release**
+    
+    *   fixed a bug in PostgreSQL with push and introspect where the `**schemaFilter**` object was passed. It was detecting enums even in schemas that were not defined in the **`schemaFilter`**.
+    *   fixed the `**drizzle-kit up**` command to work as expected, starting from the sequences release
+    
+*   **ORM [v0.32.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.32.2) release**
+    
+    *   fix AWS Data API type hints bugs in RQB
+    *   fix set transactions in MySQL bug
+    *   add forwaring dependencies within useLiveQuery, fixes [#2651](https://github.com/drizzle-team/drizzle-orm/issues/2651)
+    *   export additional types from SQLite package, like `AnySQLiteUpdate`
+    
+*   **Updated tutorials:** • [Drizzle with Supabase Database](/docs/tutorials/drizzle-with-supabase) • [Drizzle with Vercel Edge Functions](/docs/tutorials/drizzle-with-vercel-edge-functions)
+    
+*   We've updated [benchmarks](https://x.com/DrizzleORM/status/1826693369357369712) 🚀
+    
+
+September 2024
+
+*   Some Tweets
+    
+
+October 2024
+
+*   **ORM [v0.36.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.0) release** **Row-Level Security Support for PostgreSQL**
+    
+    *   Manage roles
+    *   Manage policies
+    *   Enable RLS for tables
+    *   Enable RLS for views!
+    *   Special import `drizzle-orm/neon` for `Neon`
+    *   Special import `drizzle-orm/supabase` for `Supabase`
+    
+*   **Kit [v0.27.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.0) release** **Row-Level Security Support for PostgreSQL**
+    
+    *   Manage roles
+    *   Manage policies
+    *   Enable RLS for tables
+    *   Enable RLS for views!
+    *   Special import `drizzle-orm/neon` for `Neon`
+    *   Special import `drizzle-orm/supabase` for `Supabase`
+    
+*   Documentation site restructure and improvements
+    
+    *   New "Get Started" section
+    *   New "Fundamentals" section
+    *   "Connect" is now flat and has proper navigation
+    *   The Kit section is gone, and you now have a "Migrations" section with full information about the Kit
+    *   Updated UI
+    *   Content restructuring
+    *   And more
+    
+*   **ORM [v0.34.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.34.0) release** **Breaking changes:**
+    
+    *   Added new dialect "Turso" that needs a newer libsql version
+    
+    **Features:**
+    
+    *   LibSQL/Turso and SQLite migration updates
+    *   SQLite "generate" and "push" statement updates
+    *   LibSQL/Turso "generate" and "push" statement updates
+    *   New `casing` param in `drizzle-orm`
+    *   Monodriver: A new and easy way to start using Drizzle
+    *   Schema improvements: Optional names for columns and callback in Drizzle table
+    *   New "count" API
+    *   Ability to execute raw strings
+    *   Exposed db.$client
+    
+*   **Kit [v0.25.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.25.0) release** **Breaking changes:**
+    
+    *   Added new dialect "Turso" that needs a newer libsql version
+    
+    **Features:**
+    
+    *   LibSQL/Turso and SQLite migration updates
+    *   SQLite "generate" and "push" statement updates
+    *   LibSQL/Turso "generate" and "push" statement updates
+    *   New `casing` param in `drizzle-kit`
+    
+
+November 2024
+
+*   **🎉 OneDollarStats is now available in Open Alpha release!** [OneDollarStats](https://onedollarstats.com/) is a $1 per month web analytics built by Drizzle Team
+    
+*   **🎉 New `drizzle-seed` package is now available** For more info check our [seed documentation](https://orm.drizzle.team/docs/seed-overview)
+    
+*   **ORM [v0.36.4](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.4) release**
+    
+    *   Added .$withAuth() API for Neon HTTP driver
+    *   Added OVERRIDING SYSTEM VALUE api to db.insert()
+    
+*   **ORM [v0.36.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.3) release**
+    
+    *   Support for UPDATE ... FROM in PostgreSQL and SQLite
+    *   Support for INSERT INTO ... SELECT in all dialects
+    
+*   **Kit [v0.28.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.28.1) release** and **ORM [v0.36.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.2) release**
+    
+    *   Support more types in like, notLike, ilike and notIlike expressions
+    *   Fixed typos in repository: thanks @armandsalle, @masto, @wackbyte, @Asher-JH, @MaxLeiter
+    *   fix: wrong dialect set in mysql/sqlite introspect
+    *   Fixed .generated behavior with non-strict tsconfig
+    *   Fix Drizzle ORM for expo-sqlite
+    *   Fixed lack of schema name on columns in sql
+    *   fix: Adjust neon http driver entity kind
+    *   Export PgIntegerBuilderInitial type
+    *   \[MySQL\] Correct $returningId() implementation to correctly store selected fields
+    
+*   **Kit [v0.28.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.28.0) release** and **ORM [v0.36.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.1) release**
+    
+    *   Added an OHM static imports checker to identify unexpected imports within a chain of imports in the drizzle-kit repo. For example, it checks if drizzle-orm is imported before drizzle-kit and verifies if the drizzle-orm import is available in your project.
+    *   Adding more columns to Supabase auth.users table schema
+    
+    **Bug Fixes***   \[BUG\]: Using sql.placeholder with limit and/or offset for a prepared statement produces TS error
+    *   \[BUG\] If a query I am trying to modify with a dynamic query (....$dynamic()) contains any placeholders, I'm getting an error that says No value for placeholder.... provided
+    *   \[BUG\]: Error thrown when trying to insert an array of new rows using generatedAlwaysAsIdentity() for the id column
+    *   \[BUG\]: Unable to Use BigInt Types with Bun and Drizzle
+    *   \[BUG\]: \[drizzle-kit\]: Fix breakpoints option cannot be disabled
+    *   \[BUG\]: drizzle-kit introspect: SMALLINT import missing and incorrect DECIMAL UNSIGNED handling
+    *   Unsigned tinyints preventing migrations
+    *   \[BUG\]: Can't parse float(8,2) from database (precision and scale and/or unsigned breaks float types)
+    *   \[BUG\]: PgEnum generated migration doesn't escape single quotes
+    *   \[BUG\]: single quote not escaped correctly in migration file
+    *   \[BUG\]: Migrations does not escape single quotes
+    *   \[BUG\]: Issue with quoted default string values
+    *   \[BUG\]: SQl commands in wrong roder
+    *   \[BUG\]: Time with precision in drizzle-orm/pg-core adds double-quotes around type
+    *   \[BUG\]: Postgres push fails due to lack of quotes
+    *   \[BUG\]: TypeError: Cannot read properties of undefined (reading 'compositePrimaryKeys')
+    *   \[BUG\]: drizzle-kit introspect generates CURRENT\_TIMESTAMP without sql operator on date column
+    *   \[BUG\]: Drizzle-kit introspect doesn't pull correct defautl statement
+    *   \[BUG\]: Problem on MacBook - This statement does not return data. Use run() instead
+    *   \[BUG\]: Enum column names that are used as arrays are not quoted
+    *   \[BUG\]: drizzle-kit generate ignores index operators
+    *   dialect param config error message is wrong
+    *   \[BUG\]: Error setting default enum field values
+    *   \[BUG\]: drizzle-kit does not respect the order of columns configured in primaryKey()
+    *   \[BUG\]: Cannot drop Unique Constraint MySQL
+    
+*   **Kit [v0.27.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.2) release**
+    
+    *   Fix \[BUG\]: Undefined properties when using drizzle-kit push
+    *   Fix TypeError: Cannot read properties of undefined (reading 'isRLSEnabled')
+    *   Fix push bugs, when pushing a schema with linked policy to a table from drizzle-orm/supabase
+    
+*   **Kit [v0.27.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.1) release**
+    
+    *   Fix: \[BUG\]: When using RLS policies and Views, the view is the last clause generated
+    
+
+December 2024
+
+*   **drizzle-seed [v0.3.0](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.3.0.md) release**
+    
+    *   The seed function can now accept Drizzle Relations objects and treat them as foreign key constraints
+    
+*   **ORM [v0.38.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.3) release**
+    
+    *   Fix incorrect deprecation detection for table declarations
+    *   SingleStore dialect support for all validator packages
+    
+*   **drizzle-seed [v0.2.1](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.2.1.md) release**
+    
+    *   We are introducing a new parameter, version, to the seed function options. This parameter, which controls generator versioning, has been added to make it easier to update deterministic generators in the future.
+    *   interval unique generator was changed and upgraded to v2
+    *   string generators were changed and upgraded to v2
+    
+*   **ORM [v0.38.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.2) release**
+    
+    *   New features for MySQL users: USE INDEX, FORCE INDEX and IGNORE INDEX for MySQL
+    
+*   **Kit [v0.30.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.1) release**
+    
+    *   New command: drizzle-kit export
+    
+*   **drizzle-seed [v0.1.3](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.1.3.md) release**
+    
+    *   Added support for postgres uuid columns
+    *   Added support for postgres array columns
+    *   Added support for cyclic tables. You can now seed tables with cyclic relations.
+    
+    **Bug Fixes***   \[BUG\]: reset fails with a syntax error if using a - in pgTableCreator to prefix tables
+    *   seeding a table with columns that have .default(sql\`\`) will result in an error
+    
+*   ORM bug fixes
+    
+    *   \[FEATURE\]: publish packages un-minified
+    *   Don't allow unknown keys in drizzle-zod refinement
+    *   \[BUG\]:drizzle-zod not working with pgSchema
+    *   Add createUpdateSchema to drizzle-zod
+    *   \[BUG\]:drizzle-zod produces wrong type
+    *   \[BUG\]:Drizzle-zod:Boolean and Serial types from Schema are defined as enum when using CreateInsertSchema and CreateSelectSchema
+    *   \[BUG\]: Drizzle typebox enum array wrong schema and type
+    *   \[BUG\]:drizzle-zod not working with pgSchema
+    *   \[BUG\]: drizzle-zod not parsing arrays correctly
+    *   \[BUG\]: Drizzle typebox not supporting array
+    *   \[FEATURE\]: Export factory functions from drizzle-zod to allow usage with extended Zod classes
+    *   \[FEATURE\]: Add support for new pipe syntax for drizzle-valibot
+    *   \[BUG\]: drizzle-zod's createInsertSchema() can't handle column of type vector
+    *   \[BUG\]: drizzle-typebox fails to map geometry column to type-box schema
+    *   \[BUG\]: drizzle-valibot does not provide types for returned schemas
+    *   \[BUG\]: Drizzle-typebox types SQLite real field to string
+    *   \[BUG\]: drizzle-zod: documented usage generates type error with exactOptionalPropertyTypes
+    *   \[BUG\]: drizzle-zod does not respect/count db type range
+    *   \[BUG\]: drizzle-zod not overriding optional
+    *   \[BUG\]:drizzle-zod doesn't accept custom id value
+    *   \[FEATURE\]: Support for Database Views in Drizzle Zod
+    *   \[BUG\]: drizzle-valibot return type any
+    *   \[BUG\]: drizzle-zod Type generation results in undefined types
+    *   \[BUG\]: GeneratedAlwaysAs
+    *   \[FEATURE\]: $inferSelect on a view
+    *   \[BUG\]:Can't infer props from view in schema
+    
+*   **ORM [v0.38.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.0) release**
+    
+    *   Added new function getViewSelectedFields
+    *   Added $inferSelect function to views
+    *   Added InferSelectViewModel type for views
+    *   Added isView function
+    
+*   **Kit [v0.30.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.0) release** Starting from this update, the PostgreSQL dialect will align with the behavior of all other dialects. It will no longer include IF NOT EXISTS, $DO, or similar statements, which could cause incorrect DDL statements to not fail when an object already exists in the database and should actually fail.
+    
+*   **Kit [v0.29.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.29.0) release** and **ORM [v0.37.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.37.0) release**
+    
+    *   New dialect **SingleStore** is available in Drizzle
+    *   New driver for **Durable Objects SQLite** is available in Drizzle
+    *   \[BUG\]: $with is undefined on withReplicas
+    *   \[BUG\]: Neon serverless driver accepts authToken as a promise, but the $withAuth does not
+    
+
+January
+
+*   **ORM [v0.39.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.39.1) release**
+    
+    *   Fixed SQLite onConflict clauses being overwritten instead of stacked
+    *   Added view support to aliasedTable()
+    *   Fixed sql builder prefixing aliased views and tables with their schema
+    
+*   **Kit [v0.30.4](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.4) release**
+    
+    *   Fix bug that generates incorrect syntax when introspect in mysql
+    *   Fix a bug that caused incorrect syntax output when introspect in unsigned columns
+    
+*   **Bug Fixes***   Allow INSERT in CTEs (WITH clauses)\]
+    *   Support Raw SQL in CTE Query Builder\]
+    *   Include pre-defined database objects related to Neon Identity in drizzle-orm\]
+    *   $count is undefined on withReplicas\]
+    *   get\[Materialized\]ViewName, ie getTableName but for (materialized) views.\]
+    *   $count API error with vercel-postgres\]
+    *   Cannot use schema.coerce on refining drizzle-zod types\]
+    *   Type Coercion in drizzle-zod\]
+    *   The inferred type of X cannot be named without a reference ...
+    *   drizzle-zod excessively deep and possibly infinite types\]
+    
+*   **ORM [v0.39.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.39.0) release**
+    
+    *   You can now use the new Bun SQL driver released in Bun v1.2.0 with Drizzle
+    *   WITH now supports INSERT, UPDATE, DELETE and raw sql template
+    *   New tables in /neon import
+    *   Added getViewName util function
+    
+*   **Kit [v0.30.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.3) release**
+    
+    *   As SingleStore did not support certain DDL statements before this release, you might encounter an error indicating that some schema changes cannot be applied due to a database issue. Starting from this version, drizzle-kit will detect such cases and initiate table recreation with data transfer between the tables
+    
+
+February
+
+*   **Drizzle Studio updates:**
+    
+    *   Added the ability to create/alter tables.
+    *   Added the ability to create/alter views.
+    *   Added the ability to refresh db schema.
+    *   Improved dropdowns.
+    *   Improved style customization.
+    *   Added filter by entity type (table/view).
+    *   Revised dependency tree and reduced bundle size.
+    *   Added database metadata to bug report.
+    *   Added range selection with copy/paste capability.
+    
+*   **ORM [v0.40.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.40.0) release**
+    
+    *   Drizzle is getting a new Gel dialect with its own types and Gel-specific logic. In this first iteration, almost all query-building features have been copied from the PostgreSQL dialect since Gel is fully PostgreSQL-compatible. The only change in this iteration is the data types. The Gel dialect has a different set of available data types, and all mappings for these types have been designed to avoid any extra conversions on Drizzle's side. This means you will insert and select exactly the same data as supported by the Gel protocol.
+    
+*   **Kit [v0.30.5](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.5) release**
+    
+    *   Drizzle is getting a new Gel dialect with its own types and Gel-specific logic. Kit is getting new "gel" dialect option
+    
+
+March
+
+*   **ORM [v0.41.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.41.0) release**
+    
+    *   `bigint`, `number` modes for `SQLite`, `MySQL`, `PostgreSQL`, `SingleStore` `decimal` & `numeric` column types
+    *   Changed behavior of `sql-js` query preparation
+    *   Fixed `MySQL`, `SingleStore` `varchar` allowing not specifying `length` in config
+    *   Fixed `MySQL`, `SingleStore` `binary`, `varbinary` data\\\\type mismatches
+    *   Fixed `numeric`\\\\`decimal` data\\\\type mismatches
+    *   Fixed `drizzle-studio` + `AWS Data Api` connection issue
+    *   Fixed `isConfig` utility function checking types of wrong fields
+    *   Enabled `supportBigNumbers` in auto-created `mysql2` driver instances
+    *   Fixed custom schema tables querying in RQBv1
+    *   Removed in-driver mapping for postgres types
+    *   Fixed `SQLite` `buffer`\-mode `blob` sometimes returning `number[]`
+    
+*   **Drizzle Studio updates:**
+    
+    *   Added new setting option for expanding subviews.
+    *   Added date and time pickers.
+    *   New settings option for pagination by page or limit offset.
+    *   Improved error handling for INSERT/UPDATE/DELETE statements in data table.
+    *   Added column type to header cell.
+    *   Added export in xlsx format.
+    *   Added callback on bug report button click.
+    *   Added ability to customize the error page.
+    *   Added css variable for run query button color.
+    *   Fixed issues with rowid.
+    *   Improved SQL console with snippet system.
+    
+*   **ORM [v0.40.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.40.1) release**
+    
+    *   Updates to neon-http for @neondatabase/[\[email protected\]](/cdn-cgi/l/email-protection). Starting from this version, drizzle-orm will be compatible with both @neondatabase/serverless <1.0 and >1.0
+    
+
+April
+
+this month
+
+Performance
+
+Drizzle doesn't slow you down
+
+[](/benchmarks)
+
+[Go to benchmark results](/benchmarks)
+
+Drizzle
+
+v0.33.0
+
+Bun v1.1.25
+
+Bun v1.1.25Node 22.6.0 (Current)Node v20.16.0 (LTS)Node v18.20.4 (LTS)
+
+Prisma
+
+v5.18.0
+
+Bun v1.1.25
+
+Bun v1.1.25Node 22.6.0 (Current)Node v20.16.0 (LTS)Node v18.20.4 (LTS)
+
+QueriesJoins
+
+avg latency: 0.0ms
+
+avg latency: 0.0ms
+
+avg: 0 req/sec
+
+Failed requests
+
+Drizzle handled xNaN more requests
+
+0
+
+avg: 0 req/sec
+
+Failed requests
+
+Drizzle handled xNaN more requests
+
+0
+
+avg CPU load: 0.0%
+
+avg CPU load: 0.0%
+
+[Go to benchmark results](/benchmarks)
+
+Live on the edge
+
+We support every major serverful and serverless runtime
+
+Cloudflare Workers
+
+Supabase functions
+
+Vercel functions
+
+Deno deploy
+
+Bun
+
+Lagon
+
+Fly.io
+
+ElectronJS
+
+Expo
+
+React Native
+
+Browser
+
+Connect to any database
+
+We support all platform-specific, tcp, http and websocket based drivers
+
+[
+
+our sponsor
+
+Gel
+
+](https://driz.link/edgedb)
+
+PlanetScale
+
+[
+
+our sponsor
+
+Neon
+
+](https://driz.link/neon)
+
+Vercel Postgres
+
+[
+
+our sponsor
+
+Turso
+
+](https://driz.link/turso)
+
+Supabase
+
+[
+
+our sponsor
+
+Xata
+
+](https://driz.link/xataio)
+
+PostgreSQL
+
+[
+
+our sponsor
+
+TiDB
+
+](https://driz.link/silver-sponsor-tidb)
+
+MySQL
+
+[
+
+our sponsor
+
+Tembo
+
+](https://driz.link/tembo)
+
+LiteFS
+
+[
+
+our sponsor
+
+SQLite Cloud
+
+](https://driz.link/sqlitecloud)
+
+SQLite
+
+[
+
+our sponsor
+
+SingleStore
+
+](https://driz.link/singlestore)
+
+Web SQLite
+
+[
+
+not yet sponsor
+
+Prisma Postgres
+
+](https://driz.link/rickroll)
+
+Drizzle Studio
+
+Explore and manipulate your data
+
+[Documentation](/drizzle-studio/overview) [Live demo](https://demo.drizzle.studio)
+
+Our Sponsors
+
+You help us build a better future
+
+[Become a sponsor](https://driz.link/sponsor)
+
+Pricing
+
+Just kidding, Drizzle is free and open-source  
+You can still make your contribution!
+
+[Give us a star](https://github.com/drizzle-team/drizzle-orm) [Subscribe on Twitter](https://mobile.twitter.com/DrizzleORM) [Join our community](https://discord.gg/yfjTbVXMW4)
+
+Buy us some ramen 🍜
+
+[Become a sponsor](https://driz.link/sponsor)
+
+Developers love Drizzle ORM!
+
+[
+
+Dax
+
+@thdxr
+
+I hate Drizzle
+
+
+
+
+
+](https://x.com/thdxr/status/1719129834901721353?s=20)[
+
+Anthony Shew
+
+@anthonysheww
+
+I hate @DrizzleOrm so much that I wrote the Auth.js adapter for it.
+
+
+
+
+
+](https://x.com/anthonysheww/status/1688973391917969408?s=20)[
+
+Adam
+
+@adamdotdev
+
+i know this won't get me on the homepage, but @DrizzleORM is so good
+
+
+
+
+
+](https://x.com/adamdotdev/status/1749463315355508917?s=20)
+
+Some Body
+
+@dont\_know
+
+Django had it in 2008
+
+[
+
+Eddy Vinck
+
+@EddyVinckk
+
+I love @DrizzleORM that's it, that's the tweet
+
+
+
+
+
+](https://x.com/EddyVinckk/status/1770052528941478333?s=20)[
+
+Jacob Wolf 🐝
+
+@JacobWolf
+
+I love @DrizzleORM.
+
+
+
+
+
+](https://x.com/JacobWolf/status/1768061278776349151?s=20)[
+
+Theo
+
+@t3dotgg
+
+Drizzle is terrible. It doesn’t even support Mongo.
+
+
+
+
+
+](https://x.com/t3dotgg/status/1787604253860847775)[
+
+Aaron Francis
+
+@aarondfrancis
+
+Y'all should just copy everything Eloquent has
+
+
+
+
+
+](https://x.com/aarondfrancis/status/1641145228189892613?s=20)[
+
+Ofelquis Gimenes
+
+@imfelquis
+
+unpredictable results is what feeds the human race, ban Drizzle now and all this typing gibberish all together
+
+
+
+
+
+](https://x.com/imfelquis/status/1709919386931462516?s=20)[
+
+James Perkins
+
+@james\_r\_perkins
+
+Sorry @DrizzleORM you suck!
+
+
+
+
+
+](https://x.com/james_r_perkins/status/1766156735155196201?s=20)[
+
+tslamoon
+
+@tslamoon1
+
+I'll shave my head if drizzle adds MSSQL support by the end of September.
+
+
+
+
+
+](https://x.com/tslamoon1/status/1700416378237530419?s=20)[
+
+fks
+
+@FredKSchott
+
+Astro DB is powered by Drizzle! ... and we regret everything omg this thing sucks
+
+
+
+
+
+](https://x.com/FredKSchott/status/1767646959656194473?s=20)[
+
+Ray
+
+@\_raynirola
+
+DrizzleOrm is not an "ORM", it's merely a overrated typesafe sql wrapper, not even a query builder.
+
+
+
+
+
+](https://x.com/_raynirola/status/1666028176789872642?s=20)[
+
+SaltyAom
+
+@saltyAom
+
+Prisma Bun: 1.4 MB/s Drizzle Bun: 9.8 MB/s
+
+
+
+
+
+](https://x.com/saltyAom/status/1767783124342276526?s=20)[
+
+Christoffer Bjelke
+
+@chribjel
+
+How many times has this little shit snuck into your dependencies?
+
+
+
+
+
+](https://x.com/chribjel/status/1778851727954837727)[
+
+Roma Zvarych
+
+@hisbvdis
+
+I have finally switched from @prisma to @DrizzleORM. It was not easy. Dear Drizzle Team, you have created an awesome orm with awfull documentation. Anyway, good for you, thanks and good luck.
+
+
+
+
+
+](https://x.com/hisbvdis/status/1807783878515400977)[
+
+Aoki
+
+@aokijs
+
+Honestly, fuck the benchmarks. I don‘t care which one‘s faster. All I can say is that Drizzle made my life working with databases dramastically better and that‘s all that matters for me. Thanks for your hard work 🙏🏻
+
+
+
+
+
+](https://x.com/aokijs/status/1833840766839325109)[
+
+Matija Marohnić
+
+@silvenon
+
+Every time I hear about @DrizzleORM.
+
+
+
+
+
+](https://x.com/silvenon/status/1843003214402314695)[
+
+Joseph Mama 🐀
+
+@spacesexdragon
+
+
+
+](https://x.com/spacesexdragon/status/1843381135134675236)[
+
+Broda Noel
+
+@BrodaNoel
+
+Is this a joke? Because if this is a joke, it's really really really bad joke, because now I'm fucking hating @DrizzleORM without even knowing who they are. I mean, this is not a good marketing strategy if this was a marketing-joke. And if it's actually true, I'll hate them more.
+
+
+
+
+
+](https://x.com/BrodaNoel/status/1913248949252616287)
+
+[
+
+](/)
+
+Headless TypeScript ORM with a head.
+
+[](https://github.com/drizzle-team/drizzle-orm)[](https://discord.gg/yfjTbVXMW4)[](https://twitter.com/DrizzleORM)
+
+Documentation
+
+[Get Started](/docs/overview) [Manage Schema](/docs/sql-schema-declaration) [Access Data](/docs/rqb) [Migrations](/docs/kit-overview)
+
+Resources
+
+[Drizzle Studio](/drizzle-studio/overview) [Benchmarks](/benchmarks)
+
+Learn
+
+[Guides](/docs/guides) [Tutorials](/docs/tutorials) [Latest Releases](/docs/latest-releases)
+
+meet drizzle
+
+[Get started](/docs/get-started) [Why Drizzle?](/docs/overview) [Guides](/docs/guides) [Tutorials](/docs/tutorials) [Latest releases](/docs/latest-releases) [Gotchas](/docs/gotchas)
+
+Fundamentals
+
+[Schema](/docs/sql-schema-declaration) [Database connection](/docs/connect-overview) [Query data](/docs/data-querying) [Migrations](/docs/migrations)
+
+Connect
+
+[PostgreSQL](/docs/get-started-postgresql) [Gel](/docs/get-started-gel) [MySQL](/docs/get-started-mysql) [SQLite](/docs/get-started-sqlite) [SingleStore](/docs/get-started-singlestore)
+
+[Neon](/docs/connect-neon) [Vercel Postgres](/docs/connect-vercel-postgres) [Supabase](/docs/connect-supabase) [Xata](/docs/connect-xata) [PGLite](/docs/connect-pglite) [Nile](/docs/connect-nile) [Bun SQL](/docs/connect-bun-sql)
+
+[PlanetScale](/docs/connect-planetscale) [TiDB](/docs/connect-tidb)
+
+[Turso](/docs/connect-turso) [Cloudflare D1](/docs/connect-cloudflare-d1) [Bun SQLite](/docs/connect-bun-sqlite) [Cloudflare Durable Objects](/docs/connect-cloudflare-do)
+
+[Expo SQLite](/docs/connect-expo-sqlite) [OP SQLite](/docs/connect-op-sqlite) [React Native SQLite](/docs/connect-react-native-sqlite)
+
+[AWS Data API Postgres](/docs/connect-aws-data-api-pg) [AWS Data API MySQL](/docs/connect-aws-data-api-mysql)
+
+[Drizzle Proxy](/docs/connect-drizzle-proxy)
+
+Expand
+
+Manage schema
+
+Data types [Indexes & Constraints](/docs/indexes-constraints) [Sequences](/docs/sequences) [Views](/docs/views) [Schemas](/docs/schemas) [Row-Level Security (RLS)](/docs/rls) Extensions [Relations](/docs/relations)
+
+Migrations
+
+[Overview](/docs/kit-overview) [`generate`](/docs/drizzle-kit-generate) [`migrate`](/docs/drizzle-kit-migrate) [`push`](/docs/drizzle-kit-push) [`pull`](/docs/drizzle-kit-pull) [`export`](/docs/drizzle-kit-export) [`check`](/docs/drizzle-kit-check) [`up`](/docs/drizzle-kit-up) [`studio`](/docs/drizzle-kit-studio) [Custom migrations](/docs/kit-custom-migrations) [Migrations for teams](/docs/kit-migrations-for-teams) [Web and mobile](/docs/kit-web-mobile) [drizzle.config.ts](/docs/drizzle-config-file)
+
+Seeding
+
+[Overview](/docs/seed-overview) [Generators](/docs/seed-functions) [Versioning](/docs/seed-versioning)
+
+Access your data
+
+[Query](/docs/rqb) [Select](/docs/select) [Insert](/docs/insert) [Update](/docs/update) [Delete](/docs/delete) [Filters](/docs/operators) [Utils](/docs/query-utils) [Joins](/docs/joins) [Magic sql\`\` operator](/docs/sql)
+
+Performance
+
+[Queries](/docs/perf-queries) [Serverless](/docs/perf-serverless)
+
+Advanced
+
+[Set Operations](/docs/set-operations) [Generated Columns](/docs/generated-columns) [Transactions](/docs/transactions) [Batch](/docs/batch-api) [Cache](/docs/cache) [Dynamic query building](/docs/dynamic-query-building) [Read Replicas](/docs/read-replicas) [Custom types](/docs/custom-types) [Goodies](/docs/goodies)
+
+Extensions
+
+[Prisma](/docs/prisma) [ESLint Plugin](/docs/eslint-plugin) [drizzle-zod](/docs/zod) [drizzle-typebox](/docs/typebox) [drizzle-valibot](/docs/valibot) [drizzle-arktype](/docs/arktype) [drizzle-graphql](/docs/graphql)
+
+System Light Dark
+
+[
+
+Become a Sponsor
+
+](https://driz.link/sponsor)[
+
+Twitter
+
+](https://mobile.twitter.com/DrizzleORM)[
+
+Discord
+
+](https://discord.gg/yfjTbVXMW4)
+
+ORM for you to settleship ship ship
+
+JavaScript
+
+TypeScript
+
+[
+
+Get Started
+
+](/docs/get-started)[
+
+Documentation
+
+](/docs/overview)
+
+Search Docs
+
+Ask Docs
+
+0000
+
+23
+
+Play
+
+Normal
+
+powered by [3310snake.com](https://3310snake.com/)
+
+We ship decently fast
+---------------------
+
+### Drizzle Team and Active Contributors
+
+Andrew Sherman
+
+Dan Kochetov
+
+Alex Blokh
+
+Mykhailo Stratovych
+
+Roman Nabukhotnyi
+
+Vladislav Stohnii
+
+Serhii Reka
+
+Oleksii Khomenko
+
+Artem Odiiko
+
+Vitalii Staryk
+
+angelelz
+
+rphlmr
+
+mario564
+
+Simon Sardorf
+
+[
+
+v1.0 release
+
+75%
+
+](/roadmap)
+
+June 2024
+
+July 2024
+
+*   We've had podcast on [syntax.fm](https://www.youtube.com/watch?v=Hh9xqRWYEJs) 🎙️ Drizzle <> Sytnax merch drop - [see here](https://x.com/DrizzleORM/status/1815793307877871912)
+    
+*   **ORM [v0.32.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.32.1) release**
+    
+    *   improved indexes API and typings
+    *   support for limit 0
+    *   array and notInArray accept empty \[\]
+    
+*   **Community highlights** • [drizzle.run](https://drizzle.run) ships [schema visualizer](https://drizzle.run/visualizer) 👀 • [sst dev](https://x.com/thdxr/status/1818439495361937781) & drizzle studio update • [Hono + Drizzle](https://github.com/rhinobase/honohub) headless CMS • TypeScript based [down migrations](https://github.com/drepkovsky/drizzle-migrations)
+    
+*   **Drizzle Kit goes open-source 🎉** • 2hrs release stream on Jul 30th • added programmatic access • [v0.23.1 release](https://github.com/drizzle-team/drizzle-kit-mirror/releases/tag/v0.23.1) with bugfixes
+    
+*   **Landing page update 🎉** • our team is 10 devs, now you know • showcase active contributors • TypeScript and JavaScript mention • v1.0 release timeline with a roadmap! • calendar section for our iterations • quick access docs search and ask ai • snake game board 🐍
+    
+*   added [announcments](/announcements) page
+    
+*   **Updated tutorials:** • [Drizzle <> Vercel Postgres](/docs/tutorials/drizzle-with-vercel) • [Drizzle <> Turso](/docs/tutorials/drizzle-with-turso) • [Drizzle <> Neon Postgres](/docs/tutorials/drizzle-with-neon) • [Todo App with Neon Postgres](/docs/tutorials/drizzle-nextjs-neon)
+    
+
+August 2024
+
+*   [**Drizzle Gateway**](https://x.com/DrizzleORM/status/1820462321942036749) closed alpha release 🎉
+    
+*   [**Brocli**](https://github.com/drizzle-team/brocli) - our new open-source library 👀
+    
+*   [Snake Game](https://3310snake.com/) released 🎉 have some fun we've had a lot of fun
+    
+*   **Kit [v0.24.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.24.0) release** **Breaking changes:**
+    
+    *   Fixed [Composite primary key order is not consistent](https://github.com/drizzle-team/drizzle-kit-mirror/issues/342) by removing `sort` in SQLite
+    
+    **Bug fixes:**
+    
+    *   [\[BUG\] When using double type columns, import is not inserted](https://github.com/drizzle-team/drizzle-kit-mirror/issues/403)
+    *   [\[BUG\] A number value is specified as the default for a column of type char](https://github.com/drizzle-team/drizzle-kit-mirror/issues/404)
+    *   [\[BUG\]: Array default in migrations are wrong](https://github.com/drizzle-team/drizzle-orm/issues/2621)
+    *   [\[FEATURE\]: Simpler default array fields](https://github.com/drizzle-team/drizzle-orm/issues/2709)
+    *   [\[BUG\]: drizzle-kit generate succeeds but generates invalid SQL for default(\[\]) - Postgres](https://github.com/drizzle-team/drizzle-orm/issues/2432)
+    *   [\[BUG\]: Incorrect type for array column default value](https://github.com/drizzle-team/drizzle-orm/issues/2334)
+    *   [\[BUG\]: error: column is of type integer\[\] but default expression is of type integer](https://github.com/drizzle-team/drizzle-orm/issues/2224)
+    *   [\[BUG\]: Default value in array generating wrong migration file](https://github.com/drizzle-team/drizzle-orm/issues/1003)
+    *   [\[BUG\]: enum as array, not possible?](https://github.com/drizzle-team/drizzle-orm/issues/1564)
+    
+*   **ORM [v0.33.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.33.0) release** **Breaking changes:**
+    
+    *   [\[BUG\]: jsonb always inserted as a json string when using postgres-js](https://github.com/drizzle-team/drizzle-orm/issues/724)
+    *   [\[BUG\]: jsonb type on postgres implement incorrectly](https://github.com/drizzle-team/drizzle-orm/issues/1511)
+    
+    **Bug fixes:**
+    
+    *   [\[BUG\]: boolean mode not working with prepared statements (bettersqlite)](https://github.com/drizzle-team/drizzle-orm/issues/2568)
+    *   [\[BUG\]: isTable helper function is not working](https://github.com/drizzle-team/drizzle-orm/issues/2672)
+    *   [\[BUG\]: Documentation is outdated on inArray and notInArray Methods](https://github.com/drizzle-team/drizzle-orm/issues/2690)
+    
+*   **Kit [v0.23.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.23.2) release**
+    
+    *   fixed a bug in PostgreSQL with push and introspect where the `**schemaFilter**` object was passed. It was detecting enums even in schemas that were not defined in the **`schemaFilter`**.
+    *   fixed the `**drizzle-kit up**` command to work as expected, starting from the sequences release
+    
+*   **ORM [v0.32.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.32.2) release**
+    
+    *   fix AWS Data API type hints bugs in RQB
+    *   fix set transactions in MySQL bug
+    *   add forwaring dependencies within useLiveQuery, fixes [#2651](https://github.com/drizzle-team/drizzle-orm/issues/2651)
+    *   export additional types from SQLite package, like `AnySQLiteUpdate`
+    
+*   **Updated tutorials:** • [Drizzle with Supabase Database](/docs/tutorials/drizzle-with-supabase) • [Drizzle with Vercel Edge Functions](/docs/tutorials/drizzle-with-vercel-edge-functions)
+    
+*   We've updated [benchmarks](https://x.com/DrizzleORM/status/1826693369357369712) 🚀
+    
+
+September 2024
+
+*   Some Tweets
+    
+
+October 2024
+
+*   **ORM [v0.36.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.0) release** **Row-Level Security Support for PostgreSQL**
+    
+    *   Manage roles
+    *   Manage policies
+    *   Enable RLS for tables
+    *   Enable RLS for views!
+    *   Special import `drizzle-orm/neon` for `Neon`
+    *   Special import `drizzle-orm/supabase` for `Supabase`
+    
+*   **Kit [v0.27.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.0) release** **Row-Level Security Support for PostgreSQL**
+    
+    *   Manage roles
+    *   Manage policies
+    *   Enable RLS for tables
+    *   Enable RLS for views!
+    *   Special import `drizzle-orm/neon` for `Neon`
+    *   Special import `drizzle-orm/supabase` for `Supabase`
+    
+*   Documentation site restructure and improvements
+    
+    *   New "Get Started" section
+    *   New "Fundamentals" section
+    *   "Connect" is now flat and has proper navigation
+    *   The Kit section is gone, and you now have a "Migrations" section with full information about the Kit
+    *   Updated UI
+    *   Content restructuring
+    *   And more
+    
+*   **ORM [v0.34.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.34.0) release** **Breaking changes:**
+    
+    *   Added new dialect "Turso" that needs a newer libsql version
+    
+    **Features:**
+    
+    *   LibSQL/Turso and SQLite migration updates
+    *   SQLite "generate" and "push" statement updates
+    *   LibSQL/Turso "generate" and "push" statement updates
+    *   New `casing` param in `drizzle-orm`
+    *   Monodriver: A new and easy way to start using Drizzle
+    *   Schema improvements: Optional names for columns and callback in Drizzle table
+    *   New "count" API
+    *   Ability to execute raw strings
+    *   Exposed db.$client
+    
+*   **Kit [v0.25.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.25.0) release** **Breaking changes:**
+    
+    *   Added new dialect "Turso" that needs a newer libsql version
+    
+    **Features:**
+    
+    *   LibSQL/Turso and SQLite migration updates
+    *   SQLite "generate" and "push" statement updates
+    *   LibSQL/Turso "generate" and "push" statement updates
+    *   New `casing` param in `drizzle-kit`
+    
+
+November 2024
+
+*   **🎉 OneDollarStats is now available in Open Alpha release!** [OneDollarStats](https://onedollarstats.com/) is a $1 per month web analytics built by Drizzle Team
+    
+*   **🎉 New `drizzle-seed` package is now available** For more info check our [seed documentation](https://orm.drizzle.team/docs/seed-overview)
+    
+*   **ORM [v0.36.4](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.4) release**
+    
+    *   Added .$withAuth() API for Neon HTTP driver
+    *   Added OVERRIDING SYSTEM VALUE api to db.insert()
+    
+*   **ORM [v0.36.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.3) release**
+    
+    *   Support for UPDATE ... FROM in PostgreSQL and SQLite
+    *   Support for INSERT INTO ... SELECT in all dialects
+    
+*   **Kit [v0.28.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.28.1) release** and **ORM [v0.36.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.2) release**
+    
+    *   Support more types in like, notLike, ilike and notIlike expressions
+    *   Fixed typos in repository: thanks @armandsalle, @masto, @wackbyte, @Asher-JH, @MaxLeiter
+    *   fix: wrong dialect set in mysql/sqlite introspect
+    *   Fixed .generated behavior with non-strict tsconfig
+    *   Fix Drizzle ORM for expo-sqlite
+    *   Fixed lack of schema name on columns in sql
+    *   fix: Adjust neon http driver entity kind
+    *   Export PgIntegerBuilderInitial type
+    *   \[MySQL\] Correct $returningId() implementation to correctly store selected fields
+    
+*   **Kit [v0.28.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.28.0) release** and **ORM [v0.36.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.1) release**
+    
+    *   Added an OHM static imports checker to identify unexpected imports within a chain of imports in the drizzle-kit repo. For example, it checks if drizzle-orm is imported before drizzle-kit and verifies if the drizzle-orm import is available in your project.
+    *   Adding more columns to Supabase auth.users table schema
+    
+    **Bug Fixes***   \[BUG\]: Using sql.placeholder with limit and/or offset for a prepared statement produces TS error
+    *   \[BUG\] If a query I am trying to modify with a dynamic query (....$dynamic()) contains any placeholders, I'm getting an error that says No value for placeholder.... provided
+    *   \[BUG\]: Error thrown when trying to insert an array of new rows using generatedAlwaysAsIdentity() for the id column
+    *   \[BUG\]: Unable to Use BigInt Types with Bun and Drizzle
+    *   \[BUG\]: \[drizzle-kit\]: Fix breakpoints option cannot be disabled
+    *   \[BUG\]: drizzle-kit introspect: SMALLINT import missing and incorrect DECIMAL UNSIGNED handling
+    *   Unsigned tinyints preventing migrations
+    *   \[BUG\]: Can't parse float(8,2) from database (precision and scale and/or unsigned breaks float types)
+    *   \[BUG\]: PgEnum generated migration doesn't escape single quotes
+    *   \[BUG\]: single quote not escaped correctly in migration file
+    *   \[BUG\]: Migrations does not escape single quotes
+    *   \[BUG\]: Issue with quoted default string values
+    *   \[BUG\]: SQl commands in wrong roder
+    *   \[BUG\]: Time with precision in drizzle-orm/pg-core adds double-quotes around type
+    *   \[BUG\]: Postgres push fails due to lack of quotes
+    *   \[BUG\]: TypeError: Cannot read properties of undefined (reading 'compositePrimaryKeys')
+    *   \[BUG\]: drizzle-kit introspect generates CURRENT\_TIMESTAMP without sql operator on date column
+    *   \[BUG\]: Drizzle-kit introspect doesn't pull correct defautl statement
+    *   \[BUG\]: Problem on MacBook - This statement does not return data. Use run() instead
+    *   \[BUG\]: Enum column names that are used as arrays are not quoted
+    *   \[BUG\]: drizzle-kit generate ignores index operators
+    *   dialect param config error message is wrong
+    *   \[BUG\]: Error setting default enum field values
+    *   \[BUG\]: drizzle-kit does not respect the order of columns configured in primaryKey()
+    *   \[BUG\]: Cannot drop Unique Constraint MySQL
+    
+*   **Kit [v0.27.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.2) release**
+    
+    *   Fix \[BUG\]: Undefined properties when using drizzle-kit push
+    *   Fix TypeError: Cannot read properties of undefined (reading 'isRLSEnabled')
+    *   Fix push bugs, when pushing a schema with linked policy to a table from drizzle-orm/supabase
+    
+*   **Kit [v0.27.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.1) release**
+    
+    *   Fix: \[BUG\]: When using RLS policies and Views, the view is the last clause generated
+    
+
+December 2024
+
+*   **drizzle-seed [v0.3.0](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.3.0.md) release**
+    
+    *   The seed function can now accept Drizzle Relations objects and treat them as foreign key constraints
+    
+*   **ORM [v0.38.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.3) release**
+    
+    *   Fix incorrect deprecation detection for table declarations
+    *   SingleStore dialect support for all validator packages
+    
+*   **drizzle-seed [v0.2.1](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.2.1.md) release**
+    
+    *   We are introducing a new parameter, version, to the seed function options. This parameter, which controls generator versioning, has been added to make it easier to update deterministic generators in the future.
+    *   interval unique generator was changed and upgraded to v2
+    *   string generators were changed and upgraded to v2
+    
+*   **ORM [v0.38.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.2) release**
+    
+    *   New features for MySQL users: USE INDEX, FORCE INDEX and IGNORE INDEX for MySQL
+    
+*   **Kit [v0.30.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.1) release**
+    
+    *   New command: drizzle-kit export
+    
+*   **drizzle-seed [v0.1.3](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.1.3.md) release**
+    
+    *   Added support for postgres uuid columns
+    *   Added support for postgres array columns
+    *   Added support for cyclic tables. You can now seed tables with cyclic relations.
+    
+    **Bug Fixes***   \[BUG\]: reset fails with a syntax error if using a - in pgTableCreator to prefix tables
+    *   seeding a table with columns that have .default(sql\`\`) will result in an error
+    
+*   ORM bug fixes
+    
+    *   \[FEATURE\]: publish packages un-minified
+    *   Don't allow unknown keys in drizzle-zod refinement
+    *   \[BUG\]:drizzle-zod not working with pgSchema
+    *   Add createUpdateSchema to drizzle-zod
+    *   \[BUG\]:drizzle-zod produces wrong type
+    *   \[BUG\]:Drizzle-zod:Boolean and Serial types from Schema are defined as enum when using CreateInsertSchema and CreateSelectSchema
+    *   \[BUG\]: Drizzle typebox enum array wrong schema and type
+    *   \[BUG\]:drizzle-zod not working with pgSchema
+    *   \[BUG\]: drizzle-zod not parsing arrays correctly
+    *   \[BUG\]: Drizzle typebox not supporting array
+    *   \[FEATURE\]: Export factory functions from drizzle-zod to allow usage with extended Zod classes
+    *   \[FEATURE\]: Add support for new pipe syntax for drizzle-valibot
+    *   \[BUG\]: drizzle-zod's createInsertSchema() can't handle column of type vector
+    *   \[BUG\]: drizzle-typebox fails to map geometry column to type-box schema
+    *   \[BUG\]: drizzle-valibot does not provide types for returned schemas
+    *   \[BUG\]: Drizzle-typebox types SQLite real field to string
+    *   \[BUG\]: drizzle-zod: documented usage generates type error with exactOptionalPropertyTypes
+    *   \[BUG\]: drizzle-zod does not respect/count db type range
+    *   \[BUG\]: drizzle-zod not overriding optional
+    *   \[BUG\]:drizzle-zod doesn't accept custom id value
+    *   \[FEATURE\]: Support for Database Views in Drizzle Zod
+    *   \[BUG\]: drizzle-valibot return type any
+    *   \[BUG\]: drizzle-zod Type generation results in undefined types
+    *   \[BUG\]: GeneratedAlwaysAs
+    *   \[FEATURE\]: $inferSelect on a view
+    *   \[BUG\]:Can't infer props from view in schema
+    
+*   **ORM [v0.38.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.0) release**
+    
+    *   Added new function getViewSelectedFields
+    *   Added $inferSelect function to views
+    *   Added InferSelectViewModel type for views
+    *   Added isView function
+    
+*   **Kit [v0.30.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.0) release** Starting from this update, the PostgreSQL dialect will align with the behavior of all other dialects. It will no longer include IF NOT EXISTS, $DO, or similar statements, which could cause incorrect DDL statements to not fail when an object already exists in the database and should actually fail.
+    
+*   **Kit [v0.29.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.29.0) release** and **ORM [v0.37.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.37.0) release**
+    
+    *   New dialect **SingleStore** is available in Drizzle
+    *   New driver for **Durable Objects SQLite** is available in Drizzle
+    *   \[BUG\]: $with is undefined on withReplicas
+    *   \[BUG\]: Neon serverless driver accepts authToken as a promise, but the $withAuth does not
+    
+
+January
+
+*   **ORM [v0.39.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.39.1) release**
+    
+    *   Fixed SQLite onConflict clauses being overwritten instead of stacked
+    *   Added view support to aliasedTable()
+    *   Fixed sql builder prefixing aliased views and tables with their schema
+    
+*   **Kit [v0.30.4](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.4) release**
+    
+    *   Fix bug that generates incorrect syntax when introspect in mysql
+    *   Fix a bug that caused incorrect syntax output when introspect in unsigned columns
+    
+*   **Bug Fixes***   Allow INSERT in CTEs (WITH clauses)\]
+    *   Support Raw SQL in CTE Query Builder\]
+    *   Include pre-defined database objects related to Neon Identity in drizzle-orm\]
+    *   $count is undefined on withReplicas\]
+    *   get\[Materialized\]ViewName, ie getTableName but for (materialized) views.\]
+    *   $count API error with vercel-postgres\]
+    *   Cannot use schema.coerce on refining drizzle-zod types\]
+    *   Type Coercion in drizzle-zod\]
+    *   The inferred type of X cannot be named without a reference ...
+    *   drizzle-zod excessively deep and possibly infinite types\]
+    
+*   **ORM [v0.39.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.39.0) release**
+    
+    *   You can now use the new Bun SQL driver released in Bun v1.2.0 with Drizzle
+    *   WITH now supports INSERT, UPDATE, DELETE and raw sql template
+    *   New tables in /neon import
+    *   Added getViewName util function
+    
+*   **Kit [v0.30.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.3) release**
+    
+    *   As SingleStore did not support certain DDL statements before this release, you might encounter an error indicating that some schema changes cannot be applied due to a database issue. Starting from this version, drizzle-kit will detect such cases and initiate table recreation with data transfer between the tables
+    
+
+February
+
+*   **Drizzle Studio updates:**
+    
+    *   Added the ability to create/alter tables.
+    *   Added the ability to create/alter views.
+    *   Added the ability to refresh db schema.
+    *   Improved dropdowns.
+    *   Improved style customization.
+    *   Added filter by entity type (table/view).
+    *   Revised dependency tree and reduced bundle size.
+    *   Added database metadata to bug report.
+    *   Added range selection with copy/paste capability.
+    
+*   **ORM [v0.40.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.40.0) release**
+    
+    *   Drizzle is getting a new Gel dialect with its own types and Gel-specific logic. In this first iteration, almost all query-building features have been copied from the PostgreSQL dialect since Gel is fully PostgreSQL-compatible. The only change in this iteration is the data types. The Gel dialect has a different set of available data types, and all mappings for these types have been designed to avoid any extra conversions on Drizzle's side. This means you will insert and select exactly the same data as supported by the Gel protocol.
+    
+*   **Kit [v0.30.5](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.5) release**
+    
+    *   Drizzle is getting a new Gel dialect with its own types and Gel-specific logic. Kit is getting new "gel" dialect option
+    
+
+March
+
+*   **ORM [v0.41.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.41.0) release**
+    
+    *   `bigint`, `number` modes for `SQLite`, `MySQL`, `PostgreSQL`, `SingleStore` `decimal` & `numeric` column types
+    *   Changed behavior of `sql-js` query preparation
+    *   Fixed `MySQL`, `SingleStore` `varchar` allowing not specifying `length` in config
+    *   Fixed `MySQL`, `SingleStore` `binary`, `varbinary` data\\\\type mismatches
+    *   Fixed `numeric`\\\\`decimal` data\\\\type mismatches
+    *   Fixed `drizzle-studio` + `AWS Data Api` connection issue
+    *   Fixed `isConfig` utility function checking types of wrong fields
+    *   Enabled `supportBigNumbers` in auto-created `mysql2` driver instances
+    *   Fixed custom schema tables querying in RQBv1
+    *   Removed in-driver mapping for postgres types
+    *   Fixed `SQLite` `buffer`\-mode `blob` sometimes returning `number[]`
+    
+*   **Drizzle Studio updates:**
+    
+    *   Added new setting option for expanding subviews.
+    *   Added date and time pickers.
+    *   New settings option for pagination by page or limit offset.
+    *   Improved error handling for INSERT/UPDATE/DELETE statements in data table.
+    *   Added column type to header cell.
+    *   Added export in xlsx format.
+    *   Added callback on bug report button click.
+    *   Added ability to customize the error page.
+    *   Added css variable for run query button color.
+    *   Fixed issues with rowid.
+    *   Improved SQL console with snippet system.
+    
+*   **ORM [v0.40.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.40.1) release**
+    
+    *   Updates to neon-http for @neondatabase/[\[email protected\]](/cdn-cgi/l/email-protection). Starting from this version, drizzle-orm will be compatible with both @neondatabase/serverless <1.0 and >1.0
+    
+
+April
+
+this month
+
+Performance
+
+Drizzle doesn't slow you down
+
+[](/benchmarks)
+
+[Go to benchmark results](/benchmarks)
+
+Drizzle
+
+v0.33.0
+
+Bun v1.1.25
+
+Bun v1.1.25Node 22.6.0 (Current)Node v20.16.0 (LTS)Node v18.20.4 (LTS)
+
+Prisma
+
+v5.18.0
+
+Bun v1.1.25
+
+Bun v1.1.25Node 22.6.0 (Current)Node v20.16.0 (LTS)Node v18.20.4 (LTS)
+
+QueriesJoins
+
+avg latency: 0.0ms
+
+avg latency: 0.0ms
+
+avg: 0 req/sec
+
+Failed requests
+
+Drizzle handled xNaN more requests
+
+0
+
+avg: 0 req/sec
+
+Failed requests
+
+Drizzle handled xNaN more requests
+
+0
+
+avg CPU load: 0.0%
+
+avg CPU load: 0.0%
+
+[Go to benchmark results](/benchmarks)
+
+Live on the edge
+
+We support every major serverful and serverless runtime
+
+Cloudflare Workers
+
+Supabase functions
+
+Vercel functions
+
+Deno deploy
+
+Bun
+
+Lagon
+
+Fly.io
+
+ElectronJS
+
+Expo
+
+React Native
+
+Browser
+
+Connect to any database
+
+We support all platform-specific, tcp, http and websocket based drivers
+
+[
+
+our sponsor
+
+Gel
+
+](https://driz.link/edgedb)
+
+PlanetScale
+
+[
+
+our sponsor
+
+Neon
+
+](https://driz.link/neon)
+
+Vercel Postgres
+
+[
+
+our sponsor
+
+Turso
+
+](https://driz.link/turso)
+
+Supabase
+
+[
+
+our sponsor
+
+Xata
+
+](https://driz.link/xataio)
+
+PostgreSQL
+
+[
+
+our sponsor
+
+TiDB
+
+](https://driz.link/silver-sponsor-tidb)
+
+MySQL
+
+[
+
+our sponsor
+
+Tembo
+
+](https://driz.link/tembo)
+
+LiteFS
+
+[
+
+our sponsor
+
+SQLite Cloud
+
+](https://driz.link/sqlitecloud)
+
+SQLite
+
+[
+
+our sponsor
+
+SingleStore
+
+](https://driz.link/singlestore)
+
+Web SQLite
+
+[
+
+not yet sponsor
+
+Prisma Postgres
+
+](https://driz.link/rickroll)
+
+Drizzle Studio
+
+Explore and manipulate your data
+
+[Documentation](/drizzle-studio/overview) [Live demo](https://demo.drizzle.studio)
+
+Our Sponsors
+
+You help us build a better future
+
+[Become a sponsor](https://driz.link/sponsor)
+
+Pricing
+
+Just kidding, Drizzle is free and open-source  
+You can still make your contribution!
+
+[Give us a star](https://github.com/drizzle-team/drizzle-orm) [Subscribe on Twitter](https://mobile.twitter.com/DrizzleORM) [Join our community](https://discord.gg/yfjTbVXMW4)
+
+Buy us some ramen 🍜
+
+[Become a sponsor](https://driz.link/sponsor)
+
+Developers love Drizzle ORM!
+
+[
+
+Dax
+
+@thdxr
+
+I hate Drizzle
+
+
+
+
+
+](https://x.com/thdxr/status/1719129834901721353?s=20)[
+
+Anthony Shew
+
+@anthonysheww
+
+I hate @DrizzleOrm so much that I wrote the Auth.js adapter for it.
+
+
+
+
+
+](https://x.com/anthonysheww/status/1688973391917969408?s=20)[
+
+Adam
+
+@adamdotdev
+
+i know this won't get me on the homepage, but @DrizzleORM is so good
+
+
+
+
+
+](https://x.com/adamdotdev/status/1749463315355508917?s=20)
+
+Some Body
+
+@dont\_know
+
+Django had it in 2008
+
+[
+
+Eddy Vinck
+
+@EddyVinckk
+
+I love @DrizzleORM that's it, that's the tweet
+
+
+
+
+
+](https://x.com/EddyVinckk/status/1770052528941478333?s=20)[
+
+Jacob Wolf 🐝
+
+@JacobWolf
+
+I love @DrizzleORM.
+
+
+
+
+
+](https://x.com/JacobWolf/status/1768061278776349151?s=20)[
+
+Theo
+
+@t3dotgg
+
+Drizzle is terrible. It doesn’t even support Mongo.
+
+
+
+
+
+](https://x.com/t3dotgg/status/1787604253860847775)[
+
+Aaron Francis
+
+@aarondfrancis
+
+Y'all should just copy everything Eloquent has
+
+
+
+
+
+](https://x.com/aarondfrancis/status/1641145228189892613?s=20)[
+
+Ofelquis Gimenes
+
+@imfelquis
+
+unpredictable results is what feeds the human race, ban Drizzle now and all this typing gibberish all together
+
+
+
+
+
+](https://x.com/imfelquis/status/1709919386931462516?s=20)[
+
+James Perkins
+
+@james\_r\_perkins
+
+Sorry @DrizzleORM you suck!
+
+
+
+
+
+](https://x.com/james_r_perkins/status/1766156735155196201?s=20)[
+
+tslamoon
+
+@tslamoon1
+
+I'll shave my head if drizzle adds MSSQL support by the end of September.
+
+
+
+
+
+](https://x.com/tslamoon1/status/1700416378237530419?s=20)[
+
+fks
+
+@FredKSchott
+
+Astro DB is powered by Drizzle! ... and we regret everything omg this thing sucks
+
+
+
+
+
+](https://x.com/FredKSchott/status/1767646959656194473?s=20)[
+
+Ray
+
+@\_raynirola
+
+DrizzleOrm is not an "ORM", it's merely a overrated typesafe sql wrapper, not even a query builder.
+
+
+
+
+
+](https://x.com/_raynirola/status/1666028176789872642?s=20)[
+
+SaltyAom
+
+@saltyAom
+
+Prisma Bun: 1.4 MB/s Drizzle Bun: 9.8 MB/s
+
+
+
+
+
+](https://x.com/saltyAom/status/1767783124342276526?s=20)[
+
+Christoffer Bjelke
+
+@chribjel
+
+How many times has this little shit snuck into your dependencies?
+
+
+
+
+
+](https://x.com/chribjel/status/1778851727954837727)[
+
+Roma Zvarych
+
+@hisbvdis
+
+I have finally switched from @prisma to @DrizzleORM. It was not easy. Dear Drizzle Team, you have created an awesome orm with awfull documentation. Anyway, good for you, thanks and good luck.
+
+
+
+
+
+](https://x.com/hisbvdis/status/1807783878515400977)[
+
+Aoki
+
+@aokijs
+
+Honestly, fuck the benchmarks. I don‘t care which one‘s faster. All I can say is that Drizzle made my life working with databases dramastically better and that‘s all that matters for me. Thanks for your hard work 🙏🏻
+
+
+
+
+
+](https://x.com/aokijs/status/1833840766839325109)[
+
+Matija Marohnić
+
+@silvenon
+
+Every time I hear about @DrizzleORM.
+
+
+
+
+
+](https://x.com/silvenon/status/1843003214402314695)[
+
+Joseph Mama 🐀
+
+@spacesexdragon
+
+
+
+](https://x.com/spacesexdragon/status/1843381135134675236)[
+
+Broda Noel
+
+@BrodaNoel
+
+Is this a joke? Because if this is a joke, it's really really really bad joke, because now I'm fucking hating @DrizzleORM without even knowing who they are. I mean, this is not a good marketing strategy if this was a marketing-joke. And if it's actually true, I'll hate them more.
+
+
+
+
+
+](https://x.com/BrodaNoel/status/1913248949252616287)
+
+[
+
+](/)
+
+Headless TypeScript ORM with a head.
+
+[](https://github.com/drizzle-team/drizzle-orm)[](https://discord.gg/yfjTbVXMW4)[](https://twitter.com/DrizzleORM)
+
+Documentation
+
+[Get Started](/docs/overview) [Manage Schema](/docs/sql-schema-declaration) [Access Data](/docs/rqb) [Migrations](/docs/kit-overview)
+
+Resources
+
+[Drizzle Studio](/drizzle-studio/overview) [Benchmarks](/benchmarks)
+
+Learn
+
+[Guides](/docs/guides) [Tutorials](/docs/tutorials) [Latest Releases](/docs/latest-releases)
+
+meet drizzle
+
+[Get started](/docs/get-started) [Why Drizzle?](/docs/overview) [Guides](/docs/guides) [Tutorials](/docs/tutorials) [Latest releases](/docs/latest-releases) [Gotchas](/docs/gotchas)
+
+Fundamentals
+
+[Schema](/docs/sql-schema-declaration) [Database connection](/docs/connect-overview) [Query data](/docs/data-querying) [Migrations](/docs/migrations)
+
+Connect
+
+[PostgreSQL](/docs/get-started-postgresql) [Gel](/docs/get-started-gel) [MySQL](/docs/get-started-mysql) [SQLite](/docs/get-started-sqlite) [SingleStore](/docs/get-started-singlestore)
+
+[Neon](/docs/connect-neon) [Vercel Postgres](/docs/connect-vercel-postgres) [Supabase](/docs/connect-supabase) [Xata](/docs/connect-xata) [PGLite](/docs/connect-pglite) [Nile](/docs/connect-nile) [Bun SQL](/docs/connect-bun-sql)
+
+[PlanetScale](/docs/connect-planetscale) [TiDB](/docs/connect-tidb)
+
+[Turso](/docs/connect-turso) [Cloudflare D1](/docs/connect-cloudflare-d1) [Bun SQLite](/docs/connect-bun-sqlite) [Cloudflare Durable Objects](/docs/connect-cloudflare-do)
+
+[Expo SQLite](/docs/connect-expo-sqlite) [OP SQLite](/docs/connect-op-sqlite) [React Native SQLite](/docs/connect-react-native-sqlite)
+
+[AWS Data API Postgres](/docs/connect-aws-data-api-pg) [AWS Data API MySQL](/docs/connect-aws-data-api-mysql)
+
+[Drizzle Proxy](/docs/connect-drizzle-proxy)
+
+Expand
+
+Manage schema
+
+Data types [Indexes & Constraints](/docs/indexes-constraints) [Sequences](/docs/sequences) [Views](/docs/views) [Schemas](/docs/schemas) [Row-Level Security (RLS)](/docs/rls) Extensions [Relations](/docs/relations)
+
+Migrations
+
+[Overview](/docs/kit-overview) [`generate`](/docs/drizzle-kit-generate) [`migrate`](/docs/drizzle-kit-migrate) [`push`](/docs/drizzle-kit-push) [`pull`](/docs/drizzle-kit-pull) [`export`](/docs/drizzle-kit-export) [`check`](/docs/drizzle-kit-check) [`up`](/docs/drizzle-kit-up) [`studio`](/docs/drizzle-kit-studio) [Custom migrations](/docs/kit-custom-migrations) [Migrations for teams](/docs/kit-migrations-for-teams) [Web and mobile](/docs/kit-web-mobile) [drizzle.config.ts](/docs/drizzle-config-file)
+
+Seeding
+
+[Overview](/docs/seed-overview) [Generators](/docs/seed-functions) [Versioning](/docs/seed-versioning)
+
+Access your data
+
+[Query](/docs/rqb) [Select](/docs/select) [Insert](/docs/insert) [Update](/docs/update) [Delete](/docs/delete) [Filters](/docs/operators) [Utils](/docs/query-utils) [Joins](/docs/joins) [Magic sql\`\` operator](/docs/sql)
+
+Performance
+
+[Queries](/docs/perf-queries) [Serverless](/docs/perf-serverless)
+
+Advanced
+
+[Set Operations](/docs/set-operations) [Generated Columns](/docs/generated-columns) [Transactions](/docs/transactions) [Batch](/docs/batch-api) [Cache](/docs/cache) [Dynamic query building](/docs/dynamic-query-building) [Read Replicas](/docs/read-replicas) [Custom types](/docs/custom-types) [Goodies](/docs/goodies)
+
+Extensions
+
+[Prisma](/docs/prisma) [ESLint Plugin](/docs/eslint-plugin) [drizzle-zod](/docs/zod) [drizzle-typebox](/docs/typebox) [drizzle-valibot](/docs/valibot) [drizzle-arktype](/docs/arktype) [drizzle-graphql](/docs/graphql)
+
+System Light Dark
+
+[
+
+Become a Sponsor
+
+](https://driz.link/sponsor)[
+
+Twitter
+
+](https://mobile.twitter.com/DrizzleORM)[
+
+Discord
+
+](https://discord.gg/yfjTbVXMW4)
+
+ORM for you to settleship ship ship
+
+JavaScript
+
+TypeScript
+
+[
+
+Get Started
+
+](/docs/get-started)[
+
+Documentation
+
+](/docs/overview)
+
+Search Docs
+
+Ask Docs
+
+0000
+
+23
+
+Play
+
+Normal
+
+powered by [3310snake.com](https://3310snake.com/)
+
+We ship decently fast
+---------------------
+
+### Drizzle Team and Active Contributors
+
+Andrew Sherman
+
+Dan Kochetov
+
+Alex Blokh
+
+Mykhailo Stratovych
+
+Roman Nabukhotnyi
+
+Vladislav Stohnii
+
+Serhii Reka
+
+Oleksii Khomenko
+
+Artem Odiiko
+
+Vitalii Staryk
+
+angelelz
+
+rphlmr
+
+mario564
+
+Simon Sardorf
+
+[
+
+v1.0 release
+
+75%
+
+](/roadmap)
+
+June 2024
+
+July 2024
+
+*   We've had podcast on [syntax.fm](https://www.youtube.com/watch?v=Hh9xqRWYEJs) 🎙️ Drizzle <> Sytnax merch drop - [see here](https://x.com/DrizzleORM/status/1815793307877871912)
+    
+*   **ORM [v0.32.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.32.1) release**
+    
+    *   improved indexes API and typings
+    *   support for limit 0
+    *   array and notInArray accept empty \[\]
+    
+*   **Community highlights** • [drizzle.run](https://drizzle.run) ships [schema visualizer](https://drizzle.run/visualizer) 👀 • [sst dev](https://x.com/thdxr/status/1818439495361937781) & drizzle studio update • [Hono + Drizzle](https://github.com/rhinobase/honohub) headless CMS • TypeScript based [down migrations](https://github.com/drepkovsky/drizzle-migrations)
+    
+*   **Drizzle Kit goes open-source 🎉** • 2hrs release stream on Jul 30th • added programmatic access • [v0.23.1 release](https://github.com/drizzle-team/drizzle-kit-mirror/releases/tag/v0.23.1) with bugfixes
+    
+*   **Landing page update 🎉** • our team is 10 devs, now you know • showcase active contributors • TypeScript and JavaScript mention • v1.0 release timeline with a roadmap! • calendar section for our iterations • quick access docs search and ask ai • snake game board 🐍
+    
+*   added [announcments](/announcements) page
+    
+*   **Updated tutorials:** • [Drizzle <> Vercel Postgres](/docs/tutorials/drizzle-with-vercel) • [Drizzle <> Turso](/docs/tutorials/drizzle-with-turso) • [Drizzle <> Neon Postgres](/docs/tutorials/drizzle-with-neon) • [Todo App with Neon Postgres](/docs/tutorials/drizzle-nextjs-neon)
+    
+
+August 2024
+
+*   [**Drizzle Gateway**](https://x.com/DrizzleORM/status/1820462321942036749) closed alpha release 🎉
+    
+*   [**Brocli**](https://github.com/drizzle-team/brocli) - our new open-source library 👀
+    
+*   [Snake Game](https://3310snake.com/) released 🎉 have some fun we've had a lot of fun
+    
+*   **Kit [v0.24.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.24.0) release** **Breaking changes:**
+    
+    *   Fixed [Composite primary key order is not consistent](https://github.com/drizzle-team/drizzle-kit-mirror/issues/342) by removing `sort` in SQLite
+    
+    **Bug fixes:**
+    
+    *   [\[BUG\] When using double type columns, import is not inserted](https://github.com/drizzle-team/drizzle-kit-mirror/issues/403)
+    *   [\[BUG\] A number value is specified as the default for a column of type char](https://github.com/drizzle-team/drizzle-kit-mirror/issues/404)
+    *   [\[BUG\]: Array default in migrations are wrong](https://github.com/drizzle-team/drizzle-orm/issues/2621)
+    *   [\[FEATURE\]: Simpler default array fields](https://github.com/drizzle-team/drizzle-orm/issues/2709)
+    *   [\[BUG\]: drizzle-kit generate succeeds but generates invalid SQL for default(\[\]) - Postgres](https://github.com/drizzle-team/drizzle-orm/issues/2432)
+    *   [\[BUG\]: Incorrect type for array column default value](https://github.com/drizzle-team/drizzle-orm/issues/2334)
+    *   [\[BUG\]: error: column is of type integer\[\] but default expression is of type integer](https://github.com/drizzle-team/drizzle-orm/issues/2224)
+    *   [\[BUG\]: Default value in array generating wrong migration file](https://github.com/drizzle-team/drizzle-orm/issues/1003)
+    *   [\[BUG\]: enum as array, not possible?](https://github.com/drizzle-team/drizzle-orm/issues/1564)
+    
+*   **ORM [v0.33.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.33.0) release** **Breaking changes:**
+    
+    *   [\[BUG\]: jsonb always inserted as a json string when using postgres-js](https://github.com/drizzle-team/drizzle-orm/issues/724)
+    *   [\[BUG\]: jsonb type on postgres implement incorrectly](https://github.com/drizzle-team/drizzle-orm/issues/1511)
+    
+    **Bug fixes:**
+    
+    *   [\[BUG\]: boolean mode not working with prepared statements (bettersqlite)](https://github.com/drizzle-team/drizzle-orm/issues/2568)
+    *   [\[BUG\]: isTable helper function is not working](https://github.com/drizzle-team/drizzle-orm/issues/2672)
+    *   [\[BUG\]: Documentation is outdated on inArray and notInArray Methods](https://github.com/drizzle-team/drizzle-orm/issues/2690)
+    
+*   **Kit [v0.23.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.23.2) release**
+    
+    *   fixed a bug in PostgreSQL with push and introspect where the `**schemaFilter**` object was passed. It was detecting enums even in schemas that were not defined in the **`schemaFilter`**.
+    *   fixed the `**drizzle-kit up**` command to work as expected, starting from the sequences release
+    
+*   **ORM [v0.32.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.32.2) release**
+    
+    *   fix AWS Data API type hints bugs in RQB
+    *   fix set transactions in MySQL bug
+    *   add forwaring dependencies within useLiveQuery, fixes [#2651](https://github.com/drizzle-team/drizzle-orm/issues/2651)
+    *   export additional types from SQLite package, like `AnySQLiteUpdate`
+    
+*   **Updated tutorials:** • [Drizzle with Supabase Database](/docs/tutorials/drizzle-with-supabase) • [Drizzle with Vercel Edge Functions](/docs/tutorials/drizzle-with-vercel-edge-functions)
+    
+*   We've updated [benchmarks](https://x.com/DrizzleORM/status/1826693369357369712) 🚀
+    
+
+September 2024
+
+*   Some Tweets
+    
+
+October 2024
+
+*   **ORM [v0.36.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.0) release** **Row-Level Security Support for PostgreSQL**
+    
+    *   Manage roles
+    *   Manage policies
+    *   Enable RLS for tables
+    *   Enable RLS for views!
+    *   Special import `drizzle-orm/neon` for `Neon`
+    *   Special import `drizzle-orm/supabase` for `Supabase`
+    
+*   **Kit [v0.27.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.0) release** **Row-Level Security Support for PostgreSQL**
+    
+    *   Manage roles
+    *   Manage policies
+    *   Enable RLS for tables
+    *   Enable RLS for views!
+    *   Special import `drizzle-orm/neon` for `Neon`
+    *   Special import `drizzle-orm/supabase` for `Supabase`
+    
+*   Documentation site restructure and improvements
+    
+    *   New "Get Started" section
+    *   New "Fundamentals" section
+    *   "Connect" is now flat and has proper navigation
+    *   The Kit section is gone, and you now have a "Migrations" section with full information about the Kit
+    *   Updated UI
+    *   Content restructuring
+    *   And more
+    
+*   **ORM [v0.34.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.34.0) release** **Breaking changes:**
+    
+    *   Added new dialect "Turso" that needs a newer libsql version
+    
+    **Features:**
+    
+    *   LibSQL/Turso and SQLite migration updates
+    *   SQLite "generate" and "push" statement updates
+    *   LibSQL/Turso "generate" and "push" statement updates
+    *   New `casing` param in `drizzle-orm`
+    *   Monodriver: A new and easy way to start using Drizzle
+    *   Schema improvements: Optional names for columns and callback in Drizzle table
+    *   New "count" API
+    *   Ability to execute raw strings
+    *   Exposed db.$client
+    
+*   **Kit [v0.25.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.25.0) release** **Breaking changes:**
+    
+    *   Added new dialect "Turso" that needs a newer libsql version
+    
+    **Features:**
+    
+    *   LibSQL/Turso and SQLite migration updates
+    *   SQLite "generate" and "push" statement updates
+    *   LibSQL/Turso "generate" and "push" statement updates
+    *   New `casing` param in `drizzle-kit`
+    
+
+November 2024
+
+*   **🎉 OneDollarStats is now available in Open Alpha release!** [OneDollarStats](https://onedollarstats.com/) is a $1 per month web analytics built by Drizzle Team
+    
+*   **🎉 New `drizzle-seed` package is now available** For more info check our [seed documentation](https://orm.drizzle.team/docs/seed-overview)
+    
+*   **ORM [v0.36.4](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.4) release**
+    
+    *   Added .$withAuth() API for Neon HTTP driver
+    *   Added OVERRIDING SYSTEM VALUE api to db.insert()
+    
+*   **ORM [v0.36.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.3) release**
+    
+    *   Support for UPDATE ... FROM in PostgreSQL and SQLite
+    *   Support for INSERT INTO ... SELECT in all dialects
+    
+*   **Kit [v0.28.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.28.1) release** and **ORM [v0.36.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.2) release**
+    
+    *   Support more types in like, notLike, ilike and notIlike expressions
+    *   Fixed typos in repository: thanks @armandsalle, @masto, @wackbyte, @Asher-JH, @MaxLeiter
+    *   fix: wrong dialect set in mysql/sqlite introspect
+    *   Fixed .generated behavior with non-strict tsconfig
+    *   Fix Drizzle ORM for expo-sqlite
+    *   Fixed lack of schema name on columns in sql
+    *   fix: Adjust neon http driver entity kind
+    *   Export PgIntegerBuilderInitial type
+    *   \[MySQL\] Correct $returningId() implementation to correctly store selected fields
+    
+*   **Kit [v0.28.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.28.0) release** and **ORM [v0.36.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.1) release**
+    
+    *   Added an OHM static imports checker to identify unexpected imports within a chain of imports in the drizzle-kit repo. For example, it checks if drizzle-orm is imported before drizzle-kit and verifies if the drizzle-orm import is available in your project.
+    *   Adding more columns to Supabase auth.users table schema
+    
+    **Bug Fixes***   \[BUG\]: Using sql.placeholder with limit and/or offset for a prepared statement produces TS error
+    *   \[BUG\] If a query I am trying to modify with a dynamic query (....$dynamic()) contains any placeholders, I'm getting an error that says No value for placeholder.... provided
+    *   \[BUG\]: Error thrown when trying to insert an array of new rows using generatedAlwaysAsIdentity() for the id column
+    *   \[BUG\]: Unable to Use BigInt Types with Bun and Drizzle
+    *   \[BUG\]: \[drizzle-kit\]: Fix breakpoints option cannot be disabled
+    *   \[BUG\]: drizzle-kit introspect: SMALLINT import missing and incorrect DECIMAL UNSIGNED handling
+    *   Unsigned tinyints preventing migrations
+    *   \[BUG\]: Can't parse float(8,2) from database (precision and scale and/or unsigned breaks float types)
+    *   \[BUG\]: PgEnum generated migration doesn't escape single quotes
+    *   \[BUG\]: single quote not escaped correctly in migration file
+    *   \[BUG\]: Migrations does not escape single quotes
+    *   \[BUG\]: Issue with quoted default string values
+    *   \[BUG\]: SQl commands in wrong roder
+    *   \[BUG\]: Time with precision in drizzle-orm/pg-core adds double-quotes around type
+    *   \[BUG\]: Postgres push fails due to lack of quotes
+    *   \[BUG\]: TypeError: Cannot read properties of undefined (reading 'compositePrimaryKeys')
+    *   \[BUG\]: drizzle-kit introspect generates CURRENT\_TIMESTAMP without sql operator on date column
+    *   \[BUG\]: Drizzle-kit introspect doesn't pull correct defautl statement
+    *   \[BUG\]: Problem on MacBook - This statement does not return data. Use run() instead
+    *   \[BUG\]: Enum column names that are used as arrays are not quoted
+    *   \[BUG\]: drizzle-kit generate ignores index operators
+    *   dialect param config error message is wrong
+    *   \[BUG\]: Error setting default enum field values
+    *   \[BUG\]: drizzle-kit does not respect the order of columns configured in primaryKey()
+    *   \[BUG\]: Cannot drop Unique Constraint MySQL
+    
+*   **Kit [v0.27.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.2) release**
+    
+    *   Fix \[BUG\]: Undefined properties when using drizzle-kit push
+    *   Fix TypeError: Cannot read properties of undefined (reading 'isRLSEnabled')
+    *   Fix push bugs, when pushing a schema with linked policy to a table from drizzle-orm/supabase
+    
+*   **Kit [v0.27.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.1) release**
+    
+    *   Fix: \[BUG\]: When using RLS policies and Views, the view is the last clause generated
+    
+
+December 2024
+
+*   **drizzle-seed [v0.3.0](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.3.0.md) release**
+    
+    *   The seed function can now accept Drizzle Relations objects and treat them as foreign key constraints
+    
+*   **ORM [v0.38.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.3) release**
+    
+    *   Fix incorrect deprecation detection for table declarations
+    *   SingleStore dialect support for all validator packages
+    
+*   **drizzle-seed [v0.2.1](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.2.1.md) release**
+    
+    *   We are introducing a new parameter, version, to the seed function options. This parameter, which controls generator versioning, has been added to make it easier to update deterministic generators in the future.
+    *   interval unique generator was changed and upgraded to v2
+    *   string generators were changed and upgraded to v2
+    
+*   **ORM [v0.38.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.2) release**
+    
+    *   New features for MySQL users: USE INDEX, FORCE INDEX and IGNORE INDEX for MySQL
+    
+*   **Kit [v0.30.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.1) release**
+    
+    *   New command: drizzle-kit export
+    
+*   **drizzle-seed [v0.1.3](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.1.3.md) release**
+    
+    *   Added support for postgres uuid columns
+    *   Added support for postgres array columns
+    *   Added support for cyclic tables. You can now seed tables with cyclic relations.
+    
+    **Bug Fixes***   \[BUG\]: reset fails with a syntax error if using a - in pgTableCreator to prefix tables
+    *   seeding a table with columns that have .default(sql\`\`) will result in an error
+    
+*   ORM bug fixes
+    
+    *   \[FEATURE\]: publish packages un-minified
+    *   Don't allow unknown keys in drizzle-zod refinement
+    *   \[BUG\]:drizzle-zod not working with pgSchema
+    *   Add createUpdateSchema to drizzle-zod
+    *   \[BUG\]:drizzle-zod produces wrong type
+    *   \[BUG\]:Drizzle-zod:Boolean and Serial types from Schema are defined as enum when using CreateInsertSchema and CreateSelectSchema
+    *   \[BUG\]: Drizzle typebox enum array wrong schema and type
+    *   \[BUG\]:drizzle-zod not working with pgSchema
+    *   \[BUG\]: drizzle-zod not parsing arrays correctly
+    *   \[BUG\]: Drizzle typebox not supporting array
+    *   \[FEATURE\]: Export factory functions from drizzle-zod to allow usage with extended Zod classes
+    *   \[FEATURE\]: Add support for new pipe syntax for drizzle-valibot
+    *   \[BUG\]: drizzle-zod's createInsertSchema() can't handle column of type vector
+    *   \[BUG\]: drizzle-typebox fails to map geometry column to type-box schema
+    *   \[BUG\]: drizzle-valibot does not provide types for returned schemas
+    *   \[BUG\]: Drizzle-typebox types SQLite real field to string
+    *   \[BUG\]: drizzle-zod: documented usage generates type error with exactOptionalPropertyTypes
+    *   \[BUG\]: drizzle-zod does not respect/count db type range
+    *   \[BUG\]: drizzle-zod not overriding optional
+    *   \[BUG\]:drizzle-zod doesn't accept custom id value
+    *   \[FEATURE\]: Support for Database Views in Drizzle Zod
+    *   \[BUG\]: drizzle-valibot return type any
+    *   \[BUG\]: drizzle-zod Type generation results in undefined types
+    *   \[BUG\]: GeneratedAlwaysAs
+    *   \[FEATURE\]: $inferSelect on a view
+    *   \[BUG\]:Can't infer props from view in schema
+    
+*   **ORM [v0.38.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.0) release**
+    
+    *   Added new function getViewSelectedFields
+    *   Added $inferSelect function to views
+    *   Added InferSelectViewModel type for views
+    *   Added isView function
+    
+*   **Kit [v0.30.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.0) release** Starting from this update, the PostgreSQL dialect will align with the behavior of all other dialects. It will no longer include IF NOT EXISTS, $DO, or similar statements, which could cause incorrect DDL statements to not fail when an object already exists in the database and should actually fail.
+    
+*   **Kit [v0.29.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.29.0) release** and **ORM [v0.37.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.37.0) release**
+    
+    *   New dialect **SingleStore** is available in Drizzle
+    *   New driver for **Durable Objects SQLite** is available in Drizzle
+    *   \[BUG\]: $with is undefined on withReplicas
+    *   \[BUG\]: Neon serverless driver accepts authToken as a promise, but the $withAuth does not
+    
+
+January
+
+*   **ORM [v0.39.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.39.1) release**
+    
+    *   Fixed SQLite onConflict clauses being overwritten instead of stacked
+    *   Added view support to aliasedTable()
+    *   Fixed sql builder prefixing aliased views and tables with their schema
+    
+*   **Kit [v0.30.4](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.4) release**
+    
+    *   Fix bug that generates incorrect syntax when introspect in mysql
+    *   Fix a bug that caused incorrect syntax output when introspect in unsigned columns
+    
+*   **Bug Fixes***   Allow INSERT in CTEs (WITH clauses)\]
+    *   Support Raw SQL in CTE Query Builder\]
+    *   Include pre-defined database objects related to Neon Identity in drizzle-orm\]
+    *   $count is undefined on withReplicas\]
+    *   get\[Materialized\]ViewName, ie getTableName but for (materialized) views.\]
+    *   $count API error with vercel-postgres\]
+    *   Cannot use schema.coerce on refining drizzle-zod types\]
+    *   Type Coercion in drizzle-zod\]
+    *   The inferred type of X cannot be named without a reference ...
+    *   drizzle-zod excessively deep and possibly infinite types\]
+    
+*   **ORM [v0.39.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.39.0) release**
+    
+    *   You can now use the new Bun SQL driver released in Bun v1.2.0 with Drizzle
+    *   WITH now supports INSERT, UPDATE, DELETE and raw sql template
+    *   New tables in /neon import
+    *   Added getViewName util function
+    
+*   **Kit [v0.30.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.3) release**
+    
+    *   As SingleStore did not support certain DDL statements before this release, you might encounter an error indicating that some schema changes cannot be applied due to a database issue. Starting from this version, drizzle-kit will detect such cases and initiate table recreation with data transfer between the tables
+    
+
+February
+
+*   **Drizzle Studio updates:**
+    
+    *   Added the ability to create/alter tables.
+    *   Added the ability to create/alter views.
+    *   Added the ability to refresh db schema.
+    *   Improved dropdowns.
+    *   Improved style customization.
+    *   Added filter by entity type (table/view).
+    *   Revised dependency tree and reduced bundle size.
+    *   Added database metadata to bug report.
+    *   Added range selection with copy/paste capability.
+    
+*   **ORM [v0.40.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.40.0) release**
+    
+    *   Drizzle is getting a new Gel dialect with its own types and Gel-specific logic. In this first iteration, almost all query-building features have been copied from the PostgreSQL dialect since Gel is fully PostgreSQL-compatible. The only change in this iteration is the data types. The Gel dialect has a different set of available data types, and all mappings for these types have been designed to avoid any extra conversions on Drizzle's side. This means you will insert and select exactly the same data as supported by the Gel protocol.
+    
+*   **Kit [v0.30.5](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.5) release**
+    
+    *   Drizzle is getting a new Gel dialect with its own types and Gel-specific logic. Kit is getting new "gel" dialect option
+    
+
+March
+
+*   **ORM [v0.41.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.41.0) release**
+    
+    *   `bigint`, `number` modes for `SQLite`, `MySQL`, `PostgreSQL`, `SingleStore` `decimal` & `numeric` column types
+    *   Changed behavior of `sql-js` query preparation
+    *   Fixed `MySQL`, `SingleStore` `varchar` allowing not specifying `length` in config
+    *   Fixed `MySQL`, `SingleStore` `binary`, `varbinary` data\\\\type mismatches
+    *   Fixed `numeric`\\\\`decimal` data\\\\type mismatches
+    *   Fixed `drizzle-studio` + `AWS Data Api` connection issue
+    *   Fixed `isConfig` utility function checking types of wrong fields
+    *   Enabled `supportBigNumbers` in auto-created `mysql2` driver instances
+    *   Fixed custom schema tables querying in RQBv1
+    *   Removed in-driver mapping for postgres types
+    *   Fixed `SQLite` `buffer`\-mode `blob` sometimes returning `number[]`
+    
+*   **Drizzle Studio updates:**
+    
+    *   Added new setting option for expanding subviews.
+    *   Added date and time pickers.
+    *   New settings option for pagination by page or limit offset.
+    *   Improved error handling for INSERT/UPDATE/DELETE statements in data table.
+    *   Added column type to header cell.
+    *   Added export in xlsx format.
+    *   Added callback on bug report button click.
+    *   Added ability to customize the error page.
+    *   Added css variable for run query button color.
+    *   Fixed issues with rowid.
+    *   Improved SQL console with snippet system.
+    
+*   **ORM [v0.40.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.40.1) release**
+    
+    *   Updates to neon-http for @neondatabase/[\[email protected\]](/cdn-cgi/l/email-protection). Starting from this version, drizzle-orm will be compatible with both @neondatabase/serverless <1.0 and >1.0
+    
+
+April
+
+this month
+
+Performance
+
+Drizzle doesn't slow you down
+
+[](/benchmarks)
+
+[Go to benchmark results](/benchmarks)
+
+Drizzle
+
+v0.33.0
+
+Bun v1.1.25
+
+Bun v1.1.25Node 22.6.0 (Current)Node v20.16.0 (LTS)Node v18.20.4 (LTS)
+
+Prisma
+
+v5.18.0
+
+Bun v1.1.25
+
+Bun v1.1.25Node 22.6.0 (Current)Node v20.16.0 (LTS)Node v18.20.4 (LTS)
+
+QueriesJoins
+
+avg latency: 0.0ms
+
+avg latency: 0.0ms
+
+avg: 0 req/sec
+
+Failed requests
+
+Drizzle handled xNaN more requests
+
+0
+
+avg: 0 req/sec
+
+Failed requests
+
+Drizzle handled xNaN more requests
+
+0
+
+avg CPU load: 0.0%
+
+avg CPU load: 0.0%
+
+[Go to benchmark results](/benchmarks)
+
+Live on the edge
+
+We support every major serverful and serverless runtime
+
+Cloudflare Workers
+
+Supabase functions
+
+Vercel functions
+
+Deno deploy
+
+Bun
+
+Lagon
+
+Fly.io
+
+ElectronJS
+
+Expo
+
+React Native
+
+Browser
+
+Connect to any database
+
+We support all platform-specific, tcp, http and websocket based drivers
+
+[
+
+our sponsor
+
+Gel
+
+](https://driz.link/edgedb)
+
+PlanetScale
+
+[
+
+our sponsor
+
+Neon
+
+](https://driz.link/neon)
+
+Vercel Postgres
+
+[
+
+our sponsor
+
+Turso
+
+](https://driz.link/turso)
+
+Supabase
+
+[
+
+our sponsor
+
+Xata
+
+](https://driz.link/xataio)
+
+PostgreSQL
+
+[
+
+our sponsor
+
+TiDB
+
+](https://driz.link/silver-sponsor-tidb)
+
+MySQL
+
+[
+
+our sponsor
+
+Tembo
+
+](https://driz.link/tembo)
+
+LiteFS
+
+[
+
+our sponsor
+
+SQLite Cloud
+
+](https://driz.link/sqlitecloud)
+
+SQLite
+
+[
+
+our sponsor
+
+SingleStore
+
+](https://driz.link/singlestore)
+
+Web SQLite
+
+[
+
+not yet sponsor
+
+Prisma Postgres
+
+](https://driz.link/rickroll)
+
+Drizzle Studio
+
+Explore and manipulate your data
+
+[Documentation](/drizzle-studio/overview) [Live demo](https://demo.drizzle.studio)
+
+Our Sponsors
+
+You help us build a better future
+
+[Become a sponsor](https://driz.link/sponsor)
+
+Pricing
+
+Just kidding, Drizzle is free and open-source  
+You can still make your contribution!
+
+[Give us a star](https://github.com/drizzle-team/drizzle-orm) [Subscribe on Twitter](https://mobile.twitter.com/DrizzleORM) [Join our community](https://discord.gg/yfjTbVXMW4)
+
+Buy us some ramen 🍜
+
+[Become a sponsor](https://driz.link/sponsor)
+
+Developers love Drizzle ORM!
+
+[
+
+Dax
+
+@thdxr
+
+I hate Drizzle
+
+
+
+
+
+](https://x.com/thdxr/status/1719129834901721353?s=20)[
+
+Anthony Shew
+
+@anthonysheww
+
+I hate @DrizzleOrm so much that I wrote the Auth.js adapter for it.
+
+
+
+
+
+](https://x.com/anthonysheww/status/1688973391917969408?s=20)[
+
+Adam
+
+@adamdotdev
+
+i know this won't get me on the homepage, but @DrizzleORM is so good
+
+
+
+
+
+](https://x.com/adamdotdev/status/1749463315355508917?s=20)
+
+Some Body
+
+@dont\_know
+
+Django had it in 2008
+
+[
+
+Eddy Vinck
+
+@EddyVinckk
+
+I love @DrizzleORM that's it, that's the tweet
+
+
+
+
+
+](https://x.com/EddyVinckk/status/1770052528941478333?s=20)[
+
+Jacob Wolf 🐝
+
+@JacobWolf
+
+I love @DrizzleORM.
+
+
+
+
+
+](https://x.com/JacobWolf/status/1768061278776349151?s=20)[
+
+Theo
+
+@t3dotgg
+
+Drizzle is terrible. It doesn’t even support Mongo.
+
+
+
+
+
+](https://x.com/t3dotgg/status/1787604253860847775)[
+
+Aaron Francis
+
+@aarondfrancis
+
+Y'all should just copy everything Eloquent has
+
+
+
+
+
+](https://x.com/aarondfrancis/status/1641145228189892613?s=20)[
+
+Ofelquis Gimenes
+
+@imfelquis
+
+unpredictable results is what feeds the human race, ban Drizzle now and all this typing gibberish all together
+
+
+
+
+
+](https://x.com/imfelquis/status/1709919386931462516?s=20)[
+
+James Perkins
+
+@james\_r\_perkins
+
+Sorry @DrizzleORM you suck!
+
+
+
+
+
+](https://x.com/james_r_perkins/status/1766156735155196201?s=20)[
+
+tslamoon
+
+@tslamoon1
+
+I'll shave my head if drizzle adds MSSQL support by the end of September.
+
+
+
+
+
+](https://x.com/tslamoon1/status/1700416378237530419?s=20)[
+
+fks
+
+@FredKSchott
+
+Astro DB is powered by Drizzle! ... and we regret everything omg this thing sucks
+
+
+
+
+
+](https://x.com/FredKSchott/status/1767646959656194473?s=20)[
+
+Ray
+
+@\_raynirola
+
+DrizzleOrm is not an "ORM", it's merely a overrated typesafe sql wrapper, not even a query builder.
+
+
+
+
+
+](https://x.com/_raynirola/status/1666028176789872642?s=20)[
+
+SaltyAom
+
+@saltyAom
+
+Prisma Bun: 1.4 MB/s Drizzle Bun: 9.8 MB/s
+
+
+
+
+
+](https://x.com/saltyAom/status/1767783124342276526?s=20)[
+
+Christoffer Bjelke
+
+@chribjel
+
+How many times has this little shit snuck into your dependencies?
+
+
+
+
+
+](https://x.com/chribjel/status/1778851727954837727)[
+
+Roma Zvarych
+
+@hisbvdis
+
+I have finally switched from @prisma to @DrizzleORM. It was not easy. Dear Drizzle Team, you have created an awesome orm with awfull documentation. Anyway, good for you, thanks and good luck.
+
+
+
+
+
+](https://x.com/hisbvdis/status/1807783878515400977)[
+
+Aoki
+
+@aokijs
+
+Honestly, fuck the benchmarks. I don‘t care which one‘s faster. All I can say is that Drizzle made my life working with databases dramastically better and that‘s all that matters for me. Thanks for your hard work 🙏🏻
+
+
+
+
+
+](https://x.com/aokijs/status/1833840766839325109)[
+
+Matija Marohnić
+
+@silvenon
+
+Every time I hear about @DrizzleORM.
+
+
+
+
+
+](https://x.com/silvenon/status/1843003214402314695)[
+
+Joseph Mama 🐀
+
+@spacesexdragon
+
+
+
+](https://x.com/spacesexdragon/status/1843381135134675236)[
+
+Broda Noel
+
+@BrodaNoel
+
+Is this a joke? Because if this is a joke, it's really really really bad joke, because now I'm fucking hating @DrizzleORM without even knowing who they are. I mean, this is not a good marketing strategy if this was a marketing-joke. And if it's actually true, I'll hate them more.
+
+
+
+
+
+](https://x.com/BrodaNoel/status/1913248949252616287)
+
+[
+
+](/)
+
+Headless TypeScript ORM with a head.
+
+[](https://github.com/drizzle-team/drizzle-orm)[](https://discord.gg/yfjTbVXMW4)[](https://twitter.com/DrizzleORM)
+
+Documentation
+
+[Get Started](/docs/overview) [Manage Schema](/docs/sql-schema-declaration) [Access Data](/docs/rqb) [Migrations](/docs/kit-overview)
+
+Resources
+
+[Drizzle Studio](/drizzle-studio/overview) [Benchmarks](/benchmarks)
+
+Learn
+
+[Guides](/docs/guides) [Tutorials](/docs/tutorials) [Latest Releases](/docs/latest-releases)
+
+meet drizzle
+
+[Get started](/docs/get-started) [Why Drizzle?](/docs/overview) [Guides](/docs/guides) [Tutorials](/docs/tutorials) [Latest releases](/docs/latest-releases) [Gotchas](/docs/gotchas)
+
+Fundamentals
+
+[Schema](/docs/sql-schema-declaration) [Database connection](/docs/connect-overview) [Query data](/docs/data-querying) [Migrations](/docs/migrations)
+
+Connect
+
+[PostgreSQL](/docs/get-started-postgresql) [Gel](/docs/get-started-gel) [MySQL](/docs/get-started-mysql) [SQLite](/docs/get-started-sqlite) [SingleStore](/docs/get-started-singlestore)
+
+[Neon](/docs/connect-neon) [Vercel Postgres](/docs/connect-vercel-postgres) [Supabase](/docs/connect-supabase) [Xata](/docs/connect-xata) [PGLite](/docs/connect-pglite) [Nile](/docs/connect-nile) [Bun SQL](/docs/connect-bun-sql)
+
+[PlanetScale](/docs/connect-planetscale) [TiDB](/docs/connect-tidb)
+
+[Turso](/docs/connect-turso) [Cloudflare D1](/docs/connect-cloudflare-d1) [Bun SQLite](/docs/connect-bun-sqlite) [Cloudflare Durable Objects](/docs/connect-cloudflare-do)
+
+[Expo SQLite](/docs/connect-expo-sqlite) [OP SQLite](/docs/connect-op-sqlite) [React Native SQLite](/docs/connect-react-native-sqlite)
+
+[AWS Data API Postgres](/docs/connect-aws-data-api-pg) [AWS Data API MySQL](/docs/connect-aws-data-api-mysql)
+
+[Drizzle Proxy](/docs/connect-drizzle-proxy)
+
+Expand
+
+Manage schema
+
+Data types [Indexes & Constraints](/docs/indexes-constraints) [Sequences](/docs/sequences) [Views](/docs/views) [Schemas](/docs/schemas) [Row-Level Security (RLS)](/docs/rls) Extensions [Relations](/docs/relations)
+
+Migrations
+
+[Overview](/docs/kit-overview) [`generate`](/docs/drizzle-kit-generate) [`migrate`](/docs/drizzle-kit-migrate) [`push`](/docs/drizzle-kit-push) [`pull`](/docs/drizzle-kit-pull) [`export`](/docs/drizzle-kit-export) [`check`](/docs/drizzle-kit-check) [`up`](/docs/drizzle-kit-up) [`studio`](/docs/drizzle-kit-studio) [Custom migrations](/docs/kit-custom-migrations) [Migrations for teams](/docs/kit-migrations-for-teams) [Web and mobile](/docs/kit-web-mobile) [drizzle.config.ts](/docs/drizzle-config-file)
+
+Seeding
+
+[Overview](/docs/seed-overview) [Generators](/docs/seed-functions) [Versioning](/docs/seed-versioning)
+
+Access your data
+
+[Query](/docs/rqb) [Select](/docs/select) [Insert](/docs/insert) [Update](/docs/update) [Delete](/docs/delete) [Filters](/docs/operators) [Utils](/docs/query-utils) [Joins](/docs/joins) [Magic sql\`\` operator](/docs/sql)
+
+Performance
+
+[Queries](/docs/perf-queries) [Serverless](/docs/perf-serverless)
+
+Advanced
+
+[Set Operations](/docs/set-operations) [Generated Columns](/docs/generated-columns) [Transactions](/docs/transactions) [Batch](/docs/batch-api) [Cache](/docs/cache) [Dynamic query building](/docs/dynamic-query-building) [Read Replicas](/docs/read-replicas) [Custom types](/docs/custom-types) [Goodies](/docs/goodies)
+
+Extensions
+
+[Prisma](/docs/prisma) [ESLint Plugin](/docs/eslint-plugin) [drizzle-zod](/docs/zod) [drizzle-typebox](/docs/typebox) [drizzle-valibot](/docs/valibot) [drizzle-arktype](/docs/arktype) [drizzle-graphql](/docs/graphql)
+
+System Light Dark
+
+[
+
+Become a Sponsor
+
+](https://driz.link/sponsor)[
+
+Twitter
+
+](https://mobile.twitter.com/DrizzleORM)[
+
+Discord
+
+](https://discord.gg/yfjTbVXMW4)
+
+ORM for you to settleship ship ship
+
+JavaScript
+
+TypeScript
+
+[
+
+Get Started
+
+](/docs/get-started)[
+
+Documentation
+
+](/docs/overview)
+
+Search Docs
+
+Ask Docs
+
+0000
+
+23
+
+Play
+
+Normal
+
+powered by [3310snake.com](https://3310snake.com/)
+
+We ship decently fast
+---------------------
+
+### Drizzle Team and Active Contributors
+
+Andrew Sherman
+
+Dan Kochetov
+
+Alex Blokh
+
+Mykhailo Stratovych
+
+Roman Nabukhotnyi
+
+Vladislav Stohnii
+
+Serhii Reka
+
+Oleksii Khomenko
+
+Artem Odiiko
+
+Vitalii Staryk
+
+angelelz
+
+rphlmr
+
+mario564
+
+Simon Sardorf
+
+[
+
+v1.0 release
+
+75%
+
+](/roadmap)
+
+June 2024
+
+July 2024
+
+*   We've had podcast on [syntax.fm](https://www.youtube.com/watch?v=Hh9xqRWYEJs) 🎙️ Drizzle <> Sytnax merch drop - [see here](https://x.com/DrizzleORM/status/1815793307877871912)
+    
+*   **ORM [v0.32.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.32.1) release**
+    
+    *   improved indexes API and typings
+    *   support for limit 0
+    *   array and notInArray accept empty \[\]
+    
+*   **Community highlights** • [drizzle.run](https://drizzle.run) ships [schema visualizer](https://drizzle.run/visualizer) 👀 • [sst dev](https://x.com/thdxr/status/1818439495361937781) & drizzle studio update • [Hono + Drizzle](https://github.com/rhinobase/honohub) headless CMS • TypeScript based [down migrations](https://github.com/drepkovsky/drizzle-migrations)
+    
+*   **Drizzle Kit goes open-source 🎉** • 2hrs release stream on Jul 30th • added programmatic access • [v0.23.1 release](https://github.com/drizzle-team/drizzle-kit-mirror/releases/tag/v0.23.1) with bugfixes
+    
+*   **Landing page update 🎉** • our team is 10 devs, now you know • showcase active contributors • TypeScript and JavaScript mention • v1.0 release timeline with a roadmap! • calendar section for our iterations • quick access docs search and ask ai • snake game board 🐍
+    
+*   added [announcments](/announcements) page
+    
+*   **Updated tutorials:** • [Drizzle <> Vercel Postgres](/docs/tutorials/drizzle-with-vercel) • [Drizzle <> Turso](/docs/tutorials/drizzle-with-turso) • [Drizzle <> Neon Postgres](/docs/tutorials/drizzle-with-neon) • [Todo App with Neon Postgres](/docs/tutorials/drizzle-nextjs-neon)
+    
+
+August 2024
+
+*   [**Drizzle Gateway**](https://x.com/DrizzleORM/status/1820462321942036749) closed alpha release 🎉
+    
+*   [**Brocli**](https://github.com/drizzle-team/brocli) - our new open-source library 👀
+    
+*   [Snake Game](https://3310snake.com/) released 🎉 have some fun we've had a lot of fun
+    
+*   **Kit [v0.24.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.24.0) release** **Breaking changes:**
+    
+    *   Fixed [Composite primary key order is not consistent](https://github.com/drizzle-team/drizzle-kit-mirror/issues/342) by removing `sort` in SQLite
+    
+    **Bug fixes:**
+    
+    *   [\[BUG\] When using double type columns, import is not inserted](https://github.com/drizzle-team/drizzle-kit-mirror/issues/403)
+    *   [\[BUG\] A number value is specified as the default for a column of type char](https://github.com/drizzle-team/drizzle-kit-mirror/issues/404)
+    *   [\[BUG\]: Array default in migrations are wrong](https://github.com/drizzle-team/drizzle-orm/issues/2621)
+    *   [\[FEATURE\]: Simpler default array fields](https://github.com/drizzle-team/drizzle-orm/issues/2709)
+    *   [\[BUG\]: drizzle-kit generate succeeds but generates invalid SQL for default(\[\]) - Postgres](https://github.com/drizzle-team/drizzle-orm/issues/2432)
+    *   [\[BUG\]: Incorrect type for array column default value](https://github.com/drizzle-team/drizzle-orm/issues/2334)
+    *   [\[BUG\]: error: column is of type integer\[\] but default expression is of type integer](https://github.com/drizzle-team/drizzle-orm/issues/2224)
+    *   [\[BUG\]: Default value in array generating wrong migration file](https://github.com/drizzle-team/drizzle-orm/issues/1003)
+    *   [\[BUG\]: enum as array, not possible?](https://github.com/drizzle-team/drizzle-orm/issues/1564)
+    
+*   **ORM [v0.33.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.33.0) release** **Breaking changes:**
+    
+    *   [\[BUG\]: jsonb always inserted as a json string when using postgres-js](https://github.com/drizzle-team/drizzle-orm/issues/724)
+    *   [\[BUG\]: jsonb type on postgres implement incorrectly](https://github.com/drizzle-team/drizzle-orm/issues/1511)
+    
+    **Bug fixes:**
+    
+    *   [\[BUG\]: boolean mode not working with prepared statements (bettersqlite)](https://github.com/drizzle-team/drizzle-orm/issues/2568)
+    *   [\[BUG\]: isTable helper function is not working](https://github.com/drizzle-team/drizzle-orm/issues/2672)
+    *   [\[BUG\]: Documentation is outdated on inArray and notInArray Methods](https://github.com/drizzle-team/drizzle-orm/issues/2690)
+    
+*   **Kit [v0.23.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.23.2) release**
+    
+    *   fixed a bug in PostgreSQL with push and introspect where the `**schemaFilter**` object was passed. It was detecting enums even in schemas that were not defined in the **`schemaFilter`**.
+    *   fixed the `**drizzle-kit up**` command to work as expected, starting from the sequences release
+    
+*   **ORM [v0.32.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.32.2) release**
+    
+    *   fix AWS Data API type hints bugs in RQB
+    *   fix set transactions in MySQL bug
+    *   add forwaring dependencies within useLiveQuery, fixes [#2651](https://github.com/drizzle-team/drizzle-orm/issues/2651)
+    *   export additional types from SQLite package, like `AnySQLiteUpdate`
+    
+*   **Updated tutorials:** • [Drizzle with Supabase Database](/docs/tutorials/drizzle-with-supabase) • [Drizzle with Vercel Edge Functions](/docs/tutorials/drizzle-with-vercel-edge-functions)
+    
+*   We've updated [benchmarks](https://x.com/DrizzleORM/status/1826693369357369712) 🚀
+    
+
+September 2024
+
+*   Some Tweets
+    
+
+October 2024
+
+*   **ORM [v0.36.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.0) release** **Row-Level Security Support for PostgreSQL**
+    
+    *   Manage roles
+    *   Manage policies
+    *   Enable RLS for tables
+    *   Enable RLS for views!
+    *   Special import `drizzle-orm/neon` for `Neon`
+    *   Special import `drizzle-orm/supabase` for `Supabase`
+    
+*   **Kit [v0.27.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.0) release** **Row-Level Security Support for PostgreSQL**
+    
+    *   Manage roles
+    *   Manage policies
+    *   Enable RLS for tables
+    *   Enable RLS for views!
+    *   Special import `drizzle-orm/neon` for `Neon`
+    *   Special import `drizzle-orm/supabase` for `Supabase`
+    
+*   Documentation site restructure and improvements
+    
+    *   New "Get Started" section
+    *   New "Fundamentals" section
+    *   "Connect" is now flat and has proper navigation
+    *   The Kit section is gone, and you now have a "Migrations" section with full information about the Kit
+    *   Updated UI
+    *   Content restructuring
+    *   And more
+    
+*   **ORM [v0.34.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.34.0) release** **Breaking changes:**
+    
+    *   Added new dialect "Turso" that needs a newer libsql version
+    
+    **Features:**
+    
+    *   LibSQL/Turso and SQLite migration updates
+    *   SQLite "generate" and "push" statement updates
+    *   LibSQL/Turso "generate" and "push" statement updates
+    *   New `casing` param in `drizzle-orm`
+    *   Monodriver: A new and easy way to start using Drizzle
+    *   Schema improvements: Optional names for columns and callback in Drizzle table
+    *   New "count" API
+    *   Ability to execute raw strings
+    *   Exposed db.$client
+    
+*   **Kit [v0.25.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.25.0) release** **Breaking changes:**
+    
+    *   Added new dialect "Turso" that needs a newer libsql version
+    
+    **Features:**
+    
+    *   LibSQL/Turso and SQLite migration updates
+    *   SQLite "generate" and "push" statement updates
+    *   LibSQL/Turso "generate" and "push" statement updates
+    *   New `casing` param in `drizzle-kit`
+    
+
+November 2024
+
+*   **🎉 OneDollarStats is now available in Open Alpha release!** [OneDollarStats](https://onedollarstats.com/) is a $1 per month web analytics built by Drizzle Team
+    
+*   **🎉 New `drizzle-seed` package is now available** For more info check our [seed documentation](https://orm.drizzle.team/docs/seed-overview)
+    
+*   **ORM [v0.36.4](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.4) release**
+    
+    *   Added .$withAuth() API for Neon HTTP driver
+    *   Added OVERRIDING SYSTEM VALUE api to db.insert()
+    
+*   **ORM [v0.36.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.3) release**
+    
+    *   Support for UPDATE ... FROM in PostgreSQL and SQLite
+    *   Support for INSERT INTO ... SELECT in all dialects
+    
+*   **Kit [v0.28.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.28.1) release** and **ORM [v0.36.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.2) release**
+    
+    *   Support more types in like, notLike, ilike and notIlike expressions
+    *   Fixed typos in repository: thanks @armandsalle, @masto, @wackbyte, @Asher-JH, @MaxLeiter
+    *   fix: wrong dialect set in mysql/sqlite introspect
+    *   Fixed .generated behavior with non-strict tsconfig
+    *   Fix Drizzle ORM for expo-sqlite
+    *   Fixed lack of schema name on columns in sql
+    *   fix: Adjust neon http driver entity kind
+    *   Export PgIntegerBuilderInitial type
+    *   \[MySQL\] Correct $returningId() implementation to correctly store selected fields
+    
+*   **Kit [v0.28.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.28.0) release** and **ORM [v0.36.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.1) release**
+    
+    *   Added an OHM static imports checker to identify unexpected imports within a chain of imports in the drizzle-kit repo. For example, it checks if drizzle-orm is imported before drizzle-kit and verifies if the drizzle-orm import is available in your project.
+    *   Adding more columns to Supabase auth.users table schema
+    
+    **Bug Fixes***   \[BUG\]: Using sql.placeholder with limit and/or offset for a prepared statement produces TS error
+    *   \[BUG\] If a query I am trying to modify with a dynamic query (....$dynamic()) contains any placeholders, I'm getting an error that says No value for placeholder.... provided
+    *   \[BUG\]: Error thrown when trying to insert an array of new rows using generatedAlwaysAsIdentity() for the id column
+    *   \[BUG\]: Unable to Use BigInt Types with Bun and Drizzle
+    *   \[BUG\]: \[drizzle-kit\]: Fix breakpoints option cannot be disabled
+    *   \[BUG\]: drizzle-kit introspect: SMALLINT import missing and incorrect DECIMAL UNSIGNED handling
+    *   Unsigned tinyints preventing migrations
+    *   \[BUG\]: Can't parse float(8,2) from database (precision and scale and/or unsigned breaks float types)
+    *   \[BUG\]: PgEnum generated migration doesn't escape single quotes
+    *   \[BUG\]: single quote not escaped correctly in migration file
+    *   \[BUG\]: Migrations does not escape single quotes
+    *   \[BUG\]: Issue with quoted default string values
+    *   \[BUG\]: SQl commands in wrong roder
+    *   \[BUG\]: Time with precision in drizzle-orm/pg-core adds double-quotes around type
+    *   \[BUG\]: Postgres push fails due to lack of quotes
+    *   \[BUG\]: TypeError: Cannot read properties of undefined (reading 'compositePrimaryKeys')
+    *   \[BUG\]: drizzle-kit introspect generates CURRENT\_TIMESTAMP without sql operator on date column
+    *   \[BUG\]: Drizzle-kit introspect doesn't pull correct defautl statement
+    *   \[BUG\]: Problem on MacBook - This statement does not return data. Use run() instead
+    *   \[BUG\]: Enum column names that are used as arrays are not quoted
+    *   \[BUG\]: drizzle-kit generate ignores index operators
+    *   dialect param config error message is wrong
+    *   \[BUG\]: Error setting default enum field values
+    *   \[BUG\]: drizzle-kit does not respect the order of columns configured in primaryKey()
+    *   \[BUG\]: Cannot drop Unique Constraint MySQL
+    
+*   **Kit [v0.27.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.2) release**
+    
+    *   Fix \[BUG\]: Undefined properties when using drizzle-kit push
+    *   Fix TypeError: Cannot read properties of undefined (reading 'isRLSEnabled')
+    *   Fix push bugs, when pushing a schema with linked policy to a table from drizzle-orm/supabase
+    
+*   **Kit [v0.27.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.1) release**
+    
+    *   Fix: \[BUG\]: When using RLS policies and Views, the view is the last clause generated
+    
+
+December 2024
+
+*   **drizzle-seed [v0.3.0](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.3.0.md) release**
+    
+    *   The seed function can now accept Drizzle Relations objects and treat them as foreign key constraints
+    
+*   **ORM [v0.38.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.3) release**
+    
+    *   Fix incorrect deprecation detection for table declarations
+    *   SingleStore dialect support for all validator packages
+    
+*   **drizzle-seed [v0.2.1](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.2.1.md) release**
+    
+    *   We are introducing a new parameter, version, to the seed function options. This parameter, which controls generator versioning, has been added to make it easier to update deterministic generators in the future.
+    *   interval unique generator was changed and upgraded to v2
+    *   string generators were changed and upgraded to v2
+    
+*   **ORM [v0.38.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.2) release**
+    
+    *   New features for MySQL users: USE INDEX, FORCE INDEX and IGNORE INDEX for MySQL
+    
+*   **Kit [v0.30.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.1) release**
+    
+    *   New command: drizzle-kit export
+    
+*   **drizzle-seed [v0.1.3](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.1.3.md) release**
+    
+    *   Added support for postgres uuid columns
+    *   Added support for postgres array columns
+    *   Added support for cyclic tables. You can now seed tables with cyclic relations.
+    
+    **Bug Fixes***   \[BUG\]: reset fails with a syntax error if using a - in pgTableCreator to prefix tables
+    *   seeding a table with columns that have .default(sql\`\`) will result in an error
+    
+*   ORM bug fixes
+    
+    *   \[FEATURE\]: publish packages un-minified
+    *   Don't allow unknown keys in drizzle-zod refinement
+    *   \[BUG\]:drizzle-zod not working with pgSchema
+    *   Add createUpdateSchema to drizzle-zod
+    *   \[BUG\]:drizzle-zod produces wrong type
+    *   \[BUG\]:Drizzle-zod:Boolean and Serial types from Schema are defined as enum when using CreateInsertSchema and CreateSelectSchema
+    *   \[BUG\]: Drizzle typebox enum array wrong schema and type
+    *   \[BUG\]:drizzle-zod not working with pgSchema
+    *   \[BUG\]: drizzle-zod not parsing arrays correctly
+    *   \[BUG\]: Drizzle typebox not supporting array
+    *   \[FEATURE\]: Export factory functions from drizzle-zod to allow usage with extended Zod classes
+    *   \[FEATURE\]: Add support for new pipe syntax for drizzle-valibot
+    *   \[BUG\]: drizzle-zod's createInsertSchema() can't handle column of type vector
+    *   \[BUG\]: drizzle-typebox fails to map geometry column to type-box schema
+    *   \[BUG\]: drizzle-valibot does not provide types for returned schemas
+    *   \[BUG\]: Drizzle-typebox types SQLite real field to string
+    *   \[BUG\]: drizzle-zod: documented usage generates type error with exactOptionalPropertyTypes
+    *   \[BUG\]: drizzle-zod does not respect/count db type range
+    *   \[BUG\]: drizzle-zod not overriding optional
+    *   \[BUG\]:drizzle-zod doesn't accept custom id value
+    *   \[FEATURE\]: Support for Database Views in Drizzle Zod
+    *   \[BUG\]: drizzle-valibot return type any
+    *   \[BUG\]: drizzle-zod Type generation results in undefined types
+    *   \[BUG\]: GeneratedAlwaysAs
+    *   \[FEATURE\]: $inferSelect on a view
+    *   \[BUG\]:Can't infer props from view in schema
+    
+*   **ORM [v0.38.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.0) release**
+    
+    *   Added new function getViewSelectedFields
+    *   Added $inferSelect function to views
+    *   Added InferSelectViewModel type for views
+    *   Added isView function
+    
+*   **Kit [v0.30.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.0) release** Starting from this update, the PostgreSQL dialect will align with the behavior of all other dialects. It will no longer include IF NOT EXISTS, $DO, or similar statements, which could cause incorrect DDL statements to not fail when an object already exists in the database and should actually fail.
+    
+*   **Kit [v0.29.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.29.0) release** and **ORM [v0.37.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.37.0) release**
+    
+    *   New dialect **SingleStore** is available in Drizzle
+    *   New driver for **Durable Objects SQLite** is available in Drizzle
+    *   \[BUG\]: $with is undefined on withReplicas
+    *   \[BUG\]: Neon serverless driver accepts authToken as a promise, but the $withAuth does not
+    
+
+January
+
+*   **ORM [v0.39.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.39.1) release**
+    
+    *   Fixed SQLite onConflict clauses being overwritten instead of stacked
+    *   Added view support to aliasedTable()
+    *   Fixed sql builder prefixing aliased views and tables with their schema
+    
+*   **Kit [v0.30.4](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.4) release**
+    
+    *   Fix bug that generates incorrect syntax when introspect in mysql
+    *   Fix a bug that caused incorrect syntax output when introspect in unsigned columns
+    
+*   **Bug Fixes***   Allow INSERT in CTEs (WITH clauses)\]
+    *   Support Raw SQL in CTE Query Builder\]
+    *   Include pre-defined database objects related to Neon Identity in drizzle-orm\]
+    *   $count is undefined on withReplicas\]
+    *   get\[Materialized\]ViewName, ie getTableName but for (materialized) views.\]
+    *   $count API error with vercel-postgres\]
+    *   Cannot use schema.coerce on refining drizzle-zod types\]
+    *   Type Coercion in drizzle-zod\]
+    *   The inferred type of X cannot be named without a reference ...
+    *   drizzle-zod excessively deep and possibly infinite types\]
+    
+*   **ORM [v0.39.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.39.0) release**
+    
+    *   You can now use the new Bun SQL driver released in Bun v1.2.0 with Drizzle
+    *   WITH now supports INSERT, UPDATE, DELETE and raw sql template
+    *   New tables in /neon import
+    *   Added getViewName util function
+    
+*   **Kit [v0.30.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.3) release**
+    
+    *   As SingleStore did not support certain DDL statements before this release, you might encounter an error indicating that some schema changes cannot be applied due to a database issue. Starting from this version, drizzle-kit will detect such cases and initiate table recreation with data transfer between the tables
+    
+
+February
+
+*   **Drizzle Studio updates:**
+    
+    *   Added the ability to create/alter tables.
+    *   Added the ability to create/alter views.
+    *   Added the ability to refresh db schema.
+    *   Improved dropdowns.
+    *   Improved style customization.
+    *   Added filter by entity type (table/view).
+    *   Revised dependency tree and reduced bundle size.
+    *   Added database metadata to bug report.
+    *   Added range selection with copy/paste capability.
+    
+*   **ORM [v0.40.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.40.0) release**
+    
+    *   Drizzle is getting a new Gel dialect with its own types and Gel-specific logic. In this first iteration, almost all query-building features have been copied from the PostgreSQL dialect since Gel is fully PostgreSQL-compatible. The only change in this iteration is the data types. The Gel dialect has a different set of available data types, and all mappings for these types have been designed to avoid any extra conversions on Drizzle's side. This means you will insert and select exactly the same data as supported by the Gel protocol.
+    
+*   **Kit [v0.30.5](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.5) release**
+    
+    *   Drizzle is getting a new Gel dialect with its own types and Gel-specific logic. Kit is getting new "gel" dialect option
+    
+
+March
+
+*   **ORM [v0.41.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.41.0) release**
+    
+    *   `bigint`, `number` modes for `SQLite`, `MySQL`, `PostgreSQL`, `SingleStore` `decimal` & `numeric` column types
+    *   Changed behavior of `sql-js` query preparation
+    *   Fixed `MySQL`, `SingleStore` `varchar` allowing not specifying `length` in config
+    *   Fixed `MySQL`, `SingleStore` `binary`, `varbinary` data\\\\type mismatches
+    *   Fixed `numeric`\\\\`decimal` data\\\\type mismatches
+    *   Fixed `drizzle-studio` + `AWS Data Api` connection issue
+    *   Fixed `isConfig` utility function checking types of wrong fields
+    *   Enabled `supportBigNumbers` in auto-created `mysql2` driver instances
+    *   Fixed custom schema tables querying in RQBv1
+    *   Removed in-driver mapping for postgres types
+    *   Fixed `SQLite` `buffer`\-mode `blob` sometimes returning `number[]`
+    
+*   **Drizzle Studio updates:**
+    
+    *   Added new setting option for expanding subviews.
+    *   Added date and time pickers.
+    *   New settings option for pagination by page or limit offset.
+    *   Improved error handling for INSERT/UPDATE/DELETE statements in data table.
+    *   Added column type to header cell.
+    *   Added export in xlsx format.
+    *   Added callback on bug report button click.
+    *   Added ability to customize the error page.
+    *   Added css variable for run query button color.
+    *   Fixed issues with rowid.
+    *   Improved SQL console with snippet system.
+    
+*   **ORM [v0.40.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.40.1) release**
+    
+    *   Updates to neon-http for @neondatabase/[\[email protected\]](/cdn-cgi/l/email-protection). Starting from this version, drizzle-orm will be compatible with both @neondatabase/serverless <1.0 and >1.0
+    
+
+April
+
+this month
+
+Performance
+
+Drizzle doesn't slow you down
+
+[](/benchmarks)
+
+[Go to benchmark results](/benchmarks)
+
+Drizzle
+
+v0.33.0
+
+Bun v1.1.25
+
+Bun v1.1.25Node 22.6.0 (Current)Node v20.16.0 (LTS)Node v18.20.4 (LTS)
+
+Prisma
+
+v5.18.0
+
+Bun v1.1.25
+
+Bun v1.1.25Node 22.6.0 (Current)Node v20.16.0 (LTS)Node v18.20.4 (LTS)
+
+QueriesJoins
+
+avg latency: 0.0ms
+
+avg latency: 0.0ms
+
+avg: 0 req/sec
+
+Failed requests
+
+Drizzle handled xNaN more requests
+
+0
+
+avg: 0 req/sec
+
+Failed requests
+
+Drizzle handled xNaN more requests
+
+0
+
+avg CPU load: 0.0%
+
+avg CPU load: 0.0%
+
+[Go to benchmark results](/benchmarks)
+
+Live on the edge
+
+We support every major serverful and serverless runtime
+
+Cloudflare Workers
+
+Supabase functions
+
+Vercel functions
+
+Deno deploy
+
+Bun
+
+Lagon
+
+Fly.io
+
+ElectronJS
+
+Expo
+
+React Native
+
+Browser
+
+Connect to any database
+
+We support all platform-specific, tcp, http and websocket based drivers
+
+[
+
+our sponsor
+
+Gel
+
+](https://driz.link/edgedb)
+
+PlanetScale
+
+[
+
+our sponsor
+
+Neon
+
+](https://driz.link/neon)
+
+Vercel Postgres
+
+[
+
+our sponsor
+
+Turso
+
+](https://driz.link/turso)
+
+Supabase
+
+[
+
+our sponsor
+
+Xata
+
+](https://driz.link/xataio)
+
+PostgreSQL
+
+[
+
+our sponsor
+
+TiDB
+
+](https://driz.link/silver-sponsor-tidb)
+
+MySQL
+
+[
+
+our sponsor
+
+Tembo
+
+](https://driz.link/tembo)
+
+LiteFS
+
+[
+
+our sponsor
+
+SQLite Cloud
+
+](https://driz.link/sqlitecloud)
+
+SQLite
+
+[
+
+our sponsor
+
+SingleStore
+
+](https://driz.link/singlestore)
+
+Web SQLite
+
+[
+
+not yet sponsor
+
+Prisma Postgres
+
+](https://driz.link/rickroll)
+
+Drizzle Studio
+
+Explore and manipulate your data
+
+[Documentation](/drizzle-studio/overview) [Live demo](https://demo.drizzle.studio)
+
+Our Sponsors
+
+You help us build a better future
+
+[Become a sponsor](https://driz.link/sponsor)
+
+Pricing
+
+Just kidding, Drizzle is free and open-source  
+You can still make your contribution!
+
+[Give us a star](https://github.com/drizzle-team/drizzle-orm) [Subscribe on Twitter](https://mobile.twitter.com/DrizzleORM) [Join our community](https://discord.gg/yfjTbVXMW4)
+
+Buy us some ramen 🍜
+
+[Become a sponsor](https://driz.link/sponsor)
+
+Developers love Drizzle ORM!
+
+[
+
+Dax
+
+@thdxr
+
+I hate Drizzle
+
+
+
+
+
+](https://x.com/thdxr/status/1719129834901721353?s=20)[
+
+Anthony Shew
+
+@anthonysheww
+
+I hate @DrizzleOrm so much that I wrote the Auth.js adapter for it.
+
+
+
+
+
+](https://x.com/anthonysheww/status/1688973391917969408?s=20)[
+
+Adam
+
+@adamdotdev
+
+i know this won't get me on the homepage, but @DrizzleORM is so good
+
+
+
+
+
+](https://x.com/adamdotdev/status/1749463315355508917?s=20)
+
+Some Body
+
+@dont\_know
+
+Django had it in 2008
+
+[
+
+Eddy Vinck
+
+@EddyVinckk
+
+I love @DrizzleORM that's it, that's the tweet
+
+
+
+
+
+](https://x.com/EddyVinckk/status/1770052528941478333?s=20)[
+
+Jacob Wolf 🐝
+
+@JacobWolf
+
+I love @DrizzleORM.
+
+
+
+
+
+](https://x.com/JacobWolf/status/1768061278776349151?s=20)[
+
+Theo
+
+@t3dotgg
+
+Drizzle is terrible. It doesn’t even support Mongo.
+
+
+
+
+
+](https://x.com/t3dotgg/status/1787604253860847775)[
+
+Aaron Francis
+
+@aarondfrancis
+
+Y'all should just copy everything Eloquent has
+
+
+
+
+
+](https://x.com/aarondfrancis/status/1641145228189892613?s=20)[
+
+Ofelquis Gimenes
+
+@imfelquis
+
+unpredictable results is what feeds the human race, ban Drizzle now and all this typing gibberish all together
+
+
+
+
+
+](https://x.com/imfelquis/status/1709919386931462516?s=20)[
+
+James Perkins
+
+@james\_r\_perkins
+
+Sorry @DrizzleORM you suck!
+
+
+
+
+
+](https://x.com/james_r_perkins/status/1766156735155196201?s=20)[
+
+tslamoon
+
+@tslamoon1
+
+I'll shave my head if drizzle adds MSSQL support by the end of September.
+
+
+
+
+
+](https://x.com/tslamoon1/status/1700416378237530419?s=20)[
+
+fks
+
+@FredKSchott
+
+Astro DB is powered by Drizzle! ... and we regret everything omg this thing sucks
+
+
+
+
+
+](https://x.com/FredKSchott/status/1767646959656194473?s=20)[
+
+Ray
+
+@\_raynirola
+
+DrizzleOrm is not an "ORM", it's merely a overrated typesafe sql wrapper, not even a query builder.
+
+
+
+
+
+](https://x.com/_raynirola/status/1666028176789872642?s=20)[
+
+SaltyAom
+
+@saltyAom
+
+Prisma Bun: 1.4 MB/s Drizzle Bun: 9.8 MB/s
+
+
+
+
+
+](https://x.com/saltyAom/status/1767783124342276526?s=20)[
+
+Christoffer Bjelke
+
+@chribjel
+
+How many times has this little shit snuck into your dependencies?
+
+
+
+
+
+](https://x.com/chribjel/status/1778851727954837727)[
+
+Roma Zvarych
+
+@hisbvdis
+
+I have finally switched from @prisma to @DrizzleORM. It was not easy. Dear Drizzle Team, you have created an awesome orm with awfull documentation. Anyway, good for you, thanks and good luck.
+
+
+
+
+
+](https://x.com/hisbvdis/status/1807783878515400977)[
+
+Aoki
+
+@aokijs
+
+Honestly, fuck the benchmarks. I don‘t care which one‘s faster. All I can say is that Drizzle made my life working with databases dramastically better and that‘s all that matters for me. Thanks for your hard work 🙏🏻
+
+
+
+
+
+](https://x.com/aokijs/status/1833840766839325109)[
+
+Matija Marohnić
+
+@silvenon
+
+Every time I hear about @DrizzleORM.
+
+
+
+
+
+](https://x.com/silvenon/status/1843003214402314695)[
+
+Joseph Mama 🐀
+
+@spacesexdragon
+
+
+
+](https://x.com/spacesexdragon/status/1843381135134675236)[
+
+Broda Noel
+
+@BrodaNoel
+
+Is this a joke? Because if this is a joke, it's really really really bad joke, because now I'm fucking hating @DrizzleORM without even knowing who they are. I mean, this is not a good marketing strategy if this was a marketing-joke. And if it's actually true, I'll hate them more.
+
+
+
+
+
+](https://x.com/BrodaNoel/status/1913248949252616287)
+
+[
+
+](/)
+
+Headless TypeScript ORM with a head.
+
+[](https://github.com/drizzle-team/drizzle-orm)[](https://discord.gg/yfjTbVXMW4)[](https://twitter.com/DrizzleORM)
+
+Documentation
+
+[Get Started](/docs/overview) [Manage Schema](/docs/sql-schema-declaration) [Access Data](/docs/rqb) [Migrations](/docs/kit-overview)
+
+Resources
+
+[Drizzle Studio](/drizzle-studio/overview) [Benchmarks](/benchmarks)
+
+Learn
+
+[Guides](/docs/guides) [Tutorials](/docs/tutorials) [Latest Releases](/docs/latest-releases)
+
+meet drizzle
+
+[Get started](/docs/get-started) [Why Drizzle?](/docs/overview) [Guides](/docs/guides) [Tutorials](/docs/tutorials) [Latest releases](/docs/latest-releases) [Gotchas](/docs/gotchas)
+
+Fundamentals
+
+[Schema](/docs/sql-schema-declaration) [Database connection](/docs/connect-overview) [Query data](/docs/data-querying) [Migrations](/docs/migrations)
+
+Connect
+
+[PostgreSQL](/docs/get-started-postgresql) [Gel](/docs/get-started-gel) [MySQL](/docs/get-started-mysql) [SQLite](/docs/get-started-sqlite) [SingleStore](/docs/get-started-singlestore)
+
+[Neon](/docs/connect-neon) [Vercel Postgres](/docs/connect-vercel-postgres) [Supabase](/docs/connect-supabase) [Xata](/docs/connect-xata) [PGLite](/docs/connect-pglite) [Nile](/docs/connect-nile) [Bun SQL](/docs/connect-bun-sql)
+
+[PlanetScale](/docs/connect-planetscale) [TiDB](/docs/connect-tidb)
+
+[Turso](/docs/connect-turso) [Cloudflare D1](/docs/connect-cloudflare-d1) [Bun SQLite](/docs/connect-bun-sqlite) [Cloudflare Durable Objects](/docs/connect-cloudflare-do)
+
+[Expo SQLite](/docs/connect-expo-sqlite) [OP SQLite](/docs/connect-op-sqlite) [React Native SQLite](/docs/connect-react-native-sqlite)
+
+[AWS Data API Postgres](/docs/connect-aws-data-api-pg) [AWS Data API MySQL](/docs/connect-aws-data-api-mysql)
+
+[Drizzle Proxy](/docs/connect-drizzle-proxy)
+
+Expand
+
+Manage schema
+
+Data types [Indexes & Constraints](/docs/indexes-constraints) [Sequences](/docs/sequences) [Views](/docs/views) [Schemas](/docs/schemas) [Row-Level Security (RLS)](/docs/rls) Extensions [Relations](/docs/relations)
+
+Migrations
+
+[Overview](/docs/kit-overview) [`generate`](/docs/drizzle-kit-generate) [`migrate`](/docs/drizzle-kit-migrate) [`push`](/docs/drizzle-kit-push) [`pull`](/docs/drizzle-kit-pull) [`export`](/docs/drizzle-kit-export) [`check`](/docs/drizzle-kit-check) [`up`](/docs/drizzle-kit-up) [`studio`](/docs/drizzle-kit-studio) [Custom migrations](/docs/kit-custom-migrations) [Migrations for teams](/docs/kit-migrations-for-teams) [Web and mobile](/docs/kit-web-mobile) [drizzle.config.ts](/docs/drizzle-config-file)
+
+Seeding
+
+[Overview](/docs/seed-overview) [Generators](/docs/seed-functions) [Versioning](/docs/seed-versioning)
+
+Access your data
+
+[Query](/docs/rqb) [Select](/docs/select) [Insert](/docs/insert) [Update](/docs/update) [Delete](/docs/delete) [Filters](/docs/operators) [Utils](/docs/query-utils) [Joins](/docs/joins) [Magic sql\`\` operator](/docs/sql)
+
+Performance
+
+[Queries](/docs/perf-queries) [Serverless](/docs/perf-serverless)
+
+Advanced
+
+[Set Operations](/docs/set-operations) [Generated Columns](/docs/generated-columns) [Transactions](/docs/transactions) [Batch](/docs/batch-api) [Cache](/docs/cache) [Dynamic query building](/docs/dynamic-query-building) [Read Replicas](/docs/read-replicas) [Custom types](/docs/custom-types) [Goodies](/docs/goodies)
+
+Extensions
+
+[Prisma](/docs/prisma) [ESLint Plugin](/docs/eslint-plugin) [drizzle-zod](/docs/zod) [drizzle-typebox](/docs/typebox) [drizzle-valibot](/docs/valibot) [drizzle-arktype](/docs/arktype) [drizzle-graphql](/docs/graphql)
+
+System Light Dark
+
+[
+
+Become a Sponsor
+
+](https://driz.link/sponsor)[
+
+Twitter
+
+](https://mobile.twitter.com/DrizzleORM)[
+
+Discord
+
+](https://discord.gg/yfjTbVXMW4)
+
+ORM for you to settleship ship ship
+
+JavaScript
+
+TypeScript
+
+[
+
+Get Started
+
+](/docs/get-started)[
+
+Documentation
+
+](/docs/overview)
+
+Search Docs
+
+Ask Docs
+
+0000
+
+23
+
+Play
+
+Normal
+
+powered by [3310snake.com](https://3310snake.com/)
+
+We ship decently fast
+---------------------
+
+### Drizzle Team and Active Contributors
+
+Andrew Sherman
+
+Dan Kochetov
+
+Alex Blokh
+
+Mykhailo Stratovych
+
+Roman Nabukhotnyi
+
+Vladislav Stohnii
+
+Serhii Reka
+
+Oleksii Khomenko
+
+Artem Odiiko
+
+Vitalii Staryk
+
+angelelz
+
+rphlmr
+
+mario564
+
+Simon Sardorf
+
+[
+
+v1.0 release
+
+75%
+
+](/roadmap)
+
+June 2024
+
+July 2024
+
+*   We've had podcast on [syntax.fm](https://www.youtube.com/watch?v=Hh9xqRWYEJs) 🎙️ Drizzle <> Sytnax merch drop - [see here](https://x.com/DrizzleORM/status/1815793307877871912)
+    
+*   **ORM [v0.32.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.32.1) release**
+    
+    *   improved indexes API and typings
+    *   support for limit 0
+    *   array and notInArray accept empty \[\]
+    
+*   **Community highlights** • [drizzle.run](https://drizzle.run) ships [schema visualizer](https://drizzle.run/visualizer) 👀 • [sst dev](https://x.com/thdxr/status/1818439495361937781) & drizzle studio update • [Hono + Drizzle](https://github.com/rhinobase/honohub) headless CMS • TypeScript based [down migrations](https://github.com/drepkovsky/drizzle-migrations)
+    
+*   **Drizzle Kit goes open-source 🎉** • 2hrs release stream on Jul 30th • added programmatic access • [v0.23.1 release](https://github.com/drizzle-team/drizzle-kit-mirror/releases/tag/v0.23.1) with bugfixes
+    
+*   **Landing page update 🎉** • our team is 10 devs, now you know • showcase active contributors • TypeScript and JavaScript mention • v1.0 release timeline with a roadmap! • calendar section for our iterations • quick access docs search and ask ai • snake game board 🐍
+    
+*   added [announcments](/announcements) page
+    
+*   **Updated tutorials:** • [Drizzle <> Vercel Postgres](/docs/tutorials/drizzle-with-vercel) • [Drizzle <> Turso](/docs/tutorials/drizzle-with-turso) • [Drizzle <> Neon Postgres](/docs/tutorials/drizzle-with-neon) • [Todo App with Neon Postgres](/docs/tutorials/drizzle-nextjs-neon)
+    
+
+August 2024
+
+*   [**Drizzle Gateway**](https://x.com/DrizzleORM/status/1820462321942036749) closed alpha release 🎉
+    
+*   [**Brocli**](https://github.com/drizzle-team/brocli) - our new open-source library 👀
+    
+*   [Snake Game](https://3310snake.com/) released 🎉 have some fun we've had a lot of fun
+    
+*   **Kit [v0.24.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.24.0) release** **Breaking changes:**
+    
+    *   Fixed [Composite primary key order is not consistent](https://github.com/drizzle-team/drizzle-kit-mirror/issues/342) by removing `sort` in SQLite
+    
+    **Bug fixes:**
+    
+    *   [\[BUG\] When using double type columns, import is not inserted](https://github.com/drizzle-team/drizzle-kit-mirror/issues/403)
+    *   [\[BUG\] A number value is specified as the default for a column of type char](https://github.com/drizzle-team/drizzle-kit-mirror/issues/404)
+    *   [\[BUG\]: Array default in migrations are wrong](https://github.com/drizzle-team/drizzle-orm/issues/2621)
+    *   [\[FEATURE\]: Simpler default array fields](https://github.com/drizzle-team/drizzle-orm/issues/2709)
+    *   [\[BUG\]: drizzle-kit generate succeeds but generates invalid SQL for default(\[\]) - Postgres](https://github.com/drizzle-team/drizzle-orm/issues/2432)
+    *   [\[BUG\]: Incorrect type for array column default value](https://github.com/drizzle-team/drizzle-orm/issues/2334)
+    *   [\[BUG\]: error: column is of type integer\[\] but default expression is of type integer](https://github.com/drizzle-team/drizzle-orm/issues/2224)
+    *   [\[BUG\]: Default value in array generating wrong migration file](https://github.com/drizzle-team/drizzle-orm/issues/1003)
+    *   [\[BUG\]: enum as array, not possible?](https://github.com/drizzle-team/drizzle-orm/issues/1564)
+    
+*   **ORM [v0.33.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.33.0) release** **Breaking changes:**
+    
+    *   [\[BUG\]: jsonb always inserted as a json string when using postgres-js](https://github.com/drizzle-team/drizzle-orm/issues/724)
+    *   [\[BUG\]: jsonb type on postgres implement incorrectly](https://github.com/drizzle-team/drizzle-orm/issues/1511)
+    
+    **Bug fixes:**
+    
+    *   [\[BUG\]: boolean mode not working with prepared statements (bettersqlite)](https://github.com/drizzle-team/drizzle-orm/issues/2568)
+    *   [\[BUG\]: isTable helper function is not working](https://github.com/drizzle-team/drizzle-orm/issues/2672)
+    *   [\[BUG\]: Documentation is outdated on inArray and notInArray Methods](https://github.com/drizzle-team/drizzle-orm/issues/2690)
+    
+*   **Kit [v0.23.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.23.2) release**
+    
+    *   fixed a bug in PostgreSQL with push and introspect where the `**schemaFilter**` object was passed. It was detecting enums even in schemas that were not defined in the **`schemaFilter`**.
+    *   fixed the `**drizzle-kit up**` command to work as expected, starting from the sequences release
+    
+*   **ORM [v0.32.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.32.2) release**
+    
+    *   fix AWS Data API type hints bugs in RQB
+    *   fix set transactions in MySQL bug
+    *   add forwaring dependencies within useLiveQuery, fixes [#2651](https://github.com/drizzle-team/drizzle-orm/issues/2651)
+    *   export additional types from SQLite package, like `AnySQLiteUpdate`
+    
+*   **Updated tutorials:** • [Drizzle with Supabase Database](/docs/tutorials/drizzle-with-supabase) • [Drizzle with Vercel Edge Functions](/docs/tutorials/drizzle-with-vercel-edge-functions)
+    
+*   We've updated [benchmarks](https://x.com/DrizzleORM/status/1826693369357369712) 🚀
+    
+
+September 2024
+
+*   Some Tweets
+    
+
+October 2024
+
+*   **ORM [v0.36.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.0) release** **Row-Level Security Support for PostgreSQL**
+    
+    *   Manage roles
+    *   Manage policies
+    *   Enable RLS for tables
+    *   Enable RLS for views!
+    *   Special import `drizzle-orm/neon` for `Neon`
+    *   Special import `drizzle-orm/supabase` for `Supabase`
+    
+*   **Kit [v0.27.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.0) release** **Row-Level Security Support for PostgreSQL**
+    
+    *   Manage roles
+    *   Manage policies
+    *   Enable RLS for tables
+    *   Enable RLS for views!
+    *   Special import `drizzle-orm/neon` for `Neon`
+    *   Special import `drizzle-orm/supabase` for `Supabase`
+    
+*   Documentation site restructure and improvements
+    
+    *   New "Get Started" section
+    *   New "Fundamentals" section
+    *   "Connect" is now flat and has proper navigation
+    *   The Kit section is gone, and you now have a "Migrations" section with full information about the Kit
+    *   Updated UI
+    *   Content restructuring
+    *   And more
+    
+*   **ORM [v0.34.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.34.0) release** **Breaking changes:**
+    
+    *   Added new dialect "Turso" that needs a newer libsql version
+    
+    **Features:**
+    
+    *   LibSQL/Turso and SQLite migration updates
+    *   SQLite "generate" and "push" statement updates
+    *   LibSQL/Turso "generate" and "push" statement updates
+    *   New `casing` param in `drizzle-orm`
+    *   Monodriver: A new and easy way to start using Drizzle
+    *   Schema improvements: Optional names for columns and callback in Drizzle table
+    *   New "count" API
+    *   Ability to execute raw strings
+    *   Exposed db.$client
+    
+*   **Kit [v0.25.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.25.0) release** **Breaking changes:**
+    
+    *   Added new dialect "Turso" that needs a newer libsql version
+    
+    **Features:**
+    
+    *   LibSQL/Turso and SQLite migration updates
+    *   SQLite "generate" and "push" statement updates
+    *   LibSQL/Turso "generate" and "push" statement updates
+    *   New `casing` param in `drizzle-kit`
+    
+
+November 2024
+
+*   **🎉 OneDollarStats is now available in Open Alpha release!** [OneDollarStats](https://onedollarstats.com/) is a $1 per month web analytics built by Drizzle Team
+    
+*   **🎉 New `drizzle-seed` package is now available** For more info check our [seed documentation](https://orm.drizzle.team/docs/seed-overview)
+    
+*   **ORM [v0.36.4](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.4) release**
+    
+    *   Added .$withAuth() API for Neon HTTP driver
+    *   Added OVERRIDING SYSTEM VALUE api to db.insert()
+    
+*   **ORM [v0.36.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.3) release**
+    
+    *   Support for UPDATE ... FROM in PostgreSQL and SQLite
+    *   Support for INSERT INTO ... SELECT in all dialects
+    
+*   **Kit [v0.28.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.28.1) release** and **ORM [v0.36.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.2) release**
+    
+    *   Support more types in like, notLike, ilike and notIlike expressions
+    *   Fixed typos in repository: thanks @armandsalle, @masto, @wackbyte, @Asher-JH, @MaxLeiter
+    *   fix: wrong dialect set in mysql/sqlite introspect
+    *   Fixed .generated behavior with non-strict tsconfig
+    *   Fix Drizzle ORM for expo-sqlite
+    *   Fixed lack of schema name on columns in sql
+    *   fix: Adjust neon http driver entity kind
+    *   Export PgIntegerBuilderInitial type
+    *   \[MySQL\] Correct $returningId() implementation to correctly store selected fields
+    
+*   **Kit [v0.28.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.28.0) release** and **ORM [v0.36.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.36.1) release**
+    
+    *   Added an OHM static imports checker to identify unexpected imports within a chain of imports in the drizzle-kit repo. For example, it checks if drizzle-orm is imported before drizzle-kit and verifies if the drizzle-orm import is available in your project.
+    *   Adding more columns to Supabase auth.users table schema
+    
+    **Bug Fixes***   \[BUG\]: Using sql.placeholder with limit and/or offset for a prepared statement produces TS error
+    *   \[BUG\] If a query I am trying to modify with a dynamic query (....$dynamic()) contains any placeholders, I'm getting an error that says No value for placeholder.... provided
+    *   \[BUG\]: Error thrown when trying to insert an array of new rows using generatedAlwaysAsIdentity() for the id column
+    *   \[BUG\]: Unable to Use BigInt Types with Bun and Drizzle
+    *   \[BUG\]: \[drizzle-kit\]: Fix breakpoints option cannot be disabled
+    *   \[BUG\]: drizzle-kit introspect: SMALLINT import missing and incorrect DECIMAL UNSIGNED handling
+    *   Unsigned tinyints preventing migrations
+    *   \[BUG\]: Can't parse float(8,2) from database (precision and scale and/or unsigned breaks float types)
+    *   \[BUG\]: PgEnum generated migration doesn't escape single quotes
+    *   \[BUG\]: single quote not escaped correctly in migration file
+    *   \[BUG\]: Migrations does not escape single quotes
+    *   \[BUG\]: Issue with quoted default string values
+    *   \[BUG\]: SQl commands in wrong roder
+    *   \[BUG\]: Time with precision in drizzle-orm/pg-core adds double-quotes around type
+    *   \[BUG\]: Postgres push fails due to lack of quotes
+    *   \[BUG\]: TypeError: Cannot read properties of undefined (reading 'compositePrimaryKeys')
+    *   \[BUG\]: drizzle-kit introspect generates CURRENT\_TIMESTAMP without sql operator on date column
+    *   \[BUG\]: Drizzle-kit introspect doesn't pull correct defautl statement
+    *   \[BUG\]: Problem on MacBook - This statement does not return data. Use run() instead
+    *   \[BUG\]: Enum column names that are used as arrays are not quoted
+    *   \[BUG\]: drizzle-kit generate ignores index operators
+    *   dialect param config error message is wrong
+    *   \[BUG\]: Error setting default enum field values
+    *   \[BUG\]: drizzle-kit does not respect the order of columns configured in primaryKey()
+    *   \[BUG\]: Cannot drop Unique Constraint MySQL
+    
+*   **Kit [v0.27.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.2) release**
+    
+    *   Fix \[BUG\]: Undefined properties when using drizzle-kit push
+    *   Fix TypeError: Cannot read properties of undefined (reading 'isRLSEnabled')
+    *   Fix push bugs, when pushing a schema with linked policy to a table from drizzle-orm/supabase
+    
+*   **Kit [v0.27.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.27.1) release**
+    
+    *   Fix: \[BUG\]: When using RLS policies and Views, the view is the last clause generated
+    
+
+December 2024
+
+*   **drizzle-seed [v0.3.0](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.3.0.md) release**
+    
+    *   The seed function can now accept Drizzle Relations objects and treat them as foreign key constraints
+    
+*   **ORM [v0.38.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.3) release**
+    
+    *   Fix incorrect deprecation detection for table declarations
+    *   SingleStore dialect support for all validator packages
+    
+*   **drizzle-seed [v0.2.1](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.2.1.md) release**
+    
+    *   We are introducing a new parameter, version, to the seed function options. This parameter, which controls generator versioning, has been added to make it easier to update deterministic generators in the future.
+    *   interval unique generator was changed and upgraded to v2
+    *   string generators were changed and upgraded to v2
+    
+*   **ORM [v0.38.2](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.2) release**
+    
+    *   New features for MySQL users: USE INDEX, FORCE INDEX and IGNORE INDEX for MySQL
+    
+*   **Kit [v0.30.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.1) release**
+    
+    *   New command: drizzle-kit export
+    
+*   **drizzle-seed [v0.1.3](https://github.com/drizzle-team/drizzle-orm/blob/main/changelogs/drizzle-seed/0.1.3.md) release**
+    
+    *   Added support for postgres uuid columns
+    *   Added support for postgres array columns
+    *   Added support for cyclic tables. You can now seed tables with cyclic relations.
+    
+    **Bug Fixes***   \[BUG\]: reset fails with a syntax error if using a - in pgTableCreator to prefix tables
+    *   seeding a table with columns that have .default(sql\`\`) will result in an error
+    
+*   ORM bug fixes
+    
+    *   \[FEATURE\]: publish packages un-minified
+    *   Don't allow unknown keys in drizzle-zod refinement
+    *   \[BUG\]:drizzle-zod not working with pgSchema
+    *   Add createUpdateSchema to drizzle-zod
+    *   \[BUG\]:drizzle-zod produces wrong type
+    *   \[BUG\]:Drizzle-zod:Boolean and Serial types from Schema are defined as enum when using CreateInsertSchema and CreateSelectSchema
+    *   \[BUG\]: Drizzle typebox enum array wrong schema and type
+    *   \[BUG\]:drizzle-zod not working with pgSchema
+    *   \[BUG\]: drizzle-zod not parsing arrays correctly
+    *   \[BUG\]: Drizzle typebox not supporting array
+    *   \[FEATURE\]: Export factory functions from drizzle-zod to allow usage with extended Zod classes
+    *   \[FEATURE\]: Add support for new pipe syntax for drizzle-valibot
+    *   \[BUG\]: drizzle-zod's createInsertSchema() can't handle column of type vector
+    *   \[BUG\]: drizzle-typebox fails to map geometry column to type-box schema
+    *   \[BUG\]: drizzle-valibot does not provide types for returned schemas
+    *   \[BUG\]: Drizzle-typebox types SQLite real field to string
+    *   \[BUG\]: drizzle-zod: documented usage generates type error with exactOptionalPropertyTypes
+    *   \[BUG\]: drizzle-zod does not respect/count db type range
+    *   \[BUG\]: drizzle-zod not overriding optional
+    *   \[BUG\]:drizzle-zod doesn't accept custom id value
+    *   \[FEATURE\]: Support for Database Views in Drizzle Zod
+    *   \[BUG\]: drizzle-valibot return type any
+    *   \[BUG\]: drizzle-zod Type generation results in undefined types
+    *   \[BUG\]: GeneratedAlwaysAs
+    *   \[FEATURE\]: $inferSelect on a view
+    *   \[BUG\]:Can't infer props from view in schema
+    
+*   **ORM [v0.38.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.38.0) release**
+    
+    *   Added new function getViewSelectedFields
+    *   Added $inferSelect function to views
+    *   Added InferSelectViewModel type for views
+    *   Added isView function
+    
+*   **Kit [v0.30.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.0) release** Starting from this update, the PostgreSQL dialect will align with the behavior of all other dialects. It will no longer include IF NOT EXISTS, $DO, or similar statements, which could cause incorrect DDL statements to not fail when an object already exists in the database and should actually fail.
+    
+*   **Kit [v0.29.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.29.0) release** and **ORM [v0.37.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.37.0) release**
+    
+    *   New dialect **SingleStore** is available in Drizzle
+    *   New driver for **Durable Objects SQLite** is available in Drizzle
+    *   \[BUG\]: $with is undefined on withReplicas
+    *   \[BUG\]: Neon serverless driver accepts authToken as a promise, but the $withAuth does not
+    
+
+January
+
+*   **ORM [v0.39.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.39.1) release**
+    
+    *   Fixed SQLite onConflict clauses being overwritten instead of stacked
+    *   Added view support to aliasedTable()
+    *   Fixed sql builder prefixing aliased views and tables with their schema
+    
+*   **Kit [v0.30.4](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.4) release**
+    
+    *   Fix bug that generates incorrect syntax when introspect in mysql
+    *   Fix a bug that caused incorrect syntax output when introspect in unsigned columns
+    
+*   **Bug Fixes***   Allow INSERT in CTEs (WITH clauses)\]
+    *   Support Raw SQL in CTE Query Builder\]
+    *   Include pre-defined database objects related to Neon Identity in drizzle-orm\]
+    *   $count is undefined on withReplicas\]
+    *   get\[Materialized\]ViewName, ie getTableName but for (materialized) views.\]
+    *   $count API error with vercel-postgres\]
+    *   Cannot use schema.coerce on refining drizzle-zod types\]
+    *   Type Coercion in drizzle-zod\]
+    *   The inferred type of X cannot be named without a reference ...
+    *   drizzle-zod excessively deep and possibly infinite types\]
+    
+*   **ORM [v0.39.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.39.0) release**
+    
+    *   You can now use the new Bun SQL driver released in Bun v1.2.0 with Drizzle
+    *   WITH now supports INSERT, UPDATE, DELETE and raw sql template
+    *   New tables in /neon import
+    *   Added getViewName util function
+    
+*   **Kit [v0.30.3](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.3) release**
+    
+    *   As SingleStore did not support certain DDL statements before this release, you might encounter an error indicating that some schema changes cannot be applied due to a database issue. Starting from this version, drizzle-kit will detect such cases and initiate table recreation with data transfer between the tables
+    
+
+February
+
+*   **Drizzle Studio updates:**
+    
+    *   Added the ability to create/alter tables.
+    *   Added the ability to create/alter views.
+    *   Added the ability to refresh db schema.
+    *   Improved dropdowns.
+    *   Improved style customization.
+    *   Added filter by entity type (table/view).
+    *   Revised dependency tree and reduced bundle size.
+    *   Added database metadata to bug report.
+    *   Added range selection with copy/paste capability.
+    
+*   **ORM [v0.40.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.40.0) release**
+    
+    *   Drizzle is getting a new Gel dialect with its own types and Gel-specific logic. In this first iteration, almost all query-building features have been copied from the PostgreSQL dialect since Gel is fully PostgreSQL-compatible. The only change in this iteration is the data types. The Gel dialect has a different set of available data types, and all mappings for these types have been designed to avoid any extra conversions on Drizzle's side. This means you will insert and select exactly the same data as supported by the Gel protocol.
+    
+*   **Kit [v0.30.5](https://github.com/drizzle-team/drizzle-orm/releases/tag/drizzle-kit%400.30.5) release**
+    
+    *   Drizzle is getting a new Gel dialect with its own types and Gel-specific logic. Kit is getting new "gel" dialect option
+    
+
+March
+
+*   **ORM [v0.41.0](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.41.0) release**
+    
+    *   `bigint`, `number` modes for `SQLite`, `MySQL`, `PostgreSQL`, `SingleStore` `decimal` & `numeric` column types
+    *   Changed behavior of `sql-js` query preparation
+    *   Fixed `MySQL`, `SingleStore` `varchar` allowing not specifying `length` in config
+    *   Fixed `MySQL`, `SingleStore` `binary`, `varbinary` data\\\\type mismatches
+    *   Fixed `numeric`\\\\`decimal` data\\\\type mismatches
+    *   Fixed `drizzle-studio` + `AWS Data Api` connection issue
+    *   Fixed `isConfig` utility function checking types of wrong fields
+    *   Enabled `supportBigNumbers` in auto-created `mysql2` driver instances
+    *   Fixed custom schema tables querying in RQBv1
+    *   Removed in-driver mapping for postgres types
+    *   Fixed `SQLite` `buffer`\-mode `blob` sometimes returning `number[]`
+    
+*   **Drizzle Studio updates:**
+    
+    *   Added new setting option for expanding subviews.
+    *   Added date and time pickers.
+    *   New settings option for pagination by page or limit offset.
+    *   Improved error handling for INSERT/UPDATE/DELETE statements in data table.
+    *   Added column type to header cell.
+    *   Added export in xlsx format.
+    *   Added callback on bug report button click.
+    *   Added ability to customize the error page.
+    *   Added css variable for run query button color.
+    *   Fixed issues with rowid.
+    *   Improved SQL console with snippet system.
+    
+*   **ORM [v0.40.1](https://github.com/drizzle-team/drizzle-orm/releases/tag/0.40.1) release**
+    
+    *   Updates to neon-http for @neondatabase/[\[email protected\]](/cdn-cgi/l/email-protection). Starting from this version, drizzle-orm will be compatible with both @neondatabase/serverless <1.0 and >1.0
+    
+
+April
+
+this month
+
+Performance
+
+Drizzle doesn't slow you down
+
+[](/benchmarks)
+
+[Go to benchmark results](/benchmarks)
+
+Drizzle
+
+v0.33.0
+
+Bun v1.1.25
+
+Bun v1.1.25Node 22.6.0 (Current)Node v20.16.0 (LTS)Node v18.20.4 (LTS)
+
+Prisma
+
+v5.18.0
+
+Bun v1.1.25
+
+Bun v1.1.25Node 22.6.0 (Current)Node v20.16.0 (LTS)Node v18.20.4 (LTS)
+
+QueriesJoins
+
+avg latency: 0.0ms
+
+avg latency: 0.0ms
+
+avg: 0 req/sec
+
+Failed requests
+
+Drizzle handled xNaN more requests
+
+0
+
+avg: 0 req/sec
+
+Failed requests
+
+Drizzle handled xNaN more requests
+
+0
+
+avg CPU load: 0.0%
+
+avg CPU load: 0.0%
+
+[Go to benchmark results](/benchmarks)
+
+Live on the edge
+
+We support every major serverful and serverless runtime
+
+Cloudflare Workers
+
+Supabase functions
+
+Vercel functions
+
+Deno deploy
+
+Bun
+
+Lagon
+
+Fly.io
+
+ElectronJS
+
+Expo
+
+React Native
+
+Browser
+
+Connect to any database
+
+We support all platform-specific, tcp, http and websocket based drivers
+
+[
+
+our sponsor
+
+Gel
+
+](https://driz.link/edgedb)
+
+PlanetScale
+
+[
+
+our sponsor
+
+Neon
+
+](https://driz.link/neon)
+
+Vercel Postgres
+
+[
+
+our sponsor
+
+Turso
+
+](https://driz.link/turso)
+
+Supabase
+
+[
+
+our sponsor
+
+Xata
+
+](https://driz.link/xataio)
+
+PostgreSQL
+
+[
+
+our sponsor
+
+TiDB
+
+](https://driz.link/silver-sponsor-tidb)
+
+MySQL
+
+[
+
+our sponsor
+
+Tembo
+
+](https://driz.link/tembo)
+
+LiteFS
+
+[
+
+our sponsor
+
+SQLite Cloud
+
+](https://driz.link/sqlitecloud)
+
+SQLite
+
+[
+
+our sponsor
+
+SingleStore
+
+](https://driz.link/singlestore)
+
+Web SQLite
+
+[
+
+not yet sponsor
+
+Prisma Postgres
+
+](https://driz.link/rickroll)
+
+Drizzle Studio
+
+Explore and manipulate your data
+
+[Documentation](/drizzle-studio/overview) [Live demo](https://demo.drizzle.studio)
+
+Our Sponsors
+
+You help us build a better future
+
+[Become a sponsor](https://driz.link/sponsor)
+
+Pricing
+
+Just kidding, Drizzle is free and open-source  
+You can still make your contribution!
+
+[Give us a star](https://github.com/drizzle-team/drizzle-orm) [Subscribe on Twitter](https://mobile.twitter.com/DrizzleORM) [Join our community](https://discord.gg/yfjTbVXMW4)
+
+Buy us some ramen 🍜
+
+[Become a sponsor](https://driz.link/sponsor)
+
+Developers love Drizzle ORM!
+
+[
+
+Dax
+
+@thdxr
+
+I hate Drizzle
+
+
+
+
+
+](https://x.com/thdxr/status/1719129834901721353?s=20)[
+
+Anthony Shew
+
+@anthonysheww
+
+I hate @DrizzleOrm so much that I wrote the Auth.js adapter for it.
+
+
+
+
+
+](https://x.com/anthonysheww/status/1688973391917969408?s=20)[
+
+Adam
+
+@adamdotdev
+
+i know this won't get me on the homepage, but @DrizzleORM is so good
+
+
+
+
+
+](https://x.com/adamdotdev/status/1749463315355508917?s=20)
+
+Some Body
+
+@dont\_know
+
+Django had it in 2008
+
+[
+
+Eddy Vinck
+
+@EddyVinckk
+
+I love @DrizzleORM that's it, that's the tweet
+
+
+
+
+
+](https://x.com/EddyVinckk/status/1770052528941478333?s=20)[
+
+Jacob Wolf 🐝
+
+@JacobWolf
+
+I love @DrizzleORM.
+
+
+
+
+
+](https://x.com/JacobWolf/status/1768061278776349151?s=20)[
+
+Theo
+
+@t3dotgg
+
+Drizzle is terrible. It doesn’t even support Mongo.
+
+
+
+
+
+](https://x.com/t3dotgg/status/1787604253860847775)[
+
+Aaron Francis
+
+@aarondfrancis
+
+Y'all should just copy everything Eloquent has
+
+
+
+
+
+](https://x.com/aarondfrancis/status/1641145228189892613?s=20)[
+
+Ofelquis Gimenes
+
+@imfelquis
+
+unpredictable results is what feeds the human race, ban Drizzle now and all this typing gibberish all together
+
+
+
+
+
+](https://x.com/imfelquis/status/1709919386931462516?s=20)[
+
+James Perkins
+
+@james\_r\_perkins
+
+Sorry @DrizzleORM you suck!
+
+
+
+
+
+](https://x.com/james_r_perkins/status/1766156735155196201?s=20)[
+
+tslamoon
+
+@tslamoon1
+
+I'll shave my head if drizzle adds MSSQL support by the end of September.
+
+
+
+
+
+](https://x.com/tslamoon1/status/1700416378237530419?s=20)[
+
+fks
+
+@FredKSchott
+
+Astro DB is powered by Drizzle! ... and we regret everything omg this thing sucks
+
+
+
+
+
+](https://x.com/FredKSchott/status/1767646959656194473?s=20)[
+
+Ray
+
+@\_raynirola
+
+DrizzleOrm is not an "ORM", it's merely a overrated typesafe sql wrapper, not even a query builder.
+
+
+
+
+
+](https://x.com/_raynirola/status/1666028176789872642?s=20)[
+
+SaltyAom
+
+@saltyAom
+
+Prisma Bun: 1.4 MB/s Drizzle Bun: 9.8 MB/s
+
+
+
+
+
+](https://x.com/saltyAom/status/1767783124342276526?s=20)[
+
+Christoffer Bjelke
+
+@chribjel
+
+How many times has this little shit snuck into your dependencies?
+
+
+
+
+
+](https://x.com/chribjel/status/1778851727954837727)[
+
+Roma Zvarych
+
+@hisbvdis
+
+I have finally switched from @prisma to @DrizzleORM. It was not easy. Dear Drizzle Team, you have created an awesome orm with awfull documentation. Anyway, good for you, thanks and good luck.
+
+
+
+
+
+](https://x.com/hisbvdis/status/1807783878515400977)[
+
+Aoki
+
+@aokijs
+
+Honestly, fuck the benchmarks. I don‘t care which one‘s faster. All I can say is that Drizzle made my life working with databases dramastically better and that‘s all that matters for me. Thanks for your hard work 🙏🏻
+
+
+
+
+
+](https://x.com/aokijs/status/1833840766839325109)[
+
+Matija Marohnić
+
+@silvenon
+
+Every time I hear about @DrizzleORM.
+
+
+
+
+
+](https://x.com/silvenon/status/1843003214402314695)[
+
+Joseph Mama 🐀
+
+@spacesexdragon
+
+
+
+](https://x.com/spacesexdragon/status/1843381135134675236)[
+
+Broda Noel
+
+@BrodaNoel
+
+Is this a joke? Because if this is a joke, it's really really really bad joke, because now I'm fucking hating @DrizzleORM without even knowing who they are. I mean, this is not a good marketing strategy if this was a marketing-joke. And if it's actually true, I'll hate them more.
+
+
+
+
+
+](https://x.com/BrodaNoel/status/1913248949252616287)
+
+[
+
+](/)
+
+Headless TypeScript ORM with a head.
+
+[](https://github.com/drizzle-team/drizzle-orm)[](https://discord.gg/yfjTbVXMW4)[](https://twitter.com/DrizzleORM)
+
+Documentation
+
+[Get Started](/docs/overview) [Manage Schema](/docs/sql-schema-declaration) [Access Data](/docs/rqb) [Migrations](/docs/kit-overview)
+
+Resources
+
+[Drizzle Studio](/drizzle-studio/overview) [Benchmarks](/benchmarks)
+
+Learn
+
+[Guides](/docs/guides) [Tutorials](/docs/tutorials) [Latest Releases](/docs/latest-releases)
 
 Guides
 
@@ -2237,33 +8093,15 @@ bun
 
 Drizzle has native support for all @libsql/client driver variations:
 
-`@libsql/client`
-
-defaults to `node` import, automatically changes to `web` if `target` or `platform` is set for bundler, e.g. `esbuild --platform=browser`
-
-`@libsql/client/node`
-
-`node` compatible module, supports `:memory:`, `file`, `wss`, `http` and `turso` conneciton protocols
-
-`@libsql/client/web`
-
-module for fullstack web frameworks like `next`, `nuxt`, `astro`, etc.
-
-`@libsql/client/http`
-
-module for `http` and `https` connection protocols
-
-`@libsql/client/ws`
-
-module for `ws` and `wss` conneciton protocols
-
-`@libsql/client/sqlite3`
-
-module for `:memory:` and `file` conneciton protocols
-
-`@libsql/client-wasm`
-
-Separate experimental package for WASM
+|  |  |
+| --- | --- |
+| `@libsql/client` | defaults to `node` import, automatically changes to `web` if `target` or `platform` is set for bundler, e.g. `esbuild --platform=browser` |
+| `@libsql/client/node` | `node` compatible module, supports `:memory:`, `file`, `wss`, `http` and `turso` conneciton protocols |
+| `@libsql/client/web` | module for fullstack web frameworks like `next`, `nuxt`, `astro`, etc. |
+| `@libsql/client/http` | module for `http` and `https` connection protocols |
+| `@libsql/client/ws` | module for `ws` and `wss` conneciton protocols |
+| `@libsql/client/sqlite3` | module for `:memory:` and `file` conneciton protocols |
+| `@libsql/client-wasm` | Separate experimental package for WASM |
 
   
 
@@ -3417,33 +9255,15 @@ bun
 
 Drizzle has native support for all `@libsql/client` driver variations:
 
-`@libsql/client`
-
-defaults to `node` import, automatically changes to `web` if `target` or `platform` is set for bundler, e.g. `esbuild --platform=browser`
-
-`@libsql/client/node`
-
-`node` compatible module, supports `:memory:`, `file`, `wss`, `http` and `turso` conneciton protocols
-
-`@libsql/client/web`
-
-module for fullstack web frameworks like `next`, `nuxt`, `astro`, etc.
-
-`@libsql/client/http`
-
-module for `http` and `https` connection protocols
-
-`@libsql/client/ws`
-
-module for `ws` and `wss` conneciton protocols
-
-`@libsql/client/sqlite3`
-
-module for `:memory:` and `file` conneciton protocols
-
-`@libsql/client-wasm`
-
-Separate experimental package for WASM
+|  |  |
+| --- | --- |
+| `@libsql/client` | defaults to `node` import, automatically changes to `web` if `target` or `platform` is set for bundler, e.g. `esbuild --platform=browser` |
+| `@libsql/client/node` | `node` compatible module, supports `:memory:`, `file`, `wss`, `http` and `turso` conneciton protocols |
+| `@libsql/client/web` | module for fullstack web frameworks like `next`, `nuxt`, `astro`, etc. |
+| `@libsql/client/http` | module for `http` and `https` connection protocols |
+| `@libsql/client/ws` | module for `ws` and `wss` conneciton protocols |
+| `@libsql/client/sqlite3` | module for `:memory:` and `file` conneciton protocols |
+| `@libsql/client-wasm` | Separate experimental package for WASM |
 
   
 
@@ -5936,25 +11756,13 @@ In PostgreSQL, policies should be linked to an existing table. Since policies ar
 
 **Policy options**
 
-`as`
-
-Possible values are `permissive` or `restrictive`
-
-`to`
-
-Specifies the role to which the policy applies. Possible values include `public`, `current_role`, `current_user`, `session_user`, or any other role name as a string. You can also reference a `pgRole` object.
-
-`for`
-
-Defines the commands this policy will be applied to. Possible values are `all`, `select`, `insert`, `update`, `delete`.
-
-`using`
-
-The SQL statement that will be applied to the `USING` part of the policy creation statement.
-
-`withCheck`
-
-An SQL statement that will be applied to the `WITH CHECK` part of the policy creation statement.
+|  |  |
+| --- | --- |
+| `as` | Possible values are `permissive` or `restrictive` |
+| `to` | Specifies the role to which the policy applies. Possible values include `public`, `current_role`, `current_user`, `session_user`, or any other role name as a string. You can also reference a `pgRole` object. |
+| `for` | Defines the commands this policy will be applied to. Possible values are `all`, `select`, `insert`, `update`, `delete`. |
+| `using` | The SQL statement that will be applied to the `USING` part of the policy creation statement. |
+| `withCheck` | An SQL statement that will be applied to the `WITH CHECK` part of the policy creation statement. |
 
 **Link Policy to an existing table**
 
@@ -6786,33 +12594,15 @@ bun
     bun drizzle-kit up
     bun drizzle-kit studio
 
-[`drizzle-kit generate`](/docs/drizzle-kit-generate)
-
-lets you generate SQL migration files based on your Drizzle schema either upon declaration or on subsequent changes, [see here](/docs/drizzle-kit-generate).
-
-[`drizzle-kit migrate`](/docs/drizzle-kit-migrate)
-
-lets you apply generated SQL migration files to your database, [see here](/docs/drizzle-kit-migrate).
-
-[`drizzle-kit pull`](/docs/drizzle-kit-pull)
-
-lets you pull(introspect) database schema, convert it to Drizzle schema and save it to your codebase, [see here](/docs/drizzle-kit-pull)
-
-[`drizzle-kit push`](/docs/drizzle-kit-push)
-
-lets you push your Drizzle schema to database either upon declaration or on subsequent schema changes, [see here](/docs/drizzle-kit-push)
-
-[`drizzle-kit studio`](/docs/drizzle-kit-studio)
-
-will connect to your database and spin up proxy server for Drizzle Studio which you can use for convenient database browsing, [see here](/docs/drizzle-kit-studio)
-
-[`drizzle-kit check`](/docs/drizzle-kit-check)
-
-will walk through all generate migrations and check for any race conditions(collisions) of generated migrations, [see here](/docs/drizzle-kit-check)
-
-[`drizzle-kit up`](/docs/drizzle-kit-up)
-
-used to upgrade snapshots of previously generated migrations, [see here](/docs/drizzle-kit-up)
+|  |  |
+| --- | --- |
+| [`drizzle-kit generate`](/docs/drizzle-kit-generate) | lets you generate SQL migration files based on your Drizzle schema either upon declaration or on subsequent changes, [see here](/docs/drizzle-kit-generate). |
+| [`drizzle-kit migrate`](/docs/drizzle-kit-migrate) | lets you apply generated SQL migration files to your database, [see here](/docs/drizzle-kit-migrate). |
+| [`drizzle-kit pull`](/docs/drizzle-kit-pull) | lets you pull(introspect) database schema, convert it to Drizzle schema and save it to your codebase, [see here](/docs/drizzle-kit-pull) |
+| [`drizzle-kit push`](/docs/drizzle-kit-push) | lets you push your Drizzle schema to database either upon declaration or on subsequent schema changes, [see here](/docs/drizzle-kit-push) |
+| [`drizzle-kit studio`](/docs/drizzle-kit-studio) | will connect to your database and spin up proxy server for Drizzle Studio which you can use for convenient database browsing, [see here](/docs/drizzle-kit-studio) |
+| [`drizzle-kit check`](/docs/drizzle-kit-check) | will walk through all generate migrations and check for any race conditions(collisions) of generated migrations, [see here](/docs/drizzle-kit-check) |
+| [`drizzle-kit up`](/docs/drizzle-kit-up) | used to upgrade snapshots of previously generated migrations, [see here](/docs/drizzle-kit-up) |
 
   
 
@@ -7135,13 +12925,10 @@ You can generate empty migration files to write your own custom SQL migrations f
 
 `drizzle-kit generate` has a list of cli-only options
 
-`custom`
-
-generate empty SQL for custom migration
-
-`name`
-
-generate migration with custom name
+|  |  |
+| --- | --- |
+| `custom` | generate empty SQL for custom migration |
+| `name` | generate migration with custom name |
 
 npm
 
@@ -7171,29 +12958,13 @@ bun
 
 We recommend configuring `drizzle-kit` through [drizzle.config.ts](/docs/drizzle-config-file) file, yet you can provide all configuration options through CLI if necessary, e.g. in CI/CD pipelines, etc.
 
-`dialect`
-
-`required`
-
-Database dialect, one of `postgresql` `mysql` `sqlite` `turso` `singlestore`
-
-`schema`
-
-`required`
-
-Path to typescript schema file(s) or folder(s) with multiple schema files
-
-`out`
-
-Migrations output folder, default is `./drizzle`
-
-`config`
-
-Configuration file path, default is `drizzle.config.ts`
-
-`breakpoints`
-
-SQL statements breakpoints, default is `true`
+|  |  |  |
+| --- | --- | --- |
+| `dialect` | `required` | Database dialect, one of `postgresql` `mysql` `sqlite` `turso` `singlestore` |
+| `schema` | `required` | Path to typescript schema file(s) or folder(s) with multiple schema files |
+| `out` |  | Migrations output folder, default is `./drizzle` |
+| `config` |  | Configuration file path, default is `drizzle.config.ts` |
+| `breakpoints` |  | SQL statements breakpoints, default is `true` |
 
 ### Extended example[](#extended-example)
 
@@ -7678,17 +13449,11 @@ Cloudflare D1 HTTP
 
 `drizzle-kit push` will by default manage all tables in `public` schema. You can configure list of tables, schemas and extensions via `tablesFilters`, `schemaFilter` and `extensionFilters` options.
 
-`tablesFilter`
-
-`glob` based table names filter, e.g. `["users", "user_info"]` or `"user*"`. Default is `"*"`
-
-`schemaFilter`
-
-Schema names filter, e.g. `["public", "drizzle"]`. Default is `["public"]`
-
-`extensionsFilters`
-
-List of installed database extensions, e.g. `["postgis"]`. Default is `[]`
+|  |  |
+| --- | --- |
+| `tablesFilter` | `glob` based table names filter, e.g. `["users", "user_info"]` or `"user*"`. Default is `"*"` |
+| `schemaFilter` | Schema names filter, e.g. `["public", "drizzle"]`. Default is `["public"]` |
+| `extensionsFilters` | List of installed database extensions, e.g. `["postgis"]`. Default is `[]` |
 
   
 
@@ -7715,17 +13480,11 @@ drizzle.config.ts
 
 `drizzle-kit push` has a list of cli-only options
 
-`verbose`
-
-print all SQL statements prior to execution
-
-`strict`
-
-always ask for approval before executing SQL statements
-
-`force`
-
-auto-accept all data-loss statements
+|  |  |
+| --- | --- |
+| `verbose` | print all SQL statements prior to execution |
+| `strict` | always ask for approval before executing SQL statements |
+| `force` | auto-accept all data-loss statements |
 
   
 
@@ -7753,61 +13512,21 @@ bun
 
 We recommend configuring `drizzle-kit` through [drizzle.config.ts](/docs/drizzle-config-file) file, yet you can provide all configuration options through CLI if necessary, e.g. in CI/CD pipelines, etc.
 
-`dialect`
-
-`required`
-
-Database dialect, one of `postgresql` `mysql` `sqlite` `turso` `singlestore`
-
-`schema`
-
-`required`
-
-Path to typescript schema file(s) or folder(s) with multiple schema files
-
-`driver`
-
-Drivers exceptions `aws-data-api` `d1-http` `pglight`
-
-`tablesFilter`
-
-Table name filter
-
-`schemaFilter`
-
-Schema name filter. Default: `["public"]`
-
-`extensionsFilters`
-
-Database extensions internal database filters
-
-`url`
-
-Database connection string
-
-`user`
-
-Database user
-
-`password`
-
-Database password
-
-`host`
-
-Host
-
-`port`
-
-Port
-
-`database`
-
-Database name
-
-`config`
-
-Config file path, default=`drizzle.config.ts`
+|  |  |  |
+| --- | --- | --- |
+| `dialect` | `required` | Database dialect, one of `postgresql` `mysql` `sqlite` `turso` `singlestore` |
+| `schema` | `required` | Path to typescript schema file(s) or folder(s) with multiple schema files |
+| `driver` |  | Drivers exceptions `aws-data-api` `d1-http` `pglight` |
+| `tablesFilter` |  | Table name filter |
+| `schemaFilter` |  | Schema name filter. Default: `["public"]` |
+| `extensionsFilters` |  | Database extensions internal database filters |
+| `url` |  | Database connection string |
+| `user` |  | Database user |
+| `password` |  | Database password |
+| `host` |  | Host |
+| `port` |  | Port |
+| `database` |  | Database name |
+| `config` |  | Config file path, default=`drizzle.config.ts` |
 
 npm
 
@@ -8038,17 +13757,11 @@ Cloudflare D1 HTTP
 
 `drizzle-kit push` will by default manage all tables in `public` schema. You can configure list of tables, schemas and extensions via `tablesFilters`, `schemaFilter` and `extensionFilters` options.
 
-`tablesFilter`
-
-`glob` based table names filter, e.g. `["users", "user_info"]` or `"user*"`. Default is `"*"`
-
-`schemaFilter`
-
-Schema names filter, e.g. `["public", "drizzle"]`. Default is `["public"]`
-
-`extensionsFilters`
-
-List of installed database extensions, e.g. `["postgis"]`. Default is `[]`
+|  |  |
+| --- | --- |
+| `tablesFilter` | `glob` based table names filter, e.g. `["users", "user_info"]` or `"user*"`. Default is `"*"` |
+| `schemaFilter` | Schema names filter, e.g. `["public", "drizzle"]`. Default is `["public"]` |
+| `extensionsFilters` | List of installed database extensions, e.g. `["postgis"]`. Default is `[]` |
 
   
 
@@ -8075,63 +13788,22 @@ drizzle.config.ts
 
 We recommend configuring `drizzle-kit` through [drizzle.config.ts](/docs/drizzle-config-file) file, yet you can provide all configuration options through CLI if necessary, e.g. in CI/CD pipelines, etc.
 
-`dialect`
-
-`required`
-
-Database dialect, one of `postgresql` `mysql` `sqlite` `turso` `singlestore`
-
-`driver`
-
-Drivers exceptions `aws-data-api` `d1-http` `pglight`
-
-`out`
-
-Migrations output folder path, default is `./drizzle`
-
-`url`
-
-Database connection string
-
-`user`
-
-Database user
-
-`password`
-
-Database password
-
-`host`
-
-Host
-
-`port`
-
-Port
-
-`database`
-
-Database name
-
-`config`
-
-Config file path, default is `drizzle.config.ts`
-
-`introspect-casing`
-
-Strategy for JS keys creation in columns, tables, etc. `preserve` `camel`
-
-`tablesFilter`
-
-Table name filter
-
-`schemaFilter`
-
-Schema name filter. Default: `["public"]`
-
-`extensionsFilters`
-
-Database extensions internal database filters
+|  |  |  |
+| --- | --- | --- |
+| `dialect` | `required` | Database dialect, one of `postgresql` `mysql` `sqlite` `turso` `singlestore` |
+| `driver` |  | Drivers exceptions `aws-data-api` `d1-http` `pglight` |
+| `out` |  | Migrations output folder path, default is `./drizzle` |
+| `url` |  | Database connection string |
+| `user` |  | Database user |
+| `password` |  | Database password |
+| `host` |  | Host |
+| `port` |  | Port |
+| `database` |  | Database name |
+| `config` |  | Config file path, default is `drizzle.config.ts` |
+| `introspect-casing` |  | Strategy for JS keys creation in columns, tables, etc. `preserve` `camel` |
+| `tablesFilter` |  | Table name filter |
+| `schemaFilter` |  | Schema name filter. Default: `["public"]` |
+| `extensionsFilters` |  | Database extensions internal database filters |
 
 npm
 
@@ -8326,9 +13998,9 @@ bun
 
 `drizzle-kit export` has a list of cli-only options
 
-`--sql`
-
-generating SQL representation of Drizzle Schema
+|  |  |
+| --- | --- |
+| `--sql` | generating SQL representation of Drizzle Schema |
 
 By default, Drizzle Kit outputs SQL files, but in the future, we want to support different formats
 
@@ -8360,21 +14032,11 @@ bun
 
 We recommend configuring `drizzle-kit` through [drizzle.config.ts](/docs/drizzle-config-file) file, yet you can provide all configuration options through CLI if necessary, e.g. in CI/CD pipelines, etc.
 
-`dialect`
-
-`required`
-
-Database dialect, one of `postgresql` `mysql` `sqlite` `turso` `singlestore`
-
-`schema`
-
-`required`
-
-Path to typescript schema file(s) or folder(s) with multiple schema files
-
-`config`
-
-Configuration file path, default is `drizzle.config.ts`
+|  |  |  |
+| --- | --- | --- |
+| `dialect` | `required` | Database dialect, one of `postgresql` `mysql` `sqlite` `turso` `singlestore` |
+| `schema` | `required` | Path to typescript schema file(s) or folder(s) with multiple schema files |
+| `config` |  | Configuration file path, default is `drizzle.config.ts` |
 
 ### Example[](#example)
 
@@ -8498,19 +14160,11 @@ bun
 
 We recommend configuring `drizzle-kit` through [drizzle.config.ts](/docs/drizzle-config-file) file, yet you can provide all configuration options through CLI if necessary, e.g. in CI/CD pipelines, etc.
 
-`dialect`
-
-`required`
-
-Database dialect you are using. Can be `postgresql`,`mysql` or `sqlite`
-
-`out`
-
-migrations folder, default=`./drizzle`
-
-`config`
-
-config file path, default=`drizzle.config.ts`
+|  |  |  |
+| --- | --- | --- |
+| `dialect` | `required` | Database dialect you are using. Can be `postgresql`,`mysql` or `sqlite` |
+| `out` |  | migrations folder, default=`./drizzle` |
+| `config` |  | config file path, default=`drizzle.config.ts` |
 
   
 
@@ -8608,19 +14262,11 @@ bun
 
 We recommend configuring `drizzle-kit` through [drizzle.config.ts](/docs/drizzle-config-file) file, yet you can provide all configuration options through CLI if necessary, e.g. in CI/CD pipelines, etc.
 
-`dialect`
-
-`required`
-
-Database dialect you are using. Can be `postgresql`,`mysql` or `sqlite`
-
-`out`
-
-migrations folder, default=`./drizzle`
-
-`config`
-
-config file path, default=`drizzle.config.ts`
+|  |  |  |
+| --- | --- | --- |
+| `dialect` | `required` | Database dialect you are using. Can be `postgresql`,`mysql` or `sqlite` |
+| `out` |  | migrations folder, default=`./drizzle` |
+| `config` |  | config file path, default=`drizzle.config.ts` |
 
   
 
@@ -8956,17 +14602,11 @@ Migration folder contains `.sql` migration files and `_meta` folder which is use
 
 Dialect of the database you’re using
 
-type
-
-`postgresql` `mysql` `sqlite` `turso` `singlestore`
-
-default
-
-—
-
-commands
-
-`generate` `migrate` `push` `pull` `check` `up`
+|  |  |
+| --- | --- |
+| type | `postgresql` `mysql` `sqlite` `turso` `singlestore` |
+| default | — |
+| commands | `generate` `migrate` `push` `pull` `check` `up` |
 
     import { defineConfig } from "drizzle-kit";
     
@@ -8978,17 +14618,11 @@ commands
 
 [`glob`](https://www.digitalocean.com/community/tools/glob?comments=true&glob=/**/*.js&matches=false&tests=//%20This%20will%20match%20as%20it%20ends%20with%20'.js'&tests=/hello/world.js&tests=//%20This%20won't%20match!&tests=/test/some/globs) based path to drizzle schema file(s) or folder(s) contaning schema files.
 
-type
-
-`string` `string[]`
-
-default
-
-—
-
-commands
-
-`generate` `push`
+|  |  |
+| --- | --- |
+| type | `string` `string[]` |
+| default | — |
+| commands | `generate` `push` |
 
 Example 1
 
@@ -9079,17 +14713,11 @@ Example 4
 
 Defines output folder of your SQL migration files, json snapshots of your schema and `schema.ts` from `drizzle-kit pull` command.
 
-type
-
-`string` `string[]`
-
-default
-
-`drizzle`
-
-commands
-
-`generate` `migrate` `push` `pull` `check` `up`
+|  |  |
+| --- | --- |
+| type | `string` `string[]` |
+| default | `drizzle` |
+| commands | `generate` `migrate` `push` `pull` `check` `up` |
 
     import { defineConfig } from "drizzle-kit";
     
@@ -9103,17 +14731,11 @@ Drizzle Kit automatically picks available database driver from your current proj
 
 `driver` option let’s you explicitely pick those exceptions drivers.
 
-type
-
-`aws-data-api` `d1-http` `pglight`
-
-default
-
-—
-
-commands
-
-`migrate` `push` `pull`
+|  |  |
+| --- | --- |
+| type | `aws-data-api` `d1-http` `pglight` |
+| default | — |
+| commands | `migrate` `push` `pull` |
 
 AWS Data API
 
@@ -9169,17 +14791,11 @@ Cloudflare D1 HTTP
 
 Database connection credentials in a form of `url`, `user:password@host:port/db` params or exceptions drivers(`aws-data-api` `d1-http` `pglight` ) specific connection options.
 
-type
-
-union of drivers connection options
-
-default
-
-—
-
-commands
-
-`migrate` `push` `pull`
+|  |  |
+| --- | --- |
+| type | union of drivers connection options |
+| default | — |
+| commands | `migrate` `push` `pull` |
 
 PostgreSQL
 
@@ -9312,17 +14928,11 @@ When running `drizzle-kit migrate` - drizzle will records about successfully app
 
 `migrations` config options lets you change both migrations log `table` name and `schema`.
 
-type
-
-`{ table: string, schema: string }`
-
-default
-
-`{ table: "__drizzle_migrations", schema: "drizzle" }`
-
-commands
-
-`migrate`
+|  |  |
+| --- | --- |
+| type | `{ table: string, schema: string }` |
+| default | `{ table: "__drizzle_migrations", schema: "drizzle" }` |
+| commands | `migrate` |
 
     export default defineConfig({
       dialect: "postgresql",
@@ -9339,17 +14949,11 @@ Cofiguration for `drizzle-kit pull` command.
 
 `casing` is responsible for in-code column keys casing
 
-type
-
-`{ casing: "preserve" | "camel" }`
-
-default
-
-`{ casing: "camel" }`
-
-commands
-
-`pull`
+|  |  |
+| --- | --- |
+| type | `{ casing: "preserve" | "camel" }` |
+| default | `{ casing: "camel" }` |
+| commands | `pull` |
 
 camel
 
@@ -9406,17 +15010,11 @@ If you want to run multiple projects with one database - check out [our guide](/
 
 `tablesFilter` option lets you specify [`glob`](https://www.digitalocean.com/community/tools/glob?comments=true&glob=/**/*.js&matches=false&tests=//%20This%20will%20match%20as%20it%20ends%20with%20'.js'&tests=/hello/world.js&tests=//%20This%20won't%20match!&tests=/test/some/globs) based table names filter, e.g. `["users", "user_info"]` or `"user*"`
 
-type
-
-`string` `string[]`
-
-default
-
-—
-
-commands
-
-`generate` `push` `pull`
+|  |  |
+| --- | --- |
+| type | `string` `string[]` |
+| default | — |
+| commands | `generate` `push` `pull` |
 
     import { defineConfig } from "drizzle-kit";
     
@@ -9433,17 +15031,11 @@ If you want to run multiple projects with one database - check out [our guide](/
 
 `schemaFilter` option lets you specify list of schemas for Drizzle Kit to manage
 
-type
-
-`string[]`
-
-default
-
-`["public"]`
-
-commands
-
-`generate` `push` `pull`
+|  |  |
+| --- | --- |
+| type | `string[]` |
+| default | `["public"]` |
+| commands | `generate` `push` `pull` |
 
     export default defineConfig({
       dialect: "postgresql",
@@ -9456,17 +15048,11 @@ Some extensions like [`postgis`](https://postgis.net/), when installed on the da
 
 `extensionsFilters` option lets you declare list of installed extensions for drizzle kit to ignore their tables in the schema.
 
-type
-
-`["postgis"]`
-
-default
-
-`[]`
-
-commands
-
-`push` `pull`
+|  |  |
+| --- | --- |
+| type | `["postgis"]` |
+| default | `[]` |
+| commands | `push` `pull` |
 
     export default defineConfig({
       dialect: "postgresql",
@@ -9494,17 +15080,11 @@ The `roles` option lets you:
 *   Enable modes for providers like `Neon` and `Supabase`, which do not manage their specific roles.
 *   Combine all the options above
 
-type
-
-`boolean | { provider: "neon" | "supabase", include: string[], exclude: string[]}`
-
-default
-
-`false`
-
-commands
-
-`push` `pull` `generate`
+|  |  |
+| --- | --- |
+| type | `boolean | { provider: "neon" | "supabase", include: string[], exclude: string[]}` |
+| default | `false` |
+| commands | `push` `pull` `generate` |
 
 By default, `drizzle-kit` won’t manage roles for you, so you will need to enable that. in `drizzle.config.ts`
 
@@ -9595,17 +15175,11 @@ You may encounter situations where Drizzle is slightly outdated compared to new 
 
 Prompts confirmation to run printed SQL statements when running `drizzle-kit push` command.
 
-type
-
-`boolean`
-
-default
-
-`false`
-
-commands
-
-`push`
+|  |  |
+| --- | --- |
+| type | `boolean` |
+| default | `false` |
+| commands | `push` |
 
     export default defineConfig({
       dialect: "postgresql",
@@ -9616,17 +15190,11 @@ commands
 
 Print all SQL statements during `drizzle-kit push` command.
 
-type
-
-`boolean`
-
-default
-
-`true`
-
-commands
-
-`generate` `pull`
+|  |  |
+| --- | --- |
+| type | `boolean` |
+| default | `true` |
+| commands | `generate` `pull` |
 
     export default defineConfig({
       dialect: "postgresql",
@@ -9639,17 +15207,11 @@ Drizzle Kit will automatically embed `--> statement-breakpoint` into generated S
 
 `breakpoints` option flag lets you switch it on and off
 
-type
-
-`boolean`
-
-default
-
-`true`
-
-commands
-
-`generate` `pull`
+|  |  |
+| --- | --- |
+| type | `boolean` |
+| default | `true` |
+| commands | `generate` `pull` |
 
     export default defineConfig({
       dialect: "postgresql",
@@ -10291,23 +15853,10 @@ For now, specifying `arraySize` along with `isUnique` in generators that support
 
 Generates the same given value each time the generator is called.
 
-param
-
-default
-
-type
-
-`defaultValue`
-
-—
-
-`any`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `defaultValue` | — | `any` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -10331,29 +15880,11 @@ type
 
 Generates values from given array
 
-param
-
-default
-
-type
-
-`values`
-
-—
-
-`any[]` | `{ weight: number; values: any[] }[]`
-
-`isUnique`
-
-database column uniqueness
-
-`boolean`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `values` | — | `any[]` | `{ weight: number; values: any[] }[]` |
+|  | `isUnique` | database column uniqueness | `boolean` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -10380,17 +15911,9 @@ database column uniqueness
 
 Generates sequential integers starting from 1.
 
-param
-
-default
-
-type
-
-—
-
-—
-
-—
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | — | — | — |
 
     import { seed } from "drizzle-seed";
     
@@ -10407,41 +15930,13 @@ type
 
 Generates numbers with a floating point within the given range
 
-param
-
-default
-
-type
-
-`isUnique`
-
-database column uniqueness
-
-`boolean`
-
-`precision`
-
-`100`
-
-`number`
-
-`maxValue`
-
-`` `precision * 1000` if isUnique equals false `` `` `precision * count` if isUnique equals true ``
-
-`number`
-
-`minValue`
-
-`-maxValue`
-
-`number`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `isUnique` | database column uniqueness | `boolean` |
+|  | `precision` | `100` | `number` |
+|  | `maxValue` | `` `precision * 1000` if isUnique equals false `` `` `precision * count` if isUnique equals true `` | `number` |
+|  | `minValue` | `-maxValue` | `number` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -10476,35 +15971,12 @@ database column uniqueness
 
 Generates integers within the given range
 
-param
-
-default
-
-type
-
-`isUnique`
-
-database column uniqueness
-
-`boolean`
-
-`maxValue`
-
-`` `1000` if isUnique equals false `` `` `count * 10` if isUnique equals true ``
-
-`number | bigint`
-
-`minValue`
-
-`-maxValue`
-
-`number | bigint`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `isUnique` | database column uniqueness | `boolean` |
+|  | `maxValue` | `` `1000` if isUnique equals false `` `` `count * 10` if isUnique equals true `` | `number | bigint` |
+|  | `minValue` | `-maxValue` | `number | bigint` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -10534,17 +16006,9 @@ database column uniqueness
 
 Generates boolean values (true or false)
 
-param
-
-default
-
-type
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -10565,29 +16029,11 @@ type
 
 Generates a date within the given range
 
-param
-
-default
-
-type
-
-`minDate`
-
-`new Date('2020-05-08')`
-
-`string | Date`
-
-`maxDate`
-
-`new Date('2028-05-08')`
-
-`string | Date`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `minDate` | `new Date('2020-05-08')` | `string | Date` |
+|  | `maxDate` | `new Date('2028-05-08')` | `string | Date` |
+|  | `arraySize` | — | `number` |
 
 IMPORTANT
 
@@ -10618,17 +16064,9 @@ If only one of the parameters (`minDate` or `maxDate`) is provided, the unspecif
 
 Generates time in 24-hour format
 
-param
-
-default
-
-type
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -10649,17 +16087,9 @@ type
 
 Generates timestamps
 
-param
-
-default
-
-type
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -10680,17 +16110,9 @@ type
 
 Generates datetime objects
 
-param
-
-default
-
-type
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -10711,17 +16133,9 @@ type
 
 Generates years in `YYYY` format
 
-param
-
-default
-
-type
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -10750,17 +16164,9 @@ Generates JSON objects with a fixed structure
 
 > The JSON structure will be picked randomly
 
-param
-
-default
-
-type
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -10783,23 +16189,10 @@ Generates time intervals.
 
 Example of a generated value: `1 year 12 days 5 minutes`
 
-param
-
-default
-
-type
-
-`isUnique`
-
-column uniqueness
-
-`boolean`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `isUnique` | column uniqueness | `boolean` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -10823,23 +16216,10 @@ column uniqueness
 
 Generates random strings
 
-param
-
-default
-
-type
-
-`isUnique`
-
-—
-
-`boolean`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `isUnique` | — | `boolean` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -10863,17 +16243,9 @@ type
 
 Generates v4 UUID strings
 
-param
-
-default
-
-type
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     await seed(db, schema, { count: 1000 }).refine((funcs) => ({
@@ -10892,23 +16264,10 @@ type
 
 Generates a person’s first name
 
-param
-
-default
-
-type
-
-`isUnique`
-
-—
-
-`boolean`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `isUnique` | — | `boolean` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -10932,23 +16291,10 @@ type
 
 Generates a person’s last name
 
-param
-
-default
-
-type
-
-`isUnique`
-
-—
-
-`boolean`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `isUnique` | — | `boolean` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -10972,23 +16318,10 @@ type
 
 Generates a person’s full name
 
-param
-
-default
-
-type
-
-`isUnique`
-
-—
-
-`boolean`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `isUnique` | — | `boolean` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -11012,17 +16345,9 @@ type
 
 Generates unique email addresses
 
-param
-
-default
-
-type
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -11043,35 +16368,12 @@ type
 
 Generates unique phone numbers
 
-param
-
-default
-
-type
-
-`template`
-
-—
-
-`string`
-
-`prefixes`
-
-[Used dataset for prefixes](https://github.com/OleksiiKH0240/drizzle-orm/blob/main/drizzle-seed/src/datasets/phonesInfo.ts)
-
-`string[]`
-
-`generatedDigitsNumbers`
-
-`7` - `if prefixes was defined`
-
-`number | number[]`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `template` | — | `string` |
+|  | `prefixes` | [Used dataset for prefixes](https://github.com/OleksiiKH0240/drizzle-orm/blob/main/drizzle-seed/src/datasets/phonesInfo.ts) | `string[]` |
+|  | `generatedDigitsNumbers` | `7` - `if prefixes was defined` | `number | number[]` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -11140,23 +16442,10 @@ type
 
 Generates country’s names
 
-param
-
-default
-
-type
-
-`isUnique`
-
-—
-
-`boolean`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `isUnique` | — | `boolean` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -11180,23 +16469,10 @@ type
 
 Generates city’s names
 
-param
-
-default
-
-type
-
-`isUnique`
-
-—
-
-`boolean`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `isUnique` | — | `boolean` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -11220,17 +16496,9 @@ type
 
 Generates street address
 
-param
-
-default
-
-type
-
-`isUnique`
-
-—
-
-`boolean`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `isUnique` | — | `boolean` |
 
     import { seed } from "drizzle-seed";
     
@@ -11254,17 +16522,9 @@ type
 
 Generates job titles
 
-param
-
-default
-
-type
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -11285,23 +16545,10 @@ type
 
 Generates postal codes
 
-param
-
-default
-
-type
-
-`isUnique`
-
-—
-
-`boolean`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `isUnique` | — | `boolean` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -11325,17 +16572,9 @@ type
 
 Generates US states
 
-param
-
-default
-
-type
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -11356,23 +16595,10 @@ type
 
 Generates random company’s names
 
-param
-
-default
-
-type
-
-`isUnique`
-
-—
-
-`boolean`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `isUnique` | — | `boolean` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -11396,23 +16622,10 @@ type
 
 Generates `lorem ipsum` text sentences.
 
-param
-
-default
-
-type
-
-`sentencesCount`
-
-1
-
-`number`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `sentencesCount` | 1 | `number` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -11436,47 +16649,14 @@ type
 
 Generates 2D points within specified ranges for x and y coordinates.
 
-param
-
-default
-
-type
-
-`isUnique`
-
-database column uniqueness
-
-`boolean`
-
-`maxXValue`
-
-`` `10 * 1000` if isUnique equals false `` `` `10 * count` if isUnique equals true ``
-
-`number`
-
-`minXValue`
-
-`-maxXValue`
-
-`number`
-
-`maxYValue`
-
-`` `10 * 1000` if isUnique equals false `` `` `10 * count` if isUnique equals true ``
-
-`number`
-
-`minYValue`
-
-`-maxYValue`
-
-`number`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `isUnique` | database column uniqueness | `boolean` |
+|  | `maxXValue` | `` `10 * 1000` if isUnique equals false `` `` `10 * count` if isUnique equals true `` | `number` |
+|  | `minXValue` | `-maxXValue` | `number` |
+|  | `maxYValue` | `` `10 * 1000` if isUnique equals false `` `` `10 * count` if isUnique equals true `` | `number` |
+|  | `minYValue` | `-maxYValue` | `number` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -11514,59 +16694,16 @@ Generates 2D lines within specified ranges for a, b and c parameters of line.
 
     line equation: a*x + b*y + c = 0
 
-param
-
-default
-
-type
-
-`isUnique`
-
-database column uniqueness
-
-`boolean`
-
-`maxAValue`
-
-`` `10 * 1000` if isUnique equals false `` `` `10 * count` if isUnique equals true ``
-
-`number`
-
-`minAValue`
-
-`-maxAValue`
-
-`number`
-
-`maxBValue`
-
-`` `10 * 1000` if isUnique equals false `` `` `10 * count` if isUnique equals true ``
-
-`number`
-
-`minBValue`
-
-`-maxBValue`
-
-`number`
-
-`maxCValue`
-
-`` `10 * 1000` if isUnique equals false `` `` `10 * count` if isUnique equals true ``
-
-`number`
-
-`minCValue`
-
-`-maxCValue`
-
-`number`
-
-`arraySize`
-
-—
-
-`number`
+|  | param | default | type |
+| --- | --- | --- | --- |
+|  | `isUnique` | database column uniqueness | `boolean` |
+|  | `maxAValue` | `` `10 * 1000` if isUnique equals false `` `` `10 * count` if isUnique equals true `` | `number` |
+|  | `minAValue` | `-maxAValue` | `number` |
+|  | `maxBValue` | `` `10 * 1000` if isUnique equals false `` `` `10 * count` if isUnique equals true `` | `number` |
+|  | `minBValue` | `-maxBValue` | `number` |
+|  | `maxCValue` | `` `10 * 1000` if isUnique equals false `` `` `10 * count` if isUnique equals true `` | `number` |
+|  | `minCValue` | `-maxCValue` | `number` |
+|  | `arraySize` | — | `number` |
 
     import { seed } from "drizzle-seed";
     
@@ -11616,21 +16753,10 @@ You can upgrade to the latest `drizzle-seed` version for new features, such as a
 History[](#history)
 -------------------
 
-api version
-
-npm version
-
-Changed generators
-
-`v1`
-
-`0.1.1`
-
-`v2 (LTS)`
-
-`0.2.1`
-
-`string()`, `interval({ isUnique: true })`
+| api version | npm version | Changed generators |
+| --- | --- | --- |
+| `v1` | `0.1.1` |  |
+| `v2 (LTS)` | `0.2.1` | `string()`, `interval({ isUnique: true })` |
 
 How it works under the hood?
 
@@ -11640,23 +16766,10 @@ For example, `lastName` generator was changed, and new version, `V2`, of this ge
 
 Later, `firstName` generator was changed, making `V3` version of this generator available.
 
-`V1`
-
-`V2`
-
-`V3(latest)`
-
-**LastNameGen**
-
-`LastNameGenV1`
-
-`LastNameGenV2`
-
-**FirstNameGen**
-
-`FirstNameGenV1`
-
-`FirstNameGenV3`
+|  | `V1` | `V2` | `V3(latest)` |
+| --- | --- | --- | --- |
+| **LastNameGen** | `LastNameGenV1` | `LastNameGenV2` |  |
+| **FirstNameGen** | `FirstNameGenV1` |  | `FirstNameGenV3` |
 
 ##### Use the `firstName` generator of version 3 and the `lastName` generator of version 2[](#use-the-firstname-generator-of-version-3-and-the-lastname-generator-of-version-2)
 
@@ -17508,55 +22621,16 @@ This is possible, because `PgSelect` and other similar types are specifically de
 
 Here is the list of all types that can be used as generic parameters in dynamic query building:
 
-**Dialect**
-
-**Type**
-
-**Query**
-
-**Select**
-
-**Insert**
-
-**Update**
-
-**Delete**
-
-Postgres
-
-`PgSelect`
-
-`PgInsert`
-
-`PgUpdate`
-
-`PgDelete`
-
-`PgSelectQueryBuilder`
-
-MySQL
-
-`MySqlSelect`
-
-`MySqlInsert`
-
-`MySqlUpdate`
-
-`MySqlDelete`
-
-`MySqlSelectQueryBuilder`
-
-SQLite
-
-`SQLiteSelect`
-
-`SQLiteInsert`
-
-`SQLiteUpdate`
-
-`SQLiteDelete`
-
-`SQLiteSelectQueryBuilder`
+| **Dialect** | **Type** |
+| --- | --- |
+| **Query** | **Select** | **Insert** | **Update** | **Delete** |
+| --- | --- | --- | --- | --- |
+| Postgres | `PgSelect` | `PgInsert` | `PgUpdate` | `PgDelete` |
+| `PgSelectQueryBuilder` |
+| MySQL | `MySqlSelect` | `MySqlInsert` | `MySqlUpdate` | `MySqlDelete` |
+| `MySqlSelectQueryBuilder` |
+| SQLite | `SQLiteSelect` | `SQLiteInsert` | `SQLiteUpdate` | `SQLiteDelete` |
+| `SQLiteSelectQueryBuilder` |
 
 The `...QueryBuilder` types are for usage with [standalone query builder instances](/docs/goodies#standalone-query-builder). DB query builders are subclasses of them, so you can use them as well.
 
@@ -18770,7 +23844,7 @@ IMPORTANT
 
 This documentation is for `[[email protected]](/cdn-cgi/l/email-protection)` and higher
 
-You must also have Drizzle ORM v0.36.0 or greater and Zod v3.0.0 or greater installed.
+You must also have Drizzle ORM v0.36.0 or greater and Zod v3.25.1 or greater installed.
 
 ### Select schema[](#select-schema)
 
@@ -18856,10 +23930,10 @@ Each create schema function accepts an additional optional parameter that you ca
 
     import { pgTable, text, integer, json } from 'drizzle-orm/pg-core';
     import { createSelectSchema } from 'drizzle-zod';
-    import { z } from 'zod';
+    import { z } from 'zod/v4';
     
     const users = pgTable('users', {
-      id: integer().generatedAlwaysAsIdentity().primaryKey(),
+      id: integer().primaryKey(),
       name: text().notNull(),
       bio: text(),
       preferences: json()
@@ -18907,7 +23981,7 @@ For more advanced use cases, you can use the `createSchemaFactory` function.
 
     import { pgTable, timestamp } from 'drizzle-orm/pg-core';
     import { createSchemaFactory } from 'drizzle-zod';
-    import { z } from 'zod';
+    import { z } from 'zod/v4';
     
     const users = pgTable('users', {
       ...,

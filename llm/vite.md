@@ -1,4 +1,4 @@
-vite version: 6.3.5, last updated: 2025-05-21T10:57:53.003Z
+vite version: 6.3.5, last updated: 2025-05-25T14:47:54.834Z
 
 Getting Started [​](#getting-started)
 =====================================
@@ -33,41 +33,16 @@ You can try Vite online on [StackBlitz](https://vite.new/). It runs the Vite-bas
 
 The supported template presets are:
 
-JavaScript
-
-TypeScript
-
-[vanilla](https://vite.new/vanilla)
-
-[vanilla-ts](https://vite.new/vanilla-ts)
-
-[vue](https://vite.new/vue)
-
-[vue-ts](https://vite.new/vue-ts)
-
-[react](https://vite.new/react)
-
-[react-ts](https://vite.new/react-ts)
-
-[preact](https://vite.new/preact)
-
-[preact-ts](https://vite.new/preact-ts)
-
-[lit](https://vite.new/lit)
-
-[lit-ts](https://vite.new/lit-ts)
-
-[svelte](https://vite.new/svelte)
-
-[svelte-ts](https://vite.new/svelte-ts)
-
-[solid](https://vite.new/solid)
-
-[solid-ts](https://vite.new/solid-ts)
-
-[qwik](https://vite.new/qwik)
-
-[qwik-ts](https://vite.new/qwik-ts)
+| JavaScript | TypeScript |
+| --- | --- |
+| [vanilla](https://vite.new/vanilla) | [vanilla-ts](https://vite.new/vanilla-ts) |
+| [vue](https://vite.new/vue) | [vue-ts](https://vite.new/vue-ts) |
+| [react](https://vite.new/react) | [react-ts](https://vite.new/react-ts) |
+| [preact](https://vite.new/preact) | [preact-ts](https://vite.new/preact-ts) |
+| [lit](https://vite.new/lit) | [lit-ts](https://vite.new/lit-ts) |
+| [svelte](https://vite.new/svelte) | [svelte-ts](https://vite.new/svelte-ts) |
+| [solid](https://vite.new/solid) | [solid-ts](https://vite.new/solid-ts) |
+| [qwik](https://vite.new/qwik) | [qwik-ts](https://vite.new/qwik-ts) |
 
 Scaffolding Your First Vite Project [​](#scaffolding-your-first-vite-project)
 -----------------------------------------------------------------------------
@@ -1162,75 +1137,25 @@ bash
 
 #### Options [​](#options)
 
-Options
-
-`--host [host]`
-
-Specify hostname (`string`)
-
-`--port <port>`
-
-Specify port (`number`)
-
-`--open [path]`
-
-Open browser on startup (`boolean | string`)
-
-`--cors`
-
-Enable CORS (`boolean`)
-
-`--strictPort`
-
-Exit if specified port is already in use (`boolean`)
-
-`--force`
-
-Force the optimizer to ignore the cache and re-bundle (`boolean`)
-
-`-c, --config <file>`
-
-Use specified config file (`string`)
-
-`--base <path>`
-
-Public base path (default: `/`) (`string`)
-
-`-l, --logLevel <level>`
-
-info | warn | error | silent (`string`)
-
-`--clearScreen`
-
-Allow/disable clear screen when logging (`boolean`)
-
-`--configLoader <loader>`
-
-Use `bundle` to bundle the config with esbuild, or `runner` (experimental) to process it on the fly, or `native` (experimental) to load using the native runtime (default: `bundle`)
-
-`--profile`
-
-Start built-in Node.js inspector (check [Performance bottlenecks](/guide/troubleshooting#performance-bottlenecks))
-
-`-d, --debug [feat]`
-
-Show debug logs (`string | boolean`)
-
-`-f, --filter <filter>`
-
-Filter debug logs (`string`)
-
-`-m, --mode <mode>`
-
-Set env mode (`string`)
-
-`-h, --help`
-
-Display available CLI options
-
-`-v, --version`
-
-Display version number
+| Options |  |
+| --- | --- |
+| `--host [host]` | Specify hostname (`string`) |
+| `--port <port>` | Specify port (`number`) |
+| `--open [path]` | Open browser on startup (`boolean | string`) |
+| `--cors` | Enable CORS (`boolean`) |
+| `--strictPort` | Exit if specified port is already in use (`boolean`) |
+| `--force` | Force the optimizer to ignore the cache and re-bundle (`boolean`) |
+| `-c, --config <file>` | Use specified config file (`string`) |
+| `--base <path>` | Public base path (default: `/`) (`string`) |
+| `-l, --logLevel <level>` | info | warn | error | silent (`string`) |
+| `--clearScreen` | Allow/disable clear screen when logging (`boolean`) |
+| `--configLoader <loader>` | Use `bundle` to bundle the config with esbuild, or `runner` (experimental) to process it on the fly, or `native` (experimental) to load using the native runtime (default: `bundle`) |
+| `--profile` | Start built-in Node.js inspector (check [Performance bottlenecks](/guide/troubleshooting#performance-bottlenecks)) |
+| `-d, --debug [feat]` | Show debug logs (`string | boolean`) |
+| `-f, --filter <filter>` | Filter debug logs (`string`) |
+| `-m, --mode <mode>` | Set env mode (`string`) |
+| `-h, --help` | Display available CLI options |
+| `-v, --version` | Display version number |
 
 Build [​](#build)
 -----------------
@@ -1247,95 +1172,30 @@ bash
 
 #### Options [​](#options-1)
 
-Options
-
-`--target <target>`
-
-Transpile target (default: `"modules"`) (`string`)
-
-`--outDir <dir>`
-
-Output directory (default: `dist`) (`string`)
-
-`--assetsDir <dir>`
-
-Directory under outDir to place assets in (default: `"assets"`) (`string`)
-
-`--assetsInlineLimit <number>`
-
-Static asset base64 inline threshold in bytes (default: `4096`) (`number`)
-
-`--ssr [entry]`
-
-Build specified entry for server-side rendering (`string`)
-
-`--sourcemap [output]`
-
-Output source maps for build (default: `false`) (`boolean | "inline" | "hidden"`)
-
-`--minify [minifier]`
-
-Enable/disable minification, or specify minifier to use (default: `"esbuild"`) (`boolean | "terser" | "esbuild"`)
-
-`--manifest [name]`
-
-Emit build manifest json (`boolean | string`)
-
-`--ssrManifest [name]`
-
-Emit ssr manifest json (`boolean | string`)
-
-`--emptyOutDir`
-
-Force empty outDir when it's outside of root (`boolean`)
-
-`-w, --watch`
-
-Rebuilds when modules have changed on disk (`boolean`)
-
-`-c, --config <file>`
-
-Use specified config file (`string`)
-
-`--base <path>`
-
-Public base path (default: `/`) (`string`)
-
-`-l, --logLevel <level>`
-
-Info | warn | error | silent (`string`)
-
-`--clearScreen`
-
-Allow/disable clear screen when logging (`boolean`)
-
-`--configLoader <loader>`
-
-Use `bundle` to bundle the config with esbuild or `runner` (experimental) to process it on the fly (default: `bundle`)
-
-`--profile`
-
-Start built-in Node.js inspector (check [Performance bottlenecks](/guide/troubleshooting#performance-bottlenecks))
-
-`-d, --debug [feat]`
-
-Show debug logs (`string | boolean`)
-
-`-f, --filter <filter>`
-
-Filter debug logs (`string`)
-
-`-m, --mode <mode>`
-
-Set env mode (`string`)
-
-`-h, --help`
-
-Display available CLI options
-
-`--app`
-
-Build all environments, same as `builder: {}` (`boolean`, experimental)
+| Options |  |
+| --- | --- |
+| `--target <target>` | Transpile target (default: `"modules"`) (`string`) |
+| `--outDir <dir>` | Output directory (default: `dist`) (`string`) |
+| `--assetsDir <dir>` | Directory under outDir to place assets in (default: `"assets"`) (`string`) |
+| `--assetsInlineLimit <number>` | Static asset base64 inline threshold in bytes (default: `4096`) (`number`) |
+| `--ssr [entry]` | Build specified entry for server-side rendering (`string`) |
+| `--sourcemap [output]` | Output source maps for build (default: `false`) (`boolean | "inline" | "hidden"`) |
+| `--minify [minifier]` | Enable/disable minification, or specify minifier to use (default: `"esbuild"`) (`boolean | "terser" | "esbuild"`) |
+| `--manifest [name]` | Emit build manifest json (`boolean | string`) |
+| `--ssrManifest [name]` | Emit ssr manifest json (`boolean | string`) |
+| `--emptyOutDir` | Force empty outDir when it's outside of root (`boolean`) |
+| `-w, --watch` | Rebuilds when modules have changed on disk (`boolean`) |
+| `-c, --config <file>` | Use specified config file (`string`) |
+| `--base <path>` | Public base path (default: `/`) (`string`) |
+| `-l, --logLevel <level>` | Info | warn | error | silent (`string`) |
+| `--clearScreen` | Allow/disable clear screen when logging (`boolean`) |
+| `--configLoader <loader>` | Use `bundle` to bundle the config with esbuild or `runner` (experimental) to process it on the fly (default: `bundle`) |
+| `--profile` | Start built-in Node.js inspector (check [Performance bottlenecks](/guide/troubleshooting#performance-bottlenecks)) |
+| `-d, --debug [feat]` | Show debug logs (`string | boolean`) |
+| `-f, --filter <filter>` | Filter debug logs (`string`) |
+| `-m, --mode <mode>` | Set env mode (`string`) |
+| `-h, --help` | Display available CLI options |
+| `--app` | Build all environments, same as `builder: {}` (`boolean`, experimental) |
 
 Others [​](#others)
 -------------------
@@ -1354,47 +1214,18 @@ bash
 
 #### Options [​](#options-2)
 
-Options
-
-`--force`
-
-Force the optimizer to ignore the cache and re-bundle (`boolean`)
-
-`-c, --config <file>`
-
-Use specified config file (`string`)
-
-`--base <path>`
-
-Public base path (default: `/`) (`string`)
-
-`-l, --logLevel <level>`
-
-Info | warn | error | silent (`string`)
-
-`--clearScreen`
-
-Allow/disable clear screen when logging (`boolean`)
-
-`--configLoader <loader>`
-
-Use `bundle` to bundle the config with esbuild or `runner` (experimental) to process it on the fly (default: `bundle`)
-
-`-d, --debug [feat]`
-
-Show debug logs (`string | boolean`)
-
-`-f, --filter <filter>`
-
-Filter debug logs (`string`)
-
-`-m, --mode <mode>`
-
-Set env mode (`string`)
-
-`-h, --help`
-
-Display available CLI options
+| Options |  |
+| --- | --- |
+| `--force` | Force the optimizer to ignore the cache and re-bundle (`boolean`) |
+| `-c, --config <file>` | Use specified config file (`string`) |
+| `--base <path>` | Public base path (default: `/`) (`string`) |
+| `-l, --logLevel <level>` | Info | warn | error | silent (`string`) |
+| `--clearScreen` | Allow/disable clear screen when logging (`boolean`) |
+| `--configLoader <loader>` | Use `bundle` to bundle the config with esbuild or `runner` (experimental) to process it on the fly (default: `bundle`) |
+| `-d, --debug [feat]` | Show debug logs (`string | boolean`) |
+| `-f, --filter <filter>` | Filter debug logs (`string`) |
+| `-m, --mode <mode>` | Set env mode (`string`) |
+| `-h, --help` | Display available CLI options |
 
 ### `vite preview` [​](#vite-preview)
 
@@ -1408,63 +1239,22 @@ bash
 
 #### Options [​](#options-3)
 
-Options
-
-`--host [host]`
-
-Specify hostname (`string`)
-
-`--port <port>`
-
-Specify port (`number`)
-
-`--strictPort`
-
-Exit if specified port is already in use (`boolean`)
-
-`--open [path]`
-
-Open browser on startup (`boolean | string`)
-
-`--outDir <dir>`
-
-Output directory (default: `dist`)(`string`)
-
-`-c, --config <file>`
-
-Use specified config file (`string`)
-
-`--base <path>`
-
-Public base path (default: `/`) (`string`)
-
-`-l, --logLevel <level>`
-
-Info | warn | error | silent (`string`)
-
-`--clearScreen`
-
-Allow/disable clear screen when logging (`boolean`)
-
-`--configLoader <loader>`
-
-Use `bundle` to bundle the config with esbuild or `runner` (experimental) to process it on the fly (default: `bundle`)
-
-`-d, --debug [feat]`
-
-Show debug logs (`string | boolean`)
-
-`-f, --filter <filter>`
-
-Filter debug logs (`string`)
-
-`-m, --mode <mode>`
-
-Set env mode (`string`)
-
-`-h, --help`
-
-Display available CLI options
+| Options |  |
+| --- | --- |
+| `--host [host]` | Specify hostname (`string`) |
+| `--port <port>` | Specify port (`number`) |
+| `--strictPort` | Exit if specified port is already in use (`boolean`) |
+| `--open [path]` | Open browser on startup (`boolean | string`) |
+| `--outDir <dir>` | Output directory (default: `dist`)(`string`) |
+| `-c, --config <file>` | Use specified config file (`string`) |
+| `--base <path>` | Public base path (default: `/`) (`string`) |
+| `-l, --logLevel <level>` | Info | warn | error | silent (`string`) |
+| `--clearScreen` | Allow/disable clear screen when logging (`boolean`) |
+| `--configLoader <loader>` | Use `bundle` to bundle the config with esbuild or `runner` (experimental) to process it on the fly (default: `bundle`) |
+| `-d, --debug [feat]` | Show debug logs (`string | boolean`) |
+| `-f, --filter <filter>` | Filter debug logs (`string`) |
+| `-m, --mode <mode>` | Set env mode (`string`) |
+| `-h, --help` | Display available CLI options |
 
 Using Plugins [​](#using-plugins)
 =================================
@@ -2736,77 +2526,26 @@ As `vite build` runs a production build by default, you can also change this and
 
 It's important to note that `NODE_ENV` (`process.env.NODE_ENV`) and modes are two different concepts. Here's how different commands affect the `NODE_ENV` and mode:
 
-Command
-
-NODE\_ENV
-
-Mode
-
-`vite build`
-
-`"production"`
-
-`"production"`
-
-`vite build --mode development`
-
-`"production"`
-
-`"development"`
-
-`NODE_ENV=development vite build`
-
-`"development"`
-
-`"production"`
-
-`NODE_ENV=development vite build --mode development`
-
-`"development"`
-
-`"development"`
+| Command | NODE\_ENV | Mode |
+| --- | --- | --- |
+| `vite build` | `"production"` | `"production"` |
+| `vite build --mode development` | `"production"` | `"development"` |
+| `NODE_ENV=development vite build` | `"development"` | `"production"` |
+| `NODE_ENV=development vite build --mode development` | `"development"` | `"development"` |
 
 The different values of `NODE_ENV` and mode also reflect on its corresponding `import.meta.env` properties:
 
-Command
+| Command | `import.meta.env.PROD` | `import.meta.env.DEV` |
+| --- | --- | --- |
+| `NODE_ENV=production` | `true` | `false` |
+| `NODE_ENV=development` | `false` | `true` |
+| `NODE_ENV=other` | `false` | `true` |
 
-`import.meta.env.PROD`
-
-`import.meta.env.DEV`
-
-`NODE_ENV=production`
-
-`true`
-
-`false`
-
-`NODE_ENV=development`
-
-`false`
-
-`true`
-
-`NODE_ENV=other`
-
-`false`
-
-`true`
-
-Command
-
-`import.meta.env.MODE`
-
-`--mode production`
-
-`"production"`
-
-`--mode development`
-
-`"development"`
-
-`--mode staging`
-
-`"staging"`
+| Command | `import.meta.env.MODE` |
+| --- | --- |
+| `--mode production` | `"production"` |
+| `--mode development` | `"development"` |
+| `--mode staging` | `"staging"` |
 
 `NODE_ENV` in `.env` files
 

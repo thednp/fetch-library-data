@@ -4,6 +4,7 @@ import * as cheerio from 'cheerio';
 import fetch from 'node-fetch';
 import jsdom from 'jsdom';
 import TurndownService from 'turndown';
+import * as gfm from "turndown-plugin-gfm";
 
 /**
  * Utility that finds a nav element and extracts an array of all links
@@ -16,7 +17,8 @@ function getPages(page, doc) {
     return console.warn("Document context not provided");
   if (!page || !page?.length)
     return console.warn("Page URL not provided");
-  const host = new URL(page || '').host;
+  const {host, protocol} = new URL(page || '');
+
   if (!host?.length)
     return console.warn("Page URL not provided");
 
@@ -45,8 +47,16 @@ function getPages(page, doc) {
     throw new Error("x Error: a valid nav element not found. Aborting...");
   }
 
-  nav.links.filter(l => !l.hash.length).forEach(link => {
-    if (link.href.includes(host)) pages.push(link.href);
+  nav.links.forEach(link => {
+    // if (link.href.includes(host)) pages.push(link.href);
+    const href = link.getAttribute("href");
+    const target = link.getAttribute("target");
+    if (target === "_blank") return;
+    if (!href?.includes(host) && !href?.startsWith("http")) {
+      pages.push(protocol + "//" + host + href);
+    } else if (href?.includes(host)) {
+      pages.push(href);
+    }
   });
   return pages;
 }
@@ -172,23 +182,25 @@ async function fetchLibraryData(library, baseUrl, mainSelector) {
         // 4.1 Extract content from the element.mainSelector
         const pageHtml = $(selector).clone().find('img,svg,video,script,style,link,meta,noscript,iframe,canvas,audio,video,embed,object').remove().end().html();
         
-        if (!pageHtml?.length) {
-          throw new Error(`x Couldn't fetch documentation for "${libraryName}" or page ${pageUrl} is empty!`);
+        // 4.2 Extract content from the target element
+        if (pageHtml?.length) {
+          console.log('> Current page: ' + pageUrl, pageHtml?.length + ' characters');
+          documentation += pageHtml;
+          // throw new Error(`x Couldn't fetch documentation for "${libraryName}" or page ${pageUrl} is empty!`);
         }
         
-        // 4.2 Extract content from the target element
-        console.log('> Current page: ' + pageUrl, pageHtml?.length + ' characters');
-        documentation += pageHtml;
       } catch (er) {
         // const pageTitle = pageUrl.split(/[\\/]/).filter(x => x)?.pop() || pageUrl;
         // documentation += `\n${pageTitle} is not found or the page is under construction.\n`;
-        console.error(`\n ${String(er)} Skipping ${pageUrl}...`)
+        console.error(`x ${String(er)} Skipping ${pageUrl}...`)
       }
     }
 
     // 5. Convert documentation to MD
     try {
       const turndownService = new TurndownService();
+      turndownService.use([gfm.tables, gfm.taskListItems]);
+      
       documentation = turndownService.turndown(documentation);
       console.log(`✔️ Documentation for "${libraryName}" successfully converted to markdown!`);
     } catch (error) {

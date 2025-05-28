@@ -1,4 +1,4 @@
-valibot version: 1.1.0, last updated: 2025-05-21T10:58:23.484Z
+valibot version: 1.1.0, last updated: 2025-05-25T14:47:54.734Z
 
 [](#any)any
 ===========

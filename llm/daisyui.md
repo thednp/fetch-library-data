@@ -1,4 +1,4 @@
-daisyui version: 5.0.35, last updated: 2025-05-21T10:58:23.778Z
+daisyui version: 5.0.38, last updated: 2025-05-28T10:46:05.625Z
 
 daisyUI 5 release notes
 =======================
@@ -310,77 +310,21 @@ With the addition of the new`xl`size modifier, the size scale of components has 
 In daisyUI 4, the size difference between sizes was not following a consistent scale.  
 The new default size scale is consistent and more visually appealing ...and it's customizable!
 
-Button height scale
+| Button height scale | Before | After |
+| --- | --- | --- |
+| `xs` | 6 × 4 = 24px | 6× 4 = 24px |
+| `sm` | 8 × 4 = 32px | 8× 4 = 32px |
+| `md` | 12× 4 = 48px | 10× 4 = 40px |
+| `lg` | 16× 4 = 64px | 12× 4 = 48px |
+| `xl` | \- | 14× 4 = 56px |
 
-Before
-
-After
-
-`xs`
-
-6 × 4 = 24px
-
-6× 4 = 24px
-
-`sm`
-
-8 × 4 = 32px
-
-8× 4 = 32px
-
-`md`
-
-12× 4 = 48px
-
-10× 4 = 40px
-
-`lg`
-
-16× 4 = 64px
-
-12× 4 = 48px
-
-`xl`
-
-\-
-
-14× 4 = 56px
-
-Checkbox height scale
-
-Before
-
-After
-
-`xs`
-
-4 × 4 = 16px
-
-4× 4 = 16px
-
-`sm`
-
-5 × 4 = 20px
-
-5× 4 = 20px
-
-`md`
-
-6 × 4 = 24px
-
-6× 4 = 24px
-
-`lg`
-
-8× 4 = 32px
-
-7× 4 = 28px
-
-`xl`
-
-\-
-
-8× 4 = 32px
+| Checkbox height scale | Before | After |
+| --- | --- | --- |
+| `xs` | 4 × 4 = 16px | 4× 4 = 16px |
+| `sm` | 5 × 4 = 20px | 5× 4 = 20px |
+| `md` | 6 × 4 = 24px | 6× 4 = 24px |
+| `lg` | 8× 4 = 32px | 7× 4 = 28px |
+| `xl` | \- | 8× 4 = 32px |
 
 ### [](#size-scale-customization)Size scale customization
 
@@ -700,105 +644,32 @@ If you prefer using the previous colors, I[prepared a repo, including all daisyU
 
 All color variable names have been changed to be aligned with new Tailwind CSS 4 syntax. And to be more readable and easier to customize[See the new color format](#improved-color-variables)
 
-Before
-
-After
-
-`--p`
-
-`--color-primary`
-
-`--pc`
-
-`--color-primary-content`
-
-`--s`
-
-`--color-secondary`
-
-`--sc`
-
-`--color-secondary-content`
-
-`--a`
-
-`--color-accent`
-
-`--ac`
-
-`--color-accent-content`
-
-`--n`
-
-`--color-neutral`
-
-`--nc`
-
-`--color-neutral-content`
-
-`--b1`
-
-`--color-base-100`
-
-`--b2`
-
-`--color-base-200`
-
-`--b3`
-
-`--color-base-300`
-
-`--bc`
-
-`--color-base-content`
-
-`--in`
-
-`--color-info`
-
-`--inc`
-
-`--color-info-content`
-
-`--su`
-
-`--color-success`
-
-`--suc`
-
-`--color-success-content`
-
-`--wa`
-
-`--color-warning`
-
-`--wac`
-
-`--color-warning-content`
-
-`--er`
-
-`--color-error`
-
-`--erc`
-
-`--color-error-content`
-
-`--rounded-box`
-
-`--radius-box`
-
-`--rounded-btn`and`--tab-radius`
-
-`--radius-field`
-
-`--rounded-badge`
-
-`--radius-selector`
-
-`--border-btn`and`--tab-border`
-
-`--border`
+| Before | After |
+| --- | --- |
+| `--p` | `--color-primary` |
+| `--pc` | `--color-primary-content` |
+| `--s` | `--color-secondary` |
+| `--sc` | `--color-secondary-content` |
+| `--a` | `--color-accent` |
+| `--ac` | `--color-accent-content` |
+| `--n` | `--color-neutral` |
+| `--nc` | `--color-neutral-content` |
+| `--b1` | `--color-base-100` |
+| `--b2` | `--color-base-200` |
+| `--b3` | `--color-base-300` |
+| `--bc` | `--color-base-content` |
+| `--in` | `--color-info` |
+| `--inc` | `--color-info-content` |
+| `--su` | `--color-success` |
+| `--suc` | `--color-success-content` |
+| `--wa` | `--color-warning` |
+| `--wac` | `--color-warning-content` |
+| `--er` | `--color-error` |
+| `--erc` | `--color-error-content` |
+| `--rounded-box` | `--radius-box` |
+| `--rounded-btn`and`--tab-radius` | `--radius-field` |
+| `--rounded-badge` | `--radius-selector` |
+| `--border-btn`and`--tab-border` | `--border` |
 
 ### [](#removed-theme-variables)Removed theme variables
 
@@ -1041,6 +912,33 @@ Changelog
 =========
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+[](#5038-2025-05-26)5.0.38 (2025-05-26)
+---------------------------------------
+
+### [](#bug-fixes)Bug Fixes
+
+*   correct CSS syntax error in variables.css ([#3910](https://github.com/saadeghi/daisyui/issues/3910)) ([cd4820f](https://github.com/saadeghi/daisyui/commit/cd4820f7c73af0aaea4fba662fba642883725f7a))
+
+[](#5037-2025-05-22)5.0.37 (2025-05-22)
+---------------------------------------
+
+### [](#bug-fixes)Bug Fixes
+
+*   tab-content height. closes: [#3843](https://github.com/saadeghi/daisyui/issues/3843) ([0b5d958](https://github.com/saadeghi/daisyui/commit/0b5d958c93b8b57f1622c943b904e3f84c7d0145))
+
+[](#5036-2025-05-22)5.0.36 (2025-05-22)
+---------------------------------------
+
+### [](#bug-fixes)Bug Fixes
+
+*   Safari iOS page zoom when user focuses Text Input. closes: [#3871](https://github.com/saadeghi/daisyui/issues/3871) ([1b5b997](https://github.com/saadeghi/daisyui/commit/1b5b9971e3ca5dbaf82f64e23903bad3f419d584))
+*   bug: The collapse input/title has a fixed min-height applied with high specificity [#3885](https://github.com/saadeghi/daisyui/issues/3885)
+*   bug: Button Link and Ghost hover states persisting on mobile devices [#3888](https://github.com/saadeghi/daisyui/issues/3888)
+*   bug: URL and email inputs with icons don't maintain LTR in RTL mode [#3886](https://github.com/saadeghi/daisyui/issues/3886)
+*   bug: disabled button should not change border size [#3877](https://github.com/saadeghi/daisyui/issues/3877)
+*   bug: indicator direction not reflecting on RTL [#3851](https://github.com/saadeghi/daisyui/issues/3851)
+*   bug: validator on aria-invalid="false" should not be considered as invalid [#3855](https://github.com/saadeghi/daisyui/issues/3855)
 
 [](#5035-2025-05-01)5.0.35 (2025-05-01)
 ---------------------------------------
@@ -1330,61 +1228,23 @@ All notable changes to this project will be documented in this file. See [commit
 
 *   **Breaking Change:** Removed all `artboard` and `phone-*` classes. These classes were simply setting the width and height of the div. Use Tailwind CSS `w-*` and `h-*` classes instead.
 
-Before
+| Before | After |
+| --- | --- |
+| `artboard phone-1` | `w-[320px] h-[568px]` |
+| `artboard phone-2` | `w-[375px] h-[667px]` |
+| `artboard phone-3` | `w-[414px] h-[736px]` |
+| `artboard phone-4` | `w-[375px] h-[812px]` |
+| `artboard phone-5` | `w-[414px] h-[896px]` |
+| `artboard phone-6` | `w-[320px] h-[1024px]` |
 
-After
-
-`artboard phone-1`
-
-`w-[320px] h-[568px]`
-
-`artboard phone-2`
-
-`w-[375px] h-[667px]`
-
-`artboard phone-3`
-
-`w-[414px] h-[736px]`
-
-`artboard phone-4`
-
-`w-[375px] h-[812px]`
-
-`artboard phone-5`
-
-`w-[414px] h-[896px]`
-
-`artboard phone-6`
-
-`w-[320px] h-[1024px]`
-
-Before
-
-After
-
-`artboard artboard-horizontal phone-1`
-
-`w-[568px] h-[320px]`
-
-`artboard artboard-horizontal phone-2`
-
-`w-[667px] h-[375px]`
-
-`artboard artboard-horizontal phone-3`
-
-`w-[736px] h-[414px]`
-
-`artboard artboard-horizontal phone-4`
-
-`w-[812px] h-[375px]`
-
-`artboard artboard-horizontal phone-5`
-
-`w-[896px] h-[414px]`
-
-`artboard artboard-horizontal phone-6`
-
-`w-[1024px] h-[320px]`
+| Before | After |
+| --- | --- |
+| `artboard artboard-horizontal phone-1` | `w-[568px] h-[320px]` |
+| `artboard artboard-horizontal phone-2` | `w-[667px] h-[375px]` |
+| `artboard artboard-horizontal phone-3` | `w-[736px] h-[414px]` |
+| `artboard artboard-horizontal phone-4` | `w-[812px] h-[375px]` |
+| `artboard artboard-horizontal phone-5` | `w-[896px] h-[414px]` |
+| `artboard artboard-horizontal phone-6` | `w-[1024px] h-[320px]` |
 
 page.html
 
@@ -2585,11 +2445,11 @@ daisyui.css includes light and dark themes. For other themes, add themes.css fil
 
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
 
-    <link href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/base/reset.css,npm/daisyui@5/base/svg.css,npm/daisyui@5/base/properties.css,npm/daisyui@5/base/rootscrollgutter.css,npm/daisyui@5/base/rootcolor.css,npm/daisyui@5/base/scrollbar.css,npm/daisyui@5/base/rootscrolllock.css,npm/daisyui@5/components/input.css,npm/daisyui@5/components/toggle.css,npm/daisyui@5/components/button.css,npm/daisyui@5/components/menu.css,npm/daisyui@5/components/checkbox.css,npm/daisyui@5/components/select.css,npm/daisyui@5/theme/light.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/base/rootcolor.css,npm/daisyui@5/base/reset.css,npm/daisyui@5/base/properties.css,npm/daisyui@5/base/svg.css,npm/daisyui@5/base/rootscrollgutter.css,npm/daisyui@5/base/scrollbar.css,npm/daisyui@5/base/rootscrolllock.css,npm/daisyui@5/components/checkbox.css,npm/daisyui@5/components/button.css,npm/daisyui@5/components/input.css,npm/daisyui@5/components/toggle.css,npm/daisyui@5/components/menu.css,npm/daisyui@5/components/select.css,npm/daisyui@5/theme/light.css" rel="stylesheet" type="text/css" />
     
     
 
-9.7kB • 73.8% smaller than daisyui.css
+9.8kB • 73.5% smaller than daisyui.css
 
 ### Choose parts
 
@@ -2780,57 +2640,20 @@ These are all the HTML changes from daisyUI 4 to 5. There are ~15 changes in tot
 
 *   Removed all`artboard`and`phone-*`classes. These classes were simply setting the width and height of the div. Use Tailwind CSS`w-*`and`h-*`classes instead.
 
-Before
-
-After
-
-`artboard phone-1`
-
-`w-[320px] h-[568px]`
-
-`artboard phone-2`
-
-`w-[375px] h-[667px]`
-
-`artboard phone-3`
-
-`w-[414px] h-[736px]`
-
-`artboard phone-4`
-
-`w-[375px] h-[812px]`
-
-`artboard phone-5`
-
-`w-[414px] h-[896px]`
-
-`artboard phone-6`
-
-`w-[320px] h-[1024px]`
-
-`artboard artboard-horizontal phone-1`
-
-`w-[568px] h-[320px]`
-
-`artboard artboard-horizontal phone-2`
-
-`w-[667px] h-[375px]`
-
-`artboard artboard-horizontal phone-3`
-
-`w-[736px] h-[414px]`
-
-`artboard artboard-horizontal phone-4`
-
-`w-[812px] h-[375px]`
-
-`artboard artboard-horizontal phone-5`
-
-`w-[896px] h-[414px]`
-
-`artboard artboard-horizontal phone-6`
-
-`w-[1024px] h-[320px]`
+| Before | After |
+| --- | --- |
+| `artboard phone-1` | `w-[320px] h-[568px]` |
+| `artboard phone-2` | `w-[375px] h-[667px]` |
+| `artboard phone-3` | `w-[414px] h-[736px]` |
+| `artboard phone-4` | `w-[375px] h-[812px]` |
+| `artboard phone-5` | `w-[414px] h-[896px]` |
+| `artboard phone-6` | `w-[320px] h-[1024px]` |
+| `artboard artboard-horizontal phone-1` | `w-[568px] h-[320px]` |
+| `artboard artboard-horizontal phone-2` | `w-[667px] h-[375px]` |
+| `artboard artboard-horizontal phone-3` | `w-[736px] h-[414px]` |
+| `artboard artboard-horizontal phone-4` | `w-[812px] h-[375px]` |
+| `artboard artboard-horizontal phone-5` | `w-[896px] h-[414px]` |
+| `artboard artboard-horizontal phone-6` | `w-[1024px] h-[320px]` |
 
 Example:
 
@@ -3491,77 +3314,21 @@ With the addition of the new`xl`size modifier, the size scale of components has 
 In daisyUI 4, the size difference between sizes was not following a consistent scale.  
 The new default size scale is consistent and more visually appealing ...and it's customizable!
 
-Button height scale
+| Button height scale | Before | After |
+| --- | --- | --- |
+| `xs` | 6 × 4 = 24px | 6× 4 = 24px |
+| `sm` | 8 × 4 = 32px | 8× 4 = 32px |
+| `md` | 12× 4 = 48px | 10× 4 = 40px |
+| `lg` | 16× 4 = 64px | 12× 4 = 48px |
+| `xl` | \- | 14× 4 = 56px |
 
-Before
-
-After
-
-`xs`
-
-6 × 4 = 24px
-
-6× 4 = 24px
-
-`sm`
-
-8 × 4 = 32px
-
-8× 4 = 32px
-
-`md`
-
-12× 4 = 48px
-
-10× 4 = 40px
-
-`lg`
-
-16× 4 = 64px
-
-12× 4 = 48px
-
-`xl`
-
-\-
-
-14× 4 = 56px
-
-Checkbox height scale
-
-Before
-
-After
-
-`xs`
-
-4 × 4 = 16px
-
-4× 4 = 16px
-
-`sm`
-
-5 × 4 = 20px
-
-5× 4 = 20px
-
-`md`
-
-6 × 4 = 24px
-
-6× 4 = 24px
-
-`lg`
-
-8× 4 = 32px
-
-7× 4 = 28px
-
-`xl`
-
-\-
-
-8× 4 = 32px
+| Checkbox height scale | Before | After |
+| --- | --- | --- |
+| `xs` | 4 × 4 = 16px | 4× 4 = 16px |
+| `sm` | 5 × 4 = 20px | 5× 4 = 20px |
+| `md` | 6 × 4 = 24px | 6× 4 = 24px |
+| `lg` | 8× 4 = 32px | 7× 4 = 28px |
+| `xl` | \- | 8× 4 = 32px |
 
 ### [](#size-scale-customization)Size scale customization
 
@@ -3881,105 +3648,32 @@ If you prefer using the previous colors, I[prepared a repo, including all daisyU
 
 All color variable names have been changed to be aligned with new Tailwind CSS 4 syntax. And to be more readable and easier to customize[See the new color format](#improved-color-variables)
 
-Before
-
-After
-
-`--p`
-
-`--color-primary`
-
-`--pc`
-
-`--color-primary-content`
-
-`--s`
-
-`--color-secondary`
-
-`--sc`
-
-`--color-secondary-content`
-
-`--a`
-
-`--color-accent`
-
-`--ac`
-
-`--color-accent-content`
-
-`--n`
-
-`--color-neutral`
-
-`--nc`
-
-`--color-neutral-content`
-
-`--b1`
-
-`--color-base-100`
-
-`--b2`
-
-`--color-base-200`
-
-`--b3`
-
-`--color-base-300`
-
-`--bc`
-
-`--color-base-content`
-
-`--in`
-
-`--color-info`
-
-`--inc`
-
-`--color-info-content`
-
-`--su`
-
-`--color-success`
-
-`--suc`
-
-`--color-success-content`
-
-`--wa`
-
-`--color-warning`
-
-`--wac`
-
-`--color-warning-content`
-
-`--er`
-
-`--color-error`
-
-`--erc`
-
-`--color-error-content`
-
-`--rounded-box`
-
-`--radius-box`
-
-`--rounded-btn`and`--tab-radius`
-
-`--radius-field`
-
-`--rounded-badge`
-
-`--radius-selector`
-
-`--border-btn`and`--tab-border`
-
-`--border`
+| Before | After |
+| --- | --- |
+| `--p` | `--color-primary` |
+| `--pc` | `--color-primary-content` |
+| `--s` | `--color-secondary` |
+| `--sc` | `--color-secondary-content` |
+| `--a` | `--color-accent` |
+| `--ac` | `--color-accent-content` |
+| `--n` | `--color-neutral` |
+| `--nc` | `--color-neutral-content` |
+| `--b1` | `--color-base-100` |
+| `--b2` | `--color-base-200` |
+| `--b3` | `--color-base-300` |
+| `--bc` | `--color-base-content` |
+| `--in` | `--color-info` |
+| `--inc` | `--color-info-content` |
+| `--su` | `--color-success` |
+| `--suc` | `--color-success-content` |
+| `--wa` | `--color-warning` |
+| `--wac` | `--color-warning-content` |
+| `--er` | `--color-error` |
+| `--erc` | `--color-error-content` |
+| `--rounded-box` | `--radius-box` |
+| `--rounded-btn`and`--tab-radius` | `--radius-field` |
+| `--rounded-badge` | `--radius-selector` |
+| `--border-btn`and`--tab-border` | `--border` |
 
 ### [](#removed-theme-variables)Removed theme variables
 
@@ -4399,17 +4093,9 @@ app.css
 [](#themes)Themes
 -----------------
 
-Default value
-
-Type
-
-Description
-
-`light --default, dark --prefersdark`
-
-string or comma separated list or`false`or`all`
-
-List of themes to enable. Use`false`to disable all themes. Use`all`to enable all themes. Add`--default`flag next to a theme name to set it as default theme. Add`--prefersdark`flag next to a theme name to set it as default theme for dark mode.
+| Default value | Type | Description |
+| --- | --- | --- |
+| `light --default, dark --prefersdark` | string or comma separated list or`false`or`all` | List of themes to enable. Use`false`to disable all themes. Use`all`to enable all themes. Add`--default`flag next to a theme name to set it as default theme. Add`--prefersdark`flag next to a theme name to set it as default theme for dark mode. |
 
 Example
 
@@ -4446,17 +4132,9 @@ In above example, we set dracula as the default theme. setting one value like th
 [](#root)root
 -------------
 
-Default value
-
-Type
-
-Description
-
-`":root"`
-
-string
-
-The CSS selector to receive the CSS variables.
+| Default value | Type | Description |
+| --- | --- | --- |
+| `":root"` | string | The CSS selector to receive the CSS variables. |
 
 Example
 
@@ -4470,15 +4148,9 @@ This is useful to use daisyUI in a scoped environment like a web component or a 
 [](#include)include
 -------------------
 
-Default value
-
-Type
-
-Description
-
-comma separated list
-
-List of components to include.
+| Default value | Type | Description |
+| --- | --- | --- |
+|  | comma separated list | List of components to include. |
 
 Example
 
@@ -4492,15 +4164,9 @@ In above example, we only include the button, input, and select components. All 
 [](#exclude)exclude
 -------------------
 
-Default value
-
-Type
-
-Description
-
-comma separated list
-
-List of components to exclude.
+| Default value | Type | Description |
+| --- | --- | --- |
+|  | comma separated list | List of components to exclude. |
 
 Example
 
@@ -4522,17 +4188,9 @@ In above example, we exclude the the listed files. All other parts of daisyUI wi
 [](#prefix)prefix
 -----------------
 
-Default value
-
-Type
-
-Description
-
-`""`
-
-string
-
-Prefix for all daisyUI classes.
+| Default value | Type | Description |
+| --- | --- | --- |
+| `""` | string | Prefix for all daisyUI classes. |
 
 Example
 
@@ -4545,17 +4203,9 @@ In above example, all daisyUI classes will be prefixed with`d-`. For example,`bt
 [](#logs)logs
 -------------
 
-Default value
-
-Type
-
-Description
-
-`true`
-
-boolean
-
-Enable or disable logs.
+| Default value | Type | Description |
+| --- | --- | --- |
+| `true` | boolean | Enable or disable logs. |
 
 Example
 
@@ -4674,136 +4324,38 @@ This is dark text on a light background, which switches to light text on a dark 
 
 You can use these color names in your theme or in utility classes.
 
-Color name
-
-CSS variable
-
-Where to use
-
-primary
-
-`--color-primary`
-
-Primary brand color, The main color of your brand
-
-primary-content
-
-`--color-primary-content`
-
-Foreground content color to use on`primary`color  
+|  | Color name | CSS variable | Where to use |
+| --- | --- | --- | --- |
+|  | primary | `--color-primary` | Primary brand color, The main color of your brand |
+|  | primary-content | `--color-primary-content` | Foreground content color to use on`primary`color  
   
-
-secondary
-
-`--color-secondary`
-
-Secondary brand color, The optional, secondary color of your brand
-
-secondary-content
-
-`--color-secondary-content`
-
-Foreground content color to use on`secondary`color  
+ |
+|  | secondary | `--color-secondary` | Secondary brand color, The optional, secondary color of your brand |
+|  | secondary-content | `--color-secondary-content` | Foreground content color to use on`secondary`color  
   
-
-accent
-
-`--color-accent`
-
-Accent brand color, The optional, accent color of your brand
-
-accent-content
-
-`--color-accent-content`
-
-Foreground content color to use on`accent`color  
+ |
+|  | accent | `--color-accent` | Accent brand color, The optional, accent color of your brand |
+|  | accent-content | `--color-accent-content` | Foreground content color to use on`accent`color  
   
-
-neutral
-
-`--color-neutral`
-
-Neutral dark color, For not-saturated parts of UI
-
-neutral-content
-
-`--color-neutral-content`
-
-Foreground content color to use on neutral color  
+ |
+|  | neutral | `--color-neutral` | Neutral dark color, For not-saturated parts of UI |
+|  | neutral-content | `--color-neutral-content` | Foreground content color to use on neutral color  
   
-
-base-100
-
-`--color-base-100`
-
-Base surface color of page, used for blank backgrounds
-
-base-200
-
-`--color-base-200`
-
-Base color, darker shade, to create elevations
-
-base-300
-
-`--color-base-300`
-
-Base color, even more darker shade, to create elevations
-
-base-content
-
-`--color-base-content`
-
-Foreground content color to use on`base`color  
+ |
+|  | base-100 | `--color-base-100` | Base surface color of page, used for blank backgrounds |
+|  | base-200 | `--color-base-200` | Base color, darker shade, to create elevations |
+|  | base-300 | `--color-base-300` | Base color, even more darker shade, to create elevations |
+|  | base-content | `--color-base-content` | Foreground content color to use on`base`color  
   
-
-info
-
-`--color-info`
-
-Info color, For informative/helpful messages
-
-info-content
-
-`--color-info-content`
-
-Foreground content color to use on`info`color
-
-success
-
-`--color-success`
-
-Success color, For success/safe messages
-
-success-content
-
-`--color-success-content`
-
-Foreground content color to use on`success`color
-
-warning
-
-`--color-warning`
-
-Warning color, For warning/caution messages
-
-warning-content
-
-`--color-warning-content`
-
-Foreground content color to use on`warning`color
-
-error
-
-`--color-error`
-
-Error color, For error/danger/destructive messages
-
-error-content
-
-`--color-error-content`
-
-Foreground content color to use on`error`color
+ |
+|  | info | `--color-info` | Info color, For informative/helpful messages |
+|  | info-content | `--color-info-content` | Foreground content color to use on`info`color |
+|  | success | `--color-success` | Success color, For success/safe messages |
+|  | success-content | `--color-success-content` | Foreground content color to use on`success`color |
+|  | warning | `--color-warning` | Warning color, For warning/caution messages |
+|  | warning-content | `--color-warning-content` | Foreground content color to use on`warning`color |
+|  | error | `--color-error` | Error color, For error/danger/destructive messages |
+|  | error-content | `--color-error-content` | Foreground content color to use on`error`color |
 
 [](#how-to-use)How to use
 -------------------------
@@ -4820,63 +4372,25 @@ These components automatically set the correct background color, text color, bor
 
 You can also use color names in utility classes just like Tailwind's original color names. These are utility classes that can be used with a color name:
 
-CSS Class
-
-`bg-{COLOR_NAME}`
-
-Also available on CDN[/colors/properties.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties.css)
-
-`text-{COLOR_NAME}`
-
-Also available on CDN[/colors/properties.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties.css)
-
-`border-{COLOR_NAME}`
-
-Also available on CDN[/colors/properties.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties.css)
-
-`from-{COLOR_NAME}`
-
-Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css)
-
-`via-{COLOR_NAME}`
-
-Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css)
-
-`to-{COLOR_NAME}`
-
-Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css)
-
-`ring-{COLOR_NAME}`
-
-Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css)
-
-`fill-{COLOR_NAME}`
-
-Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css)
-
-`stroke-{COLOR_NAME}`
-
-Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css)
-
-`shadow-{COLOR_NAME}`
-
-Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css)
-
-`outline-{COLOR_NAME}`
-
-Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css)
-
-`divide-{COLOR_NAME}`
-
-`accent-{COLOR_NAME}`
-
-`caret-{COLOR_NAME}`
-
-`decoration-{COLOR_NAME}`
-
-`placeholder-{COLOR_NAME}`
-
-`ring-offset-{COLOR_NAME}`
+| CSS Class |  |
+| --- | --- |
+| `bg-{COLOR_NAME}` | Also available on CDN[/colors/properties.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties.css) |
+| `text-{COLOR_NAME}` | Also available on CDN[/colors/properties.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties.css) |
+| `border-{COLOR_NAME}` | Also available on CDN[/colors/properties.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties.css) |
+| `from-{COLOR_NAME}` | Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css) |
+| `via-{COLOR_NAME}` | Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css) |
+| `to-{COLOR_NAME}` | Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css) |
+| `ring-{COLOR_NAME}` | Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css) |
+| `fill-{COLOR_NAME}` | Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css) |
+| `stroke-{COLOR_NAME}` | Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css) |
+| `shadow-{COLOR_NAME}` | Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css) |
+| `outline-{COLOR_NAME}` | Also available on CDN[/colors/properties-extended.css](https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css) |
+| `divide-{COLOR_NAME}` |  |
+| `accent-{COLOR_NAME}` |  |
+| `caret-{COLOR_NAME}` |  |
+| `decoration-{COLOR_NAME}` |  |
+| `placeholder-{COLOR_NAME}` |  |
+| `ring-offset-{COLOR_NAME}` |  |
 
 So you can use`bg-primary`,`border-secondary`, etc. Read more about[daisyUI color utility classes](/docs/utilities).
 
@@ -5567,33 +5081,14 @@ daisyUI adds a few base styles to your page.
 
 These are the tiny base styles that daisyUI adds to your page. These styles are less than a kilobyte in total, so you don't need to worry about the size
 
-Name
-
-Description
-
-`properties`
-
-For necessary at-rules, like variable type for`--radialprogress`
-
-`rootcolor`
-
-For`:root`and`[data-theme]`it sets background-color to`base-100`and text color to`base-content`
-
-`scrollbar`
-
-Sets scrollbar-color for`:root`
-
-`rootscrolllock`
-
-Sets`:root`to`overflow: hidden`when modal or drawer is open
-
-`rootscrollgutter`
-
-Adds a`scrollbar-gutter`to`:root`when modal or drawer is open, to avoid layout shift
-
-`svg`
-
-Contains small SVG images for noise filter, chat bubble tail mask, and tooltip tail mask. Can be disabled to use custom images.
+| Name | Description |
+| --- | --- |
+| `properties` | For necessary at-rules, like variable type for`--radialprogress` |
+| `rootcolor` | For`:root`and`[data-theme]`it sets background-color to`base-100`and text color to`base-content` |
+| `scrollbar` | Sets scrollbar-color for`:root` |
+| `rootscrolllock` | Sets`:root`to`overflow: hidden`when modal or drawer is open |
+| `rootscrollgutter` | Adds a`scrollbar-gutter`to`:root`when modal or drawer is open, to avoid layout shift |
+| `svg` | Contains small SVG images for noise filter, chat bubble tail mask, and tooltip tail mask. Can be disabled to use custom images. |
 
 If you want to opt out of each part, you can do it by setting the[`exclude` config](/docs/config/#exclude).  
 For example, to opt out of the scrollbar-gutter and style, scrollbar-color, you can exclude it like this:
@@ -5660,77 +5155,25 @@ For example you can use`primary`color with any of Tailwind CSS color utilities.
 
 Read more about[color names](/docs/colors).
 
-Class Name
-
-Description
-
-`bg-primary`
-
-Sets the background color to the primary color
-
-`to-primary`
-
-Sets the ending color for a gradient to the primary color
-
-`via-primary`
-
-Sets the middle color for a gradient to the primary color
-
-`from-primary`
-
-Sets the starting color for a gradient to the primary color
-
-`text-primary`
-
-Sets the text color to the primary color
-
-`ring-primary`
-
-Sets the ring color to the primary color
-
-`fill-primary`
-
-Sets the fill color for SVG elements to the primary color
-
-`caret-primary`
-
-Sets the caret color to the primary color
-
-`stroke-primary`
-
-Sets the stroke color for SVG elements to the primary color
-
-`border-primary`
-
-Sets the border color to the primary color
-
-`divide-primary`
-
-Sets the color for dividing borders to the primary color
-
-`accent-primary`
-
-Sets the accent color to the primary color
-
-`shadow-primary`
-
-Sets the shadow color to the primary color
-
-`outline-primary`
-
-Sets the outline color to the primary color
-
-`decoration-primary`
-
-Sets the text decoration color to the primary color
-
-`placeholder-primary`
-
-Sets the placeholder text color to the primary color
-
-`ring-offset-primary`
-
-Sets the ring offset color to the primary color
+| Class Name | Description |
+| --- | --- |
+| `bg-primary` | Sets the background color to the primary color |
+| `to-primary` | Sets the ending color for a gradient to the primary color |
+| `via-primary` | Sets the middle color for a gradient to the primary color |
+| `from-primary` | Sets the starting color for a gradient to the primary color |
+| `text-primary` | Sets the text color to the primary color |
+| `ring-primary` | Sets the ring color to the primary color |
+| `fill-primary` | Sets the fill color for SVG elements to the primary color |
+| `caret-primary` | Sets the caret color to the primary color |
+| `stroke-primary` | Sets the stroke color for SVG elements to the primary color |
+| `border-primary` | Sets the border color to the primary color |
+| `divide-primary` | Sets the color for dividing borders to the primary color |
+| `accent-primary` | Sets the accent color to the primary color |
+| `shadow-primary` | Sets the shadow color to the primary color |
+| `outline-primary` | Sets the outline color to the primary color |
+| `decoration-primary` | Sets the text decoration color to the primary color |
+| `placeholder-primary` | Sets the placeholder text color to the primary color |
+| `ring-offset-primary` | Sets the ring offset color to the primary color |
 
 You can use`bg-primary`to set the background color to the primary color and`text-primary-content`to set the text color to the primary color.
 
@@ -5754,29 +5197,11 @@ rounded-field
 
 rounded-selector
 
-Class Name
-
-CSS Variable
-
-Description
-
-`rounded-box`
-
-`var(--radius-box)`
-
-For large sized components like card, modal, alert, etc.
-
-`rounded-field`
-
-`var(--radius-field)`
-
-For medium sized components like button, input, select, tab, etc.
-
-`rounded-selector`
-
-`var(--radius-selector)`
-
-For small sized components like checkbox, toggle, badge, etc.
+| Class Name | CSS Variable | Description |
+| --- | --- | --- |
+| `rounded-box` | `var(--radius-box)` | For large sized components like card, modal, alert, etc. |
+| `rounded-field` | `var(--radius-field)` | For medium sized components like button, input, select, tab, etc. |
+| `rounded-selector` | `var(--radius-selector)` | For small sized components like checkbox, toggle, badge, etc. |
 
 [](#glass)Glass
 ---------------
@@ -5792,121 +5217,36 @@ Glass
 
 These CSS variables can be customized for each themes. Read more about[color names](/docs/colors).
 
-CSS Variable
-
-Description
-
-`--color-primary`
-
-Primary brand color
-
-`--color-primary-content`
-
-Foreground content color to use on primary color
-
-`--color-secondary`
-
-Secondary brand color
-
-`--color-secondary-content`
-
-Foreground content color to use on secondary color
-
-`--color-accent`
-
-Accent brand color
-
-`--color-accent-content`
-
-Foreground content color to use on accent color
-
-`--color-neutral`
-
-Neutral dark color
-
-`--color-neutral-content`
-
-Foreground content color to use on neutral color
-
-`--color-base-100`
-
-Base color of page, used for blank backgrounds
-
-`--color-base-200`
-
-Base color, darker shade
-
-`--color-base-300`
-
-Base color, even more darker shade
-
-`--color-base-content`
-
-Foreground content color to use on base color
-
-`--color-info`
-
-Info color
-
-`--color-info-content`
-
-Foreground content color to use on info color
-
-`--color-success`
-
-Success color
-
-`--color-success-content`
-
-Foreground content color to use on success color
-
-`--color-warning`
-
-Warning color
-
-`--color-warning-content`
-
-Foreground content color to use on warning color
-
-`--color-error`
-
-Error color
-
-`--color-error-content`
-
-Foreground content color to use on error color
-
-`--radius-selector`
-
-Border radius for selectors like checkbox, toggle, badge, etc
-
-`--radius-field`
-
-Border radius for fields like input, select, tab, etc
-
-`--radius-box`
-
-Border radius for boxes like card, modal, alert, etc
-
-`--size-selector`
-
-Base scale size for selectors like checkbox, toggle, badge, etc
-
-`--size-field`
-
-Base scale size for fields like input, select, tab, etc
-
-`--border`
-
-Border width of all components
-
-`--depth`
-
-(binary) Adds a depth effect for relevant components
-
-`--noise`
-
-(binary) Adds a background noise effect for relevant components
+| CSS Variable | Description |
+| --- | --- |
+| `--color-primary` | Primary brand color |
+| `--color-primary-content` | Foreground content color to use on primary color |
+| `--color-secondary` | Secondary brand color |
+| `--color-secondary-content` | Foreground content color to use on secondary color |
+| `--color-accent` | Accent brand color |
+| `--color-accent-content` | Foreground content color to use on accent color |
+| `--color-neutral` | Neutral dark color |
+| `--color-neutral-content` | Foreground content color to use on neutral color |
+| `--color-base-100` | Base color of page, used for blank backgrounds |
+| `--color-base-200` | Base color, darker shade |
+| `--color-base-300` | Base color, even more darker shade |
+| `--color-base-content` | Foreground content color to use on base color |
+| `--color-info` | Info color |
+| `--color-info-content` | Foreground content color to use on info color |
+| `--color-success` | Success color |
+| `--color-success-content` | Foreground content color to use on success color |
+| `--color-warning` | Warning color |
+| `--color-warning-content` | Foreground content color to use on warning color |
+| `--color-error` | Error color |
+| `--color-error-content` | Foreground content color to use on error color |
+| `--radius-selector` | Border radius for selectors like checkbox, toggle, badge, etc |
+| `--radius-field` | Border radius for fields like input, select, tab, etc |
+| `--radius-box` | Border radius for boxes like card, modal, alert, etc |
+| `--size-selector` | Base scale size for selectors like checkbox, toggle, badge, etc |
+| `--size-field` | Base scale size for fields like input, select, tab, etc |
+| `--border` | Border width of all components |
+| `--depth` | (binary) Adds a depth effect for relevant components |
+| `--noise` | (binary) Adds a background noise effect for relevant components |
 
 [](#component-specific-css-variables)Component specific CSS variables
 ---------------------------------------------------------------------
@@ -5917,457 +5257,128 @@ If you are using a prefix for daisyUI, these CSS variables will be prefixed with
 
 > These variables are for internal use. They are not subject of semantic versioning and some of them may be modified or removed in future minor versions, in which case your custom styles might lose their effect, so if you want to modify these variables and your UI really depends on the customized value, make sure you are using a fixed version of daisyUI, not the latest version.
 
-Component
-
-CSS Variable
-
-Description
-
-Alert
-
-`--alert-color`
-
-color of the alert
-
-Badge
-
-`--badge-color`
-
-color of the badge
-
-`--size`
-
-size of the badge
-
-Button
-
-`--btn-color`
-
-background color of the button
-
-`--btn-fg`
-
-foreground color of the button
-
-`--btn-shadow`
-
-shadow of the button
-
-`--btn-noise`
-
-noise background of the button if enabled
-
-`--btn-p`
-
-padding of the button
-
-`--size`
-
-size of the button
-
-Card
-
-`--card-p`
-
-padding of the card body
-
-`--card-fs`
-
-font size of the card body
-
-`--cardtitle-fs`
-
-font size of the card title
-
-Checkbox
-
-`--size`
-
-size of the checkbox
-
-Countdown
-
-`--value`
-
-value of the countdown
-
-Divider
-
-`--divider-m`
-
-margin of the divider
-
-Dropdown
-
-`--anchor-v`
-
-vertical position of the anchor
-
-`--anchor-h`
-
-horizontal position of the anchor
-
-File input
-
-`--input-color`
-
-color of the file input
-
-`--size`
-
-size of the file input
-
-Indicator
-
-`--indicator-t`
-
-top position of the indicator
-
-`--indicator-b`
-
-bottom position of the indicator
-
-`--indicator-s`
-
-start position of the indicator
-
-`--indicator-e`
-
-end position of the indicator
-
-`--indicator-y`
-
-vertical position of the indicator
-
-`--indicator-x`
-
-horizontal position of the indicator
-
-Input
-
-`--input-color`
-
-color of the input
-
-`--size`
-
-size of the input
-
-Kbd
-
-`--size`
-
-size of the kbd
-
-List
-
-`--list-grid-cols`
-
-grid columns of the list
-
-Menu
-
-`--menu-active-fg`
-
-foreground color of the active menu item
-
-`--menu-active-bg`
-
-background color of the active menu item
-
-Modal
-
-`--modal-tl`
-
-top left border radius of the modal
-
-`--modal-tr`
-
-top right border radius of the modal
-
-`--modal-bl`
-
-bottom left border radius of the modal
-
-`--modal-br`
-
-bottom right border radius of the modal
-
-Radial progress
-
-`--value`
-
-value of the radial progress
-
-`--size`
-
-size of the radial progress
-
-`--thickness`
-
-thickness of the radial progress
-
-`--radialprogress`
-
-for calculating the radial progress position
-
-Radio
-
-`--size`
-
-size of the radio
-
-Range
-
-`--range-bg`
-
-background color of the range slider thumb
-
-`--range-thumb`
-
-color of the range slider thumb
-
-`--range-thumb-size`
-
-size of the range slider thumb
-
-`--range-progress`
-
-color of the range slider progress
-
-`--range-fill`
-
-binary, whether to fill the range slider progress or not
-
-`--range-p`
-
-padding of the range slider thumb
-
-`--size`
-
-size of the range slider
-
-Select
-
-`--input-color`
-
-color of the input
-
-`--size`
-
-size of the select
-
-Tab
-
-`--tabs-height`
-
-height of the tabs
-
-`--tabs-direction`
-
-direction of the tabs
-
-`--tab-p`
-
-padding of the tab
-
-`--tab-bg`
-
-background color of the tab
-
-`--tab-border-color`
-
-border color of the tab
-
-`--tab-radius-ss`
-
-start start border radius of the tab
-
-`--tab-radius-se`
-
-start end border radius of the tab
-
-`--tab-radius-es`
-
-end start border radius of the tab
-
-`--tab-radius-ee`
-
-end end border radius of the tab
-
-`--tab-order`
-
-Order of the tab
-
-`--tab-radius-min`
-
-minimum border radius of the lift tab
-
-`--tab-paddings`
-
-all padding values of the lift tab
-
-`--tab-border-colors`
-
-all border color values of the lift tab
-
-`--tab-corner-width`
-
-corner width of the lift tab
-
-`--tab-corner-height`
-
-corner height of the lift tab
-
-`--tab-corner-width`
-
-corner width of the lift tab
-
-`--tab-corner-position`
-
-corner position of the lift tab
-
-`--tab-inset`
-
-inset position of the lift tab
-
-`--radius-start`
-
-border radius for the corner of the lift tab
-
-`--radius-end`
-
-border radius for the corner of the lift tab
-
-`--tabcontent-margin`
-
-margin of the tab content
-
-`--tabcontent-radius-ss`
-
-start start border radius of the tab content
-
-`--tabcontent-radius-se`
-
-start end border radius of the tab content
-
-`--tabcontent-radius-es`
-
-end start border radius of the tab content
-
-`--tabcontent-radius-ee`
-
-end end border radius of the tab content
-
-`--tabcontent-order`
-
-order of the tab content
-
-Textarea
-
-`--input-color`
-
-color of the input
-
-`--size`
-
-size of the textarea
-
-Timeline
-
-`--timeline-row-start`
-
-start position of the timeline row
-
-`--timeline-row-end`
-
-end position of the timeline row
-
-`--timeline-col-start`
-
-start position of the timeline column
-
-`--timeline-col-end`
-
-end position of the timeline column
-
-Toast
-
-`--toast-x`
-
-horizontal position of the toast
-
-`--toast-y`
-
-vertical position of the toast
-
-Toggle
-
-`--toggle-p`
-
-padding of the toggle
-
-`--size`
-
-size of the toggle
-
-Tooltip
-
-`--tt-bg`
-
-background color of the tooltip
-
-`--tt-off`
-
-offset of the tooltip
-
-`--tt-tailw`
-
-position of the tooltip tail
-
-Glass
-
-`--glass-blur`
-
-blur of the glass effect
-
-`--glass-opacity`
-
-opacity of the glass effect
-
-`--glass-reflect-degree`
-
-degree of the glass reflection
-
-`--glass-reflect-opacity`
-
-opacity of the glass reflection
-
-`--glass-border-opacity`
-
-opacity of the glass border
-
-`--glass-text-shadow-opacity`
-
-opacity of the glass text shadow
-
-Join
-
-`--join-ss`
-
-start start border radius of the join
-
-`--join-se`
-
-start end border radius of the join
-
-`--join-es`
-
-end start border radius of the join
-
-`--join-ee`
-
-end end border radius of the join
+| Component | CSS Variable | Description |
+| --- | --- | --- |
+| Alert | `--alert-color` | color of the alert |
+| Badge | `--badge-color` | color of the badge |
+|  | `--size` | size of the badge |
+| Button | `--btn-color` | background color of the button |
+|  | `--btn-fg` | foreground color of the button |
+|  | `--btn-shadow` | shadow of the button |
+|  | `--btn-noise` | noise background of the button if enabled |
+|  | `--btn-p` | padding of the button |
+|  | `--size` | size of the button |
+| Card | `--card-p` | padding of the card body |
+|  | `--card-fs` | font size of the card body |
+|  | `--cardtitle-fs` | font size of the card title |
+| Checkbox | `--size` | size of the checkbox |
+| Countdown | `--value` | value of the countdown |
+| Divider | `--divider-m` | margin of the divider |
+| Dropdown | `--anchor-v` | vertical position of the anchor |
+|  | `--anchor-h` | horizontal position of the anchor |
+| File input | `--input-color` | color of the file input |
+|  | `--size` | size of the file input |
+| Indicator | `--indicator-t` | top position of the indicator |
+|  | `--indicator-b` | bottom position of the indicator |
+|  | `--indicator-s` | start position of the indicator |
+|  | `--indicator-e` | end position of the indicator |
+|  | `--indicator-y` | vertical position of the indicator |
+|  | `--indicator-x` | horizontal position of the indicator |
+| Input | `--input-color` | color of the input |
+|  | `--size` | size of the input |
+| Kbd | `--size` | size of the kbd |
+| List | `--list-grid-cols` | grid columns of the list |
+| Menu | `--menu-active-fg` | foreground color of the active menu item |
+|  | `--menu-active-bg` | background color of the active menu item |
+| Modal | `--modal-tl` | top left border radius of the modal |
+|  | `--modal-tr` | top right border radius of the modal |
+|  | `--modal-bl` | bottom left border radius of the modal |
+|  | `--modal-br` | bottom right border radius of the modal |
+| Radial progress | `--value` | value of the radial progress |
+|  | `--size` | size of the radial progress |
+|  | `--thickness` | thickness of the radial progress |
+|  | `--radialprogress` | for calculating the radial progress position |
+| Radio | `--size` | size of the radio |
+| Range | `--range-bg` | background color of the range slider thumb |
+|  | `--range-thumb` | color of the range slider thumb |
+|  | `--range-thumb-size` | size of the range slider thumb |
+|  | `--range-progress` | color of the range slider progress |
+|  | `--range-fill` | binary, whether to fill the range slider progress or not |
+|  | `--range-p` | padding of the range slider thumb |
+|  | `--size` | size of the range slider |
+| Select | `--input-color` | color of the input |
+|  | `--size` | size of the select |
+| Tab | `--tabs-height` | height of the tabs |
+|  | `--tabs-direction` | direction of the tabs |
+|  | `--tab-p` | padding of the tab |
+|  | `--tab-bg` | background color of the tab |
+|  | `--tab-border-color` | border color of the tab |
+|  | `--tab-radius-ss` | start start border radius of the tab |
+|  | `--tab-radius-se` | start end border radius of the tab |
+|  | `--tab-radius-es` | end start border radius of the tab |
+|  | `--tab-radius-ee` | end end border radius of the tab |
+|  | `--tab-order` | Order of the tab |
+|  | `--tab-radius-min` | minimum border radius of the lift tab |
+|  | `--tab-paddings` | all padding values of the lift tab |
+|  | `--tab-border-colors` | all border color values of the lift tab |
+|  | `--tab-corner-width` | corner width of the lift tab |
+|  | `--tab-corner-height` | corner height of the lift tab |
+|  | `--tab-corner-width` | corner width of the lift tab |
+|  | `--tab-corner-position` | corner position of the lift tab |
+|  | `--tab-inset` | inset position of the lift tab |
+|  | `--radius-start` | border radius for the corner of the lift tab |
+|  | `--radius-end` | border radius for the corner of the lift tab |
+|  | `--tabcontent-margin` | margin of the tab content |
+|  | `--tabcontent-radius-ss` | start start border radius of the tab content |
+|  | `--tabcontent-radius-se` | start end border radius of the tab content |
+|  | `--tabcontent-radius-es` | end start border radius of the tab content |
+|  | `--tabcontent-radius-ee` | end end border radius of the tab content |
+|  | `--tabcontent-order` | order of the tab content |
+| Textarea | `--input-color` | color of the input |
+|  | `--size` | size of the textarea |
+| Timeline | `--timeline-row-start` | start position of the timeline row |
+|  | `--timeline-row-end` | end position of the timeline row |
+|  | `--timeline-col-start` | start position of the timeline column |
+|  | `--timeline-col-end` | end position of the timeline column |
+| Toast | `--toast-x` | horizontal position of the toast |
+|  | `--toast-y` | vertical position of the toast |
+| Toggle | `--toggle-p` | padding of the toggle |
+|  | `--size` | size of the toggle |
+| Tooltip | `--tt-bg` | background color of the tooltip |
+|  | `--tt-off` | offset of the tooltip |
+|  | `--tt-tailw` | position of the tooltip tail |
+| Glass | `--glass-blur` | blur of the glass effect |
+|  | `--glass-opacity` | opacity of the glass effect |
+|  | `--glass-reflect-degree` | degree of the glass reflection |
+|  | `--glass-reflect-opacity` | opacity of the glass reflection |
+|  | `--glass-border-opacity` | opacity of the glass border |
+|  | `--glass-text-shadow-opacity` | opacity of the glass text shadow |
+| Join | `--join-ss` | start start border radius of the join |
+|  | `--join-se` | start end border radius of the join |
+|  | `--join-es` | end start border radius of the join |
+|  | `--join-ee` | end end border radius of the join |
+
+### [](#examples-of-customizing-component-specific-css-variables)Examples of customizing component specific CSS variables
+
+1.  Customizing`--alert-color`using a utility class:
+    
+    html
+    
+        <div class="alert [--alert-color:blue]">
+          <span>12 unread messages. Tap to see.</span>
+        </div>
+    
+2.  Customizing`--alert-color`from CSS:
+    
+    css
+    
+        @import "tailwindcss";
+        @plugin "daisyui";
+        
+        .alert {
+          --alert-color: blue;
+        }
+    
 
 [
 
@@ -6523,41 +5534,13 @@ Code blocks are ideal for displaying larger pieces of code. You can use Shiki, P
 
 Tables are essential for organizing data in rows and columns. Tailwind CSS Typography ensures that tables are styled consistently and look great.
 
-Feature
-
-Description
-
-Status
-
-Tailwind CSS
-
-Utility-first CSS framework
-
-Active
-
-daisyUI
-
-Tailwind CSS component library
-
-Active
-
-Typography
-
-Tailwind CSS plugin for styling HTML
-
-Active
-
-Markdown
-
-Lightweight markup language
-
-Popular
-
-Themes
-
-Various themes for styling
-
-Available
+| Feature | Description | Status |
+| --- | --- | --- |
+| Tailwind CSS | Utility-first CSS framework | Active |
+| daisyUI | Tailwind CSS component library | Active |
+| Typography | Tailwind CSS plugin for styling HTML | Active |
+| Markdown | Lightweight markup language | Popular |
+| Themes | Various themes for styling | Available |
 
 [](#colors-adding-vibrancy)Colors: Adding Vibrancy
 --------------------------------------------------
@@ -6615,159 +5598,134 @@ Button
 
 Buttons allow the user to take actions or make choices.
 
-Class name
-
-Type
-
-btn
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| btn | 
 
 Component
 
-Button
-
-btn-neutral
-
-Color
-
-neutral color
-
-btn-primary
+ | Button |
+| btn-neutral | 
 
 Color
 
-primary color
-
-btn-secondary
-
-Color
-
-secondary color
-
-btn-accent
+ | neutral color |
+| btn-primary | 
 
 Color
 
-accent color
-
-btn-info
-
-Color
-
-info color
-
-btn-success
+ | primary color |
+| btn-secondary | 
 
 Color
 
-success color
-
-btn-warning
-
-Color
-
-warning color
-
-btn-error
+ | secondary color |
+| btn-accent | 
 
 Color
 
-error color
+ | accent color |
+| btn-info | 
 
-btn-outline
+Color
+
+ | info color |
+| btn-success | 
+
+Color
+
+ | success color |
+| btn-warning | 
+
+Color
+
+ | warning color |
+| btn-error | 
+
+Color
+
+ | error color |
+| btn-outline | 
 
 Style
 
-outline style
-
-btn-dash
-
-Style
-
-dash style
-
-btn-soft
+ | outline style |
+| btn-dash | 
 
 Style
 
-soft style
-
-btn-ghost
-
-Style
-
-ghost style
-
-btn-link
+ | dash style |
+| btn-soft | 
 
 Style
 
-looks like a link
+ | soft style |
+| btn-ghost | 
 
-btn-active
+Style
+
+ | ghost style |
+| btn-link | 
+
+Style
+
+ | looks like a link |
+| btn-active | 
 
 Behavior
 
-looks active
-
-btn-disabled
+ | looks active |
+| btn-disabled | 
 
 Behavior
 
-looks disabled
-
-btn-xs
-
-Size
-
-Extra small size
-
-btn-sm
+ | looks disabled |
+| btn-xs | 
 
 Size
 
-Small size
-
-btn-md
-
-Size
-
-Medium size (default)
-
-btn-lg
+ | Extra small size |
+| btn-sm | 
 
 Size
 
-Large size
-
-btn-xl
+ | Small size |
+| btn-md | 
 
 Size
 
-Extra large size
+ | Medium size (default) |
+| btn-lg | 
 
-btn-wide
+Size
+
+ | Large size |
+| btn-xl | 
+
+Size
+
+ | Extra large size |
+| btn-wide | 
 
 Modifier
 
-more horizontal padding
-
-btn-block
-
-Modifier
-
-Full width
-
-btn-square
+ | more horizontal padding |
+| btn-block | 
 
 Modifier
 
-1:1 ratio
-
-btn-circle
+ | Full width |
+| btn-square | 
 
 Modifier
 
-1:1 ratio with rounded corners
+ | 1:1 ratio |
+| btn-circle | 
+
+Modifier
+
+ | 1:1 ratio with rounded corners |
 
 [](#button)
 
@@ -7813,75 +6771,64 @@ Dropdown
 
 Dropdown can open a menu or any other element when the button is clicked.
 
-Class name
-
-Type
-
-dropdown
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| dropdown | 
 
 Component
 
-Dropdown container
-
-dropdown-content
+ | Dropdown container |
+| dropdown-content | 
 
 Part
 
-Content part
-
-dropdown-start
-
-Placement
-
-Align horizontally to start of button \[Default\]
-
-dropdown-center
+ | Content part |
+| dropdown-start | 
 
 Placement
 
-Align horizontally to center of button
-
-dropdown-end
-
-Placement
-
-Align horizontally to end of button
-
-dropdown-top
+ | Align horizontally to start of button \[Default\] |
+| dropdown-center | 
 
 Placement
 
-Open from top
-
-dropdown-bottom
-
-Placement
-
-Open from bottom \[Default\]
-
-dropdown-left
+ | Align horizontally to center of button |
+| dropdown-end | 
 
 Placement
 
-Open from left
-
-dropdown-right
+ | Align horizontally to end of button |
+| dropdown-top | 
 
 Placement
 
-Open from right
+ | Open from top |
+| dropdown-bottom | 
 
-dropdown-hover
+Placement
+
+ | Open from bottom \[Default\] |
+| dropdown-left | 
+
+Placement
+
+ | Open from left |
+| dropdown-right | 
+
+Placement
+
+ | Open from right |
+| dropdown-hover | 
 
 Modifier
 
-Opens on hover too
-
-dropdown-open
+ | Opens on hover too |
+| dropdown-open | 
 
 Modifier
 
-Force open
+ | Force open |
 
 [](#there-are-3-methods-to-use-a-dropdowns)There are 3 methods to use a dropdowns
 ---------------------------------------------------------------------------------
@@ -9233,75 +8180,64 @@ Modal
 
 Modal is used to show a dialog or a box when you click a button.
 
-Class name
-
-Type
-
-modal
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| modal | 
 
 Component
 
-Modal
-
-modal-box
-
-Part
-
-The content part
-
-modal-action
+ | Modal |
+| modal-box | 
 
 Part
 
-Actions part (buttons, etc.)
-
-modal-backdrop
-
-Part
-
-Label that covers the page when modal is open so we can close the modal by clicking outside
-
-modal-toggle
+ | The content part |
+| modal-action | 
 
 Part
 
-Hidden checkbox that controls the state of modal
+ | Actions part (buttons, etc.) |
+| modal-backdrop | 
 
-modal-open
+Part
+
+ | Label that covers the page when modal is open so we can close the modal by clicking outside |
+| modal-toggle | 
+
+Part
+
+ | Hidden checkbox that controls the state of modal |
+| modal-open | 
 
 Modifier
 
-Keeps the modal open (you can add this class using JS)
-
-modal-top
-
-Placement
-
-Moves the modal to top
-
-modal-middle
+ | Keeps the modal open (you can add this class using JS) |
+| modal-top | 
 
 Placement
 
-Moves the modal to middle \[Default\]
-
-modal-bottom
-
-Placement
-
-Moves the modal to bottom
-
-modal-start
+ | Moves the modal to top |
+| modal-middle | 
 
 Placement
 
-Moves the modal to start horizontally
-
-modal-end
+ | Moves the modal to middle \[Default\] |
+| modal-bottom | 
 
 Placement
 
-Moves the modal to end horizontally
+ | Moves the modal to bottom |
+| modal-start | 
+
+Placement
+
+ | Moves the modal to start horizontally |
+| modal-end | 
+
+Placement
+
+ | Moves the modal to end horizontally |
 
 [](#there-are-3-methods-to-use-modals)There are 3 methods to use modals
 -----------------------------------------------------------------------
@@ -9953,51 +8889,44 @@ Swap
 
 Swap allows you to toggle the visibility of two elements using a checkbox or a class name.
 
-Class name
-
-Type
-
-swap
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| swap | 
 
 Component
 
-Swap container
-
-swap-on
-
-Part
-
-The child element that should be visible when checkbox is checked or when swap is active
-
-swap-off
+ | Swap container |
+| swap-on | 
 
 Part
 
-The child element that should be visible when checkbox is not checked or when swap is not active
-
-swap-indeterminate
+ | The child element that should be visible when checkbox is checked or when swap is active |
+| swap-off | 
 
 Part
 
-The child element that should be visible when checkbox is indeterminate
+ | The child element that should be visible when checkbox is not checked or when swap is not active |
+| swap-indeterminate | 
 
-swap-active
+Part
+
+ | The child element that should be visible when checkbox is indeterminate |
+| swap-active | 
 
 Modifier
 
-Activates the swap (no need for checkbox)
-
-swap-rotate
-
-Style
-
-Adds rotate effect to swap
-
-swap-flip
+ | Activates the swap (no need for checkbox) |
+| swap-rotate | 
 
 Style
 
-Adds flip effect to swap
+ | Adds rotate effect to swap |
+| swap-flip | 
+
+Style
+
+ | Adds flip effect to swap |
 
 [](#swap-text)
 
@@ -10519,15 +9448,14 @@ Supported on
 
 15.4+
 
-Class name
-
-Type
-
-theme-controller
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| theme-controller | 
 
 Component
 
-For a checkbox or radio input that must change the page theme
+ | For a checkbox or radio input that must change the page theme |
 
 > Theme Controller changes the theme using CSS only.  
 > You can then use JS to save the input state in the server or localStorage if you want it to persist on page refresh.  
@@ -11441,51 +10369,44 @@ Accordion
 
 Accordion is used for showing and hiding content but only one item can stay open at a time.
 
-Class name
-
-Type
-
-collapse
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| collapse | 
 
 Component
 
-Collapse
-
-collapse-title
-
-Part
-
-Title part
-
-collapse-content
+ | Collapse |
+| collapse-title | 
 
 Part
 
-Content part
+ | Title part |
+| collapse-content | 
 
-collapse-arrow
+Part
 
-Modifier
-
-Adds arrow icon
-
-collapse-plus
+ | Content part |
+| collapse-arrow | 
 
 Modifier
 
-Adds plus/minus icon
-
-collapse-open
-
-Modifier
-
-Force open
-
-collapse-close
+ | Adds arrow icon |
+| collapse-plus | 
 
 Modifier
 
-Force close
+ | Adds plus/minus icon |
+| collapse-open | 
+
+Modifier
+
+ | Force open |
+| collapse-close | 
+
+Modifier
+
+ | Force close |
 
 > Accordion uses the same style as the[collapse component](/components/collapse/)but it works with radio inputs. You can control which item to be open by checking/unchecking the hidden radio input.
 
@@ -11883,39 +10804,34 @@ Avatar
 
 Avatars are used to show a thumbnail representation of an individual or business in the interface.
 
-Class name
-
-Type
-
-avatar
-
-Component
-
-Avatar
-
-avatar-group
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| avatar | 
 
 Component
 
-Container for multiple avatars
+ | Avatar |
+| avatar-group | 
 
-avatar-online
+Component
 
-Modifier
-
-shows a green dot as online indicator
-
-avatar-offline
+ | Container for multiple avatars |
+| avatar-online | 
 
 Modifier
 
-shows a gray dot as offline indicator
-
-avatar-placeholder
+ | shows a green dot as online indicator |
+| avatar-offline | 
 
 Modifier
 
-To show letters as avatar placeholder
+ | shows a gray dot as offline indicator |
+| avatar-placeholder | 
+
+Modifier
+
+ | To show letters as avatar placeholder |
 
 [](#avatar)
 
@@ -12643,117 +11559,99 @@ Badge
 
 Badges are used to inform the user of the status of specific data.
 
-Class name
-
-Type
-
-badge
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| badge | 
 
 Component
 
-Container element
-
-badge-outline
-
-Style
-
-outline style
-
-badge-dash
+ | Container element |
+| badge-outline | 
 
 Style
 
-dash outline style
-
-badge-soft
-
-Style
-
-soft style
-
-badge-ghost
+ | outline style |
+| badge-dash | 
 
 Style
 
-ghost style
+ | dash outline style |
+| badge-soft | 
 
-badge-neutral
+Style
 
-Color
+ | soft style |
+| badge-ghost | 
 
-neutral color
+Style
 
-badge-primary
-
-Color
-
-primary color
-
-badge-secondary
+ | ghost style |
+| badge-neutral | 
 
 Color
 
-secondary color
-
-badge-accent
-
-Color
-
-accent color
-
-badge-info
+ | neutral color |
+| badge-primary | 
 
 Color
 
-info color
-
-badge-success
-
-Color
-
-success color
-
-badge-warning
+ | primary color |
+| badge-secondary | 
 
 Color
 
-warning color
-
-badge-error
+ | secondary color |
+| badge-accent | 
 
 Color
 
-error color
+ | accent color |
+| badge-info | 
 
-badge-xs
+Color
+
+ | info color |
+| badge-success | 
+
+Color
+
+ | success color |
+| badge-warning | 
+
+Color
+
+ | warning color |
+| badge-error | 
+
+Color
+
+ | error color |
+| badge-xs | 
 
 Size
 
-extra small size
-
-badge-sm
-
-Size
-
-small size
-
-badge-md
+ | extra small size |
+| badge-sm | 
 
 Size
 
-medium size (default)
-
-badge-lg
-
-Size
-
-large size
-
-badge-xl
+ | small size |
+| badge-md | 
 
 Size
 
-extra large size
+ | medium size (default) |
+| badge-lg | 
+
+Size
+
+ | large size |
+| badge-xl | 
+
+Size
+
+ | extra large size |
 
 [](#badge)
 
@@ -13419,87 +12317,74 @@ Card
 
 Cards are used to group and display content in a way that is easily readable.
 
-Class name
-
-Type
-
-card
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| card | 
 
 Component
 
-Card
-
-card-title
-
-Part
-
-Title part
-
-card-body
+ | Card |
+| card-title | 
 
 Part
 
-Body part (content)
-
-card-actions
+ | Title part |
+| card-body | 
 
 Part
 
-Actions part (buttons, etc.)
+ | Body part (content) |
+| card-actions | 
 
-card-border
+Part
+
+ | Actions part (buttons, etc.) |
+| card-border | 
 
 Style
 
-Adds border to <card>
-
-card-dash
+ | Adds border to <card> |
+| card-dash | 
 
 Style
 
-dash style
-
-card-side
-
-Modifier
-
-The image in <figure> will be on to the side
-
-image-full
+ | dash style |
+| card-side | 
 
 Modifier
 
-The image in <figure> element will be the background
+ | The image in <figure> will be on to the side |
+| image-full | 
 
-card-xs
+Modifier
 
-Size
-
-Extra small size
-
-card-sm
+ | The image in <figure> element will be the background |
+| card-xs | 
 
 Size
 
-Small size
-
-card-md
-
-Size
-
-Medium size (default)
-
-card-lg
+ | Extra small size |
+| card-sm | 
 
 Size
 
-Large size
-
-card-xl
+ | Small size |
+| card-md | 
 
 Size
 
-Extra large size
+ | Medium size (default) |
+| card-lg | 
+
+Size
+
+ | Large size |
+| card-xl | 
+
+Size
+
+ | Extra large size |
 
 [](#card)
 
@@ -14906,51 +13791,44 @@ Carousel
 
 Carousel show images or content in a scrollable area.
 
-Class name
-
-Type
-
-carousel
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| carousel | 
 
 Component
 
-Carousel container
-
-carousel-item
+ | Carousel container |
+| carousel-item | 
 
 Part
 
-Carousel item
-
-carousel-start
-
-Modifier
-
-Snap elements to start \[Default\]
-
-carousel-center
+ | Carousel item |
+| carousel-start | 
 
 Modifier
 
-Snap elements to center
-
-carousel-end
+ | Snap elements to start \[Default\] |
+| carousel-center | 
 
 Modifier
 
-Snap elements to end
+ | Snap elements to center |
+| carousel-end | 
 
-carousel-horizontal
+Modifier
+
+ | Snap elements to end |
+| carousel-horizontal | 
 
 direction
 
-Horizontal layout (default)
-
-carousel-vertical
+ | Horizontal layout (default) |
+| carousel-vertical | 
 
 direction
 
-Vertical layout
+ | Vertical layout |
 
 [](#snap-to-start-default)
 
@@ -16354,99 +15232,84 @@ Chat bubble
 
 Chat bubbles are used to show one line of conversation and all its data, including the author image, author name, time, etc.
 
-Class name
-
-Type
-
-chat
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| chat | 
 
 Component
 
-Container for one line of conversation and its data
-
-chat-image
-
-Part
-
-Author image
-
-chat-header
+ | Container for one line of conversation and its data |
+| chat-image | 
 
 Part
 
-Text above the chat bubble
-
-chat-footer
-
-Part
-
-Text below the chat bubble
-
-chat-bubble
+ | Author image |
+| chat-header | 
 
 Part
 
-Chat bubble
+ | Text above the chat bubble |
+| chat-footer | 
 
-chat-start
+Part
+
+ | Text below the chat bubble |
+| chat-bubble | 
+
+Part
+
+ | Chat bubble |
+| chat-start | 
 
 Placement
 
-Aligns chat to start horizontally (required)
-
-chat-end
+ | Aligns chat to start horizontally (required) |
+| chat-end | 
 
 Placement
 
-Aligns chat to end horizontally (required)
-
-chat-bubble-neutral
-
-Color
-
-neutral color for chat-bubble
-
-chat-bubble-primary
+ | Aligns chat to end horizontally (required) |
+| chat-bubble-neutral | 
 
 Color
 
-primary color for chat-bubble
-
-chat-bubble-secondary
-
-Color
-
-secondary color for chat-bubble
-
-chat-bubble-accent
+ | neutral color for chat-bubble |
+| chat-bubble-primary | 
 
 Color
 
-accent color for chat-bubble
-
-chat-bubble-info
-
-Color
-
-info color for chat-bubble
-
-chat-bubble-success
+ | primary color for chat-bubble |
+| chat-bubble-secondary | 
 
 Color
 
-success color for chat-bubble
-
-chat-bubble-warning
-
-Color
-
-warning color for chat-bubble
-
-chat-bubble-error
+ | secondary color for chat-bubble |
+| chat-bubble-accent | 
 
 Color
 
-error color for chat-bubble
+ | accent color for chat-bubble |
+| chat-bubble-info | 
+
+Color
+
+ | info color for chat-bubble |
+| chat-bubble-success | 
+
+Color
+
+ | success color for chat-bubble |
+| chat-bubble-warning | 
+
+Color
+
+ | warning color for chat-bubble |
+| chat-bubble-error | 
+
+Color
+
+ | error color for chat-bubble |
 
 [](#chat-start-and-chat-end)
 
@@ -17083,51 +15946,44 @@ Collapse
 
 Collapse is used for showing and hiding content.
 
-Class name
-
-Type
-
-collapse
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| collapse | 
 
 Component
 
-Collapse
-
-collapse-title
-
-Part
-
-Title part
-
-collapse-content
+ | Collapse |
+| collapse-title | 
 
 Part
 
-Content part
+ | Title part |
+| collapse-content | 
 
-collapse-arrow
+Part
 
-Modifier
-
-Adds arrow icon
-
-collapse-plus
+ | Content part |
+| collapse-arrow | 
 
 Modifier
 
-Adds plus/minus icon
-
-collapse-open
-
-Modifier
-
-Force open
-
-collapse-close
+ | Adds arrow icon |
+| collapse-plus | 
 
 Modifier
 
-Force close
+ | Adds plus/minus icon |
+| collapse-open | 
+
+Modifier
+
+ | Force open |
+| collapse-close | 
+
+Modifier
+
+ | Force close |
 
 > Also see[accordion](/components/accordion/)examples
 
@@ -17645,15 +16501,14 @@ Countdown
 
 Countdown gives you a transition effect when you change a number between 0 to 99.
 
-Class name
-
-Type
-
-countdown
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| countdown | 
 
 Component
 
-Countdown wrapper
+ | Countdown wrapper |
 
 > you need to change the span text and the`--value`CSS variable using JS. Value must be a number between 0 and 99.
 
@@ -18225,33 +17080,29 @@ Diff
 
 Diff component shows a side-by-side comparison of two items.
 
-Class name
-
-Type
-
-diff
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| diff | 
 
 Component
 
-Container element
-
-diff-item-1
-
-Part
-
-First item
-
-diff-item-2
+ | Container element |
+| diff-item-1 | 
 
 Part
 
-Second item
-
-diff-resizer
+ | First item |
+| diff-item-2 | 
 
 Part
 
-The resizer control
+ | Second item |
+| diff-resizer | 
+
+Part
+
+ | The resizer control |
 
 [](#diff)
 
@@ -18411,45 +17262,39 @@ Kbd
 
 Kbd is used to display keyboard shortcuts.
 
-Class name
-
-Type
-
-kbd
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| kbd | 
 
 Component
 
-Do show a keyboard key or a shortcut key
-
-kbd-xs
-
-Size
-
-Extra small size
-
-kbd-sm
+ | Do show a keyboard key or a shortcut key |
+| kbd-xs | 
 
 Size
 
-Small size
-
-kbd-md
-
-Size
-
-Medium size \[Default\]
-
-kbd-lg
+ | Extra small size |
+| kbd-sm | 
 
 Size
 
-Large size
-
-kbd-xl
+ | Small size |
+| kbd-md | 
 
 Size
 
-Extra large size
+ | Medium size \[Default\] |
+| kbd-lg | 
+
+Size
+
+ | Large size |
+| kbd-xl | 
+
+Size
+
+ | Extra large size |
 
 [](#kbd)
 
@@ -18853,33 +17698,29 @@ List
 
 List is a vertical layout to display information in rows.
 
-Class name
-
-Type
-
-list
-
-Component
-
-A vertical flex layout to include list rows
-
-list-row
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| list | 
 
 Component
 
-The item inside list. A horizontal grid layout to include data
+ | A vertical flex layout to include list rows |
+| list-row | 
 
-list-col-wrap
+Component
 
-Modifier
-
-For one of direct children of list-row to push it to the next line
-
-list-col-grow
+ | The item inside list. A horizontal grid layout to include data |
+| list-col-wrap | 
 
 Modifier
 
-For one of direct children of list-row to make it fill the remaining space
+ | For one of direct children of list-row to push it to the next line |
+| list-col-grow | 
+
+Modifier
+
+ | For one of direct children of list-row to make it fill the remaining space |
 
 > By default, the second child of the`list-row`will fill the remaining space. You can use`list-col-grow`on another child to make it fill the remaining space instead.
 
@@ -19593,63 +18434,54 @@ Stat
 
 Stat is used to show numbers and data in a block.
 
-Class name
-
-Type
-
-stats
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| stats | 
 
 Component
 
-Container of multiple stat items
-
-stat
-
-Part
-
-A block to display stat data about a topic
-
-stat-title
+ | Container of multiple stat items |
+| stat | 
 
 Part
 
-Title part
-
-stat-value
-
-Part
-
-Value part
-
-stat-desc
+ | A block to display stat data about a topic |
+| stat-title | 
 
 Part
 
-Description part
-
-stat-figure
-
-Part
-
-Figure part for icon, etc
-
-stat-actions
+ | Title part |
+| stat-value | 
 
 Part
 
-Actions part for button, etc
+ | Value part |
+| stat-desc | 
 
-stats-horizontal
+Part
+
+ | Description part |
+| stat-figure | 
+
+Part
+
+ | Figure part for icon, etc |
+| stat-actions | 
+
+Part
+
+ | Actions part for button, etc |
+| stats-horizontal | 
 
 direction
 
-Makes stats horizontal (default)
-
-stats-vertical
+ | Makes stats horizontal (default) |
+| stats-vertical | 
 
 direction
 
-Makes stats vertical
+ | Makes stats vertical |
 
 [](#stat)
 
@@ -19766,7 +18598,7 @@ Tasks done
     
       <div class="$$stat">
         <div class="$$stat-figure text-secondary">
-          <div class="$$avatar $$online">
+          <div class="$$avatar $$avatar-online">
             <div class="w-16 rounded-full">
               <img src="https://img.daisyui.com/images/profile/demo/[email protected]" />
             </div>
@@ -19823,7 +18655,7 @@ Tasks done
     
       <div class="$$stat">
         <div class="$$stat-figure text-secondary">
-          <div class="$$avatar $$online">
+          <div class="$$avatar $$avatar-online">
             <div class="w-16 rounded-full">
               <img src="https://img.daisyui.com/images/profile/demo/[email protected]" />
             </div>
@@ -19883,7 +18715,7 @@ Tasks done
     
       <div class="$$stat">
         <div class="$$stat-figure text-secondary">
-          <div class="$$avatar $$online">
+          <div class="$$avatar $$avatar-online">
             <div class="w-16 rounded-full">
               <img src="https://img.daisyui.com/images/profile/demo/[email protected]" />
             </div>
@@ -19943,7 +18775,7 @@ Tasks done
     
       <div class="$$stat">
         <div class="$$stat-figure text-secondary">
-          <div class="$$avatar $$online">
+          <div class="$$avatar $$avatar-online">
             <div class="w-16 rounded-full">
               <img src="https://img.daisyui.com/images/profile/demo/[email protected]" />
             </div>
@@ -20703,93 +19535,79 @@ Status
 
 Status is a really small icon to visually show the current status of an element, like online, offline, error, etc.
 
-Class name
-
-Type
-
-status
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| status | 
 
 Component
 
-Status icon
-
-status-neutral
-
-Color
-
-neutral color
-
-status-primary
+ | Status icon |
+| status-neutral | 
 
 Color
 
-primary color
-
-status-secondary
-
-Color
-
-secondary color
-
-status-accent
+ | neutral color |
+| status-primary | 
 
 Color
 
-accent color
-
-status-info
-
-Color
-
-info color
-
-status-success
+ | primary color |
+| status-secondary | 
 
 Color
 
-success color
-
-status-warning
-
-Color
-
-warning color
-
-status-error
+ | secondary color |
+| status-accent | 
 
 Color
 
-error color
+ | accent color |
+| status-info | 
 
-status-xs
+Color
+
+ | info color |
+| status-success | 
+
+Color
+
+ | success color |
+| status-warning | 
+
+Color
+
+ | warning color |
+| status-error | 
+
+Color
+
+ | error color |
+| status-xs | 
 
 Size
 
-extra small size
-
-status-sm
-
-Size
-
-small size
-
-status-md
+ | extra small size |
+| status-sm | 
 
 Size
 
-medium size \[Default\]
-
-status-lg
-
-Size
-
-large size
-
-status-xl
+ | small size |
+| status-md | 
 
 Size
 
-extra large size
+ | medium size \[Default\] |
+| status-lg | 
+
+Size
+
+ | large size |
+| status-xl | 
+
+Size
+
+ | extra large size |
 
 [](#status)
 
@@ -20983,97 +19801,64 @@ Table
 
 Table can be used to show a list of data in a table format.
 
-Class name
-
-Type
-
-table
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| table | 
 
 Component
 
-For <table> tag
-
-table-zebra
-
-Modifier
-
-For <table> to show zebra stripe rows
-
-table-pin-rows
+ | For <table> tag |
+| table-zebra | 
 
 Modifier
 
-For <table> to make all the rows inside <thead> and <tfoot> sticky
-
-table-pin-cols
+ | For <table> to show zebra stripe rows |
+| table-pin-rows | 
 
 Modifier
 
-For <table> to make all the <th> columns sticky
+ | For <table> to make all the rows inside <thead> and <tfoot> sticky |
+| table-pin-cols | 
 
-table-xs
+Modifier
 
-Size
-
-Extra small size
-
-table-sm
+ | For <table> to make all the <th> columns sticky |
+| table-xs | 
 
 Size
 
-Small size
-
-table-md
-
-Size
-
-Medium size \[Default\]
-
-table-lg
+ | Extra small size |
+| table-sm | 
 
 Size
 
-Large size
-
-table-xl
+ | Small size |
+| table-md | 
 
 Size
 
-Extra large size
+ | Medium size \[Default\] |
+| table-lg | 
+
+Size
+
+ | Large size |
+| table-xl | 
+
+Size
+
+ | Extra large size |
 
 [](#table)
 
 #### Table
 
-Name
-
-Job
-
-Favorite Color
-
-1
-
-Cy Ganderton
-
-Quality Control Specialist
-
-Blue
-
-2
-
-Hart Hagerty
-
-Desktop Support Technician
-
-Purple
-
-3
-
-Brice Swyre
-
-Tax Accountant
-
-Red
+|  | Name | Job | Favorite Color |
+| --- | --- | --- | --- |
+| 1 | Cy Ganderton | Quality Control Specialist | Blue |
+| 2 | Hart Hagerty | Desktop Support Technician | Purple |
+| 3 | Brice Swyre | Tax Accountant | Red |
 
     <div class="overflow-x-auto">
       <table class="$$table">
@@ -21233,35 +20018,11 @@ Red
 
 #### Table with border and background
 
-Name
-
-Job
-
-Favorite Color
-
-1
-
-Cy Ganderton
-
-Quality Control Specialist
-
-Blue
-
-2
-
-Hart Hagerty
-
-Desktop Support Technician
-
-Purple
-
-3
-
-Brice Swyre
-
-Tax Accountant
-
-Red
+|  | Name | Job | Favorite Color |
+| --- | --- | --- | --- |
+| 1 | Cy Ganderton | Quality Control Specialist | Blue |
+| 2 | Hart Hagerty | Desktop Support Technician | Purple |
+| 3 | Brice Swyre | Tax Accountant | Red |
 
     <div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
       <table class="$$table">
@@ -21421,35 +20182,11 @@ Red
 
 #### Table with an active row
 
-Name
-
-Job
-
-Favorite Color
-
-1
-
-Cy Ganderton
-
-Quality Control Specialist
-
-Blue
-
-2
-
-Hart Hagerty
-
-Desktop Support Technician
-
-Purple
-
-3
-
-Brice Swyre
-
-Tax Accountant
-
-Red
+|  | Name | Job | Favorite Color |
+| --- | --- | --- | --- |
+| 1 | Cy Ganderton | Quality Control Specialist | Blue |
+| 2 | Hart Hagerty | Desktop Support Technician | Purple |
+| 3 | Brice Swyre | Tax Accountant | Red |
 
     <div class="overflow-x-auto">
       <table class="$$table">
@@ -21609,35 +20346,11 @@ Red
 
 #### Table with a row that highlights on hover
 
-Name
-
-Job
-
-Favorite Color
-
-1
-
-Cy Ganderton
-
-Quality Control Specialist
-
-Blue
-
-2
-
-Hart Hagerty
-
-Desktop Support Technician
-
-Purple
-
-3
-
-Brice Swyre
-
-Tax Accountant
-
-Red
+|  | Name | Job | Favorite Color |
+| --- | --- | --- | --- |
+| 1 | Cy Ganderton | Quality Control Specialist | Blue |
+| 2 | Hart Hagerty | Desktop Support Technician | Purple |
+| 3 | Brice Swyre | Tax Accountant | Red |
 
     <div class="overflow-x-auto">
       <table class="$$table">
@@ -21797,35 +20510,11 @@ Red
 
 #### Zebra
 
-Name
-
-Job
-
-Favorite Color
-
-1
-
-Cy Ganderton
-
-Quality Control Specialist
-
-Blue
-
-2
-
-Hart Hagerty
-
-Desktop Support Technician
-
-Purple
-
-3
-
-Brice Swyre
-
-Tax Accountant
-
-Red
+|  | Name | Job | Favorite Color |
+| --- | --- | --- | --- |
+| 1 | Cy Ganderton | Quality Control Specialist | Blue |
+| 2 | Hart Hagerty | Desktop Support Technician | Purple |
+| 3 | Brice Swyre | Tax Accountant | Red |
 
     <div class="overflow-x-auto">
       <table class="$$table $$table-zebra">
@@ -21985,61 +20674,56 @@ Red
 
 #### Table with visual elements
 
-Name
-
-Job
-
-Favorite Color
-
+|  | Name | Job | Favorite Color |  |
+| --- | --- | --- | --- | --- |
+|  | 
 Hart Hagerty
 
 United States
 
-Zemlak, Daniel and Leannon  
-Desktop Support Technician
 
-Purple
 
-details
+
+
+ | Zemlak, Daniel and Leannon  
+Desktop Support Technician | Purple | details |
+|  | 
 
 Brice Swyre
 
 China
 
-Carroll Group  
-Tax Accountant
 
-Red
 
-details
+
+
+ | Carroll Group  
+Tax Accountant | Red | details |
+|  | 
 
 Marjy Ferencz
 
 Russia
 
-Rowe-Schoen  
-Office Assistant I
 
-Crimson
 
-details
+
+
+ | Rowe-Schoen  
+Office Assistant I | Crimson | details |
+|  | 
 
 Yancy Tear
 
 Brazil
 
-Wyman-Ledner  
-Community Outreach Specialist
 
-Indigo
 
-details
 
-Name
 
-Job
-
-Favorite Color
+ | Wyman-Ledner  
+Community Outreach Specialist | Indigo | details |
+|  | Name | Job | Favorite Color |  |
 
     <div class="overflow-x-auto">
       <table class="$$table">
@@ -22687,309 +21371,29 @@ Favorite Color
 
 #### Table xs
 
-Name
-
-Job
-
-company
-
-location
-
-Last Login
-
-Favorite Color
-
-1
-
-Cy Ganderton
-
-Quality Control Specialist
-
-Littel, Schaden and Vandervort
-
-Canada
-
-12/16/2020
-
-Blue
-
-2
-
-Hart Hagerty
-
-Desktop Support Technician
-
-Zemlak, Daniel and Leannon
-
-United States
-
-12/5/2020
-
-Purple
-
-3
-
-Brice Swyre
-
-Tax Accountant
-
-Carroll Group
-
-China
-
-8/15/2020
-
-Red
-
-4
-
-Marjy Ferencz
-
-Office Assistant I
-
-Rowe-Schoen
-
-Russia
-
-3/25/2021
-
-Crimson
-
-5
-
-Yancy Tear
-
-Community Outreach Specialist
-
-Wyman-Ledner
-
-Brazil
-
-5/22/2020
-
-Indigo
-
-6
-
-Irma Vasilik
-
-Editor
-
-Wiza, Bins and Emard
-
-Venezuela
-
-12/8/2020
-
-Purple
-
-7
-
-Meghann Durtnal
-
-Staff Accountant IV
-
-Schuster-Schimmel
-
-Philippines
-
-2/17/2021
-
-Yellow
-
-8
-
-Sammy Seston
-
-Accountant I
-
-O'Hara, Welch and Keebler
-
-Indonesia
-
-5/23/2020
-
-Crimson
-
-9
-
-Lesya Tinham
-
-Safety Technician IV
-
-Turner-Kuhlman
-
-Philippines
-
-2/21/2021
-
-Maroon
-
-10
-
-Zaneta Tewkesbury
-
-VP Marketing
-
-Sauer LLC
-
-Chad
-
-6/23/2020
-
-Green
-
-11
-
-Andy Tipple
-
-Librarian
-
-Hilpert Group
-
-Poland
-
-7/9/2020
-
-Indigo
-
-12
-
-Sophi Biles
-
-Recruiting Manager
-
-Gutmann Inc
-
-Indonesia
-
-2/12/2021
-
-Maroon
-
-13
-
-Florida Garces
-
-Web Developer IV
-
-Gaylord, Pacocha and Baumbach
-
-Poland
-
-5/31/2020
-
-Purple
-
-14
-
-Maribeth Popping
-
-Analyst Programmer
-
-Deckow-Pouros
-
-Portugal
-
-4/27/2021
-
-Aquamarine
-
-15
-
-Moritz Dryburgh
-
-Dental Hygienist
-
-Schiller, Cole and Hackett
-
-Sri Lanka
-
-8/8/2020
-
-Crimson
-
-16
-
-Reid Semiras
-
-Teacher
-
-Sporer, Sipes and Rogahn
-
-Poland
-
-7/30/2020
-
-Green
-
-17
-
-Alec Lethby
-
-Teacher
-
-Reichel, Glover and Hamill
-
-China
-
-2/28/2021
-
-Khaki
-
-18
-
-Aland Wilber
-
-Quality Control Specialist
-
-Kshlerin, Rogahn and Swaniawski
-
-Czech Republic
-
-9/29/2020
-
-Purple
-
-19
-
-Teddie Duerden
-
-Staff Accountant III
-
-Pouros, Ullrich and Windler
-
-France
-
-10/27/2020
-
-Aquamarine
-
-20
-
-Lorelei Blackstone
-
-Data Coordinator
-
-Witting, Kutch and Greenfelder
-
-Kazakhstan
-
-6/3/2020
-
-Red
-
-Name
-
-Job
-
-company
-
-location
-
-Last Login
-
-Favorite Color
+|  | Name | Job | company | location | Last Login | Favorite Color |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Cy Ganderton | Quality Control Specialist | Littel, Schaden and Vandervort | Canada | 12/16/2020 | Blue |
+| 2 | Hart Hagerty | Desktop Support Technician | Zemlak, Daniel and Leannon | United States | 12/5/2020 | Purple |
+| 3 | Brice Swyre | Tax Accountant | Carroll Group | China | 8/15/2020 | Red |
+| 4 | Marjy Ferencz | Office Assistant I | Rowe-Schoen | Russia | 3/25/2021 | Crimson |
+| 5 | Yancy Tear | Community Outreach Specialist | Wyman-Ledner | Brazil | 5/22/2020 | Indigo |
+| 6 | Irma Vasilik | Editor | Wiza, Bins and Emard | Venezuela | 12/8/2020 | Purple |
+| 7 | Meghann Durtnal | Staff Accountant IV | Schuster-Schimmel | Philippines | 2/17/2021 | Yellow |
+| 8 | Sammy Seston | Accountant I | O'Hara, Welch and Keebler | Indonesia | 5/23/2020 | Crimson |
+| 9 | Lesya Tinham | Safety Technician IV | Turner-Kuhlman | Philippines | 2/21/2021 | Maroon |
+| 10 | Zaneta Tewkesbury | VP Marketing | Sauer LLC | Chad | 6/23/2020 | Green |
+| 11 | Andy Tipple | Librarian | Hilpert Group | Poland | 7/9/2020 | Indigo |
+| 12 | Sophi Biles | Recruiting Manager | Gutmann Inc | Indonesia | 2/12/2021 | Maroon |
+| 13 | Florida Garces | Web Developer IV | Gaylord, Pacocha and Baumbach | Poland | 5/31/2020 | Purple |
+| 14 | Maribeth Popping | Analyst Programmer | Deckow-Pouros | Portugal | 4/27/2021 | Aquamarine |
+| 15 | Moritz Dryburgh | Dental Hygienist | Schiller, Cole and Hackett | Sri Lanka | 8/8/2020 | Crimson |
+| 16 | Reid Semiras | Teacher | Sporer, Sipes and Rogahn | Poland | 7/30/2020 | Green |
+| 17 | Alec Lethby | Teacher | Reichel, Glover and Hamill | China | 2/28/2021 | Khaki |
+| 18 | Aland Wilber | Quality Control Specialist | Kshlerin, Rogahn and Swaniawski | Czech Republic | 9/29/2020 | Purple |
+| 19 | Teddie Duerden | Staff Accountant III | Pouros, Ullrich and Windler | France | 10/27/2020 | Aquamarine |
+| 20 | Lorelei Blackstone | Data Coordinator | Witting, Kutch and Greenfelder | Kazakhstan | 6/3/2020 | Red |
+|  | Name | Job | company | location | Last Login | Favorite Color |
 
     <div class="overflow-x-auto">
       <table class="$$table $$table-xs">
@@ -23837,129 +22241,84 @@ Favorite Color
 
 #### Table with pinned-rows
 
-A
-
-Ant-Man
-
-Aquaman
-
-Asterix
-
-The Atom
-
-The Avengers
-
-B
-
-Batgirl
-
-Batman
-
-Batwoman
-
-Black Canary
-
-Black Panther
-
-C
-
-Captain America
-
-Captain Marvel
-
-Catwoman
-
-Conan the Barbarian
-
-D
-
-Daredevil
-
-The Defenders
-
-Doc Savage
-
-Doctor Strange
-
-E
-
-Elektra
-
-F
-
-Fantastic Four
-
-G
-
-Ghost Rider
-
-Green Arrow
-
-Green Lantern
-
-Guardians of the Galaxy
-
-H
-
-Hawkeye
-
-Hellboy
-
-Incredible Hulk
-
-I
-
-Iron Fist
-
-Iron Man
-
-M
-
-Marvelman
-
-R
-
-Robin
-
-The Rocketeer
-
-S
-
-The Shadow
-
-Spider-Man
-
-Sub-Mariner
-
-Supergirl
-
-Superman
-
-T
-
-Teenage Mutant Ninja Turtles
-
-Thor
-
-W
-
-The Wasp
-
-Watchmen
-
-Wolverine
-
-Wonder Woman
-
-X
-
-X-Men
-
-Z
-
-Zatanna
-
-Zatara
+| A |
+| --- |
+| Ant-Man |
+| Aquaman |
+| Asterix |
+| The Atom |
+| The Avengers |
+| B |
+| --- |
+| Batgirl |
+| Batman |
+| Batwoman |
+| Black Canary |
+| Black Panther |
+| C |
+| --- |
+| Captain America |
+| Captain Marvel |
+| Catwoman |
+| Conan the Barbarian |
+| D |
+| --- |
+| Daredevil |
+| The Defenders |
+| Doc Savage |
+| Doctor Strange |
+| E |
+| --- |
+| Elektra |
+| F |
+| --- |
+| Fantastic Four |
+| G |
+| --- |
+| Ghost Rider |
+| Green Arrow |
+| Green Lantern |
+| Guardians of the Galaxy |
+| H |
+| --- |
+| Hawkeye |
+| Hellboy |
+| Incredible Hulk |
+| I |
+| --- |
+| Iron Fist |
+| Iron Man |
+| M |
+| --- |
+| Marvelman |
+| R |
+| --- |
+| Robin |
+| The Rocketeer |
+| S |
+| --- |
+| The Shadow |
+| Spider-Man |
+| Sub-Mariner |
+| Supergirl |
+| Superman |
+| T |
+| --- |
+| Teenage Mutant Ninja Turtles |
+| Thor |
+| W |
+| --- |
+| The Wasp |
+| Watchmen |
+| Wolverine |
+| Wonder Woman |
+| X |
+| --- |
+| X-Men |
+| Z |
+| --- |
+| Zatanna |
+| Zatara |
 
     <div class="h-96 overflow-x-auto">
       <table class="$$table $$table-pin-rows bg-base-200">
@@ -24623,349 +22982,29 @@ Zatara
 
 #### Table with pinned-rows and pinned-cols
 
-Name
-
-Job
-
-company
-
-location
-
-Last Login
-
-Favorite Color
-
-1
-
-Cy Ganderton
-
-Quality Control Specialist
-
-Littel, Schaden and Vandervort
-
-Canada
-
-12/16/2020
-
-Blue
-
-1
-
-2
-
-Hart Hagerty
-
-Desktop Support Technician
-
-Zemlak, Daniel and Leannon
-
-United States
-
-12/5/2020
-
-Purple
-
-2
-
-3
-
-Brice Swyre
-
-Tax Accountant
-
-Carroll Group
-
-China
-
-8/15/2020
-
-Red
-
-3
-
-4
-
-Marjy Ferencz
-
-Office Assistant I
-
-Rowe-Schoen
-
-Russia
-
-3/25/2021
-
-Crimson
-
-4
-
-5
-
-Yancy Tear
-
-Community Outreach Specialist
-
-Wyman-Ledner
-
-Brazil
-
-5/22/2020
-
-Indigo
-
-5
-
-6
-
-Irma Vasilik
-
-Editor
-
-Wiza, Bins and Emard
-
-Venezuela
-
-12/8/2020
-
-Purple
-
-6
-
-7
-
-Meghann Durtnal
-
-Staff Accountant IV
-
-Schuster-Schimmel
-
-Philippines
-
-2/17/2021
-
-Yellow
-
-7
-
-8
-
-Sammy Seston
-
-Accountant I
-
-O'Hara, Welch and Keebler
-
-Indonesia
-
-5/23/2020
-
-Crimson
-
-8
-
-9
-
-Lesya Tinham
-
-Safety Technician IV
-
-Turner-Kuhlman
-
-Philippines
-
-2/21/2021
-
-Maroon
-
-9
-
-10
-
-Zaneta Tewkesbury
-
-VP Marketing
-
-Sauer LLC
-
-Chad
-
-6/23/2020
-
-Green
-
-10
-
-11
-
-Andy Tipple
-
-Librarian
-
-Hilpert Group
-
-Poland
-
-7/9/2020
-
-Indigo
-
-11
-
-12
-
-Sophi Biles
-
-Recruiting Manager
-
-Gutmann Inc
-
-Indonesia
-
-2/12/2021
-
-Maroon
-
-12
-
-13
-
-Florida Garces
-
-Web Developer IV
-
-Gaylord, Pacocha and Baumbach
-
-Poland
-
-5/31/2020
-
-Purple
-
-13
-
-14
-
-Maribeth Popping
-
-Analyst Programmer
-
-Deckow-Pouros
-
-Portugal
-
-4/27/2021
-
-Aquamarine
-
-14
-
-15
-
-Moritz Dryburgh
-
-Dental Hygienist
-
-Schiller, Cole and Hackett
-
-Sri Lanka
-
-8/8/2020
-
-Crimson
-
-15
-
-16
-
-Reid Semiras
-
-Teacher
-
-Sporer, Sipes and Rogahn
-
-Poland
-
-7/30/2020
-
-Green
-
-16
-
-17
-
-Alec Lethby
-
-Teacher
-
-Reichel, Glover and Hamill
-
-China
-
-2/28/2021
-
-Khaki
-
-17
-
-18
-
-Aland Wilber
-
-Quality Control Specialist
-
-Kshlerin, Rogahn and Swaniawski
-
-Czech Republic
-
-9/29/2020
-
-Purple
-
-18
-
-19
-
-Teddie Duerden
-
-Staff Accountant III
-
-Pouros, Ullrich and Windler
-
-France
-
-10/27/2020
-
-Aquamarine
-
-19
-
-20
-
-Lorelei Blackstone
-
-Data Coordinator
-
-Witting, Kutch and Greenfelder
-
-Kazakhstan
-
-6/3/2020
-
-Red
-
-20
-
-Name
-
-Job
-
-company
-
-location
-
-Last Login
-
-Favorite Color
+|  | Name | Job | company | location | Last Login | Favorite Color |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | Cy Ganderton | Quality Control Specialist | Littel, Schaden and Vandervort | Canada | 12/16/2020 | Blue | 1 |
+| 2 | Hart Hagerty | Desktop Support Technician | Zemlak, Daniel and Leannon | United States | 12/5/2020 | Purple | 2 |
+| 3 | Brice Swyre | Tax Accountant | Carroll Group | China | 8/15/2020 | Red | 3 |
+| 4 | Marjy Ferencz | Office Assistant I | Rowe-Schoen | Russia | 3/25/2021 | Crimson | 4 |
+| 5 | Yancy Tear | Community Outreach Specialist | Wyman-Ledner | Brazil | 5/22/2020 | Indigo | 5 |
+| 6 | Irma Vasilik | Editor | Wiza, Bins and Emard | Venezuela | 12/8/2020 | Purple | 6 |
+| 7 | Meghann Durtnal | Staff Accountant IV | Schuster-Schimmel | Philippines | 2/17/2021 | Yellow | 7 |
+| 8 | Sammy Seston | Accountant I | O'Hara, Welch and Keebler | Indonesia | 5/23/2020 | Crimson | 8 |
+| 9 | Lesya Tinham | Safety Technician IV | Turner-Kuhlman | Philippines | 2/21/2021 | Maroon | 9 |
+| 10 | Zaneta Tewkesbury | VP Marketing | Sauer LLC | Chad | 6/23/2020 | Green | 10 |
+| 11 | Andy Tipple | Librarian | Hilpert Group | Poland | 7/9/2020 | Indigo | 11 |
+| 12 | Sophi Biles | Recruiting Manager | Gutmann Inc | Indonesia | 2/12/2021 | Maroon | 12 |
+| 13 | Florida Garces | Web Developer IV | Gaylord, Pacocha and Baumbach | Poland | 5/31/2020 | Purple | 13 |
+| 14 | Maribeth Popping | Analyst Programmer | Deckow-Pouros | Portugal | 4/27/2021 | Aquamarine | 14 |
+| 15 | Moritz Dryburgh | Dental Hygienist | Schiller, Cole and Hackett | Sri Lanka | 8/8/2020 | Crimson | 15 |
+| 16 | Reid Semiras | Teacher | Sporer, Sipes and Rogahn | Poland | 7/30/2020 | Green | 16 |
+| 17 | Alec Lethby | Teacher | Reichel, Glover and Hamill | China | 2/28/2021 | Khaki | 17 |
+| 18 | Aland Wilber | Quality Control Specialist | Kshlerin, Rogahn and Swaniawski | Czech Republic | 9/29/2020 | Purple | 18 |
+| 19 | Teddie Duerden | Staff Accountant III | Pouros, Ullrich and Windler | France | 10/27/2020 | Aquamarine | 19 |
+| 20 | Lorelei Blackstone | Data Coordinator | Witting, Kutch and Greenfelder | Kazakhstan | 6/3/2020 | Red | 20 |
+|  | Name | Job | company | location | Last Login | Favorite Color |  |
 
     <div class="overflow-x-auto">
       <table class="$$table $$table-xs $$table-pin-rows $$table-pin-cols">
@@ -25935,63 +23974,54 @@ Timeline
 
 Timeline component shows a list of events in chronological order.
 
-Class name
-
-Type
-
-timeline
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| timeline | 
 
 Component
 
-Timeline container
-
-timeline-start
-
-Part
-
-The content inside <li> that will be at the start direction
-
-timeline-middle
+ | Timeline container |
+| timeline-start | 
 
 Part
 
-The content inside <li> that will be at the middle
-
-timeline-end
+ | The content inside <li> that will be at the start direction |
+| timeline-middle | 
 
 Part
 
-The content inside <li> that will be at the end direction
+ | The content inside <li> that will be at the middle |
+| timeline-end | 
 
-timeline-snap-icon
+Part
 
-Modifier
-
-snaps the icon to the start instead of middle
-
-timeline-box
+ | The content inside <li> that will be at the end direction |
+| timeline-snap-icon | 
 
 Modifier
 
-Applies a box style to timeline-start or timeline-end
-
-timeline-compact
+ | snaps the icon to the start instead of middle |
+| timeline-box | 
 
 Modifier
 
-forces all items on one side
+ | Applies a box style to timeline-start or timeline-end |
+| timeline-compact | 
 
-timeline-horizontal
+Modifier
+
+ | forces all items on one side |
+| timeline-horizontal | 
 
 direction
 
-horizontal layout (default)
-
-timeline-vertical
+ | horizontal layout (default) |
+| timeline-vertical | 
 
 direction
 
-vertical layout
+ | vertical layout |
 
 > The`hr`tag at the beginning or end of each item, displays a line to connect items.
 
@@ -31621,15 +29651,14 @@ Breadcrumbs
 
 Breadcrumbs helps users to navigate through the website.
 
-Class name
-
-Type
-
-breadcrumbs
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| breadcrumbs | 
 
 Component
 
-Wrapper around a <ul>
+ | Wrapper around a <ul> |
 
 [](#breadcrumbs)
 
@@ -31999,57 +30028,49 @@ Dock
 
 Dock (also know as Bottom navigation or Bottom bar) is a UI element that provides navigation options to the user. Dock sticks to the bottom of the screen.
 
-Class name
-
-Type
-
-dock
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| dock | 
 
 Component
 
-Dock
-
-dock-label
+ | Dock |
+| dock-label | 
 
 Part
 
-Text label for Dock Item
-
-dock-active
+ | Text label for Dock Item |
+| dock-active | 
 
 Modifier
 
-Makes the Dock Item look active
-
-dock-xs
-
-Size
-
-Extra Small Dock
-
-dock-sm
+ | Makes the Dock Item look active |
+| dock-xs | 
 
 Size
 
-Small Dock
-
-dock-md
-
-Size
-
-Medium Dock \[Default\]
-
-dock-lg
+ | Extra Small Dock |
+| dock-sm | 
 
 Size
 
-Large Dock
-
-dock-xl
+ | Small Dock |
+| dock-md | 
 
 Size
 
-Extra Large Dock
+ | Medium Dock \[Default\] |
+| dock-lg | 
+
+Size
+
+ | Large Dock |
+| dock-xl | 
+
+Size
+
+ | Extra Large Dock |
 
 > `<meta name="viewport" content="viewport-fit=cover">`is required for responsivness of the dock in iOS.
 
@@ -32623,69 +30644,59 @@ Link
 
 Link adds the missing underline style to links.
 
-Class name
-
-Type
-
-link
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| link | 
 
 Component
 
-Adds underline
-
-link-hover
+ | Adds underline |
+| link-hover | 
 
 Style
 
-Only shows underline on hover
-
-link-neutral
-
-Color
-
-neutral color
-
-link-primary
+ | Only shows underline on hover |
+| link-neutral | 
 
 Color
 
-primary color
-
-link-secondary
-
-Color
-
-secondary color
-
-link-accent
+ | neutral color |
+| link-primary | 
 
 Color
 
-accent color
-
-link-success
-
-Color
-
-success color
-
-link-info
+ | primary color |
+| link-secondary | 
 
 Color
 
-info color
-
-link-warning
-
-Color
-
-warning color
-
-link-error
+ | secondary color |
+| link-accent | 
 
 Color
 
-error color
+ | accent color |
+| link-success | 
+
+Color
+
+ | success color |
+| link-info | 
+
+Color
+
+ | info color |
+| link-warning | 
+
+Color
+
+ | warning color |
+| link-error | 
+
+Color
+
+ | error color |
 
 [](#link)
 
@@ -32970,99 +30981,84 @@ Menu
 
 Menu is used to display a list of links vertically or horizontally.
 
-Class name
-
-Type
-
-menu
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| menu | 
 
 Component
 
-For <ul> tag
-
-menu-title
-
-Part
-
-styles a <li> as title
-
-menu-dropdown
+ | For <ul> tag |
+| menu-title | 
 
 Part
 
-For the collapsible <ul> if you want to show it using JS
-
-menu-dropdown-toggle
+ | styles a <li> as title |
+| menu-dropdown | 
 
 Part
 
-For the toggle to show/hide the menu-dropdown using JS
+ | For the collapsible <ul> if you want to show it using JS |
+| menu-dropdown-toggle | 
 
-menu-disabled
+Part
 
-Modifier
-
-For disabling a <li>
-
-menu-active
+ | For the toggle to show/hide the menu-dropdown using JS |
+| menu-disabled | 
 
 Modifier
 
-For the element inside <li> to look active
-
-menu-focus
-
-Modifier
-
-For the element inside <li> to look focused
-
-menu-dropdown-show
+ | For disabling a <li> |
+| menu-active | 
 
 Modifier
 
-Shows the menu-dropdown-toggle and menu-dropdown collapsible submenu using JS
+ | For the element inside <li> to look active |
+| menu-focus | 
 
-menu-xs
+Modifier
 
-Size
+ | For the element inside <li> to look focused |
+| menu-dropdown-show | 
 
-Extra small size
+Modifier
 
-menu-sm
-
-Size
-
-Small size
-
-menu-md
+ | Shows the menu-dropdown-toggle and menu-dropdown collapsible submenu using JS |
+| menu-xs | 
 
 Size
 
-Medium size \[Default\]
-
-menu-lg
-
-Size
-
-Large size
-
-menu-xl
+ | Extra small size |
+| menu-sm | 
 
 Size
 
-Extra large size
+ | Small size |
+| menu-md | 
 
-menu-vertical
+Size
+
+ | Medium size \[Default\] |
+| menu-lg | 
+
+Size
+
+ | Large size |
+| menu-xl | 
+
+Size
+
+ | Extra large size |
+| menu-vertical | 
 
 direction
 
-Vertical menu (default)
-
-menu-horizontal
+ | Vertical menu (default) |
+| menu-horizontal | 
 
 direction
 
-Horizontal menu
+ | Horizontal menu |
 
 [](#menu)
 
@@ -36303,33 +34299,29 @@ Navbar
 
 Navbar is used to show a navigation bar on the top of the page.
 
-Class name
-
-Type
-
-navbar
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| navbar | 
 
 Component
 
-Navigation bar
-
-navbar-start
-
-Part
-
-For the div inside navbar, to fill 50% of width
-
-navbar-center
+ | Navigation bar |
+| navbar-start | 
 
 Part
 
-For the div inside navbar, to be at center horizontally
-
-navbar-end
+ | For the div inside navbar, to fill 50% of width |
+| navbar-center | 
 
 Part
 
-For the div inside navbar, to fill second 50% of width
+ | For the div inside navbar, to be at center horizontally |
+| navbar-end | 
+
+Part
+
+ | For the div inside navbar, to fill second 50% of width |
 
 [](#navbar-with-title-only)
 
@@ -37380,33 +35372,29 @@ Pagination
 
 Pagination is a group of buttons that allow the user to navigate between a set of related content.
 
-Class name
-
-Type
-
-join
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| join | 
 
 Component
 
-For grouping multiple items
-
-join-item
+ | For grouping multiple items |
+| join-item | 
 
 Part
 
-Item inside join. Can be a button, input, etc.
-
-join-vertical
-
-direction
-
-Show items vertically
-
-join-horizontal
+ | Item inside join. Can be a button, input, etc. |
+| join-vertical | 
 
 direction
 
-Show items horizontally
+ | Show items vertically |
+| join-horizontal | 
+
+direction
+
+ | Show items horizontally |
 
 > For pagination, we use[join component](/components/join)to show multiple links or buttons next to each other.
 
@@ -37804,87 +35792,74 @@ Steps
 
 Steps can be used to show a list of steps in a process.
 
-Class name
-
-Type
-
-steps
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| steps | 
 
 Component
 
-Container of multiple step nodes
-
-step
-
-Part
-
-A single step node
-
-step-icon
+ | Container of multiple step nodes |
+| step | 
 
 Part
 
-For custom icon inside step
+ | A single step node |
+| step-icon | 
 
-step-neutral
+Part
 
-Color
-
-neutral color
-
-step-primary
+ | For custom icon inside step |
+| step-neutral | 
 
 Color
 
-primary color
-
-step-secondary
-
-Color
-
-secondary color
-
-step-accent
+ | neutral color |
+| step-primary | 
 
 Color
 
-accent color
-
-step-info
-
-Color
-
-info color
-
-step-success
+ | primary color |
+| step-secondary | 
 
 Color
 
-success color
-
-step-warning
-
-Color
-
-warning color
-
-step-error
+ | secondary color |
+| step-accent | 
 
 Color
 
-error color
+ | accent color |
+| step-info | 
 
-steps-vertical
+Color
+
+ | info color |
+| step-success | 
+
+Color
+
+ | success color |
+| step-warning | 
+
+Color
+
+ | warning color |
+| step-error | 
+
+Color
+
+ | error color |
+| steps-vertical | 
 
 direction
 
-Makes steps vertical (default)
-
-steps-horizontal
+ | Makes steps vertical (default) |
+| steps-horizontal | 
 
 direction
 
-Makes steps horizontal
+ | Makes steps horizontal |
 
 [](#horizontal)
 
@@ -38367,99 +36342,84 @@ Tabs
 
 Tabs can be used to show a list of links in a tabbed format.
 
-Class name
-
-Type
-
-tabs
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| tabs | 
 
 Component
 
-Container of multiple tab items
-
-tab
-
-Part
-
-A single tab button (can be button, link, div, radio input, etc)
-
-tab-content
+ | Container of multiple tab items |
+| tab | 
 
 Part
 
-Tab content that comes immediately after a tab
+ | A single tab button (can be button, link, div, radio input, etc) |
+| tab-content | 
 
-tabs-box
+Part
 
-Style
-
-box style
-
-tabs-border
+ | Tab content that comes immediately after a tab |
+| tabs-box | 
 
 Style
 
-bottom border style
-
-tabs-lift
+ | box style |
+| tabs-border | 
 
 Style
 
-lift style
+ | bottom border style |
+| tabs-lift | 
 
-tab-active
+Style
+
+ | lift style |
+| tab-active | 
 
 Modifier
 
-Makes a single tab look active
-
-tab-disabled
+ | Makes a single tab look active |
+| tab-disabled | 
 
 Modifier
 
-Makes a single tab look disabled
-
-tabs-top
-
-Placement
-
-Puts tab buttons on top of the tab-content (default)
-
-tabs-bottom
+ | Makes a single tab look disabled |
+| tabs-top | 
 
 Placement
 
-Puts tabs on under the tab-content
+ | Puts tab buttons on top of the tab-content (default) |
+| tabs-bottom | 
 
-tabs-xs
+Placement
 
-Size
-
-Extra small size
-
-tabs-sm
+ | Puts tabs on under the tab-content |
+| tabs-xs | 
 
 Size
 
-Small size
-
-tabs-md
-
-Size
-
-Medium size \[Default\]
-
-tabs-lg
+ | Extra small size |
+| tabs-sm | 
 
 Size
 
-Large size
-
-tabs-xl
+ | Small size |
+| tabs-md | 
 
 Size
 
-Extra large size
+ | Medium size \[Default\] |
+| tabs-lg | 
+
+Size
+
+ | Large size |
+| tabs-xl | 
+
+Size
+
+ | Extra large size |
 
 [](#tabs)
 
@@ -39307,69 +37267,59 @@ Alert
 
 Alert informs users about important events.
 
-Class name
-
-Type
-
-alert
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| alert | 
 
 Component
 
-Container element
-
-alert-outline
-
-Style
-
-outline style
-
-alert-dash
+ | Container element |
+| alert-outline | 
 
 Style
 
-dash outline style
-
-alert-soft
+ | outline style |
+| alert-dash | 
 
 Style
 
-soft style
+ | dash outline style |
+| alert-soft | 
 
-alert-info
+Style
 
-Color
-
-info color
-
-alert-success
+ | soft style |
+| alert-info | 
 
 Color
 
-success color
-
-alert-warning
-
-Color
-
-warning color
-
-alert-error
+ | info color |
+| alert-success | 
 
 Color
 
-error color
+ | success color |
+| alert-warning | 
 
-alert-vertical
+Color
+
+ | warning color |
+| alert-error | 
+
+Color
+
+ | error color |
+| alert-vertical | 
 
 direction
 
-Vertical layout, good for mobile
-
-alert-horizontal
+ | Vertical layout, good for mobile |
+| alert-horizontal | 
 
 direction
 
-Horizontal layout, good for desktop
+ | Horizontal layout, good for desktop |
 
 [](#alert)
 
@@ -39937,81 +37887,69 @@ Loading
 
 Loading shows an animation to indicate that something is loading.
 
-Class name
-
-Type
-
-loading
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| loading | 
 
 Component
 
-Loading element
-
-loading-spinner
-
-Style
-
-spinner animation
-
-loading-dots
+ | Loading element |
+| loading-spinner | 
 
 Style
 
-dots animation
-
-loading-ring
-
-Style
-
-ring animation
-
-loading-ball
+ | spinner animation |
+| loading-dots | 
 
 Style
 
-ball animation
-
-loading-bars
-
-Style
-
-bars animation
-
-loading-infinity
+ | dots animation |
+| loading-ring | 
 
 Style
 
-infinity animation
+ | ring animation |
+| loading-ball | 
 
-loading-xs
+Style
+
+ | ball animation |
+| loading-bars | 
+
+Style
+
+ | bars animation |
+| loading-infinity | 
+
+Style
+
+ | infinity animation |
+| loading-xs | 
 
 Size
 
-Extra small size
-
-loading-sm
-
-Size
-
-Small size
-
-loading-md
+ | Extra small size |
+| loading-sm | 
 
 Size
 
-Medium size \[Default\]
-
-loading-lg
-
-Size
-
-Large size
-
-loading-xl
+ | Small size |
+| loading-md | 
 
 Size
 
-Extra large size
+ | Medium size \[Default\] |
+| loading-lg | 
+
+Size
+
+ | Large size |
+| loading-xl | 
+
+Size
+
+ | Extra large size |
 
 [](#loading-spinner)
 
@@ -40301,63 +38239,54 @@ Progress
 
 Progress bar can be used to show the progress of a task or to show the passing of time.
 
-Class name
-
-Type
-
-progress
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| progress | 
 
 Component
 
-For <progress> tag
-
-progress-neutral
-
-Color
-
-neutral color
-
-progress-primary
+ | For <progress> tag |
+| progress-neutral | 
 
 Color
 
-primary color
-
-progress-secondary
-
-Color
-
-secondary color
-
-progress-accent
+ | neutral color |
+| progress-primary | 
 
 Color
 
-accent color
-
-progress-info
-
-Color
-
-info color
-
-progress-success
+ | primary color |
+| progress-secondary | 
 
 Color
 
-success color
-
-progress-warning
-
-Color
-
-warning color
-
-progress-error
+ | secondary color |
+| progress-accent | 
 
 Color
 
-error color
+ | accent color |
+| progress-info | 
+
+Color
+
+ | info color |
+| progress-success | 
+
+Color
+
+ | success color |
+| progress-warning | 
+
+Color
+
+ | warning color |
+| progress-error | 
+
+Color
+
+ | error color |
 
 [](#progress)
 
@@ -40721,15 +38650,14 @@ Radial progress
 
 Radial progress can be used to show the progress of a task or to show the passing of time.
 
-Class name
-
-Type
-
-radial-progress
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| radial-progress | 
 
 Component
 
-Shows a radial progress
+ | Shows a radial progress |
 
 > Radial progress needs`--value`CSS variable to work.  
 > To change the size, use`--size`CSS variable which has a default value of`5rem`.  
@@ -40966,15 +38894,14 @@ Skeleton
 
 Skeleton is a component that can be used to show a loading state of a component.
 
-Class name
-
-Type
-
-skeleton
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| skeleton | 
 
 Component
 
-A placeholder div with loading animation
+ | A placeholder div with loading animation |
 
 [](#skeleton)
 
@@ -41124,51 +39051,44 @@ Toast
 
 Toast is a wrapper to stack elements, positioned on the corner of page.
 
-Class name
-
-Type
-
-toast
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| toast | 
 
 Component
 
-Container element that sticks to the corner of page
-
-toast-start
-
-Placement
-
-align horizontally to the left
-
-toast-center
+ | Container element that sticks to the corner of page |
+| toast-start | 
 
 Placement
 
-align horizontally to the center
-
-toast-end
-
-Placement
-
-align horizontally to the right \[Default\]
-
-toast-top
+ | align horizontally to the left |
+| toast-center | 
 
 Placement
 
-align vertically to top
-
-toast-middle
-
-Placement
-
-align vertically to middle
-
-toast-bottom
+ | align horizontally to the center |
+| toast-end | 
 
 Placement
 
-align vertically to bottom \[Default\]
+ | align horizontally to the right \[Default\] |
+| toast-top | 
+
+Placement
+
+ | align vertically to top |
+| toast-middle | 
+
+Placement
+
+ | align vertically to middle |
+| toast-bottom | 
+
+Placement
+
+ | align vertically to bottom \[Default\] |
 
 [](#toast-with-alert-inside)
 
@@ -41694,99 +39614,84 @@ Tooltip
 
 Tooltip can be used to show a message when hovering over an element.
 
-Class name
-
-Type
-
-tooltip
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| tooltip | 
 
 Component
 
-Container element
-
-tooltip-content
+ | Container element |
+| tooltip-content | 
 
 Part
 
-Optional. Setting a div as the content of the tooltip instead of the \`data-tip\` text
-
-tooltip-top
-
-Placement
-
-Put tooltip on top \[Default\]
-
-tooltip-bottom
+ | Optional. Setting a div as the content of the tooltip instead of the \`data-tip\` text |
+| tooltip-top | 
 
 Placement
 
-Put tooltip on bottom
-
-tooltip-left
-
-Placement
-
-Put tooltip on left
-
-tooltip-right
+ | Put tooltip on top \[Default\] |
+| tooltip-bottom | 
 
 Placement
 
-Put tooltip on right
+ | Put tooltip on bottom |
+| tooltip-left | 
 
-tooltip-open
+Placement
+
+ | Put tooltip on left |
+| tooltip-right | 
+
+Placement
+
+ | Put tooltip on right |
+| tooltip-open | 
 
 Modifier
 
-Force open tooltip
-
-tooltip-neutral
-
-Color
-
-neutral color
-
-tooltip-primary
+ | Force open tooltip |
+| tooltip-neutral | 
 
 Color
 
-primary color
-
-tooltip-secondary
-
-Color
-
-secondary color
-
-tooltip-accent
+ | neutral color |
+| tooltip-primary | 
 
 Color
 
-accent color
-
-tooltip-info
-
-Color
-
-info color
-
-tooltip-success
+ | primary color |
+| tooltip-secondary | 
 
 Color
 
-success color
-
-tooltip-warning
-
-Color
-
-warning color
-
-tooltip-error
+ | secondary color |
+| tooltip-accent | 
 
 Color
 
-error color
+ | accent color |
+| tooltip-info | 
+
+Color
+
+ | info color |
+| tooltip-success | 
+
+Color
+
+ | success color |
+| tooltip-warning | 
+
+Color
+
+ | warning color |
+| tooltip-error | 
+
+Color
+
+ | error color |
 
 [](#tooltip)
 
@@ -42288,27 +40193,24 @@ Calendar
 
 Calendar includes styles for different calendar libraries.
 
-Class name
-
-Type
-
-cally
-
-Component
-
-for Cally web component
-
-pika-single
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| cally | 
 
 Component
 
-for the input field that opens Pikaday calendar
-
-react-day-picker
+ | for Cally web component |
+| pika-single | 
 
 Component
 
-for the DayPicker component
+ | for the input field that opens Pikaday calendar |
+| react-day-picker | 
+
+Component
+
+ | for the DayPicker component |
 
 > You can also use the native HTML`<input type="date">`for a date picker.[Read more](/components/input/#date-input)
 
@@ -42654,93 +40556,79 @@ Checkbox
 
 Checkboxes are used to select or deselect a value.
 
-Class name
-
-Type
-
-checkbox
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| checkbox | 
 
 Component
 
-Checkbox
-
-checkbox-primary
-
-Color
-
-primary color
-
-checkbox-secondary
+ | Checkbox |
+| checkbox-primary | 
 
 Color
 
-secondary color
-
-checkbox-accent
-
-Color
-
-accent color
-
-checkbox-neutral
+ | primary color |
+| checkbox-secondary | 
 
 Color
 
-neutral color
-
-checkbox-success
-
-Color
-
-success color
-
-checkbox-warning
+ | secondary color |
+| checkbox-accent | 
 
 Color
 
-warning color
-
-checkbox-info
-
-Color
-
-info color
-
-checkbox-error
+ | accent color |
+| checkbox-neutral | 
 
 Color
 
-error color
+ | neutral color |
+| checkbox-success | 
 
-checkbox-xs
+Color
+
+ | success color |
+| checkbox-warning | 
+
+Color
+
+ | warning color |
+| checkbox-info | 
+
+Color
+
+ | info color |
+| checkbox-error | 
+
+Color
+
+ | error color |
+| checkbox-xs | 
 
 Size
 
-Extra small size
-
-checkbox-sm
-
-Size
-
-Small size
-
-checkbox-md
+ | Extra small size |
+| checkbox-sm | 
 
 Size
 
-Medium size \[Default\]
-
-checkbox-lg
-
-Size
-
-Large size
-
-checkbox-xl
+ | Small size |
+| checkbox-md | 
 
 Size
 
-Extra large size
+ | Medium size \[Default\] |
+| checkbox-lg | 
+
+Size
+
+ | Large size |
+| checkbox-xl | 
+
+Size
+
+ | Extra large size |
 
 [](#checkbox)
 
@@ -43022,27 +40910,24 @@ Fieldset
 
 Fieldset is a container for grouping related form elements. It includes fieldset-legend as a title and label as a description.
 
-Class name
-
-Type
-
-fieldset
-
-Component
-
-for the fieldset container
-
-label
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| fieldset | 
 
 Component
 
-label for inputs
+ | for the fieldset container |
+| label | 
 
-fieldset-legend
+Component
+
+ | label for inputs |
+| fieldset-legend | 
 
 Part
 
-for the title of the fieldset
+ | for the title of the fieldset |
 
 [](#fieldset-fieldset-legend-and-label)
 
@@ -43328,99 +41213,84 @@ File Input
 
 File Input is a an input field for uploading files.
 
-Class name
-
-Type
-
-file-input
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| file-input | 
 
 Component
 
-For <input type="file"> element
-
-file-input-ghost
+ | For <input type="file"> element |
+| file-input-ghost | 
 
 Style
 
-ghost style
-
-file-input-neutral
-
-Color
-
-neutral color
-
-file-input-primary
+ | ghost style |
+| file-input-neutral | 
 
 Color
 
-primary color
-
-file-input-secondary
-
-Color
-
-secondary color
-
-file-input-accent
+ | neutral color |
+| file-input-primary | 
 
 Color
 
-accent color
-
-file-input-info
-
-Color
-
-info color
-
-file-input-success
+ | primary color |
+| file-input-secondary | 
 
 Color
 
-success color
-
-file-input-warning
-
-Color
-
-warning color
-
-file-input-error
+ | secondary color |
+| file-input-accent | 
 
 Color
 
-error color
+ | accent color |
+| file-input-info | 
 
-file-input-xs
+Color
+
+ | info color |
+| file-input-success | 
+
+Color
+
+ | success color |
+| file-input-warning | 
+
+Color
+
+ | warning color |
+| file-input-error | 
+
+Color
+
+ | error color |
+| file-input-xs | 
 
 Size
 
-Extra small size
-
-file-input-sm
-
-Size
-
-Small size
-
-file-input-md
+ | Extra small size |
+| file-input-sm | 
 
 Size
 
-Medium size \[Default\]
-
-file-input-lg
-
-Size
-
-Large size
-
-file-input-xl
+ | Small size |
+| file-input-md | 
 
 Size
 
-Extra large size
+ | Medium size \[Default\] |
+| file-input-lg | 
+
+Size
+
+ | Large size |
+| file-input-xl | 
+
+Size
+
+ | Extra large size |
 
 [](#file-input)
 
@@ -43650,21 +41520,19 @@ Filter
 
 Filter is a group of radio buttons. Choosing one of the options will hide the others and shows a reset button next to the chosen option.
 
-Class name
-
-Type
-
-filter
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| filter | 
 
 Component
 
-For a HTML <form> or a <div> element that includes radio buttons for filtering items
-
-filter-reset
+ | For a HTML <form> or a <div> element that includes radio buttons for filtering items |
+| filter-reset | 
 
 Part
 
-An alternative to the reset button if you can't use a HTML form
+ | An alternative to the reset button if you can't use a HTML form |
 
 [](#filter-using-html-form-radio-buttons-and-reset-button)
 
@@ -43788,21 +41656,19 @@ Label
 
 Label is used to provide a name or title for an input field. Label can be placed before or after the field.
 
-Class name
-
-Type
-
-label
-
-Component
-
-For styling the text next to an input field (or select)
-
-floating-label
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| label | 
 
 Component
 
-For the parent of an input field (or select) and a span that floats above the input field when the field is focused
+ | For styling the text next to an input field (or select) |
+| floating-label | 
+
+Component
+
+ | For the parent of an input field (or select) and a span that floats above the input field when the field is focused |
 
 [](#label-for-input)
 
@@ -44110,93 +41976,79 @@ Radio
 
 Radio buttons allow the user to select one option from a set.
 
-Class name
-
-Type
-
-radio
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| radio | 
 
 Component
 
-For radio input
-
-radio-neutral
-
-Color
-
-neutral color
-
-radio-primary
+ | For radio input |
+| radio-neutral | 
 
 Color
 
-primary color
-
-radio-secondary
-
-Color
-
-secondary color
-
-radio-accent
+ | neutral color |
+| radio-primary | 
 
 Color
 
-accent color
-
-radio-success
-
-Color
-
-success color
-
-radio-warning
+ | primary color |
+| radio-secondary | 
 
 Color
 
-warning color
-
-radio-info
-
-Color
-
-info color
-
-radio-error
+ | secondary color |
+| radio-accent | 
 
 Color
 
-error color
+ | accent color |
+| radio-success | 
 
-radio-xs
+Color
+
+ | success color |
+| radio-warning | 
+
+Color
+
+ | warning color |
+| radio-info | 
+
+Color
+
+ | info color |
+| radio-error | 
+
+Color
+
+ | error color |
+| radio-xs | 
 
 Size
 
-Extra small size
-
-radio-sm
-
-Size
-
-Small size
-
-radio-md
+ | Extra small size |
+| radio-sm | 
 
 Size
 
-Medium size \[Default\]
-
-radio-lg
-
-Size
-
-Large size
-
-radio-xl
+ | Small size |
+| radio-md | 
 
 Size
 
-Extra large size
+ | Medium size \[Default\] |
+| radio-lg | 
+
+Size
+
+ | Large size |
+| radio-xl | 
+
+Size
+
+ | Extra large size |
 
 > Each set of radio inputs should have unique`name`attributes to avoid conflicts with other sets of radio inputs on the same page.
 
@@ -44554,93 +42406,79 @@ Range slider
 
 Range slider is used to select a value by sliding a handle.
 
-Class name
-
-Type
-
-range
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| range | 
 
 Component
 
-For <input type="range"> tag
-
-range-neutral
-
-Color
-
-neutral color
-
-range-primary
+ | For <input type="range"> tag |
+| range-neutral | 
 
 Color
 
-primary color
-
-range-secondary
-
-Color
-
-secondary color
-
-range-accent
+ | neutral color |
+| range-primary | 
 
 Color
 
-accent color
-
-range-success
-
-Color
-
-success color
-
-range-warning
+ | primary color |
+| range-secondary | 
 
 Color
 
-warning color
-
-range-info
-
-Color
-
-info color
-
-range-error
+ | secondary color |
+| range-accent | 
 
 Color
 
-error color
+ | accent color |
+| range-success | 
 
-range-xs
+Color
+
+ | success color |
+| range-warning | 
+
+Color
+
+ | warning color |
+| range-info | 
+
+Color
+
+ | info color |
+| range-error | 
+
+Color
+
+ | error color |
+| range-xs | 
 
 Size
 
-Extra small size
-
-range-sm
-
-Size
-
-Small size
-
-range-md
+ | Extra small size |
+| range-sm | 
 
 Size
 
-Medium size \[Default\]
-
-range-lg
-
-Size
-
-Large size
-
-range-xl
+ | Small size |
+| range-md | 
 
 Size
 
-Extra large size
+ | Medium size \[Default\] |
+| range-lg | 
+
+Size
+
+ | Large size |
+| range-xl | 
+
+Size
+
+ | Extra large size |
 
 [](#range)
 
@@ -44986,57 +42824,49 @@ Rating
 
 Rating is a set of radio buttons that allow the user to rate something.
 
-Class name
-
-Type
-
-rating
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| rating | 
 
 Component
 
-For a div containing radio inputs
-
-rating-half
-
-Modifier
-
-To shows half of the shapes. Useful for half star ratings
-
-rating-hidden
+ | For a div containing radio inputs |
+| rating-half | 
 
 Modifier
 
-For the first radio to make it hidden so user can clear the rating
+ | To shows half of the shapes. Useful for half star ratings |
+| rating-hidden | 
 
-rating-xs
+Modifier
 
-Size
-
-Extra small size
-
-rating-sm
+ | For the first radio to make it hidden so user can clear the rating |
+| rating-xs | 
 
 Size
 
-Small size
-
-rating-md
-
-Size
-
-Medium size \[Default\]
-
-rating-lg
+ | Extra small size |
+| rating-sm | 
 
 Size
 
-Large size
-
-rating-xl
+ | Small size |
+| rating-md | 
 
 Size
 
-Extra large size
+ | Medium size \[Default\] |
+| rating-lg | 
+
+Size
+
+ | Large size |
+| rating-xl | 
+
+Size
+
+ | Extra large size |
 
 > Items in each rating should have unique`name`attributes to avoid conflicts with other ratings on the same page.
 
@@ -45598,99 +43428,84 @@ Select
 
 Select is used to pick a value from a list of options.
 
-Class name
-
-Type
-
-select
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| select | 
 
 Component
 
-For <select> element
-
-select-ghost
+ | For <select> element |
+| select-ghost | 
 
 Style
 
-ghost style
-
-select-neutral
-
-Color
-
-neutral color
-
-select-primary
+ | ghost style |
+| select-neutral | 
 
 Color
 
-primary color
-
-select-secondary
-
-Color
-
-secondary color
-
-select-accent
+ | neutral color |
+| select-primary | 
 
 Color
 
-accent color
-
-select-info
-
-Color
-
-info color
-
-select-success
+ | primary color |
+| select-secondary | 
 
 Color
 
-success color
-
-select-warning
-
-Color
-
-warning color
-
-select-error
+ | secondary color |
+| select-accent | 
 
 Color
 
-error color
+ | accent color |
+| select-info | 
 
-select-xs
+Color
+
+ | info color |
+| select-success | 
+
+Color
+
+ | success color |
+| select-warning | 
+
+Color
+
+ | warning color |
+| select-error | 
+
+Color
+
+ | error color |
+| select-xs | 
 
 Size
 
-Extra small size
-
-select-sm
-
-Size
-
-Small size
-
-select-md
+ | Extra small size |
+| select-sm | 
 
 Size
 
-Medium size \[Default\]
-
-select-lg
-
-Size
-
-Large size
-
-select-xl
+ | Small size |
+| select-md | 
 
 Size
 
-Extra large size
+ | Medium size \[Default\] |
+| select-lg | 
+
+Size
+
+ | Large size |
+| select-xl | 
+
+Size
+
+ | Extra large size |
 
 [](#select)
 
@@ -46350,99 +44165,84 @@ Text Input
 
 Text Input is a simple input field.
 
-Class name
-
-Type
-
-input
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| input | 
 
 Component
 
-For <input type="text"> tag or a wrapper of <input type="text"> tag
-
-input-ghost
+ | For <input type="text"> tag or a wrapper of <input type="text"> tag |
+| input-ghost | 
 
 Style
 
-ghost style
-
-input-neutral
-
-Color
-
-neutral color
-
-input-primary
+ | ghost style |
+| input-neutral | 
 
 Color
 
-primary color
-
-input-secondary
-
-Color
-
-secondary color
-
-input-accent
+ | neutral color |
+| input-primary | 
 
 Color
 
-accent color
-
-input-info
-
-Color
-
-info color
-
-input-success
+ | primary color |
+| input-secondary | 
 
 Color
 
-success color
-
-input-warning
-
-Color
-
-warning color
-
-input-error
+ | secondary color |
+| input-accent | 
 
 Color
 
-error color
+ | accent color |
+| input-info | 
 
-input-xs
+Color
+
+ | info color |
+| input-success | 
+
+Color
+
+ | success color |
+| input-warning | 
+
+Color
+
+ | warning color |
+| input-error | 
+
+Color
+
+ | error color |
+| input-xs | 
 
 Size
 
-Extra small size
-
-input-sm
-
-Size
-
-Small size
-
-input-md
+ | Extra small size |
+| input-sm | 
 
 Size
 
-Medium size \[Default\]
-
-input-lg
-
-Size
-
-Large size
-
-input-xl
+ | Small size |
+| input-md | 
 
 Size
 
-Extra large size
+ | Medium size \[Default\] |
+| input-lg | 
+
+Size
+
+ | Large size |
+| input-xl | 
+
+Size
+
+ | Extra large size |
 
 [](#text-input)
 
@@ -47737,99 +45537,84 @@ Textarea
 
 Textarea allows users to enter text in multiple lines.
 
-Class name
-
-Type
-
-textarea
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| textarea | 
 
 Component
 
-For <textarea> element
-
-textarea-ghost
+ | For <textarea> element |
+| textarea-ghost | 
 
 Style
 
-ghost style
-
-textarea-neutral
-
-Color
-
-neutral color
-
-textarea-primary
+ | ghost style |
+| textarea-neutral | 
 
 Color
 
-primary color
-
-textarea-secondary
-
-Color
-
-secondary color
-
-textarea-accent
+ | neutral color |
+| textarea-primary | 
 
 Color
 
-accent color
-
-textarea-info
-
-Color
-
-info color
-
-textarea-success
+ | primary color |
+| textarea-secondary | 
 
 Color
 
-success color
-
-textarea-warning
-
-Color
-
-warning color
-
-textarea-error
+ | secondary color |
+| textarea-accent | 
 
 Color
 
-error color
+ | accent color |
+| textarea-info | 
 
-textarea-xs
+Color
+
+ | info color |
+| textarea-success | 
+
+Color
+
+ | success color |
+| textarea-warning | 
+
+Color
+
+ | warning color |
+| textarea-error | 
+
+Color
+
+ | error color |
+| textarea-xs | 
 
 Size
 
-Extra small size
-
-textarea-sm
-
-Size
-
-Small size
-
-textarea-md
+ | Extra small size |
+| textarea-sm | 
 
 Size
 
-Medium size \[Default\]
-
-textarea-lg
-
-Size
-
-Large size
-
-textarea-xl
+ | Small size |
+| textarea-md | 
 
 Size
 
-Extra large size
+ | Medium size \[Default\] |
+| textarea-lg | 
+
+Size
+
+ | Large size |
+| textarea-xl | 
+
+Size
+
+ | Extra large size |
 
 [](#textarea)
 
@@ -47909,47 +45694,47 @@ Optional
 
 #### Textarea colors
 
-    <textarea type="text" placeholder="Primary" class="$$textarea $$textarea-primary"></textarea>
-    <textarea type="text" placeholder="Secondary" class="$$textarea $$textarea-secondary"></textarea>
-    <textarea type="text" placeholder="Accent" class="$$textarea $$textarea-accent"></textarea>
-    <textarea type="text" placeholder="Neutral" class="$$textarea $$textarea-neutral"></textarea>
-    <textarea type="text" placeholder="Info" class="$$textarea $$textarea-info"></textarea>
-    <textarea type="text" placeholder="Success" class="$$textarea $$textarea-success"></textarea>
-    <textarea type="text" placeholder="Warning" class="$$textarea $$textarea-warning"></textarea>
-    <textarea type="text" placeholder="Error" class="$$textarea $$textarea-error"></textarea>
+    <textarea placeholder="Primary" class="$$textarea $$textarea-primary"></textarea>
+    <textarea placeholder="Secondary" class="$$textarea $$textarea-secondary"></textarea>
+    <textarea placeholder="Accent" class="$$textarea $$textarea-accent"></textarea>
+    <textarea placeholder="Neutral" class="$$textarea $$textarea-neutral"></textarea>
+    <textarea placeholder="Info" class="$$textarea $$textarea-info"></textarea>
+    <textarea placeholder="Success" class="$$textarea $$textarea-success"></textarea>
+    <textarea placeholder="Warning" class="$$textarea $$textarea-warning"></textarea>
+    <textarea placeholder="Error" class="$$textarea $$textarea-error"></textarea>
 
-    <textarea type="text" placeholder="Primary" class="$$textarea $$textarea-primary"></textarea>
-    <textarea type="text" placeholder="Secondary" class="$$textarea $$textarea-secondary"></textarea>
-    <textarea type="text" placeholder="Accent" class="$$textarea $$textarea-accent"></textarea>
-    <textarea type="text" placeholder="Neutral" class="$$textarea $$textarea-neutral"></textarea>
-    <textarea type="text" placeholder="Info" class="$$textarea $$textarea-info"></textarea>
-    <textarea type="text" placeholder="Success" class="$$textarea $$textarea-success"></textarea>
-    <textarea type="text" placeholder="Warning" class="$$textarea $$textarea-warning"></textarea>
-    <textarea type="text" placeholder="Error" class="$$textarea $$textarea-error"></textarea>
+    <textarea placeholder="Primary" class="$$textarea $$textarea-primary"></textarea>
+    <textarea placeholder="Secondary" class="$$textarea $$textarea-secondary"></textarea>
+    <textarea placeholder="Accent" class="$$textarea $$textarea-accent"></textarea>
+    <textarea placeholder="Neutral" class="$$textarea $$textarea-neutral"></textarea>
+    <textarea placeholder="Info" class="$$textarea $$textarea-info"></textarea>
+    <textarea placeholder="Success" class="$$textarea $$textarea-success"></textarea>
+    <textarea placeholder="Warning" class="$$textarea $$textarea-warning"></textarea>
+    <textarea placeholder="Error" class="$$textarea $$textarea-error"></textarea>
 
             
                 
 
-    <textarea type="text" placeholder="Primary" class="$$textarea $$textarea-primary"></textarea>
-    <textarea type="text" placeholder="Secondary" class="$$textarea $$textarea-secondary"></textarea>
-    <textarea type="text" placeholder="Accent" class="$$textarea $$textarea-accent"></textarea>
-    <textarea type="text" placeholder="Neutral" class="$$textarea $$textarea-neutral"></textarea>
-    <textarea type="text" placeholder="Info" class="$$textarea $$textarea-info"></textarea>
-    <textarea type="text" placeholder="Success" class="$$textarea $$textarea-success"></textarea>
-    <textarea type="text" placeholder="Warning" class="$$textarea $$textarea-warning"></textarea>
-    <textarea type="text" placeholder="Error" class="$$textarea $$textarea-error"></textarea>
+    <textarea placeholder="Primary" class="$$textarea $$textarea-primary"></textarea>
+    <textarea placeholder="Secondary" class="$$textarea $$textarea-secondary"></textarea>
+    <textarea placeholder="Accent" class="$$textarea $$textarea-accent"></textarea>
+    <textarea placeholder="Neutral" class="$$textarea $$textarea-neutral"></textarea>
+    <textarea placeholder="Info" class="$$textarea $$textarea-info"></textarea>
+    <textarea placeholder="Success" class="$$textarea $$textarea-success"></textarea>
+    <textarea placeholder="Warning" class="$$textarea $$textarea-warning"></textarea>
+    <textarea placeholder="Error" class="$$textarea $$textarea-error"></textarea>
 
               
           
 
-    <textarea type="text" placeholder="Primary" class="$$textarea $$textarea-primary"></textarea>
-    <textarea type="text" placeholder="Secondary" class="$$textarea $$textarea-secondary"></textarea>
-    <textarea type="text" placeholder="Accent" class="$$textarea $$textarea-accent"></textarea>
-    <textarea type="text" placeholder="Neutral" class="$$textarea $$textarea-neutral"></textarea>
-    <textarea type="text" placeholder="Info" class="$$textarea $$textarea-info"></textarea>
-    <textarea type="text" placeholder="Success" class="$$textarea $$textarea-success"></textarea>
-    <textarea type="text" placeholder="Warning" class="$$textarea $$textarea-warning"></textarea>
-    <textarea type="text" placeholder="Error" class="$$textarea $$textarea-error"></textarea>
+    <textarea placeholder="Primary" class="$$textarea $$textarea-primary"></textarea>
+    <textarea placeholder="Secondary" class="$$textarea $$textarea-secondary"></textarea>
+    <textarea placeholder="Accent" class="$$textarea $$textarea-accent"></textarea>
+    <textarea placeholder="Neutral" class="$$textarea $$textarea-neutral"></textarea>
+    <textarea placeholder="Info" class="$$textarea $$textarea-info"></textarea>
+    <textarea placeholder="Success" class="$$textarea $$textarea-success"></textarea>
+    <textarea placeholder="Warning" class="$$textarea $$textarea-warning"></textarea>
+    <textarea placeholder="Error" class="$$textarea $$textarea-error"></textarea>
 
 [](#sizes)
 
@@ -48057,93 +45842,79 @@ Toggle
 
 Toggle is a checkbox that is styled to look like a switch button.
 
-Class name
-
-Type
-
-toggle
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| toggle | 
 
 Component
 
-For <input type="checkbox">
-
-toggle-primary
-
-Color
-
-primary color
-
-toggle-secondary
+ | For <input type="checkbox"> |
+| toggle-primary | 
 
 Color
 
-secondary color
-
-toggle-accent
-
-Color
-
-accent color
-
-toggle-neutral
+ | primary color |
+| toggle-secondary | 
 
 Color
 
-neutral color
-
-toggle-success
-
-Color
-
-success color
-
-toggle-warning
+ | secondary color |
+| toggle-accent | 
 
 Color
 
-warning color
-
-toggle-info
-
-Color
-
-info color
-
-toggle-error
+ | accent color |
+| toggle-neutral | 
 
 Color
 
-error color
+ | neutral color |
+| toggle-success | 
 
-toggle-xs
+Color
+
+ | success color |
+| toggle-warning | 
+
+Color
+
+ | warning color |
+| toggle-info | 
+
+Color
+
+ | info color |
+| toggle-error | 
+
+Color
+
+ | error color |
+| toggle-xs | 
 
 Size
 
-Extra small size
-
-toggle-sm
-
-Size
-
-Small size
-
-toggle-md
+ | Extra small size |
+| toggle-sm | 
 
 Size
 
-Medium size \[Default\]
-
-toggle-lg
-
-Size
-
-Large size
-
-toggle-xl
+ | Small size |
+| toggle-md | 
 
 Size
 
-Extra large size
+ | Medium size \[Default\] |
+| toggle-lg | 
+
+Size
+
+ | Large size |
+| toggle-xl | 
+
+Size
+
+ | Extra large size |
 
 [](#toggle)
 
@@ -48549,21 +46320,19 @@ Validator
 
 Validator class changes the color of form elements to error or success based on input's validation rules.
 
-Class name
-
-Type
-
-validator
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| validator | 
 
 Component
 
-For input, select, textarea
-
-validator-hint
+ | For input, select, textarea |
+| validator-hint | 
 
 Part
 
-for the hint text that appears after the input if it's invalid
+ | for the hint text that appears after the input if it's invalid |
 
 [](#validator)
 
@@ -48979,87 +46748,74 @@ Divider
 
 Divider will be used to separate content vertically or horizontally.
 
-Class name
-
-Type
-
-divider
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| divider | 
 
 Component
 
-A divider line between two elements
-
-divider-neutral
-
-Color
-
-neutral color
-
-divider-primary
+ | A divider line between two elements |
+| divider-neutral | 
 
 Color
 
-primary color
-
-divider-secondary
-
-Color
-
-secondary color
-
-divider-accent
+ | neutral color |
+| divider-primary | 
 
 Color
 
-accent color
-
-divider-success
-
-Color
-
-success color
-
-divider-warning
+ | primary color |
+| divider-secondary | 
 
 Color
 
-warning color
-
-divider-info
-
-Color
-
-info color
-
-divider-error
+ | secondary color |
+| divider-accent | 
 
 Color
 
-error color
+ | accent color |
+| divider-success | 
 
-divider-vertical
+Color
+
+ | success color |
+| divider-warning | 
+
+Color
+
+ | warning color |
+| divider-info | 
+
+Color
+
+ | info color |
+| divider-error | 
+
+Color
+
+ | error color |
+| divider-vertical | 
 
 direction
 
-Divide vertical elements (on top of each other) \[Default\]
-
-divider-horizontal
+ | Divide vertical elements (on top of each other) \[Default\] |
+| divider-horizontal | 
 
 direction
 
-Divide horizontal elements (next to each other)
-
-divider-start
-
-Placement
-
-Pushes the divider text to the start
-
-divider-end
+ | Divide horizontal elements (next to each other) |
+| divider-start | 
 
 Placement
 
-Pushes the divider text to the end
+ | Pushes the divider text to the start |
+| divider-end | 
+
+Placement
+
+ | Pushes the divider text to the end |
 
 [](#divider)
 
@@ -49413,51 +47169,44 @@ Drawer
 
 Drawer is a grid layout that can show/hide a sidebar on the left or right side of the page.
 
-Class name
-
-Type
-
-drawer
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| drawer | 
 
 Component
 
-The wrapper for sidebar and content
-
-drawer-toggle
-
-Part
-
-The hidden checkbox that controls the state of drawer
-
-drawer-content
+ | The wrapper for sidebar and content |
+| drawer-toggle | 
 
 Part
 
-Content part
-
-drawer-side
-
-Part
-
-Sidebar part
-
-drawer-overlay
+ | The hidden checkbox that controls the state of drawer |
+| drawer-content | 
 
 Part
 
-Label that covers the page when drawer is open
+ | Content part |
+| drawer-side | 
 
-drawer-end
+Part
+
+ | Sidebar part |
+| drawer-overlay | 
+
+Part
+
+ | Label that covers the page when drawer is open |
+| drawer-end | 
 
 Placement
 
-puts drawer to the other side
-
-drawer-open
+ | puts drawer to the other side |
+| drawer-open | 
 
 Modifier
 
-Forces the drawer to be open
+ | Forces the drawer to be open |
 
 ### [](#structure)Structure
 
@@ -49967,39 +47716,34 @@ Footer
 
 Footer can contain logo, copyright notice, and links to other pages.
 
-Class name
-
-Type
-
-footer
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| footer | 
 
 Component
 
-Footer
-
-footer-title
+ | Footer |
+| footer-title | 
 
 Part
 
-Title of a footer column
-
-footer-center
+ | Title of a footer column |
+| footer-center | 
 
 Placement
 
-Aligns footer content to center
-
-footer-horizontal
-
-direction
-
-Puts footer columns next to each other horizontally
-
-footer-vertical
+ | Aligns footer content to center |
+| footer-horizontal | 
 
 direction
 
-Puts footer columns under each other vertically \[Default\]
+ | Puts footer columns next to each other horizontally |
+| footer-vertical | 
+
+direction
+
+ | Puts footer columns under each other vertically \[Default\] |
 
 [](#footer-vertical-by-default-horizontal-for-sm-and-up)
 
@@ -52277,27 +50021,24 @@ Hero
 
 Hero is a component for displaying a large box or image with a title and description.
 
-Class name
-
-Type
-
-hero
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| hero | 
 
 Component
 
-Hero container
-
-hero-content
-
-Part
-
-content part
-
-hero-overlay
+ | Hero container |
+| hero-content | 
 
 Part
 
-Overlay that covers the background image
+ | content part |
+| hero-overlay | 
+
+Part
+
+ | Overlay that covers the background image |
 
 [](#centered-hero)
 
@@ -52780,57 +50521,49 @@ Indicator
 
 Indicators are used to place an element on the corner of another element.
 
-Class name
-
-Type
-
-indicator
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| indicator | 
 
 Component
 
-Container element
-
-indicator-item
+ | Container element |
+| indicator-item | 
 
 Part
 
-will be placed on the corner of sibling
-
-indicator-start
-
-Placement
-
-align horizontally to the start
-
-indicator-center
+ | will be placed on the corner of sibling |
+| indicator-start | 
 
 Placement
 
-align horizontally to the center
-
-indicator-end
-
-Placement
-
-align horizontally to the end \[Default\]
-
-indicator-top
+ | align horizontally to the start |
+| indicator-center | 
 
 Placement
 
-align vertically to top \[Default\]
-
-indicator-middle
-
-Placement
-
-align vertically to middle
-
-indicator-bottom
+ | align horizontally to the center |
+| indicator-end | 
 
 Placement
 
-align vertically to bottom
+ | align horizontally to the end \[Default\] |
+| indicator-top | 
+
+Placement
+
+ | align vertically to top \[Default\] |
+| indicator-middle | 
+
+Placement
+
+ | align vertically to middle |
+| indicator-bottom | 
+
+Placement
+
+ | align vertically to bottom |
 
 [](#status-indicator)
 
@@ -53645,33 +51378,29 @@ Join
 
 Join is a container for grouping multiple items, it can be used to group buttons, inputs, etc. Join applies border radius to the first and last item. Join can be used to create a horizontal or vertical list of items.
 
-Class name
-
-Type
-
-join
-
-Component
-
-For grouping multiple items
-
-join-item
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| join | 
 
 Component
 
-Item inside join. Can be a button, input, etc.
+ | For grouping multiple items |
+| join-item | 
 
-join-vertical
+Component
 
-direction
-
-Show items vertically
-
-join-horizontal
+ | Item inside join. Can be a button, input, etc. |
+| join-vertical | 
 
 direction
 
-Show items horizontally
+ | Show items vertically |
+| join-horizontal | 
+
+direction
+
+ | Show items horizontally |
 
 [](#join)
 
@@ -53975,117 +51704,99 @@ Mask
 
 Mask crops the content of the element to common shapes.
 
-Class name
-
-Type
-
-mask
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| mask | 
 
 Component
 
-Masks the content with shape
-
-mask-squircle
-
-Style
-
-squircle
-
-mask-heart
+ | Masks the content with shape |
+| mask-squircle | 
 
 Style
 
-heart
-
-mask-hexagon
-
-Style
-
-hexagon vertical
-
-mask-hexagon-2
+ | squircle |
+| mask-heart | 
 
 Style
 
-hexagon horizontal
-
-mask-decagon
-
-Style
-
-decagon
-
-mask-pentagon
+ | heart |
+| mask-hexagon | 
 
 Style
 
-pentagon
-
-mask-diamond
-
-Style
-
-diamond
-
-mask-square
+ | hexagon vertical |
+| mask-hexagon-2 | 
 
 Style
 
-square
-
-mask-circle
-
-Style
-
-circle
-
-mask-star
+ | hexagon horizontal |
+| mask-decagon | 
 
 Style
 
-star
-
-mask-star-2
-
-Style
-
-star (bold)
-
-mask-triangle
+ | decagon |
+| mask-pentagon | 
 
 Style
 
-triangle pointing top
-
-mask-triangle-2
-
-Style
-
-triangle pointing down
-
-mask-triangle-3
+ | pentagon |
+| mask-diamond | 
 
 Style
 
-triangle pointing left
-
-mask-triangle-4
+ | diamond |
+| mask-square | 
 
 Style
 
-triangle pointing right
+ | square |
+| mask-circle | 
 
-mask-half-1
+Style
+
+ | circle |
+| mask-star | 
+
+Style
+
+ | star |
+| mask-star-2 | 
+
+Style
+
+ | star (bold) |
+| mask-triangle | 
+
+Style
+
+ | triangle pointing top |
+| mask-triangle-2 | 
+
+Style
+
+ | triangle pointing down |
+| mask-triangle-3 | 
+
+Style
+
+ | triangle pointing left |
+| mask-triangle-4 | 
+
+Style
+
+ | triangle pointing right |
+| mask-half-1 | 
 
 Modifier
 
-Crops only the first half of mask
-
-mask-half-2
+ | Crops only the first half of mask |
+| mask-half-2 | 
 
 Modifier
 
-Crops only the second half of mask
+ | Crops only the second half of mask |
 
 [](#squircle)
 
@@ -54515,39 +52226,34 @@ Stack
 
 Stack visually puts elements on top of each other.
 
-Class name
-
-Type
-
-stack
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| stack | 
 
 Component
 
-Puts the children elements on top of each other
-
-stack-top
-
-Modifier
-
-Aligns the children elements to the top
-
-stack-bottom
+ | Puts the children elements on top of each other |
+| stack-top | 
 
 Modifier
 
-Aligns the children elements to the bottom \[Default\]
-
-stack-start
-
-Modifier
-
-Aligns the children elements to the start (horizontally)
-
-stack-end
+ | Aligns the children elements to the top |
+| stack-bottom | 
 
 Modifier
 
-Aligns the children elements to the end (horizontally)
+ | Aligns the children elements to the bottom \[Default\] |
+| stack-start | 
+
+Modifier
+
+ | Aligns the children elements to the start (horizontally) |
+| stack-end | 
+
+Modifier
+
+ | Aligns the children elements to the end (horizontally) |
 
 > You can use`w-*`and`h-*`classes to set the width and height of the stack, making all items the same size.
 
@@ -55100,21 +52806,19 @@ Browser mockup
 
 Browser mockup shows a box that looks like a browser window.
 
-Class name
-
-Type
-
-mockup-browser
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| mockup-browser | 
 
 Component
 
-Browser mockup
-
-mockup-browser-toolbar
+ | Browser mockup |
+| mockup-browser-toolbar | 
 
 Part
 
-Toolbar part which can include addressbar, etc
+ | Toolbar part which can include addressbar, etc |
 
 [](#browser-mockup-with-border)
 
@@ -55238,15 +52942,14 @@ Code mockup
 
 Code mockup is used to show a block of code in a box that looks like a code editor.
 
-Class name
-
-Type
-
-mockup-code
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| mockup-code | 
 
 Component
 
-Code terminal mockup
+ | Code terminal mockup |
 
 [](#mockup-code-with-line-prefix)
 
@@ -55482,27 +53185,24 @@ Phone mockup
 
 Phone mockup shows a mockup of an iPhone.
 
-Class name
-
-Type
-
-mockup-phone
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| mockup-phone | 
 
 Component
 
-Phone mockup
-
-mockup-phone-camera
-
-Part
-
-Camera part
-
-mockup-phone-display
+ | Phone mockup |
+| mockup-phone-camera | 
 
 Part
 
-Display part
+ | Camera part |
+| mockup-phone-display | 
+
+Part
+
+ | Display part |
 
 [](#iphone-mockup)
 
@@ -55612,15 +53312,14 @@ Window mockup
 
 Window mockup shows a box that looks like an operating system window.
 
-Class name
-
-Type
-
-mockup-window
+| 
+Class name | Type |  |
+| --- | --- | --- |
+| mockup-window | 
 
 Component
 
-OS window mockup
+ | OS window mockup |
 
 [](#window-mockup-with-border)
 

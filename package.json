@@ -39,10 +39,11 @@
     "cheerio": "^1.0.0",
     "jsdom": "^26.1.0",
     "node-fetch": "^3.3.2",
-    "turndown": "^7.2.0"
+    "turndown": "^7.2.0",
+    "turndown-plugin-gfm": "^1.0.2"
   },
   "devDependencies": {
     "typescript": "^5.8.3"
   },
-  "packageManager": "pnpm@8.6.12"
+  "packageManager": "pnpm@10.11.0"
 }

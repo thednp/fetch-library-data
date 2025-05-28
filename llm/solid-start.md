@@ -1,4 +1,4 @@
-solid-start version: 0.3.11, last updated: 2025-05-21T10:58:23.630Z
+solid-start version: 0.3.11, last updated: 2025-05-25T14:47:55.083Z
 
 [Overview](/solid-start#overview)
 =================================
@@ -340,7 +340,7 @@ The difference between API routes and UI routes is in what you should export fro
 
 info
 
-API routes are prioritized over page route alternatives. If you want to have them overlap at the same path remember to use `Accept` headers. Returning without a response in a `GET` route will fallback to page route handling.
+API routes are prioritized over UI route alternatives. If you want to have them overlap at the same path remember to use `Accept` headers. Returning without a response in a `GET` route will fallback to UI route handling.
 
 * * *
 
